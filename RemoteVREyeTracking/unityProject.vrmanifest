@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.eyetrackingaccuracy.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\UniBW_CODE\\Desktop\\antep Projekt\\EyeTrackingAccuracyNoController\\EyeTrackingAccuracyNoController\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "EyeTrackingAccuracy [Testing]"
+        }
+      }
+    }
+  ]
+}

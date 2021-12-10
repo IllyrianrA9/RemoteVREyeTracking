@@ -1,0 +1,39 @@
+CREATE TABLE "User" (
+	"id"	INTEGER,
+	"gender"	INTEGER,
+	"age"	INTEGER,
+	"profession"	TEXT,
+	"vrExperience"	INTEGER,
+	PRIMARY KEY("id")
+)
+
+CREATE TABLE "ExperimentSetting" (
+	"id"	INTEGER PRIMARY KEY AUTOINCREMENT,
+	"userId"	INTEGER,
+	"environment"	INTEGER,
+	"sequence"	INTEGER,
+	"videoClip"	INTEGER,
+	"audioClip"	INTEGER,
+	"imageClip"	INTEGER
+)
+
+CREATE TABLE "ExperimentResult" (
+	"id"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"userId"	INTEGER,
+	"settingId"	INTEGER,
+	"method"	INTEGER,
+	"arousalScale"	INTEGER,
+	"valenceScale"	INTEGER,
+	"dominanceScale"	INTEGER,
+	"timestamp"	DATETIME DEFAULT CURRENT_TIMESTAMP,
+	"counter"	INTEGER,
+	"clip"	INTEGER,	
+	"emotion"	INTEGER
+)
+
+CREATE TABLE "SUS" (
+	"id"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"settingId"	INTEGER,
+	"counter"	INTEGER,
+	"result"	INTEGER
+)
