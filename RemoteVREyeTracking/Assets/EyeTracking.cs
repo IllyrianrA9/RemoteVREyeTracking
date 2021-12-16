@@ -44,7 +44,7 @@ public class EyeTracking : MonoBehaviour
         //Check whether TobiiXR has any focused objects.
         if (eyeTrackingStarted) {
             //Variable fuer das Abfangen von Daten bei einem Raycast
-            RaycastHit rayHit;
+            //RaycastHit rayHit;
 
             // Vector wird kalkuliert, der von der Kamera Position zu der Fixation zeigt
             //_heading = GetComponent<GazeRay>();

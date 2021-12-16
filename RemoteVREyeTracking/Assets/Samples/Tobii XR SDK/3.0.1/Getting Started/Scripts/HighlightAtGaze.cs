@@ -1,4 +1,4 @@
-﻿// Copyright © 2018 – Property of Tobii AB (publ) - All Rights Reserved
+// Copyright © 2018 – Property of Tobii AB (publ) - All Rights Reserved
 
 using System.Collections;
 using System.Collections.Generic;
@@ -14,15 +14,15 @@ namespace Tobii.XR.Examples.GettingStarted
         private static readonly int _baseColor = Shader.PropertyToID("_BaseColor");
         public Color highlightColor = Color.red;
         public float animationTime = 0.1f;
-        public Material FocusedMaterial, NonFocusedMaterial;
-        public GameObject Camera;
+        //public Material FocusedMaterial, NonFocusedMaterial;
+        //public GameObject Camera;
 
 
         private Renderer _renderer;
         private Color _originalColor;
         private Color _targetColor;
-        private Vector3 _heading;
-        private MeshRenderer _meshRenderer;
+        //private Vector3 _heading;
+        //private MeshRenderer _meshRenderer;
 
         //The method of the "IGazeFocusable" interface, which will be called when this object receives or loses focus
         public void GazeFocusChanged(bool hasFocus)
@@ -41,26 +41,28 @@ namespace Tobii.XR.Examples.GettingStarted
 
         private void Start()
         {
-            TobiiXR.Start();
+            //TobiiXR.Start();
             _renderer = GetComponent<Renderer>();
             _originalColor = _renderer.material.color;
             _targetColor = _originalColor;
         }
 
-        private void OnDisable(){
-            TobiiXR.Stop();
-        }
+        //private void OnDisable(){
+        //    TobiiXR.Stop();
+        //}
 
         private void Update()
         {
-            RaycastHit rayHit;
+            //RaycastHit rayHit;
             //TODO: _heading = MLEyes.FixationPoint - Camera.transform.position;
-            if (Physics.Raycast(Camera.transform.position, _heading, out rayHit, 10.0f)) {
-                _meshRenderer.material = FocusedMaterial;
-            }
-            else {
-                _meshRenderer.material = NonFocusedMaterial; 
-            }
+            //if (Physics.Raycast(Camera.transform.position, _heading, out rayHit, 10.0f)) {
+            //    _meshRenderer.material = FocusedMaterial;
+            //}
+            //else {
+            //    _meshRenderer.material = NonFocusedMaterial; 
+            //}
+
+
             //This lerp will fade the color of the object
             if (_renderer.material.HasProperty(_baseColor)) // new rendering pipeline (lightweight, hd, universal...)
             {
