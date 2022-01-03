@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.tobii.xr.sdk": "file:C:/Users/antep/OneDrive/Desktop/PackagesBA/TobiiXR SDK",
+    "com.tobii.xr.sdk": "file:C:/Users/UniBW_CODE/Desktop/antep Projekt/TobiiXRSDK_3.0.1.179",
     "com.unity.collab-proxy": "1.13.5",
     "com.unity.ide.rider": "2.0.7",
     "com.unity.ide.visualstudio": "2.0.11",

@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.tobii.xr.sdk": {
-      "version": "file:C:/Users/antep/OneDrive/Desktop/PackagesBA/TobiiXR SDK",
+      "version": "file:C:/Users/UniBW_CODE/Desktop/antep Projekt/TobiiXRSDK_3.0.1.179",
       "depth": 0,
       "source": "local",
       "dependencies": {
