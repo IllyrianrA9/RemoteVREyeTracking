@@ -25,13 +25,14 @@ public class MoveBall : MonoBehaviour
     {
          if (Vector3.Distance(waypoints[current].transform.position, transform.position) < WPradius)
         {
-            current = Random.Range(0, waypoints.Length);
-            if(current >= waypoints.Length)
+            current++;
+            //current = Random.Range(0, waypoints.Length);
+            if (current >= waypoints.Length)
             {
                 current = 0;
 
             }
-            counter++;
+            
         }
         if(counter == 30)
         {
