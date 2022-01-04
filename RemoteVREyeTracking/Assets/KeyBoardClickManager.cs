@@ -18,7 +18,6 @@ public class KeyBoardClickManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
         //    buttonStartExperiment.gameObject.SetActive(false);
