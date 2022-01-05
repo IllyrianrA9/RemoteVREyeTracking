@@ -92,6 +92,7 @@ namespace Valve.VR.Extras
 
         private void Update()
         {
+        GameObject gameObject = null;
             if (!isActive)
             {
                 isActive = true;
@@ -151,8 +152,15 @@ namespace Valve.VR.Extras
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
                 {
                     Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                    hit.collider.gameObject.GetComponent<Button>().onClick.Invoke();
-                    Debug.Log("Did Hit");
+                    
+                    gameObject = hit.collider.gameObject;
+                    //TODO NullReferenceException;
+                     if(gameObject.GetComponent<Button>() != null)
+                    {
+                        Button button = gameObject.GetComponent<Button>();
+                        button.onClick.Invoke();
+                        Debug.Log("Did Hit");
+                    }
                 }
                 else
                 {
