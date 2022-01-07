@@ -15,6 +15,7 @@ public class GiveAnswerWithGaze : MonoBehaviour, IGazeFocusable
     public GameObject removedGameObject4;
 
     public float timeLeft = 7.0f;
+    private bool _hasFocus;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +25,14 @@ public class GiveAnswerWithGaze : MonoBehaviour, IGazeFocusable
 
     public void GazeFocusChanged(bool hasFocus)
     {
-            //While this object has focus, start the counter
-            if(hasFocus){
+        _hasFocus = hasFocus;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //While this object has focus, start the counter
+        if(_hasFocus){
                 timeLeft -= Time.deltaTime;
                 if(timeLeft <= 0){
                     proposedAnswer.SetActive(true);
@@ -38,11 +45,6 @@ public class GiveAnswerWithGaze : MonoBehaviour, IGazeFocusable
                     timeLeft = 7.0f;
                 }
             }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 }
