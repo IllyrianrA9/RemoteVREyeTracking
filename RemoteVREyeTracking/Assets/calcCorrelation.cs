@@ -66,6 +66,8 @@ public class calcCorrelation : MonoBehaviour
 
             // The direction of the gaze ray is a normalized direction vector
             var rayDirection = eyeTrackingData.GazeRay.Direction;
+            // hit raycast on the canvas and see x and y point
+            //a = rayDirection.X;
         }
 
         // For social use cases, data in local space may be easier to work with
@@ -95,6 +97,7 @@ public class calcCorrelation : MonoBehaviour
 
     }
 
+   
     public double Correlation(double[] array1, double[] array2)
     {
         double[] array_xy = new double[array1.Length];

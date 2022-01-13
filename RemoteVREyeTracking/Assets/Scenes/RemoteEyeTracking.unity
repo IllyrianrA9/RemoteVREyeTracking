@@ -5771,6 +5771,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5581435590376592064, guid: 778fd6888bd63864886aed430c6acd3c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5581435590376592092, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: m_Size.x
@@ -6085,6 +6090,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581435591171697303, guid: 778fd6888bd63864886aed430c6acd3c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5581435591196748082, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
@@ -7027,6 +7037,11 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5581435592245853771, guid: 778fd6888bd63864886aed430c6acd3c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581435592268347042, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: m_IsActive
       value: 0

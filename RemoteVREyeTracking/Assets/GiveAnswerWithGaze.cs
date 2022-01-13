@@ -40,6 +40,7 @@ public class GiveAnswerWithGaze : MonoBehaviour, IGazeFocusable
     void Update()
     {
         //While this object has focus, start the counter
+        //Dwell time focus
         if(_hasFocus){
                 timeLeft -= Time.deltaTime;
                 if(timeLeft <= 0){
