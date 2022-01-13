@@ -23,6 +23,7 @@ public class DataMa : MonoBehaviour
         using (StreamWriter writer = new StreamWriter(fileStream))
         {
             writer.Write(json);
+            Debug.Log(" Write to JSON");
         }
     }
     private string GetFilePath(string fileName)

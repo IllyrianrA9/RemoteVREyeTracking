@@ -22,20 +22,11 @@ public class GetEyeGazeInformation : MonoBehaviour
         if (circle.activeSelf)
         {
             EyeGazeTxt1 egt = dataMa.eyeGazeData1;
-            if(egt == null)
-            {
-                Debug.Log("eyegazetxt1 is null");
-            }
-            if(egt != null)
-            {
-                Debug.Log("eyegazetxt1 ist not null");
-            }
             dataMa.eyeGazeData1.name = circle.name;
-            Debug.Log("Der name ist " + dataMa.eyeGazeData1.name);
-            //dataMa.Save();
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
+                Debug.Log("The name of the circle is " + dataMa.eyeGazeData1.name);
                 dataMa.Save();
                 timeLeft = 0.5f;
             }

@@ -36,6 +36,7 @@ public class CircleAppearance : MonoBehaviour
     {
         if (circle1.activeSelf)
         {
+            Debug.Log("Circle 1 is active");
             timeLeft -= Time.deltaTime;
             if(timeLeft <= 0)
             {
@@ -46,6 +47,7 @@ public class CircleAppearance : MonoBehaviour
         }
         if (circle2.activeSelf)
         {
+            Debug.Log("Circle 2 is active");
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
@@ -56,6 +58,7 @@ public class CircleAppearance : MonoBehaviour
         }
         if (circle3.activeSelf)
         {
+            Debug.Log("Circle 3 is active");
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
@@ -66,6 +69,7 @@ public class CircleAppearance : MonoBehaviour
         }
         if (circle4.activeSelf)
         {
+            Debug.Log("Circle 4 is active");
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
@@ -76,6 +80,7 @@ public class CircleAppearance : MonoBehaviour
         }
         if (circle5.activeSelf)
         {
+            Debug.Log("Circle 5 is active");
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
@@ -86,6 +91,7 @@ public class CircleAppearance : MonoBehaviour
         }
         if (circle6.activeSelf)
         {
+            Debug.Log("Circle 6 is active");
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
@@ -96,6 +102,7 @@ public class CircleAppearance : MonoBehaviour
         }
         if (circle7.activeSelf)
         {
+            Debug.Log("Circle 7 is active");
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
@@ -106,6 +113,7 @@ public class CircleAppearance : MonoBehaviour
         }
         if (circle8.activeSelf)
         {
+            Debug.Log("Circle 8 is active");
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
@@ -116,6 +124,7 @@ public class CircleAppearance : MonoBehaviour
         }
         if (circle9.activeSelf)
         {
+            Debug.Log("Circle 9 is active");
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
@@ -126,6 +135,7 @@ public class CircleAppearance : MonoBehaviour
         }
         if (circle10.activeSelf)
         {
+            Debug.Log("Circle 10 is active");
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {

@@ -2407,7 +2407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99aac7d55208f34498c4dad124ce2e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  file: eyeGazeData4.txt
+  file: eyeGazeData5.txt
 --- !u!224 &1249928337
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5769,7 +5769,7 @@ PrefabInstance:
     - target: {fileID: 5581435590340423704, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5581435590376592092, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
@@ -6039,7 +6039,7 @@ PrefabInstance:
     - target: {fileID: 5581435591097882608, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5581435591097882610, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
@@ -6824,7 +6824,7 @@ PrefabInstance:
     - target: {fileID: 5581435592001716476, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5581435592021154847, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
@@ -7029,7 +7029,7 @@ PrefabInstance:
     - target: {fileID: 5581435592245853771, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5581435592407886845, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
@@ -7391,6 +7391,11 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 1752560012}
+    - target: {fileID: 6664708905853319053, guid: 778fd6888bd63864886aed430c6acd3c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6853416523646912760, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: m_SizeDelta.x
