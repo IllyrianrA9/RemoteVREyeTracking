@@ -5034,7 +5034,7 @@ PrefabInstance:
     - target: {fileID: 2677696094362784931, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 81
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2757719955999321327, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
@@ -8318,6 +8318,30 @@ MonoBehaviour:
   - {fileID: 2099125615}
   speed: 1
   ball: {fileID: 0}
+--- !u!1 &5581435590751966464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5581435590856300088, guid: 778fd6888bd63864886aed430c6acd3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5581435590751966449}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5581435590751966465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5581435590751966450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512ff19574ec8304bb3329a7920da7de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  question: {fileID: 5581435590751966450}
+  answer1: {fileID: 5581435590751966454}
+  answer2: {fileID: 5581435590751966453}
+  answer3: {fileID: 5581435590751966452}
+  activatedGameObject1: {fileID: 5581435590751966464}
+  activatedGameObject2: {fileID: 5581435590751966456}
 --- !u!114 &5581435590751966490
 MonoBehaviour:
   m_ObjectHideFlags: 0
