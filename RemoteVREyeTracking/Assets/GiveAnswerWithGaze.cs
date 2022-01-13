@@ -26,6 +26,14 @@ public class GiveAnswerWithGaze : MonoBehaviour, IGazeFocusable
     public void GazeFocusChanged(bool hasFocus)
     {
         _hasFocus = hasFocus;
+        if(hasFocus == true)
+        {
+            Debug.Log("This object is focused");
+        }
+        else
+        {
+            Debug.Log("This object lost focus");
+        }
     }
 
     // Update is called once per frame
@@ -43,8 +51,8 @@ public class GiveAnswerWithGaze : MonoBehaviour, IGazeFocusable
                     removedGameObject3.SetActive(false);
                     removedGameObject4.SetActive(false);
                     timeLeft = 7.0f;
+                    Debug.Log("Answer chosen and timer reset to 7 seconds");
                 }
-            }
-
+        }
     }
 }
