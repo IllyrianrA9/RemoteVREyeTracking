@@ -15,7 +15,7 @@ public class calcCorrelation : MonoBehaviour
     public GameObject answer3;
     public GameObject activatedGameObject1;
     public GameObject activatedGameObject2;
-    private GameObject proposedAnswer;
+    public GameObject proposedAnswer;
 
 
     //x, y and z coordinate of the answer
@@ -56,6 +56,11 @@ public class calcCorrelation : MonoBehaviour
     private double[] gaze_z = new double[0];
 
     private GameObject focusedGameObject;
+    private float ms = 0;
+    private float time = 0;
+
+    //waitTime in miliseconds
+    public float waitTime = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -68,22 +73,34 @@ public class calcCorrelation : MonoBehaviour
         GameObject desktop = null;
         RaycastHit hit;
 
+        //This will be for the timestamps
+        time += Time.deltaTime * 1000;
 
-
-
-
-        //RETRIEVE CURRENT FOCUSED OBJECT EVERY FRAME!!
-        // Check whether TobiiXR has any focused objects.
-        if (TobiiXR.FocusedObjects.Count > 0)
+        //Miliseconds ms updated from start of this update which is used for clearing of arrays ONLY
+        ms += Time.deltaTime * 1000;
+       
+        if(ms >= waitTime)
         {
-            focusedGameObject = TobiiXR.FocusedObjects[0].GameObject;
-            // TODO: Do something with the focused game object
-            
-            
+            ms = 0;
+            Debug.Log("5 miliseconds passed");
+            Array.Clear(gaze_x, 0, gaze_x.Length);
+            Array.Clear(gaze_y, 0, gaze_y.Length);
+            Array.Clear(gaze_z, 0, gaze_z.Length);
+
+            Array.Clear(answerOne_x, 0, answerOne_x.Length);
+            Array.Clear(answerOne_y, 0, answerOne_y.Length);
+            Array.Clear(answerOne_z, 0, answerOne_z.Length);
+
+            Array.Clear(answerTwo_x, 0, answerTwo_x.Length);
+            Array.Clear(answerTwo_y, 0, answerTwo_y.Length);
+            Array.Clear(answerTwo_z, 0, answerTwo_z.Length);
+
+            Array.Clear(answerThree_x, 0, answerThree_x.Length);
+            Array.Clear(answerThree_y, 0, answerThree_y.Length);
+            Array.Clear(answerThree_z, 0, answerThree_z.Length);
+
+            Debug.Log("All arrays have been cleared");
         }
-
-
-
 
         // RECEIVE EYE TRACKING DATA!!
         // Get eye tracking data in world space
@@ -99,47 +116,73 @@ public class calcCorrelation : MonoBehaviour
             // The direction of the gaze ray is a normalized direction Vector3
             var rayDirection = eyeTrackingData.GazeRay.Direction;
 
-            //getting hit point of eye gaze on canvas
-            if(Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
-            {
-                Debug.Log("Ray hit a collider ");
-                desktop = hit.collider.gameObject;
-                if(desktop.name == "BackgroundScreen")
-                {
-                    Debug.Log("The name of the hit object is BackgroundScreen");
-                    _gazeX = hit.point.x;
-                    _gazeY = hit.point.y;
-                    _gazeZ = hit.point.z;
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
-                }
-            }
-            //Resize eye gaze arrays
-            Array.Resize(ref gaze_x, gaze_x.Length + 1);
-            gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
-
-            Array.Resize(ref gaze_y, gaze_y.Length + 1);
-            gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
-
-            Array.Resize(ref gaze_z, gaze_z.Length + 1);
-            gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-
-            Debug.Log("Gaze array is resized");
-            //a = rayDirection.X;
-
             // For social use cases, data in local space may be easier to work with
             var eyeTrackingDataLocal = TobiiXR.GetEyeTrackingData(TobiiXR_TrackingSpace.Local);
+            var rayOriginLocal = eyeTrackingDataLocal.GazeRay.Origin;
+            var rayDirectionLocal = eyeTrackingDataLocal.GazeRay.Direction;
 
-            // The EyeBlinking bool is true when the eye is closed
-            var isLeftEyeBlinking = eyeTrackingDataLocal.IsLeftEyeBlinking;
-            var isRightEyeBlinking = eyeTrackingDataLocal.IsRightEyeBlinking;
+            //getting hit point of eye gaze on Background Screen
+            if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
+            {
 
-            // Using gaze direction in local space makes it easier to apply a local rotation
-            // to your virtual eye balls.
-            var eyesDirection = eyeTrackingDataLocal.GazeRay.Direction;
+                Debug.Log("Ray hit a collider ");
+                desktop = hit.collider.gameObject;
+
+                if (desktop.name == "BackgroundScreen")
+                {
+                    Debug.Log("Hit Background Screen");
+                }
+                //_gazeX = transform.InverseTransformPoint(hit.point).x;
+                _gazeX = hit.point.x;
+                Debug.Log("X Gaze " + _gazeX);
+
+                //_gazeY = transform.InverseTransformPoint(hit.point).y;
+                _gazeY = hit.point.y;
+                Debug.Log("Y Gaze " + _gazeY);
+                //_gazeZ = transform.InverseTransformPoint(hit.point).z;
+                _gazeZ = hit.point.z;
+                Debug.Log("Z Gaze " + _gazeZ);
+                Debug.Log("Eye gaze points X,Y,Z are saved");
+                //}
+
+                //Resize eye gaze arrays
+                Array.Resize(ref gaze_x, gaze_x.Length + 1);
+                gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
+                Debug.Log("Gaze X coordinates");
+                // (var item in gaze_x)
+                //{
+                //    Debug.Log(item);
+                //}
+
+                Array.Resize(ref gaze_y, gaze_y.Length + 1);
+                gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
+                Debug.Log("Gaze Y coordinates");
+
+
+                Array.Resize(ref gaze_z, gaze_z.Length + 1);
+                gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
+                Debug.Log("Gaze Z coordinates");
+
+
+                Debug.Log("Gaze array is resized");
+                //a = rayDirection.X;
+
+                // Using gaze direction in local space makes it easier to apply a local rotation
+                // to your virtual eye balls.
+                var eyesDirection = eyeTrackingDataLocal.GazeRay.Direction;
+            }
         }
+       
+
+
+
         _answerOne_x = answer1.transform.position.x;
         _answerOne_y = answer1.transform.position.y;
         _answerOne_z = answer1.transform.position.z;
+        Debug.Log("Anser X " + _answerOne_x);
+        Debug.Log("Anser Y " + _answerOne_y);
+        Debug.Log("Anser Z " + _answerOne_z);
+
 
         _answerTwo_x = answer2.transform.position.x;
         _answerTwo_y = answer2.transform.position.y;
@@ -148,16 +191,8 @@ public class calcCorrelation : MonoBehaviour
         _answerThree_x = answer3.transform.position.x;
         _answerThree_y = answer3.transform.position.y;
         _answerThree_z = answer3.transform.position.z;
-
         Debug.Log("Positions of the answers X,Y,Z are saved in a variable");
-        
 
-
-
-
-
-
-        
         //PUSH VALUE TO ARRAY TO THE LAST SPOT IN THE ARRAY
         //resize arrays with new gaze points which get retrieved.
 
@@ -165,11 +200,14 @@ public class calcCorrelation : MonoBehaviour
         Array.Resize(ref answerOne_x, answerOne_x.Length + 1);
         answerOne_x[answerOne_x.GetUpperBound(0)] = _answerOne_x;
 
+
         Array.Resize(ref answerOne_y, answerOne_y.Length + 1);
         answerOne_y[answerOne_y.GetUpperBound(0)] = _answerOne_y;
 
+
         Array.Resize(ref answerOne_z, answerOne_z.Length + 1);
         answerOne_z[answerOne_z.GetUpperBound(0)] = _answerOne_z;
+
 
         Debug.Log("AnswerOne array is resized");
 
@@ -177,11 +215,14 @@ public class calcCorrelation : MonoBehaviour
         Array.Resize(ref answerTwo_x, answerTwo_x.Length + 1);
         answerTwo_x[answerTwo_x.GetUpperBound(0)] = _answerTwo_x;
 
+
         Array.Resize(ref answerTwo_y, answerTwo_y.Length + 1);
         answerTwo_y[answerTwo_y.GetUpperBound(0)] = _answerTwo_y;
 
+
         Array.Resize(ref answerTwo_z, answerTwo_z.Length + 1);
         answerTwo_z[answerTwo_z.GetUpperBound(0)] = _answerTwo_z;
+
 
         Debug.Log("AnswerTwo array is resized");
 
@@ -189,37 +230,59 @@ public class calcCorrelation : MonoBehaviour
         Array.Resize(ref answerThree_x, answerThree_x.Length + 1);
         answerThree_x[answerThree_x.GetUpperBound(0)] = _answerThree_x;
 
+
         Array.Resize(ref answerThree_y, answerThree_y.Length + 1);
         answerThree_y[answerThree_y.GetUpperBound(0)] = _answerThree_y;
 
+
         Array.Resize(ref answerThree_z, answerThree_z.Length + 1);
         answerThree_z[answerThree_z.GetUpperBound(0)] = _answerThree_z;
+
 
         Debug.Log("AnswerThree array is resized");
 
 
         //Correlation between eye gaze and answer
-        Correlation(gaze_x, answerOne_x);
-        Correlation(gaze_y, answerOne_y);
-        Correlation(gaze_z, answerOne_z);
+        var corAnswer1X = Correlation2(gaze_x, answerOne_x);
+        Debug.Log("X Correlation " + corAnswer1X);
+        var corAnswer1Y = Correlation2(gaze_y, answerOne_y);
+        Debug.Log("Y Correlation " + corAnswer1Y);
+        var corAnswer1Z = Correlation2(gaze_z, answerOne_z);
+        Debug.Log("Z Correlation " + corAnswer1Z);
         Debug.Log("Correlation of AnswerOne and Gaze is done");
 
-        Correlation(gaze_x, answerTwo_x);
-        Correlation(gaze_y, answerTwo_y);
-        Correlation(gaze_z, answerTwo_z);
+        var corAnswer2X = Correlation2(gaze_x, answerTwo_x);
+        var corAnswer2Y = Correlation2(gaze_y, answerTwo_y);
+        var corAnswer2Z = Correlation2(gaze_z, answerTwo_z);
 
         Debug.Log("Correlation of AnswerTwo and Gaze is done");
 
-        Correlation(gaze_x, answerThree_x);
-        Correlation(gaze_y, answerThree_y);
-        Correlation(gaze_z, answerThree_z);
+        var corAnswer3X = Correlation2(gaze_x, answerThree_x);
+        var corAnswer3Y = Correlation2(gaze_y, answerThree_y);
+        var corAnswer3Z = Correlation2(gaze_z, answerThree_z);
 
         Debug.Log("Correlation of AnswerThree and Gaze is done");
-        //TODO ADD CORRELATION AND COMPARE AND GIVE NEW VALUE WHICH HAS TO BE ACHIEVED AS A MINIMUM TO ANSWER 
 
+        //Correlation to the answers 
+        var corAnswer1 = corAnswer1X + corAnswer1Y + corAnswer1Z;
+        Debug.Log("Correlation of Answer 1 is: " + corAnswer1);
+        var corAnswer2 = corAnswer2X + corAnswer2Y + corAnswer2Z;
+        Debug.Log("Correlation of Answer 2 is: " + corAnswer2);
+        var corAnswer3 = corAnswer3X + corAnswer3Y + corAnswer3Z;
+        Debug.Log("Correlation of Answer 3 is: " + corAnswer3);
+
+        if ((corAnswer1 >= 2.1) && (corAnswer1 > corAnswer2) && (corAnswer1 > corAnswer3))
+        {
+            Debug.Log("Answer 1 got chosen");
+            question.SetActive(false);
+            answer1.SetActive(false);
+            answer2.SetActive(false);
+            answer3.SetActive(false);
+            activatedGameObject1.SetActive(true);
+            activatedGameObject2.SetActive(true);
+            proposedAnswer.SetActive(true);
+        }
     }
-
-
 
 
 
@@ -236,6 +299,39 @@ public class calcCorrelation : MonoBehaviour
         for (int i = 0; i < array1.Length; i++)
             array_xp2[i] = Math.Pow(array1[i], 2.0);
         
+        for (int i = 0; i < array1.Length; i++)
+            array_yp2[i] = Math.Pow(array2[i], 2.0);
+        double sum_x = 0;
+        double sum_y = 0;
+        foreach (double n in array1)
+            sum_x += n;
+        foreach (double n in array2)
+            sum_y += n;
+        double sum_xy = 0;
+        foreach (double n in array_xy)
+            sum_xy += n;
+        double sum_xpow2 = 0;
+        foreach (double n in array_xp2)
+            sum_xpow2 += n;
+        double sum_ypow2 = 0;
+        foreach (double n in array_yp2)
+            sum_ypow2 += n;
+        double Ex2 = Math.Pow(sum_x, 2.00);
+        double Ey2 = Math.Pow(sum_y, 2.00);
+
+        return (array1.Length * sum_xy - sum_x * sum_y) /
+               Math.Sqrt((array1.Length * sum_xpow2 - Ex2) * (array1.Length * sum_ypow2 - Ey2));
+    }
+
+    public double Correlation2(double[] array1, double[] array2)
+    {
+        double[] array_xy = new double[array1.Length];
+        double[] array_xp2 = new double[array1.Length];
+        double[] array_yp2 = new double[array1.Length];
+        for (int i = 0; i < array1.Length; i++)
+            array_xy[i] = array1[i] * array2[i];
+        for (int i = 0; i < array1.Length; i++)
+            array_xp2[i] = Math.Pow(array1[i], 2.0);
         for (int i = 0; i < array1.Length; i++)
             array_yp2[i] = Math.Pow(array2[i], 2.0);
         double sum_x = 0;
