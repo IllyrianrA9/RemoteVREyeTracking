@@ -15,7 +15,9 @@ public class calcCorrelation : MonoBehaviour
     public GameObject answer3;
     public GameObject activatedGameObject1;
     public GameObject activatedGameObject2;
-    public GameObject proposedAnswer;
+    public GameObject proposedAnswer1;
+    public GameObject proposedAnswer2;
+    public GameObject proposedAnswer3;
 
 
     //x, y and z coordinate of the answer
@@ -136,10 +138,10 @@ public class calcCorrelation : MonoBehaviour
                 Array.Resize(ref gaze_y, gaze_y.Length + 1);
                 gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
                 Debug.Log("Gaze Y coordinates");
-                foreach( var item in gaze_y)
-                {
-                    Debug.Log("Value of Array: " + item);
-                }
+                //foreach( var item in gaze_y)
+                //{
+                //    Debug.Log("Value of Array: " + item);
+                //}
 
 
                 Array.Resize(ref gaze_z, gaze_z.Length + 1);
@@ -175,10 +177,10 @@ public class calcCorrelation : MonoBehaviour
                 answerOne_x[answerOne_x.GetUpperBound(0)] = _answerOne_x;
                 Array.Resize(ref answerOne_y, answerOne_y.Length + 1);
                 answerOne_y[answerOne_y.GetUpperBound(0)] = _answerOne_y;
-                foreach(var item in answerOne_y)
-                {
-                    Debug.Log("Value of Array: " + item);
-                }
+                //foreach(var item in answerOne_y)
+                //{
+                //    Debug.Log("Value of Array: " + item);
+                //}
                 Array.Resize(ref answerOne_z, answerOne_z.Length + 1);
                 answerOne_z[answerOne_z.GetUpperBound(0)] = _answerOne_z;
 
@@ -246,7 +248,7 @@ public class calcCorrelation : MonoBehaviour
                         answer3.SetActive(false);
                         activatedGameObject1.SetActive(true);
                         activatedGameObject2.SetActive(true);
-                        proposedAnswer.SetActive(true);
+                        proposedAnswer1.SetActive(true);
                     }
 
                     if ((corAnswer2X >= 0.7) && (corAnswer2Y > 0.7) && (corAnswer2Z > 0.7) && (corAnswer2 > corAnswer1) && (corAnswer2 > corAnswer3))
@@ -258,7 +260,7 @@ public class calcCorrelation : MonoBehaviour
                         answer3.SetActive(false);
                         activatedGameObject1.SetActive(true);
                         activatedGameObject2.SetActive(true);
-                        Debug.Log("No");
+                        proposedAnswer2.SetActive(true);
                     }
 
                     if ((corAnswer3X >= 0.7) && (corAnswer3Y > 0.7) && (corAnswer3Z > 0.7) && (corAnswer3 > corAnswer2) && (corAnswer3 > corAnswer1))
@@ -270,7 +272,7 @@ public class calcCorrelation : MonoBehaviour
                         answer3.SetActive(false);
                         activatedGameObject1.SetActive(true);
                         activatedGameObject2.SetActive(true);
-                        Debug.Log("I dont remember");
+                        proposedAnswer3.SetActive(true);
                     }
 
 
