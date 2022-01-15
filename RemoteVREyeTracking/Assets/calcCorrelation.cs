@@ -166,16 +166,9 @@ public class calcCorrelation : MonoBehaviour
 
                 Debug.Log("Gaze array is resized");
                 //a = rayDirection.X;
-
-                // Using gaze direction in local space makes it easier to apply a local rotation
-                // to your virtual eye balls.
-                var eyesDirection = eyeTrackingDataLocal.GazeRay.Direction;
             }
         }
-       
-
-
-
+      
         _answerOne_x = answer1.transform.position.x;
         _answerOne_y = answer1.transform.position.y;
         _answerOne_z = answer1.transform.position.z;
@@ -199,12 +192,8 @@ public class calcCorrelation : MonoBehaviour
         //Resize answerOne array
         Array.Resize(ref answerOne_x, answerOne_x.Length + 1);
         answerOne_x[answerOne_x.GetUpperBound(0)] = _answerOne_x;
-
-
         Array.Resize(ref answerOne_y, answerOne_y.Length + 1);
         answerOne_y[answerOne_y.GetUpperBound(0)] = _answerOne_y;
-
-
         Array.Resize(ref answerOne_z, answerOne_z.Length + 1);
         answerOne_z[answerOne_z.GetUpperBound(0)] = _answerOne_z;
 
@@ -214,12 +203,8 @@ public class calcCorrelation : MonoBehaviour
         //Resize answerTwo array
         Array.Resize(ref answerTwo_x, answerTwo_x.Length + 1);
         answerTwo_x[answerTwo_x.GetUpperBound(0)] = _answerTwo_x;
-
-
         Array.Resize(ref answerTwo_y, answerTwo_y.Length + 1);
         answerTwo_y[answerTwo_y.GetUpperBound(0)] = _answerTwo_y;
-
-
         Array.Resize(ref answerTwo_z, answerTwo_z.Length + 1);
         answerTwo_z[answerTwo_z.GetUpperBound(0)] = _answerTwo_z;
 
@@ -229,12 +214,8 @@ public class calcCorrelation : MonoBehaviour
         //Resize answerThree array
         Array.Resize(ref answerThree_x, answerThree_x.Length + 1);
         answerThree_x[answerThree_x.GetUpperBound(0)] = _answerThree_x;
-
-
         Array.Resize(ref answerThree_y, answerThree_y.Length + 1);
         answerThree_y[answerThree_y.GetUpperBound(0)] = _answerThree_y;
-
-
         Array.Resize(ref answerThree_z, answerThree_z.Length + 1);
         answerThree_z[answerThree_z.GetUpperBound(0)] = _answerThree_z;
 
@@ -249,7 +230,6 @@ public class calcCorrelation : MonoBehaviour
         Debug.Log("Y Correlation " + corAnswer1Y);
         var corAnswer1Z = Correlation2(gaze_z, answerOne_z);
         Debug.Log("Z Correlation " + corAnswer1Z);
-        Debug.Log("Correlation of AnswerOne and Gaze is done");
 
         var corAnswer2X = Correlation2(gaze_x, answerTwo_x);
         var corAnswer2Y = Correlation2(gaze_y, answerTwo_y);
