@@ -136,6 +136,10 @@ public class calcCorrelation : MonoBehaviour
                 Array.Resize(ref gaze_y, gaze_y.Length + 1);
                 gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
                 Debug.Log("Gaze Y coordinates");
+                foreach( var item in gaze_y)
+                {
+                    Debug.Log("Value of Array: " + item);
+                }
 
 
                 Array.Resize(ref gaze_z, gaze_z.Length + 1);
@@ -171,6 +175,10 @@ public class calcCorrelation : MonoBehaviour
                 answerOne_x[answerOne_x.GetUpperBound(0)] = _answerOne_x;
                 Array.Resize(ref answerOne_y, answerOne_y.Length + 1);
                 answerOne_y[answerOne_y.GetUpperBound(0)] = _answerOne_y;
+                foreach(var item in answerOne_y)
+                {
+                    Debug.Log("Value of Array: " + item);
+                }
                 Array.Resize(ref answerOne_z, answerOne_z.Length + 1);
                 answerOne_z[answerOne_z.GetUpperBound(0)] = _answerOne_z;
 
@@ -229,7 +237,7 @@ public class calcCorrelation : MonoBehaviour
                     var corAnswer3 = corAnswer3X + corAnswer3Y + corAnswer3Z;
                     Debug.Log("Correlation of Answer 3 is: " + corAnswer3);
 
-                    if ((corAnswer1 >= 2.1) && (corAnswer1 > corAnswer2) && (corAnswer1 > corAnswer3))
+                    if ((corAnswer1X >= 0.7) && (corAnswer1Y > 0.7) && (corAnswer1Z > 0.7) && (corAnswer1 > corAnswer2) && (corAnswer1 > corAnswer3))
                     {
                         Debug.Log("Answer 1 got chosen");
                         question.SetActive(false);
@@ -241,7 +249,7 @@ public class calcCorrelation : MonoBehaviour
                         proposedAnswer.SetActive(true);
                     }
 
-                    if ((corAnswer2 >= 2.1) && (corAnswer2 > corAnswer1) && (corAnswer2 > corAnswer3))
+                    if ((corAnswer2X >= 0.7) && (corAnswer2Y > 0.7) && (corAnswer2Z > 0.7) && (corAnswer2 > corAnswer1) && (corAnswer2 > corAnswer3))
                     {
                         Debug.Log("Answer 2 got chosen");
                         question.SetActive(false);
@@ -253,7 +261,7 @@ public class calcCorrelation : MonoBehaviour
                         Debug.Log("No");
                     }
 
-                    if ((corAnswer3 >= 2.1) && (corAnswer3 > corAnswer2) && (corAnswer3 > corAnswer1))
+                    if ((corAnswer3X >= 0.7) && (corAnswer3Y > 0.7) && (corAnswer3Z > 0.7) && (corAnswer3 > corAnswer2) && (corAnswer3 > corAnswer1))
                     {
                         Debug.Log("Answer 3 got chosen");
                         question.SetActive(false);
@@ -264,25 +272,37 @@ public class calcCorrelation : MonoBehaviour
                         activatedGameObject2.SetActive(true);
                         Debug.Log("I dont remember");
                     }
-                    //TODO ADD other if clauses for correlation
 
 
                     Debug.Log("5 miliseconds passed");
-                    Array.Clear(gaze_x, 0, gaze_x.Length);
-                    Array.Clear(gaze_y, 0, gaze_y.Length);
-                    Array.Clear(gaze_z, 0, gaze_z.Length);
+                    gaze_x = new double[0];
+                    gaze_y = new double[0];
+                    gaze_z = new double[0];
+                    //Array.Clear(gaze_x, 0, gaze_x.Length);
+                    //Array.Clear(gaze_y, 0, gaze_y.Length);
+                    //Array.Clear(gaze_z, 0, gaze_z.Length);
 
-                    Array.Clear(answerOne_x, 0, answerOne_x.Length);
-                    Array.Clear(answerOne_y, 0, answerOne_y.Length);
-                    Array.Clear(answerOne_z, 0, answerOne_z.Length);
 
-                    Array.Clear(answerTwo_x, 0, answerTwo_x.Length);
-                    Array.Clear(answerTwo_y, 0, answerTwo_y.Length);
-                    Array.Clear(answerTwo_z, 0, answerTwo_z.Length);
+                    answerOne_x = new double[0];
+                    answerOne_y = new double[0];
+                    answerOne_z = new double[0];
+                    //Array.Clear(answerOne_x, 0, answerOne_x.Length);
+                    //Array.Clear(answerOne_y, 0, answerOne_y.Length);
+                    //Array.Clear(answerOne_z, 0, answerOne_z.Length);
 
-                    Array.Clear(answerThree_x, 0, answerThree_x.Length);
-                    Array.Clear(answerThree_y, 0, answerThree_y.Length);
-                    Array.Clear(answerThree_z, 0, answerThree_z.Length);
+                    answerTwo_x = new double[0];
+                    answerTwo_y = new double[0];
+                    answerTwo_z = new double[0];
+                    //Array.Clear(answerTwo_x, 0, answerTwo_x.Length);
+                    //Array.Clear(answerTwo_y, 0, answerTwo_y.Length);
+                    //Array.Clear(answerTwo_z, 0, answerTwo_z.Length);
+
+                    answerThree_x = new double[0];
+                    answerThree_y = new double[0];
+                    answerThree_z = new double[0];
+                    //Array.Clear(answerThree_x, 0, answerThree_x.Length);
+                    //Array.Clear(answerThree_y, 0, answerThree_y.Length);
+                    //Array.Clear(answerThree_z, 0, answerThree_z.Length);
 
                     Debug.Log("All arrays have been cleared");
                 }
