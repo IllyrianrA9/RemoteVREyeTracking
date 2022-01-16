@@ -106,13 +106,9 @@ public class calcCorrelation : MonoBehaviour
             if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
             {
 
-                Debug.Log("Ray hit a collider ");
+                Debug.Log(hit.transform.name);
                 desktop = hit.collider.gameObject;
 
-                if (desktop.name == "BackgroundScreen")
-                {
-                    Debug.Log("Hit Background Screen");
-                }
                 //_gazeX = transform.InverseTransformPoint(hit.point).x;
                 _gazeX = hit.point.x;
                 Debug.Log("X Gaze " + _gazeX);
@@ -239,7 +235,7 @@ public class calcCorrelation : MonoBehaviour
                     var corAnswer3 = corAnswer3X + corAnswer3Y + corAnswer3Z;
                     Debug.Log("Correlation of Answer 3 is: " + corAnswer3);
 
-                    if ((corAnswer1X >= 0.7) && (corAnswer1Y > 0.7) && (corAnswer1Z > 0.7) && (corAnswer1 > corAnswer2) && (corAnswer1 > corAnswer3))
+                    if ((corAnswer1X >= 0.7) && (corAnswer1Y > 0.7) && (corAnswer1Z > 0.7)  && (corAnswer1 > corAnswer2) && (corAnswer1 > corAnswer3))
                     {
                         Debug.Log("Answer 1 got chosen");
                         question.SetActive(false);
@@ -251,7 +247,7 @@ public class calcCorrelation : MonoBehaviour
                         proposedAnswer1.SetActive(true);
                     }
 
-                    if ((corAnswer2X >= 0.7) && (corAnswer2Y > 0.7) && (corAnswer2Z > 0.7) && (corAnswer2 > corAnswer1) && (corAnswer2 > corAnswer3))
+                    if ((corAnswer2X >= 0.7) && (corAnswer2Y > 0.7) && (corAnswer2Y > 0.7) &&  (corAnswer2 > corAnswer1) && (corAnswer2 > corAnswer3))
                     {
                         Debug.Log("Answer 2 got chosen");
                         question.SetActive(false);
@@ -263,7 +259,7 @@ public class calcCorrelation : MonoBehaviour
                         proposedAnswer2.SetActive(true);
                     }
 
-                    if ((corAnswer3X >= 0.7) && (corAnswer3Y > 0.7) && (corAnswer3Z > 0.7) && (corAnswer3 > corAnswer2) && (corAnswer3 > corAnswer1))
+                    if ((corAnswer3X >= 0.7) && (corAnswer3Y > 0.7) && (corAnswer3Z > 0.7)  && (corAnswer3 > corAnswer2) && (corAnswer3 > corAnswer1))
                     {
                         Debug.Log("Answer 3 got chosen");
                         question.SetActive(false);

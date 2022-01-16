@@ -9,7 +9,7 @@ public class MoveBackForward : MonoBehaviour
     int current = 0;
     float rotspeed;
     public float speed;
-    float WPradius = 1;
+    float WPradius = 0.1f;
     int counter = 0;
     public GameObject ball;
     private bool isMoving = true;
