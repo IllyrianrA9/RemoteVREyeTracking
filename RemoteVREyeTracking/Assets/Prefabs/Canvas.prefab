@@ -1783,7 +1783,6 @@ RectTransform:
   - {fileID: 8604210260105573227}
   - {fileID: 8604210259231835140}
   - {fileID: 8604210259257212512}
-  - {fileID: 8604210259998621390}
   m_Father: {fileID: 8604210258398291173}
   m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1809,7 +1808,7 @@ MonoBehaviour:
   circle3: {fileID: 8604210259964130614}
   circle4: {fileID: 8604210258868373181}
   circle5: {fileID: 8604210259231835147}
-  circle6: {fileID: 8604210259998621389}
+  circle6: {fileID: 0}
   circle7: {fileID: 8604210258453301077}
   circle8: {fileID: 8604210258933738845}
   circle9: {fileID: 8604210260105573226}
@@ -2127,13 +2126,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53679fb6eb26cc408fbacbc7a0bbfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removedGameObject1: {fileID: 8604210259231835147}
-  otherCircle1: {fileID: 8604210259155092312}
-  otherCircle2: {fileID: 8604210259964130614}
-  otherCircle3: {fileID: 8604210258307143511}
-  otherCircle4: {fileID: 8604210258933738845}
-  endExperiment: {fileID: 8604210259353481300}
-  timeLeft: 3
+  question: {fileID: 0}
+  answer1: {fileID: 0}
+  answer2: {fileID: 0}
+  answer3: {fileID: 0}
+  activatedGameObject1: {fileID: 0}
+  activatedGameObject2: {fileID: 0}
+  proposedAnswer1: {fileID: 0}
+  proposedAnswer2: {fileID: 0}
+  proposedAnswer3: {fileID: 0}
+  waitTime: 500
 --- !u!114 &8604210258120279040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2263,13 +2265,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53679fb6eb26cc408fbacbc7a0bbfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removedGameObject1: {fileID: 8604210259964130614}
-  otherCircle1: {fileID: 8604210259155092312}
-  otherCircle2: {fileID: 8604210258453301077}
-  otherCircle3: {fileID: 8604210258933738845}
-  otherCircle4: {fileID: 8604210258307143511}
-  endExperiment: {fileID: 8604210259353481300}
-  timeLeft: 3
+  question: {fileID: 0}
+  answer1: {fileID: 0}
+  answer2: {fileID: 0}
+  answer3: {fileID: 0}
+  activatedGameObject1: {fileID: 0}
+  activatedGameObject2: {fileID: 0}
+  proposedAnswer1: {fileID: 0}
+  proposedAnswer2: {fileID: 0}
+  proposedAnswer3: {fileID: 0}
+  waitTime: 500
 --- !u!114 &8604210258122237005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3954,13 +3959,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53679fb6eb26cc408fbacbc7a0bbfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removedGameObject1: {fileID: 8604210259155092312}
-  otherCircle1: {fileID: 8604210259964130614}
-  otherCircle2: {fileID: 8604210258307143511}
-  otherCircle3: {fileID: 8604210258933738845}
-  otherCircle4: {fileID: 8604210258453301077}
-  endExperiment: {fileID: 8604210259353481300}
-  timeLeft: 3
+  question: {fileID: 0}
+  answer1: {fileID: 0}
+  answer2: {fileID: 0}
+  answer3: {fileID: 0}
+  activatedGameObject1: {fileID: 0}
+  activatedGameObject2: {fileID: 0}
+  proposedAnswer1: {fileID: 0}
+  proposedAnswer2: {fileID: 0}
+  proposedAnswer3: {fileID: 0}
+  waitTime: 500
 --- !u!114 &8604210258403452327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4415,13 +4423,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53679fb6eb26cc408fbacbc7a0bbfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removedGameObject1: {fileID: 8604210259257212519}
-  otherCircle1: {fileID: 8604210259155092312}
-  otherCircle2: {fileID: 8604210259964130614}
-  otherCircle3: {fileID: 8604210258307143511}
-  otherCircle4: {fileID: 8604210258933738845}
-  endExperiment: {fileID: 8604210259353481300}
-  timeLeft: 3
+  question: {fileID: 0}
+  answer1: {fileID: 0}
+  answer2: {fileID: 0}
+  answer3: {fileID: 0}
+  activatedGameObject1: {fileID: 0}
+  activatedGameObject2: {fileID: 0}
+  proposedAnswer1: {fileID: 0}
+  proposedAnswer2: {fileID: 0}
+  proposedAnswer3: {fileID: 0}
+  waitTime: 500
 --- !u!114 &8604210258481405752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6769,92 +6780,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8604210258799859721}
   m_CullTransparentMesh: 0
---- !u!1 &8604210258818306716
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8604210258818306717}
-  - component: {fileID: 8604210258818306719}
-  - component: {fileID: 8604210258818306718}
-  m_Layer: 5
-  m_Name: WhiteCircle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8604210258818306717
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604210258818306716}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 60, y: 60, z: 0}
-  m_Children: []
-  m_Father: {fileID: 8604210259998621390}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -93}
-  m_SizeDelta: {x: 1152, y: 810}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!33 &8604210258818306719
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604210258818306716}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8604210258818306718
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604210258818306716}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8604210258825630549
 GameObject:
   m_ObjectHideFlags: 0
@@ -8003,13 +7928,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53679fb6eb26cc408fbacbc7a0bbfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removedGameObject1: {fileID: 8604210260105573226}
-  otherCircle1: {fileID: 8604210259155092312}
-  otherCircle2: {fileID: 8604210259964130614}
-  otherCircle3: {fileID: 8604210258307143511}
-  otherCircle4: {fileID: 8604210258933738845}
-  endExperiment: {fileID: 8604210259353481300}
-  timeLeft: 3
+  question: {fileID: 0}
+  answer1: {fileID: 0}
+  answer2: {fileID: 0}
+  answer3: {fileID: 0}
+  activatedGameObject1: {fileID: 0}
+  activatedGameObject2: {fileID: 0}
+  proposedAnswer1: {fileID: 0}
+  proposedAnswer2: {fileID: 0}
+  proposedAnswer3: {fileID: 0}
+  waitTime: 500
 --- !u!114 &8604210259035414681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8024,142 +7952,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataMa: {fileID: 0}
   circle: {fileID: 8604210260105573226}
-  timeLeft: 0.5
---- !u!1 &8604210259039598256
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8604210259039598257}
-  - component: {fileID: 8604210259039598253}
-  - component: {fileID: 8604210259039598252}
-  - component: {fileID: 8604210259039598259}
-  - component: {fileID: 8604210259039598258}
-  - component: {fileID: 8604210259039598254}
-  m_Layer: 5
-  m_Name: BlackCircle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8604210259039598257
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604210259039598256}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 0}
-  m_Children: []
-  m_Father: {fileID: 8604210259998621390}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -93}
-  m_SizeDelta: {x: 1152, y: 810}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!33 &8604210259039598253
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604210259039598256}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8604210259039598252
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604210259039598256}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: ed4b25628f9822042ae28821748b430f, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8604210259039598259
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604210259039598256}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000002
-  m_Center: {x: -0.0000076293945, y: 0.000002861023, z: 0}
---- !u!114 &8604210259039598258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604210259039598256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b53679fb6eb26cc408fbacbc7a0bbfd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  removedGameObject1: {fileID: 8604210259998621389}
-  otherCircle1: {fileID: 8604210259155092312}
-  otherCircle2: {fileID: 8604210259964130614}
-  otherCircle3: {fileID: 8604210258307143511}
-  otherCircle4: {fileID: 8604210258933738845}
-  endExperiment: {fileID: 8604210259353481300}
-  timeLeft: 3
---- !u!114 &8604210259039598254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604210259039598256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6ff5aeb34e301c43b2ab9f549605086, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataMa: {fileID: 0}
-  circle: {fileID: 8604210259998621389}
   timeLeft: 0.5
 --- !u!1 &8604210259063970090
 GameObject:
@@ -9840,13 +9632,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53679fb6eb26cc408fbacbc7a0bbfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removedGameObject1: {fileID: 8604210258453301077}
-  otherCircle1: {fileID: 8604210259155092312}
-  otherCircle2: {fileID: 8604210259964130614}
-  otherCircle3: {fileID: 8604210258307143511}
-  otherCircle4: {fileID: 8604210258933738845}
-  endExperiment: {fileID: 8604210259353481300}
-  timeLeft: 3
+  question: {fileID: 0}
+  answer1: {fileID: 0}
+  answer2: {fileID: 0}
+  answer3: {fileID: 0}
+  activatedGameObject1: {fileID: 0}
+  activatedGameObject2: {fileID: 0}
+  proposedAnswer1: {fileID: 0}
+  proposedAnswer2: {fileID: 0}
+  proposedAnswer3: {fileID: 0}
+  waitTime: 500
 --- !u!114 &8604210259372871887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9976,13 +9771,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53679fb6eb26cc408fbacbc7a0bbfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removedGameObject1: {fileID: 8604210258868373181}
-  otherCircle1: {fileID: 8604210259155092312}
-  otherCircle2: {fileID: 8604210259964130614}
-  otherCircle3: {fileID: 8604210258307143511}
-  otherCircle4: {fileID: 8604210258933738845}
-  endExperiment: {fileID: 8604210259353481300}
-  timeLeft: 3
+  question: {fileID: 0}
+  answer1: {fileID: 0}
+  answer2: {fileID: 0}
+  answer3: {fileID: 0}
+  activatedGameObject1: {fileID: 0}
+  activatedGameObject2: {fileID: 0}
+  proposedAnswer1: {fileID: 0}
+  proposedAnswer2: {fileID: 0}
+  proposedAnswer3: {fileID: 0}
+  waitTime: 500
 --- !u!114 &8604210259373023437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10112,13 +9910,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53679fb6eb26cc408fbacbc7a0bbfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removedGameObject1: {fileID: 8604210258307143511}
-  otherCircle1: {fileID: 8604210259964130614}
-  otherCircle2: {fileID: 8604210258933738845}
-  otherCircle3: {fileID: 8604210259155092312}
-  otherCircle4: {fileID: 8604210258453301077}
-  endExperiment: {fileID: 8604210259353481300}
-  timeLeft: 3
+  question: {fileID: 0}
+  answer1: {fileID: 0}
+  answer2: {fileID: 0}
+  answer3: {fileID: 0}
+  activatedGameObject1: {fileID: 0}
+  activatedGameObject2: {fileID: 0}
+  proposedAnswer1: {fileID: 0}
+  proposedAnswer2: {fileID: 0}
+  proposedAnswer3: {fileID: 0}
+  waitTime: 500
 --- !u!114 &8604210259400644574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11121,13 +10922,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53679fb6eb26cc408fbacbc7a0bbfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removedGameObject1: {fileID: 8604210258933738845}
-  otherCircle1: {fileID: 8604210258307143511}
-  otherCircle2: {fileID: 8604210259964130614}
-  otherCircle3: {fileID: 8604210259964130614}
-  otherCircle4: {fileID: 8604210259155092312}
-  endExperiment: {fileID: 8604210259353481300}
-  timeLeft: 3
+  question: {fileID: 0}
+  answer1: {fileID: 0}
+  answer2: {fileID: 0}
+  answer3: {fileID: 0}
+  activatedGameObject1: {fileID: 0}
+  activatedGameObject2: {fileID: 0}
+  proposedAnswer1: {fileID: 0}
+  proposedAnswer2: {fileID: 0}
+  proposedAnswer3: {fileID: 0}
+  waitTime: 500
 --- !u!114 &8604210259536786751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13539,43 +13343,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Your answer was "Read peoples mind". Do you want to change your answer?
---- !u!1 &8604210259998621389
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8604210259998621390}
-  m_Layer: 5
-  m_Name: AccuracyCircles (9)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &8604210259998621390
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604210259998621389}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8604210258818306717}
-  - {fileID: 8604210259039598257}
-  m_Father: {fileID: 8604210258045285944}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -215, y: 240}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8604210260012200563
 GameObject:
   m_ObjectHideFlags: 0
