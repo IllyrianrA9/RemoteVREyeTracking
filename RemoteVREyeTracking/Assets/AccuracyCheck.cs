@@ -927,6 +927,9 @@ public class AccuracyCheck : MonoBehaviour
             meanX = meanofArray(gaze_x);
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
+            //check if accuracy is fine
+
+
             double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);

@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Tobii.G2OM;
 using Tobii.XR;
+using System.Text;
+using System.IO;
 
 
 public class calcCorrelation : MonoBehaviour
 {
+    public DataMa dataMa;
+    public string file = "eyeGazeData.txt";
     //This objects will either get activated or deactivated regarding the chosen answer by the participant
     public GameObject question;
     public GameObject answer1;
@@ -56,6 +60,10 @@ public class calcCorrelation : MonoBehaviour
     private double[] gaze_x = new double[0];
     private double[] gaze_y = new double[0];
     private double[] gaze_z = new double[0];
+
+    private double corAnswer1;
+    private double corAnswer2;
+    private double corAnswer3;
 
     private GameObject focusedGameObject;
     private float ms = 0;
@@ -228,12 +236,21 @@ public class calcCorrelation : MonoBehaviour
                     Debug.Log("Correlation of AnswerThree and Gaze is done");
 
                     //Correlation to the answers 
-                    var corAnswer1 = corAnswer1X + corAnswer1Y + corAnswer1Z;
+                    corAnswer1 = corAnswer1X + corAnswer1Y + corAnswer1Z;
                     Debug.Log("Correlation of Answer 1 is: " + corAnswer1);
-                    var corAnswer2 = corAnswer2X + corAnswer2Y + corAnswer2Z;
+                    corAnswer2 = corAnswer2X + corAnswer2Y + corAnswer2Z;
                     Debug.Log("Correlation of Answer 2 is: " + corAnswer2);
-                    var corAnswer3 = corAnswer3X + corAnswer3Y + corAnswer3Z;
+                    corAnswer3 = corAnswer3X + corAnswer3Y + corAnswer3Z;
                     Debug.Log("Correlation of Answer 3 is: " + corAnswer3);
+                    ToCSVCorrelation(corAnswer1, corAnswer2, corAnswer3);
+                    SaveToFile();
+
+
+                    //EyeGazeTxt1 egt = dataMa.eyeGazeData1;
+                    //dataMa.eyeGazeData1.correA1 = corAnswer1;
+                    //dataMa.eyeGazeData1.correA2 = corAnswer2;
+                    //dataMa.eyeGazeData1.correA3 = corAnswer3;
+                    //dataMa.Save();
 
                     if ((corAnswer1X >= 0.7) && (corAnswer1Y > 0.7) && (corAnswer1Z > 0.7)  && (corAnswer1 > corAnswer2) && (corAnswer1 > corAnswer3))
                     {
@@ -272,6 +289,8 @@ public class calcCorrelation : MonoBehaviour
                     }
 
 
+
+                    //Add at end, remove first value
                     Debug.Log("5 miliseconds passed");
                     gaze_x = new double[0];
                     gaze_y = new double[0];
@@ -378,5 +397,31 @@ public class calcCorrelation : MonoBehaviour
 
         return (array1.Length * sum_xy - sum_x * sum_y) /
                Math.Sqrt((array1.Length * sum_xpow2 - Ex2) * (array1.Length * sum_ypow2 - Ey2));
+    }
+
+    public string ToCSVCorrelation(double corAnswer1, double corAnswer2, double corAnswer3)
+    {
+        var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
+        sb.Append('\n').Append(corAnswer1.ToString()).Append(',').Append(corAnswer2.ToString()).Append(',').Append(corAnswer3.ToString());
+        return sb.ToString();
+        
+    }
+
+    public void SaveToFile()
+    {
+        var content = ToCSVCorrelation(corAnswer1, corAnswer2, corAnswer3);
+        string path = GetFilePath(file);
+        FileStream fileStream = new FileStream(path, FileMode.Append, FileAccess.Write);
+        using (StreamWriter writer = new StreamWriter(fileStream))
+        {
+            writer.Write(content);
+            Debug.Log(" Write CSV");
+        }
+
+    }
+
+    private string GetFilePath(string fileName)
+    {
+        return Application.persistentDataPath + "/" + fileName;
     }
 }
