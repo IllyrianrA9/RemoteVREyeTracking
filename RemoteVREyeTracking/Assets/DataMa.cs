@@ -11,8 +11,8 @@ public class DataMa : MonoBehaviour
 
     public void Save()
     {
-        string json = JsonUtility.ToJson(eyeGazeData1, true);
-        WriteToFile(file, json);
+        //string json = JsonUtility.ToJson(eyeGazeData1, true);
+        //string content = WriteToFile(file, json);
     }
 
     private void WriteToFile(string fileName, string json)

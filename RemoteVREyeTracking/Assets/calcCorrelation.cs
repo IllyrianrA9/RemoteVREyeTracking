@@ -72,6 +72,9 @@ public class calcCorrelation : MonoBehaviour
     //waitTime in miliseconds
     public float waitTime = 500;
 
+    //boolean , which shows if we reached the given ms the first time
+    private bool hitGivenMS = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,109 +116,300 @@ public class calcCorrelation : MonoBehaviour
             //getting hit point of eye gaze on Background Screen
             if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
             {
-
-                Debug.Log(hit.transform.name);
-                desktop = hit.collider.gameObject;
-
-                //_gazeX = transform.InverseTransformPoint(hit.point).x;
-                _gazeX = hit.point.x;
-                Debug.Log("X Gaze " + _gazeX);
-
-                //_gazeY = transform.InverseTransformPoint(hit.point).y;
-                _gazeY = hit.point.y;
-                Debug.Log("Y Gaze " + _gazeY);
-                //_gazeZ = transform.InverseTransformPoint(hit.point).z;
-                _gazeZ = hit.point.z;
-                Debug.Log("Z Gaze " + _gazeZ);
-                Debug.Log("Eye gaze points X,Y,Z are saved");
-                //}
-
-                //Resize eye gaze arrays
-                Array.Resize(ref gaze_x, gaze_x.Length + 1);
-                gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
-                Debug.Log("Gaze X coordinates");
-                // (var item in gaze_x)
-                //{
-                //    Debug.Log(item);
-                //}
-
-                Array.Resize(ref gaze_y, gaze_y.Length + 1);
-                gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
-                Debug.Log("Gaze Y coordinates");
-                //foreach( var item in gaze_y)
-                //{
-                //    Debug.Log("Value of Array: " + item);
-                //}
-
-
-                Array.Resize(ref gaze_z, gaze_z.Length + 1);
-                gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                Debug.Log("Gaze Z coordinates");
-
-
-                Debug.Log("Gaze array is resized");
-                //a = rayDirection.X;
-
-                _answerOne_x = answer1.transform.position.x;
-                _answerOne_y = answer1.transform.position.y;
-                _answerOne_z = answer1.transform.position.z;
-                Debug.Log("Anser X " + _answerOne_x);
-                Debug.Log("Anser Y " + _answerOne_y);
-                Debug.Log("Anser Z " + _answerOne_z);
-
-
-                _answerTwo_x = answer2.transform.position.x;
-                _answerTwo_y = answer2.transform.position.y;
-                _answerTwo_z = answer2.transform.position.z;
-
-                _answerThree_x = answer3.transform.position.x;
-                _answerThree_y = answer3.transform.position.y;
-                _answerThree_z = answer3.transform.position.z;
-                Debug.Log("Positions of the answers X,Y,Z are saved in a variable");
-
-                //PUSH VALUE TO ARRAY TO THE LAST SPOT IN THE ARRAY
-                //resize arrays with new gaze points which get retrieved.
-
-                //Resize answerOne array
-                Array.Resize(ref answerOne_x, answerOne_x.Length + 1);
-                answerOne_x[answerOne_x.GetUpperBound(0)] = _answerOne_x;
-                Array.Resize(ref answerOne_y, answerOne_y.Length + 1);
-                answerOne_y[answerOne_y.GetUpperBound(0)] = _answerOne_y;
-                //foreach(var item in answerOne_y)
-                //{
-                //    Debug.Log("Value of Array: " + item);
-                //}
-                Array.Resize(ref answerOne_z, answerOne_z.Length + 1);
-                answerOne_z[answerOne_z.GetUpperBound(0)] = _answerOne_z;
-
-
-                Debug.Log("AnswerOne array is resized");
-
-                //Resize answerTwo array
-                Array.Resize(ref answerTwo_x, answerTwo_x.Length + 1);
-                answerTwo_x[answerTwo_x.GetUpperBound(0)] = _answerTwo_x;
-                Array.Resize(ref answerTwo_y, answerTwo_y.Length + 1);
-                answerTwo_y[answerTwo_y.GetUpperBound(0)] = _answerTwo_y;
-                Array.Resize(ref answerTwo_z, answerTwo_z.Length + 1);
-                answerTwo_z[answerTwo_z.GetUpperBound(0)] = _answerTwo_z;
-
-
-                Debug.Log("AnswerTwo array is resized");
-
-                //Resize answerThree array
-                Array.Resize(ref answerThree_x, answerThree_x.Length + 1);
-                answerThree_x[answerThree_x.GetUpperBound(0)] = _answerThree_x;
-                Array.Resize(ref answerThree_y, answerThree_y.Length + 1);
-                answerThree_y[answerThree_y.GetUpperBound(0)] = _answerThree_y;
-                Array.Resize(ref answerThree_z, answerThree_z.Length + 1);
-                answerThree_z[answerThree_z.GetUpperBound(0)] = _answerThree_z;
-
-
-                Debug.Log("AnswerThree array is resized");
-
-                if (ms >= waitTime)
+                if (hitGivenMS == false)
                 {
-                    ms= 0;
+                    Debug.Log(hit.transform.name);
+                    desktop = hit.collider.gameObject;
+
+                    //_gazeX = transform.InverseTransformPoint(hit.point).x;
+                    _gazeX = hit.point.x;
+                    Debug.Log("X Gaze " + _gazeX);
+
+                    //_gazeY = transform.InverseTransformPoint(hit.point).y;
+                    _gazeY = hit.point.y;
+                    Debug.Log("Y Gaze " + _gazeY);
+                    //_gazeZ = transform.InverseTransformPoint(hit.point).z;
+                    _gazeZ = hit.point.z;
+                    Debug.Log("Z Gaze " + _gazeZ);
+                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                    //}
+
+                    //Resize eye gaze arrays
+                    Array.Resize(ref gaze_x, gaze_x.Length + 1);
+                    gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
+                    Debug.Log("Gaze X coordinates");
+                    //foreach (var item in gaze_x)
+                    //{
+                    //    Debug.Log(item);
+                    //}
+
+                    Array.Resize(ref gaze_y, gaze_y.Length + 1);
+                    gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
+                    Debug.Log("Gaze Y coordinates");
+                    //foreach( var item in gaze_y)
+                    //{
+                    //    Debug.Log("Value of Array: " + item);
+                    //}
+
+
+                    Array.Resize(ref gaze_z, gaze_z.Length + 1);
+                    gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
+                    Debug.Log("Gaze Z coordinates");
+
+
+                    Debug.Log("Gaze array is resized");
+                    //a = rayDirection.X;
+
+                    _answerOne_x = answer1.transform.position.x;
+                    _answerOne_y = answer1.transform.position.y;
+                    _answerOne_z = answer1.transform.position.z;
+                    Debug.Log("Anser X " + _answerOne_x);
+                    Debug.Log("Anser Y " + _answerOne_y);
+                    Debug.Log("Anser Z " + _answerOne_z);
+
+
+                    _answerTwo_x = answer2.transform.position.x;
+                    _answerTwo_y = answer2.transform.position.y;
+                    _answerTwo_z = answer2.transform.position.z;
+
+                    _answerThree_x = answer3.transform.position.x;
+                    _answerThree_y = answer3.transform.position.y;
+                    _answerThree_z = answer3.transform.position.z;
+                    Debug.Log("Positions of the answers X,Y,Z are saved in a variable");
+
+                    //PUSH VALUE TO ARRAY TO THE LAST SPOT IN THE ARRAY
+                    //resize arrays with new gaze points which get retrieved.
+
+                    //Resize answerOne array
+                    Array.Resize(ref answerOne_x, answerOne_x.Length + 1);
+                    answerOne_x[answerOne_x.GetUpperBound(0)] = _answerOne_x;
+                    Array.Resize(ref answerOne_y, answerOne_y.Length + 1);
+                    answerOne_y[answerOne_y.GetUpperBound(0)] = _answerOne_y;
+                    //foreach(var item in answerOne_y)
+                    //{
+                    //    Debug.Log("Value of Array: " + item);
+                    //}
+                    Array.Resize(ref answerOne_z, answerOne_z.Length + 1);
+                    answerOne_z[answerOne_z.GetUpperBound(0)] = _answerOne_z;
+
+
+                    Debug.Log("AnswerOne array is resized");
+
+                    //Resize answerTwo array
+                    Array.Resize(ref answerTwo_x, answerTwo_x.Length + 1);
+                    answerTwo_x[answerTwo_x.GetUpperBound(0)] = _answerTwo_x;
+                    Array.Resize(ref answerTwo_y, answerTwo_y.Length + 1);
+                    answerTwo_y[answerTwo_y.GetUpperBound(0)] = _answerTwo_y;
+                    Array.Resize(ref answerTwo_z, answerTwo_z.Length + 1);
+                    answerTwo_z[answerTwo_z.GetUpperBound(0)] = _answerTwo_z;
+
+
+                    Debug.Log("AnswerTwo array is resized");
+
+                    //Resize answerThree array
+                    Array.Resize(ref answerThree_x, answerThree_x.Length + 1);
+                    answerThree_x[answerThree_x.GetUpperBound(0)] = _answerThree_x;
+                    Array.Resize(ref answerThree_y, answerThree_y.Length + 1);
+                    answerThree_y[answerThree_y.GetUpperBound(0)] = _answerThree_y;
+                    Array.Resize(ref answerThree_z, answerThree_z.Length + 1);
+                    answerThree_z[answerThree_z.GetUpperBound(0)] = _answerThree_z;
+                    Debug.Log("AnswerThree array is resized");
+
+                    if(ms >= waitTime && hitGivenMS == false)
+                    {
+                        Debug.Log("Filling Arrays until 2000ms");
+                        var corAnswer1X = Correlation2(gaze_x, answerOne_x);
+                        Debug.Log("X Correlation " + corAnswer1X);
+                        var corAnswer1Y = Correlation2(gaze_y, answerOne_y);
+                        Debug.Log("Y Correlation " + corAnswer1Y);
+                        var corAnswer1Z = Correlation2(gaze_z, answerOne_z);
+                        Debug.Log("Z Correlation " + corAnswer1Z);
+
+                        var corAnswer2X = Correlation2(gaze_x, answerTwo_x);
+                        var corAnswer2Y = Correlation2(gaze_y, answerTwo_y);
+                        var corAnswer2Z = Correlation2(gaze_z, answerTwo_z);
+
+                        Debug.Log("Correlation of AnswerTwo and Gaze is done");
+
+                        var corAnswer3X = Correlation2(gaze_x, answerThree_x);
+                        var corAnswer3Y = Correlation2(gaze_y, answerThree_y);
+                        var corAnswer3Z = Correlation2(gaze_z, answerThree_z);
+
+                        Debug.Log("Correlation of AnswerThree and Gaze is done");
+
+                        //Correlation to the answers 
+                        corAnswer1 = corAnswer1X + corAnswer1Y + corAnswer1Z;
+                        Debug.Log("Correlation of Answer 1 is: " + corAnswer1);
+                        corAnswer2 = corAnswer2X + corAnswer2Y + corAnswer2Z;
+                        Debug.Log("Correlation of Answer 2 is: " + corAnswer2);
+                        corAnswer3 = corAnswer3X + corAnswer3Y + corAnswer3Z;
+                        Debug.Log("Correlation of Answer 3 is: " + corAnswer3);
+                        ToCSVCorrelation(corAnswer1, corAnswer2, corAnswer3);
+                        SaveToFile();
+
+
+                        //EyeGazeTxt1 egt = dataMa.eyeGazeData1;
+                        //dataMa.eyeGazeData1.correA1 = corAnswer1;
+                        //dataMa.eyeGazeData1.correA2 = corAnswer2;
+                        //dataMa.eyeGazeData1.correA3 = corAnswer3;
+                        //dataMa.Save();
+
+                        if ((corAnswer1X >= 0.7) && (corAnswer1Y > 0.7) && (corAnswer1Z > 0.7) && (corAnswer1 > corAnswer2) && (corAnswer1 > corAnswer3))
+                        {
+                            answerOne_x = new double[0];
+                            answerOne_y = new double[0];
+                            answerOne_z = new double[0];
+
+                            answerTwo_x = new double[0];
+                            answerTwo_y = new double[0];
+                            answerTwo_z = new double[0];
+
+                            answerThree_x = new double[0];
+                            answerThree_y = new double[0];
+                            answerThree_z = new double[0];
+
+                            gaze_x = new double[0];
+                            gaze_y = new double[0];
+                            gaze_z = new double[0];
+                            hitGivenMS = false;
+                            ms = 0;
+
+                            Debug.Log("Answer 1 got chosen");
+                            question.SetActive(false);
+                            answer1.SetActive(false);
+                            answer2.SetActive(false);
+                            answer3.SetActive(false);
+                            activatedGameObject1.SetActive(true);
+                            activatedGameObject2.SetActive(true);
+                            proposedAnswer1.SetActive(true);
+                            
+                        }
+
+                        if ((corAnswer2X >= 0.7) && (corAnswer2Y > 0.7) && (corAnswer2Y > 0.7) && (corAnswer2 > corAnswer1) && (corAnswer2 > corAnswer3))
+                        {
+                            answerOne_x = new double[0];
+                            answerOne_y = new double[0];
+                            answerOne_z = new double[0];
+
+                            answerTwo_x = new double[0];
+                            answerTwo_y = new double[0];
+                            answerTwo_z = new double[0];
+
+                            answerThree_x = new double[0];
+                            answerThree_y = new double[0];
+                            answerThree_z = new double[0];
+
+                            gaze_x = new double[0];
+                            gaze_y = new double[0];
+                            gaze_z = new double[0];
+                            hitGivenMS = false;
+                            ms = 0;
+
+                            Debug.Log("Answer 2 got chosen");
+                            question.SetActive(false);
+                            answer1.SetActive(false);
+                            answer2.SetActive(false);
+                            answer3.SetActive(false);
+                            activatedGameObject1.SetActive(true);
+                            activatedGameObject2.SetActive(true);
+                            proposedAnswer2.SetActive(true);
+                            
+                        }
+
+                        if ((corAnswer3X >= 0.7) && (corAnswer3Y > 0.7) && (corAnswer3Z > 0.7) && (corAnswer3 > corAnswer2) && (corAnswer3 > corAnswer1))
+                        {
+                            answerOne_x = new double[0];
+                            answerOne_y = new double[0];
+                            answerOne_z = new double[0];
+
+                            answerTwo_x = new double[0];
+                            answerTwo_y = new double[0];
+                            answerTwo_z = new double[0];
+
+                            answerThree_x = new double[0];
+                            answerThree_y = new double[0];
+                            answerThree_z = new double[0];
+
+                            gaze_x = new double[0];
+                            gaze_y = new double[0];
+                            gaze_z = new double[0];
+
+                            hitGivenMS = false;
+                            ms = 0;
+                            Debug.Log("Answer 3 got chosen");
+                            question.SetActive(false);
+                            answer1.SetActive(false);
+                            answer2.SetActive(false);
+                            answer3.SetActive(false);
+                            activatedGameObject1.SetActive(true);
+                            activatedGameObject2.SetActive(true);
+                            proposedAnswer3.SetActive(true);
+                            
+                        }
+                    }
+
+                }
+
+                else if (ms >= waitTime && hitGivenMS)
+                {
+                    Debug.Log("Calculate correlation for every new point");
+                    Debug.Log(hit.transform.name);
+                    desktop = hit.collider.gameObject;
+
+                    //_gazeX = transform.InverseTransformPoint(hit.point).x;
+                    _gazeX = hit.point.x;
+                    Debug.Log("X Gaze " + _gazeX);
+
+                    //_gazeY = transform.InverseTransformPoint(hit.point).y;
+                    _gazeY = hit.point.y;
+                    Debug.Log("Y Gaze " + _gazeY);
+                    //_gazeZ = transform.InverseTransformPoint(hit.point).z;
+                    _gazeZ = hit.point.z;
+                    Debug.Log("Z Gaze " + _gazeZ);
+                    Debug.Log("Eye gaze points X,Y,Z are saved");
+
+                    
+                    gaze_x = dropValuesOfArray(gaze_x, _gazeX);
+                    foreach (var item in gaze_x)
+                    {
+                        Debug.Log(item);
+                    }
+                    gaze_y = dropValuesOfArray(gaze_y, _gazeY);
+                    gaze_z = dropValuesOfArray(gaze_z, _gazeZ);
+
+
+                    _answerOne_x = answer1.transform.position.x;
+                    _answerOne_y = answer1.transform.position.y;
+                    _answerOne_z = answer1.transform.position.z;
+                    Debug.Log("Anser X " + _answerOne_x);
+                    Debug.Log("Anser Y " + _answerOne_y);
+                    Debug.Log("Anser Z " + _answerOne_z);
+
+
+                    _answerTwo_x = answer2.transform.position.x;
+                    _answerTwo_y = answer2.transform.position.y;
+                    _answerTwo_z = answer2.transform.position.z;
+
+                    _answerThree_x = answer3.transform.position.x;
+                    _answerThree_y = answer3.transform.position.y;
+                    _answerThree_z = answer3.transform.position.z;
+                    Debug.Log("Positions of the answers X,Y,Z are saved in a variable");
+
+
+                    // ADD 1, REMOVE FIRST OF POSITION
+                    answerOne_x = dropValuesOfArray(answerOne_x, _answerOne_x);
+                    answerOne_y = dropValuesOfArray(answerOne_y, _answerOne_y);
+                    answerOne_z = dropValuesOfArray(answerOne_z, _answerOne_z);
+
+                    answerTwo_x =dropValuesOfArray(answerTwo_x, _answerTwo_x);
+                    answerTwo_y = dropValuesOfArray(answerTwo_y, _answerTwo_y);
+                    answerTwo_z = dropValuesOfArray(answerTwo_z, _answerTwo_z);
+
+                    answerThree_x = dropValuesOfArray(answerThree_x, _answerThree_x);
+                    answerThree_y = dropValuesOfArray(answerThree_y, _answerThree_y);
+                    answerThree_z = dropValuesOfArray(answerThree_z, _answerThree_z);
+
+
                     var corAnswer1X = Correlation2(gaze_x, answerOne_x);
                     Debug.Log("X Correlation " + corAnswer1X);
                     var corAnswer1Y = Correlation2(gaze_y, answerOne_y);
@@ -254,6 +448,24 @@ public class calcCorrelation : MonoBehaviour
 
                     if ((corAnswer1X >= 0.7) && (corAnswer1Y > 0.7) && (corAnswer1Z > 0.7)  && (corAnswer1 > corAnswer2) && (corAnswer1 > corAnswer3))
                     {
+                        answerOne_x = new double[0];
+                        answerOne_y = new double[0];
+                        answerOne_z = new double[0];
+
+                        answerTwo_x = new double[0];
+                        answerTwo_y = new double[0];
+                        answerTwo_z = new double[0];
+
+                        answerThree_x = new double[0];
+                        answerThree_y = new double[0];
+                        answerThree_z = new double[0];
+
+                        gaze_x = new double[0];
+                        gaze_y = new double[0];
+                        gaze_z = new double[0];
+                        hitGivenMS = false;
+                        ms = 0;
+
                         Debug.Log("Answer 1 got chosen");
                         question.SetActive(false);
                         answer1.SetActive(false);
@@ -266,6 +478,24 @@ public class calcCorrelation : MonoBehaviour
 
                     if ((corAnswer2X >= 0.7) && (corAnswer2Y > 0.7) && (corAnswer2Y > 0.7) &&  (corAnswer2 > corAnswer1) && (corAnswer2 > corAnswer3))
                     {
+                        answerOne_x = new double[0];
+                        answerOne_y = new double[0];
+                        answerOne_z = new double[0];
+
+                        answerTwo_x = new double[0];
+                        answerTwo_y = new double[0];
+                        answerTwo_z = new double[0];
+
+                        answerThree_x = new double[0];
+                        answerThree_y = new double[0];
+                        answerThree_z = new double[0];
+
+                        gaze_x = new double[0];
+                        gaze_y = new double[0];
+                        gaze_z = new double[0];
+                        hitGivenMS = false;
+                        ms = 0;
+
                         Debug.Log("Answer 2 got chosen");
                         question.SetActive(false);
                         answer1.SetActive(false);
@@ -278,6 +508,25 @@ public class calcCorrelation : MonoBehaviour
 
                     if ((corAnswer3X >= 0.7) && (corAnswer3Y > 0.7) && (corAnswer3Z > 0.7)  && (corAnswer3 > corAnswer2) && (corAnswer3 > corAnswer1))
                     {
+                        answerOne_x = new double[0];
+                        answerOne_y = new double[0];
+                        answerOne_z = new double[0];
+
+                        answerTwo_x = new double[0];
+                        answerTwo_y = new double[0];
+                        answerTwo_z = new double[0];
+
+                        answerThree_x = new double[0];
+                        answerThree_y = new double[0];
+                        answerThree_z = new double[0];
+
+                        gaze_x = new double[0];
+                        gaze_y = new double[0];
+                        gaze_z = new double[0];
+
+                        hitGivenMS = false;
+                        ms = 0;
+
                         Debug.Log("Answer 3 got chosen");
                         question.SetActive(false);
                         answer1.SetActive(false);
@@ -287,41 +536,12 @@ public class calcCorrelation : MonoBehaviour
                         activatedGameObject2.SetActive(true);
                         proposedAnswer3.SetActive(true);
                     }
+                }
 
-
-
-                    //Add at end, remove first value
-                    Debug.Log("5 miliseconds passed");
-                    gaze_x = new double[0];
-                    gaze_y = new double[0];
-                    gaze_z = new double[0];
-                    //Array.Clear(gaze_x, 0, gaze_x.Length);
-                    //Array.Clear(gaze_y, 0, gaze_y.Length);
-                    //Array.Clear(gaze_z, 0, gaze_z.Length);
-
-
-                    answerOne_x = new double[0];
-                    answerOne_y = new double[0];
-                    answerOne_z = new double[0];
-                    //Array.Clear(answerOne_x, 0, answerOne_x.Length);
-                    //Array.Clear(answerOne_y, 0, answerOne_y.Length);
-                    //Array.Clear(answerOne_z, 0, answerOne_z.Length);
-
-                    answerTwo_x = new double[0];
-                    answerTwo_y = new double[0];
-                    answerTwo_z = new double[0];
-                    //Array.Clear(answerTwo_x, 0, answerTwo_x.Length);
-                    //Array.Clear(answerTwo_y, 0, answerTwo_y.Length);
-                    //Array.Clear(answerTwo_z, 0, answerTwo_z.Length);
-
-                    answerThree_x = new double[0];
-                    answerThree_y = new double[0];
-                    answerThree_z = new double[0];
-                    //Array.Clear(answerThree_x, 0, answerThree_x.Length);
-                    //Array.Clear(answerThree_y, 0, answerThree_y.Length);
-                    //Array.Clear(answerThree_z, 0, answerThree_z.Length);
-
-                    Debug.Log("All arrays have been cleared");
+                if(ms >= waitTime  && hitGivenMS == false)
+                {
+                    hitGivenMS = true;
+                    Debug.Log("boolean is true now");
                 }
             }
         }
@@ -423,5 +643,21 @@ public class calcCorrelation : MonoBehaviour
     private string GetFilePath(string fileName)
     {
         return Application.persistentDataPath + "/" + fileName;
+    }
+
+    private double[] dropValuesOfArray(double[] arr, double lastValue)
+    {
+        for(int i = 0; i < arr.Length; i++)
+        {
+            if(i <arr.Length - 1)
+            {
+                arr[i] = arr[i + 1];
+            }
+            if(i == arr.Length - 1)
+            {
+                arr[i] = lastValue;
+            }
+        }
+        return arr;
     }
 }

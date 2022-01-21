@@ -26,7 +26,7 @@ public class GetEyeGazeInformation : MonoBehaviour
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
-                Debug.Log("The name of the circle is " + dataMa.eyeGazeData1.name);
+                //Debug.Log("The name of the circle is " + dataMa.eyeGazeData1.name);
                 dataMa.Save();
                 timeLeft = 0.5f;
             }
