@@ -5,6 +5,7 @@ using UnityEngine;
 using Tobii.G2OM;
 using Tobii.XR;
 using Random = UnityEngine.Random;
+using System.Linq;
 
 
 public class AccuracyCheck : MonoBehaviour
@@ -929,6 +930,8 @@ public class AccuracyCheck : MonoBehaviour
             meanZ = meanofArray(gaze_z);
             //check if accuracy is fine
 
+            //WICHTIG
+            double std = standardDeviation(gaze_x);
 
             double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
@@ -968,5 +971,18 @@ public class AccuracyCheck : MonoBehaviour
         }
         // finally, let's decrement Array's size by one
         Array.Resize(ref arr, arr.Length - 1);
+    }
+
+    private double standardDeviation(IEnumerable<double> sequence)
+    {
+        double result = 0;
+
+        if (sequence.Any())
+        {
+            double average = sequence.Average();
+            double sum = sequence.Sum(d => Math.Pow(d - average, 2));
+            result = Math.Sqrt((sum) / (sequence.Count() - 1));
+        }
+        return result;
     }
 }
