@@ -43,6 +43,34 @@ public class AccuracyCheck : MonoBehaviour
     int current = 0;
     int counter = 0;
 
+    //Boolean to enable accuracy and precision calculation (only calculate once)
+    private bool isCalculatedCircle1 = false;
+    private bool isCalculatedCircle2 = false;
+    private bool isCalculatedCircle3 = false;
+    private bool isCalculatedCircle4 = false;
+    private bool isCalculatedCircle5 = false;
+    private bool isCalculatedCircle6 = false;
+    private bool isCalculatedCircle7 = false;
+    private bool isCalculatedCircle8 = false;
+    private bool isCalculatedCircle9 = false;
+
+
+    private bool isValidOrNotCircle1 = false;
+    private bool isValidOrNotCircle2 = false;
+    private bool isValidOrNotCircle3 = false;
+    private bool isValidOrNotCircle4 = false;
+    private bool isValidOrNotCircle5 = false;
+    private bool isValidOrNotCircle6 = false;
+    private bool isValidOrNotCircle7 = false;
+    private bool isValidOrNotCircle8 = false;
+    private bool isValidOrNotCircle9 = false;
+
+    Vector3 blackPosition;
+
+    //Counter to see how many eye gaze samples are valid or not
+    int validGazeData = 0;
+    int invalidGazeData = 0;
+
     //waitTime in miliseconds
     //public float showCircle = 2000;
 
@@ -66,6 +94,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
+                blackPosition = blackCircles[current].transform.position;
                 counter += 1;
                 Debug.Log("Counter" + counter);
             }
@@ -119,32 +148,86 @@ public class AccuracyCheck : MonoBehaviour
                     Debug.Log("Eye gaze points X,Y,Z are saved");
                     //}
 
-                    //Resize eye gaze arrays
-                    Array.Resize(ref gaze_x, gaze_x.Length + 1);
-                    gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
+                    //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
+                    if(msShowCircle >= 2800 && msShowCircle <= 3800)
+                    {
+                        validGazeData += 1;
+                        //Resize eye gaze arrays
+                        Array.Resize(ref gaze_x, gaze_x.Length + 1);
+                        gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
 
-                    Array.Resize(ref gaze_y, gaze_y.Length + 1);
-                    gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
+                        Array.Resize(ref gaze_y, gaze_y.Length + 1);
+                        gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
 
-                    Array.Resize(ref gaze_z, gaze_z.Length + 1);
-                    gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                    Debug.Log("Gaze Z coordinates");
-                    Debug.Log("Gaze array is resized");
+                        Array.Resize(ref gaze_z, gaze_z.Length + 1);
+                        gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
+                        Debug.Log("Gaze Z coordinates");
+                        Debug.Log("Gaze array is resized");
+                    }
                 }
+            }
+            //Prerequisite 0: 80% of data should be valid for analysis
+            if (!(eyeTrackingData.GazeRay.IsValid) && msShowCircle >= 2800 && msShowCircle <= 3800)
+            {
+                invalidGazeData += 1;
+            }
+            if(invalidGazeData != 0 && validGazeData != 0  && msShowCircle > 3800 && isValidOrNotCircle1 == false)
+            {
+                double validData = invalidGazeData / validGazeData;
+                Debug.Log("Percentage of valid data: " + validData +"for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle1 = true;
+            }
+            if(validGazeData == 0 && msShowCircle > 3800 && isValidOrNotCircle1 == false)
+            {
+                Debug.Log("During this point there was no eye tracking possible!");
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle1 = true;
+            }
+            if(invalidGazeData == 0 && msShowCircle > 3800 && isValidOrNotCircle1 == false)
+            {
+                Debug.Log("Percentage of valid data: 100% for circle "+ listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle1 = true;
             }
         }
     
-        if (msShowCircle >= 4000 && counter == 1)
+        if (msShowCircle >= 3800 && counter == 1 && isCalculatedCircle1 == false)
         {
+            //Prerequisite 2: Mean of Gaze (soll nicht größer 5% sein)
             meanX = meanofArray(gaze_x);
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
-            double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
+            Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
+            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+
+
+            //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
+            double stdGazeX = standardDeviation(gaze_x);
+            double stdGazeY = standardDeviation(gaze_y);
+            double stdGazeZ = standardDeviation(gaze_z);
+            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            Debug.Log("SDPrecision: " + sdPrecision);
+            //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
+            isCalculatedCircle1 = true;
+        }
+        if(msShowCircle >= 4000 && counter == 1)
+        {
             listOfCircles2[current].SetActive(false);
-            
+
             listOfCircles2.RemoveAt(current);
+            blackCircles.RemoveAt(current);
             //RemoveAt(listOfCircles, current);
+            gaze_x = new double[0];
+            gaze_y = new double[0];
+            gaze_z = new double[0];
+           
+
         }
 
 
@@ -162,6 +245,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
+                blackPosition = blackCircles[current].transform.position;
                 counter += 1;
                 Debug.Log("Counter" + counter);
             }
@@ -214,34 +298,88 @@ public class AccuracyCheck : MonoBehaviour
                     Debug.Log("Eye gaze points X,Y,Z are saved");
                     //}
 
-                    //Resize eye gaze arrays
-                    Array.Resize(ref gaze_x, gaze_x.Length + 1);
-                    gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
+                    //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
+                    if (msShowCircle >= 4800 && msShowCircle <= 5800)
+                    {
+                        validGazeData += 1;
+                        //Resize eye gaze arrays
+                        Array.Resize(ref gaze_x, gaze_x.Length + 1);
+                        gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
 
-                    Array.Resize(ref gaze_y, gaze_y.Length + 1);
-                    gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
+                        Array.Resize(ref gaze_y, gaze_y.Length + 1);
+                        gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
 
-                    Array.Resize(ref gaze_z, gaze_z.Length + 1);
-                    gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                    Debug.Log("Gaze Z coordinates");
-                    Debug.Log("Gaze array is resized");
+                        Array.Resize(ref gaze_z, gaze_z.Length + 1);
+                        gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
+                        Debug.Log("Gaze Z coordinates");
+                        Debug.Log("Gaze array is resized");
+                    }
                 }
+            }
+            //Prerequisite 0: 80% of data should be valid for analysis
+            if (!(eyeTrackingData.GazeRay.IsValid) && msShowCircle >= 4800 && msShowCircle <= 5800)
+            {
+                invalidGazeData += 1;
+            }
+            if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 5800 && isValidOrNotCircle2 == false)
+            {
+                double validData = invalidGazeData / validGazeData;
+                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle2 = true;
+            }
+            if (validGazeData == 0 && msShowCircle > 5800 && isValidOrNotCircle2 == false)
+            {
+                Debug.Log("During this point there was no eye tracking possible!");
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle2 = true;
+            }
+            if (invalidGazeData == 0 && msShowCircle > 5800 && isValidOrNotCircle2 == false)
+            {
+                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle2 = true;
             }
 
         }
 
 
-        if (msShowCircle >= 6000 && counter == 2 )
+        if (msShowCircle >= 5800 && counter == 2 && isCalculatedCircle2 == false)
         {
+            //Prerequisite 2: Mean of Gaze (soll nicht größer 5% sein)
             meanX = meanofArray(gaze_x);
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
-            double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
+            Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
+            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+
+
+            //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
+            double stdGazeX = standardDeviation(gaze_x);
+            double stdGazeY = standardDeviation(gaze_y);
+            double stdGazeZ = standardDeviation(gaze_z);
+            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            Debug.Log("SDPrecision: " + sdPrecision);
+            //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
+            isCalculatedCircle2 = true;
+        }
+        if (msShowCircle >= 6000 && counter == 2)
+        {
             listOfCircles2[current].SetActive(false);
 
-            //RemoveAt(listOfCircles, current);
             listOfCircles2.RemoveAt(current);
+            blackCircles.RemoveAt(current);
+            //RemoveAt(listOfCircles, current);
+            gaze_x = new double[0];
+            gaze_y = new double[0];
+            gaze_z = new double[0];
+           
+
         }
 
 
@@ -260,6 +398,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
+                blackPosition = blackCircles[current].transform.position;
                 counter += 1;
                 Debug.Log("Counter" + counter);
             }
@@ -313,33 +452,88 @@ public class AccuracyCheck : MonoBehaviour
                     Debug.Log("Eye gaze points X,Y,Z are saved");
                     //}
 
-                    //Resize eye gaze arrays
-                    Array.Resize(ref gaze_x, gaze_x.Length + 1);
-                    gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
+                    //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
+                    if (msShowCircle >= 6800 && msShowCircle <= 7800)
+                    {
+                        validGazeData += 1;
+                        //Resize eye gaze arrays
+                        Array.Resize(ref gaze_x, gaze_x.Length + 1);
+                        gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
 
-                    Array.Resize(ref gaze_y, gaze_y.Length + 1);
-                    gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
+                        Array.Resize(ref gaze_y, gaze_y.Length + 1);
+                        gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
 
-                    Array.Resize(ref gaze_z, gaze_z.Length + 1);
-                    gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                    Debug.Log("Gaze Z coordinates");
-                    Debug.Log("Gaze array is resized");
+                        Array.Resize(ref gaze_z, gaze_z.Length + 1);
+                        gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
+                        Debug.Log("Gaze Z coordinates");
+                        Debug.Log("Gaze array is resized");
+                    }
                 }
+            }
+            //Prerequisite 0: 80% of data should be valid for analysis
+            if (!(eyeTrackingData.GazeRay.IsValid) && msShowCircle >= 6800 && msShowCircle <= 7800)
+            {
+                invalidGazeData += 1;
+            }
+            if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 7800 &&isValidOrNotCircle3 == false)
+            {
+                double validData = invalidGazeData / validGazeData;
+                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle3 = true;
+            }
+            if (validGazeData == 0 && msShowCircle > 7800 && isValidOrNotCircle3 == false)
+            {
+                Debug.Log("During this point there was no eye tracking possible!");
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle3 = true;
+            }
+            if (invalidGazeData == 0 && msShowCircle > 7800 && isValidOrNotCircle3 == false)
+            {
+                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                invalidGazeData = 0;
+                validGazeData = 0;
+                isValidOrNotCircle3 = true;
             }
 
         }
 
-        if (msShowCircle >= 8000 && counter== 3)
+        if (msShowCircle >= 7800 && counter== 3 && isCalculatedCircle3 == false)
         {
+            //Prerequisite 2: Mean of Gaze (soll nicht größer 5% sein)
             meanX = meanofArray(gaze_x);
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
-            double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
+            Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
+            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+
+
+            //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
+            double stdGazeX = standardDeviation(gaze_x);
+            double stdGazeY = standardDeviation(gaze_y);
+            double stdGazeZ = standardDeviation(gaze_z);
+            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            Debug.Log("SDPrecision: " + sdPrecision);
+            //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
+            isCalculatedCircle3 = true;
+
+        }
+        if (msShowCircle >= 8000 && counter == 3)
+        {
             listOfCircles2[current].SetActive(false);
 
-            //RemoveAt(listOfCircles, current);
             listOfCircles2.RemoveAt(current);
+            blackCircles.RemoveAt(current);
+            //RemoveAt(listOfCircles, current);
+            gaze_x = new double[0];
+            gaze_y = new double[0];
+            gaze_z = new double[0];
+            
+
         }
 
 
@@ -357,6 +551,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
+                blackPosition = blackCircles[current].transform.position;
                 counter += 1;
                 Debug.Log("Counter" + counter);
             }
@@ -410,33 +605,89 @@ public class AccuracyCheck : MonoBehaviour
                     Debug.Log("Eye gaze points X,Y,Z are saved");
                     //}
 
-                    //Resize eye gaze arrays
-                    Array.Resize(ref gaze_x, gaze_x.Length + 1);
-                    gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
 
-                    Array.Resize(ref gaze_y, gaze_y.Length + 1);
-                    gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
+                    //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
+                    if (msShowCircle >= 8800 && msShowCircle <= 9800)
+                    {
+                        validGazeData += 1;
+                        //Resize eye gaze arrays
+                        Array.Resize(ref gaze_x, gaze_x.Length + 1);
+                        gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
 
-                    Array.Resize(ref gaze_z, gaze_z.Length + 1);
-                    gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                    Debug.Log("Gaze Z coordinates");
-                    Debug.Log("Gaze array is resized");
+                        Array.Resize(ref gaze_y, gaze_y.Length + 1);
+                        gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
+
+                        Array.Resize(ref gaze_z, gaze_z.Length + 1);
+                        gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
+                        Debug.Log("Gaze Z coordinates");
+                        Debug.Log("Gaze array is resized");
+                    }
                 }
+            }
+            //Prerequisite 0: 80% of data should be valid for analysis
+            if (!(eyeTrackingData.GazeRay.IsValid) && msShowCircle >= 8800 && msShowCircle <= 9800)
+            {
+                invalidGazeData += 1;
+            }
+            if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 9800 && isValidOrNotCircle4 == false)
+            {
+                double validData = invalidGazeData / validGazeData;
+                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle4 = true;
+            }
+            if (validGazeData == 0 && msShowCircle > 9800 && isValidOrNotCircle4 == false)
+            {
+                Debug.Log("During this point there was no eye tracking possible!");
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle4 = true;
+            }
+            if (invalidGazeData == 0 && msShowCircle > 9800 && isValidOrNotCircle4 == false)
+            {
+                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle4 = true;
             }
 
         }
 
-        if (msShowCircle >= 10000 && counter == 4)
+        if (msShowCircle >= 9800 && counter == 4 && isCalculatedCircle4 == false)
         {
+            //Prerequisite 2: Mean of Gaze (soll nicht größer 5% sein)
             meanX = meanofArray(gaze_x);
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
-            double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
+            Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
+            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+
+
+            //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
+            double stdGazeX = standardDeviation(gaze_x);
+            double stdGazeY = standardDeviation(gaze_y);
+            double stdGazeZ = standardDeviation(gaze_z);
+            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            Debug.Log("SDPrecision: " + sdPrecision);
+            //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
+            isCalculatedCircle4 = true;
 
+        }
+        if (msShowCircle >= 10000 && counter == 4)
+        {
             listOfCircles2[current].SetActive(false);
+
             listOfCircles2.RemoveAt(current);
+            blackCircles.RemoveAt(current);
+            //RemoveAt(listOfCircles, current);
+            gaze_x = new double[0];
+            gaze_y = new double[0];
+            gaze_z = new double[0];
+
         }
 
 
@@ -454,6 +705,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
+                blackPosition = blackCircles[current].transform.position;
 
                 counter += 1;
                 Debug.Log("Counter" + counter);
@@ -508,33 +760,89 @@ public class AccuracyCheck : MonoBehaviour
                     Debug.Log("Eye gaze points X,Y,Z are saved");
                     //}
 
-                    //Resize eye gaze arrays
-                    Array.Resize(ref gaze_x, gaze_x.Length + 1);
-                    gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
+                    //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
+                    if (msShowCircle >= 10800 && msShowCircle <= 11800)
+                    {
+                        validGazeData += 1;
+                        //Resize eye gaze arrays
+                        Array.Resize(ref gaze_x, gaze_x.Length + 1);
+                        gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
 
-                    Array.Resize(ref gaze_y, gaze_y.Length + 1);
-                    gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
+                        Array.Resize(ref gaze_y, gaze_y.Length + 1);
+                        gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
 
-                    Array.Resize(ref gaze_z, gaze_z.Length + 1);
-                    gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                    Debug.Log("Gaze Z coordinates");
-                    Debug.Log("Gaze array is resized");
+                        Array.Resize(ref gaze_z, gaze_z.Length + 1);
+                        gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
+                        Debug.Log("Gaze Z coordinates");
+                        Debug.Log("Gaze array is resized");
+                    }
                 }
+            }
+            //Prerequisite 0: 80% of data should be valid for analysis
+            if (!(eyeTrackingData.GazeRay.IsValid) && msShowCircle >= 10800 && msShowCircle <= 11800)
+            {
+                invalidGazeData += 1;
+            }
+            if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 11800 && isValidOrNotCircle5 == false)
+            {
+                double validData = invalidGazeData / validGazeData;
+                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle5 = true;
+            }
+
+            if (validGazeData == 0 && msShowCircle > 11800 && isValidOrNotCircle5 == false)
+            {
+                Debug.Log("During this point there was no eye tracking possible!");
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle5 = true;
+            }
+            if (invalidGazeData == 0 && msShowCircle > 11800 && isValidOrNotCircle5 == false)
+            {
+                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle5 = true;
             }
 
         }
 
-        if (msShowCircle >= 12000 && counter == 5)
+        if (msShowCircle >= 11800 && counter == 5 && isCalculatedCircle5 == false)
         {
+            //Prerequisite 2: Mean of Gaze (soll nicht größer 5% sein)
             meanX = meanofArray(gaze_x);
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
-            double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
+            Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
+            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+
+
+            //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
+            double stdGazeX = standardDeviation(gaze_x);
+            double stdGazeY = standardDeviation(gaze_y);
+            double stdGazeZ = standardDeviation(gaze_z);
+            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            Debug.Log("SDPrecision: " + sdPrecision);
+            //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
+            isCalculatedCircle5 = true;
+        }
 
+        if (msShowCircle >= 12000 && counter == 5)
+        {
             listOfCircles2[current].SetActive(false);
+
             listOfCircles2.RemoveAt(current);
+            blackCircles.RemoveAt(current);
+            //RemoveAt(listOfCircles, current);
+            gaze_x = new double[0];
+            gaze_y = new double[0];
+            gaze_z = new double[0];
+           
         }
 
 
@@ -553,6 +861,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
+                blackPosition = blackCircles[current].transform.position;
                 counter += 1;
                 Debug.Log("Counter" + counter);
             }
@@ -606,33 +915,89 @@ public class AccuracyCheck : MonoBehaviour
                     Debug.Log("Eye gaze points X,Y,Z are saved");
                     //}
 
-                    //Resize eye gaze arrays
-                    Array.Resize(ref gaze_x, gaze_x.Length + 1);
-                    gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
+                    //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
+                    if (msShowCircle >= 12800 && msShowCircle <= 13800)
+                    {
+                        validGazeData += 1;
+                        //Resize eye gaze arrays
+                        Array.Resize(ref gaze_x, gaze_x.Length + 1);
+                        gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
 
-                    Array.Resize(ref gaze_y, gaze_y.Length + 1);
-                    gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
+                        Array.Resize(ref gaze_y, gaze_y.Length + 1);
+                        gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
 
-                    Array.Resize(ref gaze_z, gaze_z.Length + 1);
-                    gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                    Debug.Log("Gaze Z coordinates");
-                    Debug.Log("Gaze array is resized");
+                        Array.Resize(ref gaze_z, gaze_z.Length + 1);
+                        gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
+                        Debug.Log("Gaze Z coordinates");
+                        Debug.Log("Gaze array is resized");
+                    }
                 }
+            }
+            //Prerequisite 0: 80% of data should be valid for analysis
+            if (!(eyeTrackingData.GazeRay.IsValid) && msShowCircle >= 12800 && msShowCircle <= 13800)
+            {
+                invalidGazeData += 1;
+            }
+            if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 13800 && isValidOrNotCircle6 == false)
+            {
+                double validData = invalidGazeData / validGazeData;
+                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle6 = true;
+            }
+            if (validGazeData == 0 && msShowCircle > 13800 && isValidOrNotCircle6 == false)
+            {
+                Debug.Log("During this point there was no eye tracking possible!");
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle6 = true;
+            }
+            if (invalidGazeData == 0 && msShowCircle > 13800 && isValidOrNotCircle6 == false)
+            {
+                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle6 = true;
             }
 
         }
 
-        if (msShowCircle >= 14000 && counter ==6)
+        if (msShowCircle >= 13800 && counter ==6 && isCalculatedCircle6 == false)
         {
+            //Prerequisite 2: Mean of Gaze (soll nicht größer 5% sein)
             meanX = meanofArray(gaze_x);
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
-            double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
+            Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
+            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+
+
+            //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
+            double stdGazeX = standardDeviation(gaze_x);
+            double stdGazeY = standardDeviation(gaze_y);
+            double stdGazeZ = standardDeviation(gaze_z);
+            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            Debug.Log("SDPrecision: " + sdPrecision);
+            //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
+            isCalculatedCircle6 = true;
 
+        }
+        if (msShowCircle >= 14000 && counter == 6)
+        {
             listOfCircles2[current].SetActive(false);
+
             listOfCircles2.RemoveAt(current);
+            blackCircles.RemoveAt(current);
+            //RemoveAt(listOfCircles, current);
+            gaze_x = new double[0];
+            gaze_y = new double[0];
+            gaze_z = new double[0];
+            
+
         }
 
 
@@ -652,6 +1017,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
+                blackPosition = blackCircles[current].transform.position;
                 counter += 1;
                 Debug.Log("Counter" + counter);
             }
@@ -705,33 +1071,89 @@ public class AccuracyCheck : MonoBehaviour
                     Debug.Log("Eye gaze points X,Y,Z are saved");
                     //}
 
-                    //Resize eye gaze arrays
-                    Array.Resize(ref gaze_x, gaze_x.Length + 1);
-                    gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
+                    //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
+                    if (msShowCircle >= 14800 && msShowCircle <= 15800)
+                    {
+                        validGazeData += 1;
+                        //Resize eye gaze arrays
+                        Array.Resize(ref gaze_x, gaze_x.Length + 1);
+                        gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
 
-                    Array.Resize(ref gaze_y, gaze_y.Length + 1);
-                    gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
+                        Array.Resize(ref gaze_y, gaze_y.Length + 1);
+                        gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
 
-                    Array.Resize(ref gaze_z, gaze_z.Length + 1);
-                    gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                    Debug.Log("Gaze Z coordinates");
-                    Debug.Log("Gaze array is resized");
+                        Array.Resize(ref gaze_z, gaze_z.Length + 1);
+                        gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
+                        Debug.Log("Gaze Z coordinates");
+                        Debug.Log("Gaze array is resized");
+                    }
                 }
+            }
+            //Prerequisite 0: 80% of data should be valid for analysis
+            if (!(eyeTrackingData.GazeRay.IsValid) && msShowCircle >= 14800 && msShowCircle <= 15800)
+            {
+                invalidGazeData += 1;
+            }
+            if (invalidGazeData != 0 && validGazeData != 0  && msShowCircle > 15800 && isValidOrNotCircle7 == false)
+            {
+                double validData = invalidGazeData / validGazeData;
+                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle7 = true;
+            }
+            if (validGazeData == 0 && msShowCircle > 15800 && isValidOrNotCircle7 == false)
+            {
+                Debug.Log("During this point there was no eye tracking possible!");
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle7 = true;
+            }
+            if (invalidGazeData == 0 && msShowCircle > 15800 && isValidOrNotCircle7 == false)
+            {
+                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle7 = true;
             }
 
         }
 
-        if (msShowCircle >= 16000 && counter == 7)
+        if (msShowCircle >= 15800 && counter == 7 && isCalculatedCircle7 == false)
         {
+            //Prerequisite 2: Mean of Gaze (soll nicht größer 5% sein)
             meanX = meanofArray(gaze_x);
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
-            double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
+            Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
+            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+
+
+            //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
+            double stdGazeX = standardDeviation(gaze_x);
+            double stdGazeY = standardDeviation(gaze_y);
+            double stdGazeZ = standardDeviation(gaze_z);
+            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            Debug.Log("SDPrecision: " + sdPrecision);
+            //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
+            isCalculatedCircle7 = true;
 
+        }
+
+        if (msShowCircle >=16000 && counter == 7)
+        {
             listOfCircles2[current].SetActive(false);
+
             listOfCircles2.RemoveAt(current);
+            blackCircles.RemoveAt(current);
+            //RemoveAt(listOfCircles, current);
+            gaze_x = new double[0];
+            gaze_y = new double[0];
+            gaze_z = new double[0];
+
         }
 
 
@@ -752,6 +1174,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
+                blackPosition = blackCircles[current].transform.position;
                 counter += 1;
                 Debug.Log("Counter" + counter);
             }
@@ -805,33 +1228,95 @@ public class AccuracyCheck : MonoBehaviour
                     Debug.Log("Eye gaze points X,Y,Z are saved");
                     //}
 
-                    //Resize eye gaze arrays
-                    Array.Resize(ref gaze_x, gaze_x.Length + 1);
-                    gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
+                    //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
+                    if (msShowCircle >= 16800 && msShowCircle <= 17800)
+                    {
+                        validGazeData += 1;
+                        //Resize eye gaze arrays
+                        Array.Resize(ref gaze_x, gaze_x.Length + 1);
+                        gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
 
-                    Array.Resize(ref gaze_y, gaze_y.Length + 1);
-                    gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
+                        Array.Resize(ref gaze_y, gaze_y.Length + 1);
+                        gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
 
-                    Array.Resize(ref gaze_z, gaze_z.Length + 1);
-                    gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                    Debug.Log("Gaze Z coordinates");
-                    Debug.Log("Gaze array is resized");
+                        Array.Resize(ref gaze_z, gaze_z.Length + 1);
+                        gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
+                        Debug.Log("Gaze Z coordinates");
+                        Debug.Log("Gaze array is resized");
+                    }
                 }
             }
+            //Prerequisite 0: 80% of data should be valid for analysis
+            if (!(eyeTrackingData.GazeRay.IsValid) && msShowCircle >= 16800 && msShowCircle <= 17800)
+            {
+                invalidGazeData += 1;
+            }
+            if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 17800 && isValidOrNotCircle8 == false)
+            {
+                double validData = invalidGazeData / validGazeData;
+                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle8 = true;
+            }
+            if (validGazeData == 0 && msShowCircle > 17800 && isValidOrNotCircle8 == false)
+            {
+                Debug.Log("During this point there was no eye tracking possible!");
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle8 = true;
+            }
+            if (invalidGazeData == 0 && msShowCircle > 17800 && isValidOrNotCircle8 == false)
+            {
+                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle8 = true;
+            }
+
+        }
+
+        if (msShowCircle >= 17800 && counter == 8 && isCalculatedCircle8 == false)
+        {
+            //Prerequisite 2: Mean of Gaze (soll nicht größer 5% sein)
+            meanX = meanofArray(gaze_x);
+            Debug.Log("MeanX: " + meanX);
+            Debug.Log("Circle X: " + blackCircles[current].transform.position.x);
+            meanY = meanofArray(gaze_y);
+            Debug.Log("MeanY: " + meanY);
+            Debug.Log("Circle Y: " + blackCircles[current].transform.position.y);
+            meanZ = meanofArray(gaze_z);
+            Debug.Log("MeanZ: " + meanZ);
+            Debug.Log("Circle Z: " + blackCircles[current].transform.position.z);
+            Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
+            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+
+
+            //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
+            double stdGazeX = standardDeviation(gaze_x);
+            double stdGazeY = standardDeviation(gaze_y);
+            double stdGazeZ = standardDeviation(gaze_z);
+            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            Debug.Log("SDPrecision: " + sdPrecision);
+            //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
+            //listOfCircles[current].SetActive(false);
+            //RemoveAt(listOfCircles, current);
+            isCalculatedCircle8 = true;
 
         }
 
         if (msShowCircle >= 18000 && counter == 8)
         {
-            meanX = meanofArray(gaze_x);
-            meanY = meanofArray(gaze_y);
-            meanZ = meanofArray(gaze_z);
-            double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
-            //listOfCircles[current].SetActive(false);
-            //RemoveAt(listOfCircles, current);
-
             listOfCircles2[current].SetActive(false);
+
             listOfCircles2.RemoveAt(current);
+            blackCircles.RemoveAt(current);
+            //RemoveAt(listOfCircles, current);
+            gaze_x = new double[0];
+            gaze_y = new double[0];
+            gaze_z = new double[0];
+
         }
 
         if (msShowCircle >= 18000 && msShowCircle < 20000)
@@ -854,6 +1339,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
+                blackPosition = blackCircles[current].transform.position;
                 counter += 1;
                 Debug.Log("Counter" + counter);
             }
@@ -907,41 +1393,95 @@ public class AccuracyCheck : MonoBehaviour
                     Debug.Log("Eye gaze points X,Y,Z are saved");
                     //}
 
-                    //Resize eye gaze arrays
-                    Array.Resize(ref gaze_x, gaze_x.Length + 1);
-                    gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
+                    //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
+                    if (msShowCircle >= 18800 && msShowCircle <= 19800)
+                    {
+                        validGazeData += 1;
+                        //Resize eye gaze arrays
+                        Array.Resize(ref gaze_x, gaze_x.Length + 1);
+                        gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
 
-                    Array.Resize(ref gaze_y, gaze_y.Length + 1);
-                    gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
+                        Array.Resize(ref gaze_y, gaze_y.Length + 1);
+                        gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
 
-                    Array.Resize(ref gaze_z, gaze_z.Length + 1);
-                    gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                    Debug.Log("Gaze Z coordinates");
-                    Debug.Log("Gaze array is resized");
+                        Array.Resize(ref gaze_z, gaze_z.Length + 1);
+                        gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
+                        Debug.Log("Gaze Z coordinates");
+                        Debug.Log("Gaze array is resized");
+                    }
                 }
+            }
+
+            //Prerequisite 0: 80% of data should be valid for analysis
+            if (!(eyeTrackingData.GazeRay.IsValid) && msShowCircle >= 18800 && msShowCircle <= 19800)
+            {
+                invalidGazeData += 1;
+            }
+            if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 19800 && isValidOrNotCircle9 == false)
+            {
+                double validData = invalidGazeData / validGazeData;
+                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle9 = true;
+            }
+            if (validGazeData == 0 && msShowCircle > 19800 && isValidOrNotCircle9 == false)
+            {
+                Debug.Log("During this point there was no eye tracking possible!");
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle9 = true;
+            }
+            if (invalidGazeData == 0 && msShowCircle > 19800 && isValidOrNotCircle9 == false)
+            {
+                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validGazeData = 0;
+                invalidGazeData = 0;
+                isValidOrNotCircle9 = true;
             }
 
         }
 
-        if (msShowCircle >= 20000 && counter ==9)
+        if (msShowCircle >= 19800 && counter ==9 && isCalculatedCircle9 == false)
         {
+            
+            //Prerequisite 2: Mean of Gaze (soll nicht größer 5% sein)
             meanX = meanofArray(gaze_x);
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
-            //check if accuracy is fine
+            Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
+            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
 
-            //WICHTIG
-            double std = standardDeviation(gaze_x);
 
-            double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
+            //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
+            double stdGazeX = standardDeviation(gaze_x);
+            double stdGazeY = standardDeviation(gaze_y);
+            double stdGazeZ = standardDeviation(gaze_z);
+            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            Debug.Log("SDPrecision: " + sdPrecision);
+
+            //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
+            isCalculatedCircle9 = true;
 
+
+         
+        }
+        if (msShowCircle >= 20000 && counter == 9)
+        {
             listOfCircles2[current].SetActive(false);
+
             listOfCircles2.RemoveAt(current);
+            blackCircles.RemoveAt(current);
+            //RemoveAt(listOfCircles, current);
+            gaze_x = new double[0];
+            gaze_y = new double[0];
+            gaze_z = new double[0];
             accuracyTest.SetActive(false);
             endExperimentText.SetActive(true);
-            Debug.Log("Das spiel lebt");
+
         }
     }
 
