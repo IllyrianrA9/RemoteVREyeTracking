@@ -13,6 +13,7 @@ public class AccuracyCheck : MonoBehaviour
     //This objects will either get activated or deactivated regarding the chosen answer by the participant
 
     public GameObject endExperimentText;
+    public GameObject startPostStudy;
     public GameObject[] listOfCircles;
     public List<GameObject> listOfCircles2;
     public List<GameObject> blackCircles;
@@ -1481,6 +1482,7 @@ public class AccuracyCheck : MonoBehaviour
             gaze_z = new double[0];
             accuracyTest.SetActive(false);
             endExperimentText.SetActive(true);
+            startPostStudy.SetActive(true);
 
         }
     }

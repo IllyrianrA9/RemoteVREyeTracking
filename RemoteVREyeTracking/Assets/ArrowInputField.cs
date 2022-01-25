@@ -39,76 +39,76 @@ public class ArrowInputField : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (string.IsNullOrEmpty(age.text))
+            if (age.text.Trim().Length == 0)
             {
                 ageObject.SetActive(true);
             }
 
-            if (string.IsNullOrEmpty(gender.text))
+            if (gender.text.Trim().Length == 0)
             {
                 genderObject.SetActive(true);
             }
 
-            if (string.IsNullOrEmpty(vision.text))
+            if (vision.text.Trim().Length == 0)
             {
                 visionObject.SetActive(true);
             }
 
-            if (string.IsNullOrEmpty(residency.text))
+            if (residency.text.Trim().Length == 0)
             {
                 residencyObject.SetActive(true);
             }
 
-            if (string.IsNullOrEmpty(origin.text))
+            if (origin.text.Trim().Length == 0)
             {
                 originObject.SetActive(true);
             }
 
-            if (string.IsNullOrEmpty(experience.text))
+            if (experience.text.Trim().Length == 0)
             {
                 experienceObejct.SetActive(true);
             }
 
-            if (string.IsNullOrEmpty(remoteStudies.text))
+            if (remoteStudies.text.Trim().Length == 0)
             {
                 remoteStudiesObject.SetActive(true);
             }
 
-            if (!string.IsNullOrEmpty(age.text))
+            if (!(age.text.Trim().Length == 0))
             {
                 ageObject.SetActive(false);
             }
 
-            if (!string.IsNullOrEmpty(gender.text))
+            if (!(gender.text.Trim().Length == 0))
             {
                 genderObject.SetActive(false);
             }
 
-            if (!string.IsNullOrEmpty(vision.text))
+            if (!(vision.text.Trim().Length == 0))
             {
                 visionObject.SetActive(false);
             }
 
-            if (!string.IsNullOrEmpty(residency.text))
+            if (!(residency.text.Trim().Length == 0))
             {
                 residencyObject.SetActive(false);
             }
 
-            if (!string.IsNullOrEmpty(origin.text))
+            if (!(origin.text.Trim().Length == 0))
             {
                 originObject.SetActive(false);
             }
 
-            if (!string.IsNullOrEmpty(experience.text))
+            if (!(experience.text.Trim().Length == 0))
             {
                 experienceObejct.SetActive(false);
             }
 
-            if (!string.IsNullOrEmpty(remoteStudies.text))
+            if (!(remoteStudies.text.Trim().Length == 0))
             {
                 remoteStudiesObject.SetActive(false);
             }
-            if (!string.IsNullOrEmpty(age.text) && !string.IsNullOrEmpty(gender.text) && !string.IsNullOrEmpty(vision.text) & !string.IsNullOrEmpty(residency.text) && !string.IsNullOrEmpty(origin.text) && !string.IsNullOrEmpty(experience.text) && !string.IsNullOrEmpty(remoteStudies.text))
+            if (!(age.text.Trim().Length == 0) && !(gender.text.Trim().Length == 0) && !(vision.text.Trim().Length == 0) & !(residency.text.Trim().Length == 0) && !(origin.text.Trim().Length == 0) && !(experience.text.Trim().Length == 0) && !(remoteStudies.text.Trim().Length == 0))
             {
                 if (ageObject.activeSelf == true)
                 {
