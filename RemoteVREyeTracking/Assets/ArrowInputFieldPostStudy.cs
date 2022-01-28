@@ -25,10 +25,26 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
 
     public int InputSelected;
 
+    private string distractionText;
+    private string distractionOnScreenText;
+    private string difficultyStudyText;
+    private string answerWrongText;
+    private string moreInstructionText;
+    private string vrCameraText;
+
+    public GameObject rightHandLP;
     // Start is called before the first frame update
     void Start()
     {
         button = objectButton.GetComponent<Button>();
+        distractionText = distraction.GetComponent<TMP_InputField>().text;
+        distractionOnScreenText = distractionOnScreen.GetComponent<TMP_InputField>().text;
+        difficultyStudyText = difficultyStudy.GetComponent<TMP_InputField>().text;
+        answerWrongText = answerWrong.GetComponent<TMP_InputField>().text;
+        moreInstructionText = moreInstruction.GetComponent<TMP_InputField>().text;
+        vrCameraText = vrCamera.GetComponent<TMP_InputField>().text;
+
+
     }
 
     // Update is called once per frame

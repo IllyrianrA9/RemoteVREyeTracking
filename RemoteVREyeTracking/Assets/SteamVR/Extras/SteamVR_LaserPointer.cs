@@ -1,6 +1,7 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 namespace Valve.VR.Extras
@@ -154,7 +155,6 @@ namespace Valve.VR.Extras
                     Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                     
                     gameObject = hit.collider.gameObject;
-                    //TODO NullReferenceException;
                      if(gameObject.GetComponent<Button>() != null)
                     {
                         Button button = gameObject.GetComponent<Button>();
