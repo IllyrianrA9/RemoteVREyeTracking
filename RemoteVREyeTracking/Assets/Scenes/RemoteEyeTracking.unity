@@ -4624,7 +4624,7 @@ BoxCollider:
   m_GameObject: {fileID: 303795257}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -4647,7 +4647,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f1cf40351885dcd419c7caadb993fbf5, type: 2}
+  - {fileID: 2100000, guid: d353000128b08f043bdec7830acdb165, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5257,7 +5257,7 @@ BoxCollider:
   m_GameObject: {fileID: 387892174}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -10049,10 +10049,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883173}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 872883175}
+        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+        m_MethodName: filledIn
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10060,18 +10060,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1753043717}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &727357231
 MonoBehaviour:
@@ -12096,7 +12084,6 @@ GameObject:
   - component: {fileID: 872883177}
   - component: {fileID: 872883176}
   - component: {fileID: 872883175}
-  - component: {fileID: 872883178}
   m_Layer: 5
   m_Name: Post Study
   m_TagString: Untagged
@@ -12162,7 +12149,13 @@ MonoBehaviour:
   answerWrongObject: {fileID: 327728119}
   moreInstructionObject: {fileID: 1718143472}
   vrCameraObject: {fileID: 523613180}
+  lastText: {fileID: 1753043717}
+  postStudy: {fileID: 872883173}
+  keyboard: {fileID: 303795257}
+  canvasKeyboard: {fileID: 387892174}
   InputSelected: 0
+  arrowUpKey: {fileID: 1361643138}
+  arrowDownKey: {fileID: 1374579417}
   rightHandLP: {fileID: 2104171001}
 --- !u!114 &872883176
 MonoBehaviour:
@@ -12302,30 +12295,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &872883178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872883173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2f511c1adaa1e94ebe7ca97bbcabd17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pose: {fileID: 0}
-  interactWithUI:
-    actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
-  active: 1
-  color: {r: 0, g: 0, b: 0, a: 0}
-  thickness: 0.002
-  clickColor: {r: 0, g: 1, b: 0, a: 1}
-  holder: {fileID: 0}
-  pointer: {fileID: 0}
-  addRigidBody: 0
-  reference: {fileID: 0}
 --- !u!1 &880253490
 GameObject:
   m_ObjectHideFlags: 0
@@ -17835,7 +17804,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1361643142}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 872883175}
+        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+        m_MethodName: upperInputField
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1361643142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18057,7 +18038,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1374579421}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 872883175}
+        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+        m_MethodName: lowerInputField
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1374579421
 MonoBehaviour:
   m_ObjectHideFlags: 0
