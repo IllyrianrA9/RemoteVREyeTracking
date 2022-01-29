@@ -2225,7 +2225,6 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
 
             if (answerWrong.isFocused && (answerWrong.GetComponent<TMP_InputField>().text.Length > 0))
             {
-                Debug.Log("This text is not empty");
                 answerWrong.GetComponent<TMP_InputField>().text = answerWrong.GetComponent<TMP_InputField>().text.Substring(0, answerWrong.GetComponent<TMP_InputField>().text.Length -1);
             }
 
