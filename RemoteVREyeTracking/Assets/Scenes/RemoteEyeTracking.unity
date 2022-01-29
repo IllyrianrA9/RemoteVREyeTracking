@@ -1454,7 +1454,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press enter to continue
+  m_Text: Continue
 --- !u!222 &64740774
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3962,7 +3962,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press enter for next page
+  m_Text: Next page
 --- !u!222 &185805403
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4180,10 +4180,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "By pressing \"I Understand\", I assure that I have read and understood
-    the above consent and thus was informed about my rights. \n\nI certify that I
-    agree to the processing of my data by the LMU Munich and Bundeswehr University
-    Munich.\n\n\n\n\n\n\n\n\n\n\n\n(pressing enter will activate \"I understand\".
-    \nAfterwards  we will continue with  demography questions.\")"
+    the consent and thus was informed about my rights. \n\nI certify that I agree
+    to the processing of my data by the LMU Munich and Bundeswehr University Munich.\n\n\nAfter
+    pressing \"I Understand\"  we will continue with  demography questions."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6041,7 +6040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &303795258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9723,7 +9722,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19, y: -350}
+  m_AnchoredPosition: {x: 424, y: -350}
   m_SizeDelta: {x: 400, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &537246469
@@ -9737,8 +9736,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 345.95493, y: 86.147804, z: 151.77051}
-  m_Center: {x: -16.113832, y: -0.8447536, z: -58.857105}
+  m_Size: {x: 400, y: 50, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &537246470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14851,7 +14850,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press enter to confirm
+  m_Text: Confirm
 --- !u!222 &820993450
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25517,8 +25516,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 345.95493, y: 86.147804, z: 151.77051}
-  m_Center: {x: -16.113832, y: -0.8447536, z: -58.857105}
+  m_Size: {x: 400, y: 50, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1474178173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26059,7 +26058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1500803497
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30147,9 +30146,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press enter to start
-
-'
+  m_Text: Start
 --- !u!222 &1709751066
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32747,7 +32744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1865532834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32765,7 +32762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19, y: -350}
+  m_AnchoredPosition: {x: -1, y: -350}
   m_SizeDelta: {x: 400, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1865532835
@@ -32779,8 +32776,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 345.95493, y: 86.147804, z: 151.77051}
-  m_Center: {x: -16.113832, y: -0.8447536, z: -58.857105}
+  m_Size: {x: 400, y: 50, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1865532836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34905,7 +34902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1927679284
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34967,8 +34964,8 @@ MonoBehaviour:
     that you want to select.\nThe questions are neutral and there is no right or
     wrong.\nE.g.: Which ice cream flavor would you choose? Vanilla, Chocolate or
     Strawberry\nYou will be able to undo your answer selection of you want to repeat
-    the question.\n\nPlease press the enter in order to continue with the Consent
-    Form ."
+    the question.\n\nFirst of all, I need your consent for the next sheets, which
+    are about legal regulations.\n"
 --- !u!222 &1927679286
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35642,7 +35639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1960638885
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36039,7 +36036,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press enter for next page
+  m_Text: Next page
 --- !u!222 &1963378010
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36341,7 +36338,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989001726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2085365514}
@@ -36350,7 +36347,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19, y: -350}
+  m_AnchoredPosition: {x: -30, y: -350}
   m_SizeDelta: {x: 400, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1989001728
@@ -36364,8 +36361,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 345.95493, y: 86.147804, z: 151.77051}
-  m_Center: {x: -16.113832, y: -0.8447536, z: -58.857105}
+  m_Size: {x: 400, y: 50, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1989001729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36773,7 +36770,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press enter to confirm
+  m_Text: 'Confirm
+
+'
 --- !u!222 &1993937246
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36822,7 +36821,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19, y: -350}
+  m_AnchoredPosition: {x: 427, y: -350}
   m_SizeDelta: {x: 400, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &2000884249
@@ -36836,8 +36835,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 345.95493, y: 86.147804, z: 151.77051}
-  m_Center: {x: -16.113832, y: -0.8447536, z: -58.857105}
+  m_Size: {x: 400, y: 50, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2000884250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38999,7 +38998,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press enter for next page
+  m_Text: Next page
 --- !u!222 &2085365516
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41169,9 +41168,7 @@ PrefabInstance:
     - target: {fileID: 8604210258158231041, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: m_Text
-      value: 'Press enter to start
-
-'
+      value: Start
       objectReference: {fileID: 0}
     - target: {fileID: 8604210258179862489, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
@@ -42992,6 +42989,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604210259308821192, guid: 778fd6888bd63864886aed430c6acd3c,
+        type: 3}
+      propertyPath: m_Text
+      value: Start
       objectReference: {fileID: 0}
     - target: {fileID: 8604210259341774142, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
