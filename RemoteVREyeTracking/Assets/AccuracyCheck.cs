@@ -6,10 +6,20 @@ using Tobii.G2OM;
 using Tobii.XR;
 using Random = UnityEngine.Random;
 using System.Linq;
+using System.Text;
+using System.IO;
+
 
 
 public class AccuracyCheck : MonoBehaviour
 {
+    public string file = "Accuracy1.txt";
+    StringBuilder sb = new StringBuilder("Time, Circle ID, Circle posiion X, Circle position Y, Circle position Z, Gaze position X, Gaze position Y, Gaze position Z, Mean X, Mean Y, MeanZ, Offset, SDPrecision");
+    private float timeForCSV = 0;
+    private float offSetGazeToObject;
+    private double sdPrecision;
+    private string circleID;
+    private string csvDocumentation;
     //This objects will either get activated or deactivated regarding the chosen answer by the participant
 
     public GameObject endExperimentText;
@@ -83,6 +93,7 @@ public class AccuracyCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeForCSV += Time.deltaTime * 1000;
         msShowCircle += Time.deltaTime * 1000;
         if ((msShowCircle >= 2000) && (msShowCircle < 4000))
         {
@@ -90,6 +101,7 @@ public class AccuracyCheck : MonoBehaviour
             {
                 current = Random.Range(0, 8);
                 listOfCircles2[current].SetActive(true);
+                circleID = listOfCircles2[current].name;
 
             
                 circleX = blackCircles[current].transform.position.x;
@@ -97,7 +109,6 @@ public class AccuracyCheck : MonoBehaviour
                 circleZ = blackCircles[current].transform.position.z;
                 blackPosition = blackCircles[current].transform.position;
                 counter += 1;
-                Debug.Log("Counter" + counter);
             }
 
 
@@ -164,6 +175,8 @@ public class AccuracyCheck : MonoBehaviour
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
                         Debug.Log("Gaze Z coordinates");
                         Debug.Log("Gaze array is resized");
+                        //SaveToFileNotUsingMean();
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -203,7 +216,7 @@ public class AccuracyCheck : MonoBehaviour
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
-            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
             Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
 
 
@@ -211,8 +224,10 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
-            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
             Debug.Log("SDPrecision: " + sdPrecision);
+            //SaveToFileUsingMean();
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             isCalculatedCircle1 = true;
@@ -239,6 +254,7 @@ public class AccuracyCheck : MonoBehaviour
                 current = Random.Range(0, 7);
                 //listOfCircles[current].SetActive(true);
                 listOfCircles2[current].SetActive(true);
+                circleID = listOfCircles2[current].name;
 
                 //circleX = listOfCircles[current].transform.position.x;
                 //circleY = listOfCircles[current].transform.position.y;
@@ -314,6 +330,8 @@ public class AccuracyCheck : MonoBehaviour
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
                         Debug.Log("Gaze Z coordinates");
                         Debug.Log("Gaze array is resized");
+                        //SaveToFileNotUsingMean();
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -355,7 +373,7 @@ public class AccuracyCheck : MonoBehaviour
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
-            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
             Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
 
 
@@ -363,8 +381,9 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
-            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
             Debug.Log("SDPrecision: " + sdPrecision);
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             isCalculatedCircle2 = true;
@@ -391,7 +410,7 @@ public class AccuracyCheck : MonoBehaviour
                 current = Random.Range(0, 6);
                 //listOfCircles[current].SetActive(true);
                 listOfCircles2[current].SetActive(true);
-
+                circleID = listOfCircles2[current].name;
 
                 //circleX = listOfCircles[current].transform.position.x;
                 //circleY = listOfCircles[current].transform.position.y;
@@ -468,6 +487,8 @@ public class AccuracyCheck : MonoBehaviour
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
                         Debug.Log("Gaze Z coordinates");
                         Debug.Log("Gaze array is resized");
+                        //SaveToFileNotUsingMean();
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -508,7 +529,7 @@ public class AccuracyCheck : MonoBehaviour
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
-            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
             Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
 
 
@@ -516,8 +537,9 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
-            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
             Debug.Log("SDPrecision: " + sdPrecision);
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             isCalculatedCircle3 = true;
@@ -549,6 +571,7 @@ public class AccuracyCheck : MonoBehaviour
                 //circleZ = listOfCircles[current].transform.position.z;
 
                 listOfCircles2[current].SetActive(true);
+                circleID = listOfCircles2[current].name;
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
@@ -622,6 +645,8 @@ public class AccuracyCheck : MonoBehaviour
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
                         Debug.Log("Gaze Z coordinates");
                         Debug.Log("Gaze array is resized");
+                        //SaveToFileNotUsingMean();
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -662,7 +687,7 @@ public class AccuracyCheck : MonoBehaviour
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
-            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
             Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
 
 
@@ -670,8 +695,9 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
-            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
             Debug.Log("SDPrecision: " + sdPrecision);
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -703,6 +729,7 @@ public class AccuracyCheck : MonoBehaviour
                 //circleZ = listOfCircles[current].transform.position.z;
 
                 listOfCircles2[current].SetActive(true);
+                circleID = listOfCircles2[current].name;
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
@@ -776,6 +803,8 @@ public class AccuracyCheck : MonoBehaviour
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
                         Debug.Log("Gaze Z coordinates");
                         Debug.Log("Gaze array is resized");
+                        //SaveToFileNotUsingMean();
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -817,7 +846,7 @@ public class AccuracyCheck : MonoBehaviour
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
-            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
             Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
 
 
@@ -825,7 +854,8 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
-            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+            sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
             Debug.Log("SDPrecision: " + sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
@@ -859,6 +889,7 @@ public class AccuracyCheck : MonoBehaviour
 
 
                 listOfCircles2[current].SetActive(true);
+                circleID = listOfCircles2[current].name;
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
@@ -931,6 +962,8 @@ public class AccuracyCheck : MonoBehaviour
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
                         Debug.Log("Gaze Z coordinates");
                         Debug.Log("Gaze array is resized");
+                        //SaveToFileNotUsingMean();
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -971,7 +1004,7 @@ public class AccuracyCheck : MonoBehaviour
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
-            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
             Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
 
 
@@ -979,8 +1012,9 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
-            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
             Debug.Log("SDPrecision: " + sdPrecision);
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -1015,6 +1049,7 @@ public class AccuracyCheck : MonoBehaviour
 
                 current = Random.Range(0,2);
                 listOfCircles2[current].SetActive(true);
+                circleID = listOfCircles2[current].name;
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
@@ -1087,6 +1122,8 @@ public class AccuracyCheck : MonoBehaviour
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
                         Debug.Log("Gaze Z coordinates");
                         Debug.Log("Gaze array is resized");
+                        //SaveToFileNotUsingMean();
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -1127,7 +1164,7 @@ public class AccuracyCheck : MonoBehaviour
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
-            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
             Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
 
 
@@ -1135,8 +1172,9 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
-            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
             Debug.Log("SDPrecision: " + sdPrecision);
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -1172,6 +1210,7 @@ public class AccuracyCheck : MonoBehaviour
                 current = Random.Range(0, 1);
                 Debug.Log("Current" + current);
                 listOfCircles2[current].SetActive(true);
+                circleID = listOfCircles2[current].name;
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
@@ -1244,6 +1283,8 @@ public class AccuracyCheck : MonoBehaviour
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
                         Debug.Log("Gaze Z coordinates");
                         Debug.Log("Gaze array is resized");
+                        //SaveToFileNotUsingMean();
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -1290,7 +1331,7 @@ public class AccuracyCheck : MonoBehaviour
             Debug.Log("MeanZ: " + meanZ);
             Debug.Log("Circle Z: " + blackCircles[current].transform.position.z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
-            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
             Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
 
 
@@ -1298,8 +1339,9 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
-            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
             Debug.Log("SDPrecision: " + sdPrecision);
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -1337,6 +1379,7 @@ public class AccuracyCheck : MonoBehaviour
                 //circleZ = listOfCircles[current].transform.position.z;
 
                 listOfCircles2[current].SetActive(true);
+                circleID = listOfCircles2[current].name;
                 circleX = blackCircles[current].transform.position.x;
                 circleY = blackCircles[current].transform.position.y;
                 circleZ = blackCircles[current].transform.position.z;
@@ -1409,6 +1452,8 @@ public class AccuracyCheck : MonoBehaviour
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
                         Debug.Log("Gaze Z coordinates");
                         Debug.Log("Gaze array is resized");
+                        //SaveToFileNotUsingMean();
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -1451,7 +1496,7 @@ public class AccuracyCheck : MonoBehaviour
             meanY = meanofArray(gaze_y);
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
-            float offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
+            offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
             Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
 
 
@@ -1459,9 +1504,9 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
-            double sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
             Debug.Log("SDPrecision: " + sdPrecision);
-
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -1480,6 +1525,7 @@ public class AccuracyCheck : MonoBehaviour
             gaze_x = new double[0];
             gaze_y = new double[0];
             gaze_z = new double[0];
+            SaveFile();
             accuracyTest.SetActive(false);
             endExperimentText.SetActive(true);
             startPostStudy.SetActive(true);
@@ -1526,5 +1572,63 @@ public class AccuracyCheck : MonoBehaviour
             result = Math.Sqrt((sum) / (sequence.Count() - 1));
         }
         return result;
+    }
+
+    public string ToCSVusingOffsetsSDP(StringBuilder sb, float time, string circleID, double objX, double objY, double objZ , double gazeX, double gazeY, double gazeZ, double meanX, double meanY, double meanZ, float offset, double sdP)
+    {
+        //var sb = new StringBuilder("Difficulty , Wrong answer, More instruction, Distraction overall, Distraction on screen, VR camera");
+        sb.Append('\n').Append(time.ToString()).Append(", ").Append(circleID.ToString()).Append(", ").Append(objX.ToString()).Append(", ").Append(objY.ToString()).Append(", ").Append(objZ.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(meanX.ToString()).Append(", ").Append(meanY.ToString()).Append(", ").Append(meanZ.ToString()).Append(", ").Append(offset.ToString()).Append(", ").Append(sdP.ToString());
+        return sb.ToString();
+
+    }
+    public string ToCSVNoOffsetSDP(StringBuilder sb, float time, string circleID, double objX, double objY, double objZ, double gazeX, double gazeY, double gazeZ)
+    {
+        //var sb = new StringBuilder("Difficulty , Wrong answer, More instruction, Distraction overall, Distraction on screen, VR camera");
+        sb.Append('\n').Append(time.ToString()).Append(", ").Append(circleID.ToString()).Append(", ").Append(objX.ToString()).Append(", ").Append(objY.ToString()).Append(", ").Append(objZ.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString());
+        return sb.ToString();
+
+    }
+
+    public void SaveToFileUsingMean()
+    {
+        var content = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision );
+        string path = GetFilePath(file);
+        FileStream fileStream = new FileStream(path, FileMode.Append, FileAccess.Write);
+        using (StreamWriter writer = new StreamWriter(fileStream))
+        {
+            writer.Write(content);
+            
+        }
+
+    }
+
+    public void SaveFile()
+    {
+        var content = csvDocumentation;
+        string path = GetFilePath(file);
+        FileStream fileStream = new FileStream(path, FileMode.Append, FileAccess.Write);
+        using (StreamWriter writer = new StreamWriter(fileStream))
+        {
+            writer.Write(csvDocumentation);
+
+        }
+
+    }
+
+    public void SaveToFileNotUsingMean()
+    {
+        var content = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
+        string path = GetFilePath(file);
+        FileStream fileStream = new FileStream(path, FileMode.Append, FileAccess.Write);
+        using (StreamWriter writer = new StreamWriter(fileStream))
+        {
+            writer.Write(content);
+        }
+
+    }
+
+    private string GetFilePath(string fileName)
+    {
+        return Application.persistentDataPath + "/" + fileName;
     }
 }

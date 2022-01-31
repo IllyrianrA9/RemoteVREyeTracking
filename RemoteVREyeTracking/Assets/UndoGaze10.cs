@@ -4,12 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using Tobii.G2OM;
 using Tobii.XR;
-
+using System.Text;
+using System.IO;
+using UnityEngine.UI;
 
 public class UndoGaze10 : MonoBehaviour
 {
+    public float timeForCSV;
+    public StringBuilder sb;
+    public string csvDocumentation;
+    public string file;
+    public GameObject user;
+    public GameObject undoQuestion;
+    public int undoAmount;
     //This objects will either get activated or deactivated regarding the chosen answer by the participant
     //SetActive False
+    private double corChange;
+    private double corNext;
     public GameObject change;
     public GameObject next;
 
@@ -71,13 +82,22 @@ public class UndoGaze10 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (questionChange.GetComponent<calcCorrelation>().timeForCSV > timeForCSV)
+        {
+            timeForCSV = questionChange.GetComponent<calcCorrelation>().timeForCSV;
+            csvDocumentation = questionChange.GetComponent<calcCorrelation>().csvDocumentation;
+            sb = questionChange.GetComponent<calcCorrelation>().sb;
+            undoAmount = questionChange.GetComponent<calcCorrelation>().undoAmount;
+        }
 
+        file = questionChange.GetComponent<calcCorrelation>().file;
     }
     // Update is called once per frame
     void Update()
     {
         GameObject desktop = null;
         RaycastHit hit;
+        timeForCSV += Time.deltaTime * 1000;
 
         //This will be for the timestamps
         timeStamps += Time.deltaTime * 1000;
@@ -193,7 +213,7 @@ public class UndoGaze10 : MonoBehaviour
                     Array.Resize(ref changeZ, changeZ.Length + 1);
                     changeZ[changeZ.GetUpperBound(0)] = _changeZ;
                     Debug.Log("Change array is resized");
-
+                    csvDocumentation = ToCSVCorrelationNoUndoCor(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ);
                 }
 
 
@@ -216,11 +236,13 @@ public class UndoGaze10 : MonoBehaviour
                     Debug.Log("Correlation of AnswerTwo and Gaze is done");
 
                     //Correlation to the answers 
-                    var corNext = corNextX + corNextY + corNextZ;
-                    var corChange = corChangeX + corChangeY + corChangeZ;
+                    corNext = corNextX + corNextY + corNextZ;
+                    corChange = corChangeX + corChangeY + corChangeZ;
+                    csvDocumentation = ToCSVCorrelationNoUndoAnswer(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext);
 
                     if ((corNextX >= 0.9) && (corNextY >= 0.9) && (corNextZ >= 0.9) && (corNext > corChange))
                     {
+                        csvDocumentation = ToCSVCorrelation(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext, next.name, undoAmount);
                         changeX = new double[0];
                         changeY = new double[0];
                         changeZ = new double[0];
@@ -234,7 +256,7 @@ public class UndoGaze10 : MonoBehaviour
                         gaze_z = new double[0];
                         hitGivenMS = false;
                         ms = 0;
-
+                        //SaveToFile();
                         Debug.Log("Next got chosen");
                         startAccButton.SetActive(true);
                         lastStepText.SetActive(true);
@@ -257,6 +279,8 @@ public class UndoGaze10 : MonoBehaviour
 
                     if ((corChangeX >= 0.9) && (corChangeY >= 0.9) && (corChangeZ >= 0.9) && (corChange > corNext))
                     {
+                        undoAmount += 1;
+                        csvDocumentation = ToCSVCorrelation(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext, change.name, undoAmount);
                         changeX = new double[0];
                         changeY = new double[0];
                         changeZ = new double[0];
@@ -360,14 +384,15 @@ public class UndoGaze10 : MonoBehaviour
                     Debug.Log("Correlation of AnswerTwo and Gaze is done");
 
                     //Correlation to the answers 
-                    var corNext = corNextX + corNextY + corNextZ;
+                    corNext = corNextX + corNextY + corNextZ;
                     Debug.Log("Correlation of Next is: " + corNext);
-                    var corChange = corChangeX + corChangeY + corChangeZ;
+                    corChange = corChangeX + corChangeY + corChangeZ;
                     Debug.Log("Correlation of Change is: " + corChange);
-
+                    csvDocumentation = ToCSVCorrelationNoUndoAnswer(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext);
 
                     if ((corNextX >= 0.9) && (corNextY >= 0.9) && (corNextZ >= 0.9) && (corNext > corChange))
                     {
+                        csvDocumentation = ToCSVCorrelation(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext, next.name, undoAmount);
                         changeX = new double[0];
                         changeY = new double[0];
                         changeZ = new double[0];
@@ -381,6 +406,7 @@ public class UndoGaze10 : MonoBehaviour
                         gaze_z = new double[0];
                         hitGivenMS = false;
                         ms = 0;
+                        //SaveToFile();
 
                         Debug.Log("Next got chosen");
                         startAccButton.SetActive(true);
@@ -403,6 +429,8 @@ public class UndoGaze10 : MonoBehaviour
 
                     if ((corChangeX >= 0.9) && (corChangeY >= 0.9) && (corChangeZ >= 0.9) && (corChange > corNext))
                     {
+                        undoAmount += 1;
+                        csvDocumentation = ToCSVCorrelation(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext, change.name, undoAmount);
                         changeX = new double[0];
                         changeY = new double[0];
                         changeZ = new double[0];
@@ -533,5 +561,53 @@ public class UndoGaze10 : MonoBehaviour
             }
         }
         return arr;
+    }
+
+    public string ToCSVCorrelation(string userID, float time, string questionID, double obj1X, double obj1Y, double obj1Z, double obj2X, double obj2Y, double obj2Z, double gazeX, double gazeY, double gazeZ, double corAnswer1, double corAnswer2, string answer, int undo)
+    {
+        //var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
+        sb.Append('\n').Append(userID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(questionID.ToString()).Append(", ").Append(obj1X.ToString()).Append(", ").Append(obj1Y.ToString()).Append(", ").Append(obj1Z.ToString()).Append(", ").Append(obj2X.ToString()).Append(", ").Append(obj2Y.ToString()).Append(", ").Append(obj2Z.ToString()).Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(corAnswer1.ToString()).Append(", ").Append(corAnswer2.ToString()).Append(", ").Append("----").Append(", ").Append(answer.ToString()).Append(", ").Append(undo.ToString());
+        return sb.ToString();
+
+    }
+
+    public string ToCSVCorrelationNoUndoCor(string userID, float time, string questionID, double obj1X, double obj1Y, double obj1Z, double obj2X, double obj2Y, double obj2Z, double gazeX, double gazeY, double gazeZ)
+    {
+        //var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
+        sb.Append('\n').Append(userID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(questionID.ToString()).Append(", ").Append(obj1X.ToString()).Append(", ").Append(obj1Y.ToString()).Append(", ").Append(obj1Z.ToString()).Append(", ").Append(obj2X.ToString()).Append(", ").Append(obj2Y.ToString()).Append(", ").Append(obj2Z.ToString()).Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString());
+        return sb.ToString();
+
+    }
+
+    public string ToCSVCorrelationNoUndo(string userID, float time, string questionID, double obj1X, double obj1Y, double obj1Z, double obj2X, double obj2Y, double obj2Z, double gazeX, double gazeY, double gazeZ, double corAnswer1, double corAnswer2, string answer)
+    {
+        //var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
+        sb.Append('\n').Append(userID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(questionID.ToString()).Append(", ").Append(obj1X.ToString()).Append(", ").Append(obj1Y.ToString()).Append(", ").Append(obj1Z.ToString()).Append(", ").Append(obj2X.ToString()).Append(", ").Append(obj2Y.ToString()).Append(", ").Append(obj2Z.ToString()).Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(corAnswer1.ToString()).Append(", ").Append(corAnswer2.ToString()).Append(", ").Append("----").Append(", ").Append(answer.ToString());
+        return sb.ToString();
+
+    }
+
+    public string ToCSVCorrelationNoUndoAnswer(string userID, float time, string questionID, double obj1X, double obj1Y, double obj1Z, double obj2X, double obj2Y, double obj2Z, double gazeX, double gazeY, double gazeZ, double corAnswer1, double corAnswer2)
+    {
+        //var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
+        sb.Append('\n').Append(userID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(questionID.ToString()).Append(", ").Append(obj1X.ToString()).Append(", ").Append(obj1Y.ToString()).Append(", ").Append(obj1Z.ToString()).Append(", ").Append(obj2X.ToString()).Append(", ").Append(obj2Y.ToString()).Append(", ").Append(obj2Z.ToString()).Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(corAnswer1.ToString()).Append(", ").Append(corAnswer2.ToString()).Append(", ").Append("----");
+        return sb.ToString();
+
+    }
+
+    public void SaveToFile()
+    {
+        var content = csvDocumentation;
+        string path = GetFilePath(file);
+        FileStream fileStream = new FileStream(path, FileMode.Append, FileAccess.Write);
+        using (StreamWriter writer = new StreamWriter(fileStream))
+        {
+            writer.Write(content);
+        }
+    }
+
+    private string GetFilePath(string fileName)
+    {
+        return Application.persistentDataPath + "/" + fileName;
     }
 }
