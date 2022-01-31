@@ -219,7 +219,7 @@ public class UndoGaze10 : MonoBehaviour
                     var corNext = corNextX + corNextY + corNextZ;
                     var corChange = corChangeX + corChangeY + corChangeZ;
 
-                    if ((corNextX >= 0.7) && (corNextY >= 0.7) && (corNextZ >= 0.7) && (corNext > corChange))
+                    if ((corNextX >= 0.9) && (corNextY >= 0.9) && (corNextZ >= 0.9) && (corNext > corChange))
                     {
                         changeX = new double[0];
                         changeY = new double[0];
@@ -255,7 +255,7 @@ public class UndoGaze10 : MonoBehaviour
 
                     }
 
-                    if ((corChangeX >= 0.7) && (corChangeY >= 0.7) && (corChangeZ >= 0.7) && (corChange > corNext))
+                    if ((corChangeX >= 0.9) && (corChangeY >= 0.9) && (corChangeZ >= 0.9) && (corChange > corNext))
                     {
                         changeX = new double[0];
                         changeY = new double[0];
@@ -366,7 +366,7 @@ public class UndoGaze10 : MonoBehaviour
                     Debug.Log("Correlation of Change is: " + corChange);
 
 
-                    if ((corNextX >= 0.7) && (corNextY >= 0.7) && (corNextZ >= 0.7) && (corNext > corChange))
+                    if ((corNextX >= 0.9) && (corNextY >= 0.9) && (corNextZ >= 0.9) && (corNext > corChange))
                     {
                         changeX = new double[0];
                         changeY = new double[0];
@@ -401,7 +401,7 @@ public class UndoGaze10 : MonoBehaviour
                         }
                     }
 
-                    if ((corChangeX >= 0.7) && (corChangeY >= 0.7) && (corChangeZ >= 0.7) && (corChange > corNext))
+                    if ((corChangeX >= 0.9) && (corChangeY >= 0.9) && (corChangeZ >= 0.9) && (corChange > corNext))
                     {
                         changeX = new double[0];
                         changeY = new double[0];

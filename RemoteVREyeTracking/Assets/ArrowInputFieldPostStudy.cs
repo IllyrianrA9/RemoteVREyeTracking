@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Text;
+using System.IO;
 
 public class ArrowInputFieldPostStudy : MonoBehaviour
 {
+    public string file = "postStudy1.txt";
 
     public TMP_InputField distraction;
     public TMP_InputField distractionOnScreen;
@@ -365,7 +368,7 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
             postStudy.SetActive(false);
             keyboard.SetActive(false);
             canvasKeyboard.SetActive(false);
-
+            SaveToFile();
 
         }
     }
@@ -2452,5 +2455,31 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
     public void ReActivateDelChar()
     {
         deleteChar.interactable = true;
+    }
+
+    public string ToCSVPostStudy(string difficulty, string wrongAnser, string moreInstruction, string distraction, string distractionOnScreen, string cameraVR)
+    {
+        var sb = new StringBuilder("Difficulty , Wrong answer, More instruction, Distraction overall, Distraction on screen, VR camera");
+        sb.Append('\n').Append(difficulty.ToString()).Append(", ").Append(wrongAnser.ToString()).Append(", ").Append(moreInstruction.ToString()).Append(", ").Append(distraction.ToString()).Append(", ").Append(distractionOnScreen.ToString()).Append(", ").Append(cameraVR.ToString());
+        return sb.ToString();
+
+    }
+
+    public void SaveToFile()
+    {
+        var content = ToCSVPostStudy(difficultyStudy.GetComponent<TMP_InputField>().text, answerWrong.GetComponent<TMP_InputField>().text, moreInstruction.GetComponent<TMP_InputField>().text, distraction.GetComponent<TMP_InputField>().text, distractionOnScreen.GetComponent<TMP_InputField>().text, vrCamera.GetComponent<TMP_InputField>().text);
+        string path = GetFilePath(file);
+        FileStream fileStream = new FileStream(path, FileMode.Append, FileAccess.Write);
+        using (StreamWriter writer = new StreamWriter(fileStream))
+        {
+            writer.Write(content);
+            Debug.Log(" Write CSV");
+        }
+
+    }
+
+    private string GetFilePath(string fileName)
+    {
+        return Application.persistentDataPath + "/" + fileName;
     }
 }

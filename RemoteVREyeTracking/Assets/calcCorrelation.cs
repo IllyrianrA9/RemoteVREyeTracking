@@ -254,7 +254,7 @@ public class calcCorrelation : MonoBehaviour
                         //dataMa.eyeGazeData1.correA3 = corAnswer3;
                         //dataMa.Save();
 
-                        if ((corAnswer1X >= 0.7) && (corAnswer1Y > 0.7) && (corAnswer1Z > 0.7) && (corAnswer1 > corAnswer2) && (corAnswer1 > corAnswer3))
+                        if ((corAnswer1X >= 0.9) && (corAnswer1Y > 0.9) && (corAnswer1Z > 0.9) && (corAnswer1 > corAnswer2) && (corAnswer1 > corAnswer3))
                         {
                             answerOne_x = new double[0];
                             answerOne_y = new double[0];
@@ -285,7 +285,7 @@ public class calcCorrelation : MonoBehaviour
                             
                         }
 
-                        if ((corAnswer2X >= 0.7) && (corAnswer2Y > 0.7) && (corAnswer2Y > 0.7) && (corAnswer2 > corAnswer1) && (corAnswer2 > corAnswer3))
+                        if ((corAnswer2X >= 0.9) && (corAnswer2Y > 0.9) && (corAnswer2Y > 0.9) && (corAnswer2 > corAnswer1) && (corAnswer2 > corAnswer3))
                         {
                             answerOne_x = new double[0];
                             answerOne_y = new double[0];
@@ -316,7 +316,7 @@ public class calcCorrelation : MonoBehaviour
                             
                         }
 
-                        if ((corAnswer3X >= 0.7) && (corAnswer3Y > 0.7) && (corAnswer3Z > 0.7) && (corAnswer3 > corAnswer2) && (corAnswer3 > corAnswer1))
+                        if ((corAnswer3X >= 0.9) && (corAnswer3Y > 0.9) && (corAnswer3Z > 0.9) && (corAnswer3 > corAnswer2) && (corAnswer3 > corAnswer1))
                         {
                             answerOne_x = new double[0];
                             answerOne_y = new double[0];
@@ -446,7 +446,7 @@ public class calcCorrelation : MonoBehaviour
                     //dataMa.eyeGazeData1.correA3 = corAnswer3;
                     //dataMa.Save();
 
-                    if ((corAnswer1X >= 0.7) && (corAnswer1Y > 0.7) && (corAnswer1Z > 0.7)  && (corAnswer1 > corAnswer2) && (corAnswer1 > corAnswer3))
+                    if ((corAnswer1X >= 0.9) && (corAnswer1Y > 0.9) && (corAnswer1Z > 0.9)  && (corAnswer1 > corAnswer2) && (corAnswer1 > corAnswer3))
                     {
                         answerOne_x = new double[0];
                         answerOne_y = new double[0];
@@ -476,7 +476,7 @@ public class calcCorrelation : MonoBehaviour
                         proposedAnswer1.SetActive(true);
                     }
 
-                    if ((corAnswer2X >= 0.7) && (corAnswer2Y > 0.7) && (corAnswer2Y > 0.7) &&  (corAnswer2 > corAnswer1) && (corAnswer2 > corAnswer3))
+                    if ((corAnswer2X >= 0.9) && (corAnswer2Y > 0.9) && (corAnswer2Y > 0.9) &&  (corAnswer2 > corAnswer1) && (corAnswer2 > corAnswer3))
                     {
                         answerOne_x = new double[0];
                         answerOne_y = new double[0];
@@ -506,7 +506,7 @@ public class calcCorrelation : MonoBehaviour
                         proposedAnswer2.SetActive(true);
                     }
 
-                    if ((corAnswer3X >= 0.7) && (corAnswer3Y > 0.7) && (corAnswer3Z > 0.7)  && (corAnswer3 > corAnswer2) && (corAnswer3 > corAnswer1))
+                    if ((corAnswer3X >= 0.9) && (corAnswer3Y > 0.9) && (corAnswer3Z > 0.9)  && (corAnswer3 > corAnswer2) && (corAnswer3 > corAnswer1))
                     {
                         answerOne_x = new double[0];
                         answerOne_y = new double[0];

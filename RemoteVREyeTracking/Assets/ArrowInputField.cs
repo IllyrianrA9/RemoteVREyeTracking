@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Text;
+using System.IO;
 
 public class ArrowInputField : MonoBehaviour
 {
+    public string file = "demographyData1.txt";
 
     public TMP_InputField age;
     public TMP_InputField gender;
@@ -382,6 +385,8 @@ public class ArrowInputField : MonoBehaviour
             canvasKeyboard.SetActive(false);
             startExperimentButton.SetActive(true);
 
+            //Hier schreibe ich in eine Datei
+            SaveToFile();
         }
     }
 
@@ -2630,5 +2635,31 @@ public class ArrowInputField : MonoBehaviour
     public void ReActivateDelChar()
     {
         deleteChar.interactable = true;
+    }
+
+    public string ToCSVDemography(string age, string gender, string vision, string residency, string origin, string experience, string remoteStudies)
+    {
+        var sb = new StringBuilder("Age , Gender, Vision, Residency, Origin, Experience, Remote Studies participated");
+        sb.Append('\n').Append(age.ToString()).Append(", ").Append(gender.ToString()).Append(", ").Append(vision.ToString()).Append(", ").Append(residency.ToString()).Append(", ").Append(origin.ToString()).Append(", ").Append(experience.ToString()).Append(", ").Append(remoteStudies.ToString());
+        return sb.ToString();
+
+    }
+
+    public void SaveToFile()
+    {
+        var content = ToCSVDemography(age.GetComponent<TMP_InputField>().text, gender.GetComponent<TMP_InputField>().text, vision.GetComponent<TMP_InputField>().text, residency.GetComponent<TMP_InputField>().text, origin.GetComponent<TMP_InputField>().text, experience.GetComponent<TMP_InputField>().text, remoteStudies.GetComponent<TMP_InputField>().text);
+        string path = GetFilePath(file);
+        FileStream fileStream = new FileStream(path, FileMode.Append, FileAccess.Write);
+        using (StreamWriter writer = new StreamWriter(fileStream))
+        {
+            writer.Write(content);
+            Debug.Log(" Write CSV");
+        }
+
+    }
+
+    private string GetFilePath(string fileName)
+    {
+        return Application.persistentDataPath + "/" + fileName;
     }
 }
