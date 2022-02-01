@@ -115,7 +115,7 @@ public class UndoGaze : MonoBehaviour
         // Check if gaze ray is valid
         if (eyeTrackingData.GazeRay.IsValid)
         {
-            Debug.Log("Eye gaze ray is valid");
+            
             // The origin of the gaze ray is a 3D point
             var rayOrigin = eyeTrackingData.GazeRay.Origin;
 
@@ -132,26 +132,24 @@ public class UndoGaze : MonoBehaviour
             {
                 if (hitGivenMS == false)
                 {
-                    Debug.Log(hit.transform.name);
+                    
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
-
+                   
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
+                    
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                    
                     //}
 
                     //Resize eye gaze arrays
                     Array.Resize(ref gaze_x, gaze_x.Length + 1);
                     gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
-                    Debug.Log("Gaze X coordinates");
+                    
                     // (var item in gaze_x)
                     //{
                     //    Debug.Log(item);
@@ -159,7 +157,7 @@ public class UndoGaze : MonoBehaviour
 
                     Array.Resize(ref gaze_y, gaze_y.Length + 1);
                     gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
-                    Debug.Log("Gaze Y coordinates");
+                    
                     //foreach( var item in gaze_y)
                     //{
                     //    Debug.Log("Value of Array: " + item);
@@ -168,10 +166,10 @@ public class UndoGaze : MonoBehaviour
 
                     Array.Resize(ref gaze_z, gaze_z.Length + 1);
                     gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                    Debug.Log("Gaze Z coordinates");
+                   
 
 
-                    Debug.Log("Gaze array is resized");
+                    
                     //a = rayDirection.X;
 
                     _changeX = change.transform.position.x;
@@ -186,8 +184,7 @@ public class UndoGaze : MonoBehaviour
                     _nextY = next.transform.position.y;
                     _nextZ = next.transform.position.z;
 
-                    Debug.Log("Positions of the answers X,Y,Z are saved in a variable");
-
+                   
                     //PUSH VALUE TO ARRAY TO THE LAST SPOT IN THE ARRAY
                     //resize arrays with new gaze points which get retrieved.
 
@@ -204,7 +201,7 @@ public class UndoGaze : MonoBehaviour
                     nextZ[nextZ.GetUpperBound(0)] = _nextZ;
 
 
-                    Debug.Log("Next array is resized");
+                  
 
                     //Resize answerTwo array
                     Array.Resize(ref changeX, changeX.Length + 1);
@@ -213,28 +210,28 @@ public class UndoGaze : MonoBehaviour
                     changeY[changeY.GetUpperBound(0)] = _changeY;
                     Array.Resize(ref changeZ, changeZ.Length + 1);
                     changeZ[changeZ.GetUpperBound(0)] = _changeZ;
-                    Debug.Log("Change array is resized");
+                    
                     csvDocumentation = ToCSVCorrelationNoUndoCor(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ);
                 }
 
 
                 if (ms >= waitTime && hitGivenMS == false)
                 {
-                    Debug.Log("Filling Arrays until 2000ms");
+               
 
 
                     var corNextX = Correlation2(gaze_x, nextX);
-                    Debug.Log("X Correlation " + nextX);
+                 
                     var corNextY = Correlation2(gaze_y, nextY);
-                    Debug.Log("Y Correlation " + nextY);
+               
                     var corNextZ = Correlation2(gaze_z, nextZ);
-                    Debug.Log("Z Correlation " + nextZ);
+                  
 
                     var corChangeX = Correlation2(gaze_x, changeZ);
                     var corChangeY = Correlation2(gaze_y, changeZ);
                     var corChangeZ = Correlation2(gaze_z, changeZ);
 
-                    Debug.Log("Correlation of AnswerTwo and Gaze is done");
+                  
 
                     //Correlation to the answers 
                     corNext = corNextX + corNextY + corNextZ;
@@ -259,7 +256,7 @@ public class UndoGaze : MonoBehaviour
                         hitGivenMS = false;
                         ms = 0;
 
-                        Debug.Log("Next got chosen");
+                       
                         questionNext.SetActive(true);
                         answer1Next.SetActive(true);
                         answer2Next.SetActive(true);
@@ -299,7 +296,7 @@ public class UndoGaze : MonoBehaviour
                         hitGivenMS = false;
                         ms = 0;
 
-                        Debug.Log("Change got chosen");
+                        
                         questionChange.SetActive(true);
                         answer1Change.SetActive(true);
                         answer2Change.SetActive(true);
@@ -325,21 +322,19 @@ public class UndoGaze : MonoBehaviour
                 else if (ms >= waitTime && hitGivenMS)
                 {
 
-                    Debug.Log("Calculate correlation for every new point");
-                    Debug.Log(hit.transform.name);
+                    
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
+                   
 
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
+                    
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                   
 
 
                     gaze_x = dropValuesOfArray(gaze_x, _gazeX);
@@ -360,7 +355,7 @@ public class UndoGaze : MonoBehaviour
                     _nextY = next.transform.position.y;
                     _nextZ = next.transform.position.z;
 
-                    Debug.Log("Positions of the change, next  X,Y,Z are saved in a variable");
+                 
 
 
 
@@ -375,24 +370,24 @@ public class UndoGaze : MonoBehaviour
                     nextZ = dropValuesOfArray(nextZ, _nextZ);
 
                     var corNextX = Correlation2(gaze_x, nextX);
-                    Debug.Log("X Correlation " + nextX);
+                    
                     var corNextY = Correlation2(gaze_y, nextY);
-                    Debug.Log("Y Correlation " + nextY);
+                    
                     var corNextZ = Correlation2(gaze_z, nextZ);
-                    Debug.Log("Z Correlation " + nextZ);
+                   
 
                     var corChangeX = Correlation2(gaze_x, changeZ);
                     var corChangeY = Correlation2(gaze_y, changeZ);
                     var corChangeZ = Correlation2(gaze_z, changeZ);
 
 
-                    Debug.Log("Correlation of AnswerTwo and Gaze is done");
+                    
 
                     //Correlation to the answers 
                     corNext = corNextX + corNextY + corNextZ;
-                    Debug.Log("Correlation of Next is: " + corNext);
+                    
                     corChange = corChangeX + corChangeY + corChangeZ;
-                    Debug.Log("Correlation of Change is: " + corChange);
+                  
                     csvDocumentation = ToCSVCorrelationNoUndoAnswer(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext);
 
 
@@ -413,7 +408,7 @@ public class UndoGaze : MonoBehaviour
                         hitGivenMS = false;
                         ms = 0;
 
-                        Debug.Log("Next got chosen");
+                      
                         questionNext.SetActive(true);
                         answer1Next.SetActive(true);
                         answer2Next.SetActive(true);
@@ -452,7 +447,7 @@ public class UndoGaze : MonoBehaviour
                         hitGivenMS = false;
                         ms = 0;
 
-                        Debug.Log("Change got chosen");
+                   
                         questionChange.SetActive(true);
                         answer1Change.SetActive(true);
                         answer2Change.SetActive(true);
@@ -476,7 +471,7 @@ public class UndoGaze : MonoBehaviour
                 if (ms >= waitTime && hitGivenMS == false)
                 {
                     hitGivenMS = true;
-                    Debug.Log("boolean is true now");
+                  
                 }
             }
         }

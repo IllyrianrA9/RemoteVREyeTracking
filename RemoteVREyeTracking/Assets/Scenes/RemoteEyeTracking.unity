@@ -1184,7 +1184,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 85
+  m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3654,7 +3654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData10.txt
+  file: eyeGazeData1.txt
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -4319,7 +4319,7 @@ RectTransform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 82
+  m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5898,7 +5898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData10.txt
+  file: eyeGazeData1.txt
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -6008,6 +6008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file: Accuracy1.txt
+  participant: {fileID: 1594469474}
   endExperimentText: {fileID: 8604210258083213098}
   startPostStudy: {fileID: 833467687}
   listOfCircles:
@@ -6167,7 +6168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData10.txt
+  file: eyeGazeData1.txt
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -6894,7 +6895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData10.txt
+  file: eyeGazeData1.txt
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -7623,7 +7624,7 @@ RectTransform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 72
+  m_RootOrder: 92
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8737,7 +8738,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 88
+  m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8931,7 +8932,7 @@ RectTransform:
   - {fileID: 2027811213}
   - {fileID: 1418181278}
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 65
+  m_RootOrder: 85
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9305,7 +9306,7 @@ RectTransform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 79
+  m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9749,7 +9750,7 @@ RectTransform:
   m_Children:
   - {fileID: 1963378008}
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 75
+  m_RootOrder: 95
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14198,7 +14199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData10.txt
+  file: eyeGazeData1.txt
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -14932,7 +14933,7 @@ RectTransform:
   m_Children:
   - {fileID: 1709751064}
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 61
+  m_RootOrder: 81
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15747,7 +15748,7 @@ RectTransform:
   - {fileID: 111069108}
   - {fileID: 523613181}
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 59
+  m_RootOrder: 78
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15767,6 +15768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file: postStudy1.txt
+  participant: {fileID: 1594469474}
   distraction: {fileID: 1563709393}
   distractionOnScreen: {fileID: 2055682197}
   difficultyStudy: {fileID: 1656310715}
@@ -16119,7 +16121,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 90
+  m_RootOrder: 71
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19674,7 +19676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData10.txt
+  file: eyeGazeData1.txt
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -19773,7 +19775,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 91
+  m_RootOrder: 72
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20596,7 +20598,7 @@ RectTransform:
   - {fileID: 297624584}
   - {fileID: 1089643647}
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 64
+  m_RootOrder: 84
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20651,7 +20653,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 71
+  m_RootOrder: 91
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20967,7 +20969,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 69
+  m_RootOrder: 89
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -22883,7 +22885,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 93
+  m_RootOrder: 74
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -24561,7 +24563,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 86
+  m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25161,7 +25163,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 62
+  m_RootOrder: 82
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25563,7 +25565,7 @@ RectTransform:
   m_Children:
   - {fileID: 2129974955}
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 83
+  m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -27077,7 +27079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData10.txt
+  file: eyeGazeData1.txt
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -27667,7 +27669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData10.txt
+  file: eyeGazeData1.txt
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -27817,7 +27819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData10.txt
+  file: eyeGazeData1.txt
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -28011,7 +28013,7 @@ RectTransform:
   m_LocalScale: {x: 0.8609, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 95
+  m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -29553,7 +29555,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 94
+  m_RootOrder: 75
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -29737,7 +29739,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 68
+  m_RootOrder: 88
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -31085,7 +31087,7 @@ RectTransform:
   m_LocalScale: {x: 0.8609, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 60
+  m_RootOrder: 79
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -31608,7 +31610,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 66
+  m_RootOrder: 86
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -31845,7 +31847,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 70
+  m_RootOrder: 90
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -32856,7 +32858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1865532834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32870,7 +32872,7 @@ RectTransform:
   m_Children:
   - {fileID: 64740772}
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 74
+  m_RootOrder: 94
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -34124,7 +34126,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 92
+  m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -35014,7 +35016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1927679284
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35027,7 +35029,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 73
+  m_RootOrder: 93
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -35127,7 +35129,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 87
+  m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -35311,7 +35313,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 63
+  m_RootOrder: 83
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -35785,7 +35787,7 @@ RectTransform:
   - {fileID: 796046990}
   - {fileID: 2110677542}
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 84
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -35981,6 +35983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file: demographyData1.txt
+  participant: {fileID: 1594469474}
   age: {fileID: 147974771}
   gender: {fileID: 2130308091}
   vision: {fileID: 1988129490}
@@ -36461,7 +36464,7 @@ RectTransform:
   m_Children:
   - {fileID: 2085365514}
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 78
+  m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -36935,7 +36938,7 @@ RectTransform:
   m_Children:
   - {fileID: 185805401}
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 81
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -37523,7 +37526,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 67
+  m_RootOrder: 87
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -38081,7 +38084,7 @@ RectTransform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 77
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -38903,7 +38906,7 @@ RectTransform:
   m_LocalScale: {x: 0.86125, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8604210258083213085}
-  m_RootOrder: 89
+  m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -40446,7 +40449,7 @@ PrefabInstance:
     - target: {fileID: 4187632685795785245, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: file
-      value: eyeGazeData10.txt
+      value: eyeGazeData1.txt
       objectReference: {fileID: 0}
     - target: {fileID: 4187632685795785245, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
@@ -41001,7 +41004,7 @@ PrefabInstance:
     - target: {fileID: 6994999082074203772, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 76
+      value: 77
       objectReference: {fileID: 0}
     - target: {fileID: 6994999082074203772, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
@@ -42696,7 +42699,7 @@ PrefabInstance:
     - target: {fileID: 8604210258793671591, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8604210258799859722, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
@@ -43879,7 +43882,7 @@ PrefabInstance:
     - target: {fileID: 8604210259723532222, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8604210259746917586, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}

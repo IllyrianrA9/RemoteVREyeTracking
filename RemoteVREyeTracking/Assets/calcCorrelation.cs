@@ -145,7 +145,6 @@ public class calcCorrelation : MonoBehaviour
         // Check if gaze ray is valid
         if (eyeTrackingData.GazeRay.IsValid)
         {
-            Debug.Log("Eye gaze ray is valid");
             // The origin of the gaze ray is a 3D point
             var rayOrigin = eyeTrackingData.GazeRay.Origin;
 
@@ -162,26 +161,21 @@ public class calcCorrelation : MonoBehaviour
             {
                 if (hitGivenMS == false)
                 {
-                    Debug.Log(hit.transform.name);
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
 
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
                     //}
 
                     //Resize eye gaze arrays
                     Array.Resize(ref gaze_x, gaze_x.Length + 1);
                     gaze_x[gaze_x.GetUpperBound(0)] = _gazeX;
-                    Debug.Log("Gaze X coordinates");
+                    
                     //foreach (var item in gaze_x)
                     //{
                     //    Debug.Log(item);
@@ -189,7 +183,7 @@ public class calcCorrelation : MonoBehaviour
 
                     Array.Resize(ref gaze_y, gaze_y.Length + 1);
                     gaze_y[gaze_y.GetUpperBound(0)] = _gazeY;
-                    Debug.Log("Gaze Y coordinates");
+                    
                     //foreach( var item in gaze_y)
                     //{
                     //    Debug.Log("Value of Array: " + item);
@@ -198,18 +192,16 @@ public class calcCorrelation : MonoBehaviour
 
                     Array.Resize(ref gaze_z, gaze_z.Length + 1);
                     gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                    Debug.Log("Gaze Z coordinates");
+                   
 
 
-                    Debug.Log("Gaze array is resized");
+                    
                     //a = rayDirection.X;
 
                     _answerOne_x = answer1.transform.position.x;
                     _answerOne_y = answer1.transform.position.y;
                     _answerOne_z = answer1.transform.position.z;
-                    Debug.Log("Anser X " + _answerOne_x);
-                    Debug.Log("Anser Y " + _answerOne_y);
-                    Debug.Log("Anser Z " + _answerOne_z);
+                    
 
 
                     _answerTwo_x = answer2.transform.position.x;
@@ -219,7 +211,7 @@ public class calcCorrelation : MonoBehaviour
                     _answerThree_x = answer3.transform.position.x;
                     _answerThree_y = answer3.transform.position.y;
                     _answerThree_z = answer3.transform.position.z;
-                    Debug.Log("Positions of the answers X,Y,Z are saved in a variable");
+                    
 
                     //PUSH VALUE TO ARRAY TO THE LAST SPOT IN THE ARRAY
                     //resize arrays with new gaze points which get retrieved.
@@ -237,7 +229,7 @@ public class calcCorrelation : MonoBehaviour
                     answerOne_z[answerOne_z.GetUpperBound(0)] = _answerOne_z;
 
 
-                    Debug.Log("AnswerOne array is resized");
+                   
 
                     //Resize answerTwo array
                     Array.Resize(ref answerTwo_x, answerTwo_x.Length + 1);
@@ -248,8 +240,7 @@ public class calcCorrelation : MonoBehaviour
                     answerTwo_z[answerTwo_z.GetUpperBound(0)] = _answerTwo_z;
 
 
-                    Debug.Log("AnswerTwo array is resized");
-
+                   
                     //Resize answerThree array
                     Array.Resize(ref answerThree_x, answerThree_x.Length + 1);
                     answerThree_x[answerThree_x.GetUpperBound(0)] = _answerThree_x;
@@ -257,28 +248,27 @@ public class calcCorrelation : MonoBehaviour
                     answerThree_y[answerThree_y.GetUpperBound(0)] = _answerThree_y;
                     Array.Resize(ref answerThree_z, answerThree_z.Length + 1);
                     answerThree_z[answerThree_z.GetUpperBound(0)] = _answerThree_z;
-                    Debug.Log("AnswerThree array is resized");
                     csvDocumentation = ToCSVCorrelationNoUndoCor(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ);
                     if(ms >= waitTime && hitGivenMS == false)
                     {
-                        Debug.Log("Filling Arrays until 2000ms");
+                        
                         var corAnswer1X = Correlation2(gaze_x, answerOne_x);
-                        Debug.Log("X Correlation " + corAnswer1X);
+                        
                         var corAnswer1Y = Correlation2(gaze_y, answerOne_y);
-                        Debug.Log("Y Correlation " + corAnswer1Y);
+                        
                         var corAnswer1Z = Correlation2(gaze_z, answerOne_z);
-                        Debug.Log("Z Correlation " + corAnswer1Z);
+                        
 
                         var corAnswer2X = Correlation2(gaze_x, answerTwo_x);
                         var corAnswer2Y = Correlation2(gaze_y, answerTwo_y);
                         var corAnswer2Z = Correlation2(gaze_z, answerTwo_z);
 
-                        Debug.Log("Correlation of AnswerTwo and Gaze is done");
+                      
 
                         var corAnswer3X = Correlation2(gaze_x, answerThree_x);
                         var corAnswer3Y = Correlation2(gaze_y, answerThree_y);
                         var corAnswer3Z = Correlation2(gaze_z, answerThree_z);
-                        Debug.Log("Correlation of AnswerThree and Gaze is done");
+                        
 
                         //Correlation to the answers 
                         corAnswer1 = corAnswer1X + corAnswer1Y + corAnswer1Z;
@@ -312,7 +302,7 @@ public class calcCorrelation : MonoBehaviour
                             hitGivenMS = false;
                             ms = 0;
 
-                            Debug.Log("Answer 1 got chosen");
+                            
                             csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer1.GetComponent<Text>().text);
                             question.SetActive(false);
                             answer1.SetActive(false);
@@ -344,7 +334,7 @@ public class calcCorrelation : MonoBehaviour
                             hitGivenMS = false;
                             ms = 0;
 
-                            Debug.Log("Answer 2 got chosen");
+                           
                             csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer2.GetComponent<Text>().text);
                             question.SetActive(false);
                             answer1.SetActive(false);
@@ -376,7 +366,7 @@ public class calcCorrelation : MonoBehaviour
 
                             hitGivenMS = false;
                             ms = 0;
-                            Debug.Log("Answer 3 got chosen");
+                            
                             csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer3.GetComponent<Text>().text);
                             question.SetActive(false);
                             answer1.SetActive(false);
@@ -393,28 +383,23 @@ public class calcCorrelation : MonoBehaviour
 
                 else if (ms >= waitTime && hitGivenMS)
                 {
-                    Debug.Log("Calculate correlation for every new point");
-                    Debug.Log(hit.transform.name);
+                    
+                    
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
+                    
 
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
+                    
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                    
 
                     
                     gaze_x = dropValuesOfArray(gaze_x, _gazeX);
-                    foreach (var item in gaze_x)
-                    {
-                        Debug.Log(item);
-                    }
                     gaze_y = dropValuesOfArray(gaze_y, _gazeY);
                     gaze_z = dropValuesOfArray(gaze_z, _gazeZ);
 
@@ -422,9 +407,6 @@ public class calcCorrelation : MonoBehaviour
                     _answerOne_x = answer1.transform.position.x;
                     _answerOne_y = answer1.transform.position.y;
                     _answerOne_z = answer1.transform.position.z;
-                    Debug.Log("Anser X " + _answerOne_x);
-                    Debug.Log("Anser Y " + _answerOne_y);
-                    Debug.Log("Anser Z " + _answerOne_z);
 
 
                     _answerTwo_x = answer2.transform.position.x;
@@ -434,7 +416,6 @@ public class calcCorrelation : MonoBehaviour
                     _answerThree_x = answer3.transform.position.x;
                     _answerThree_y = answer3.transform.position.y;
                     _answerThree_z = answer3.transform.position.z;
-                    Debug.Log("Positions of the answers X,Y,Z are saved in a variable");
 
 
                     // ADD 1, REMOVE FIRST OF POSITION
@@ -452,32 +433,31 @@ public class calcCorrelation : MonoBehaviour
 
 
                     var corAnswer1X = Correlation2(gaze_x, answerOne_x);
-                    Debug.Log("X Correlation " + corAnswer1X);
+                   
                     var corAnswer1Y = Correlation2(gaze_y, answerOne_y);
-                    Debug.Log("Y Correlation " + corAnswer1Y);
+                   
                     var corAnswer1Z = Correlation2(gaze_z, answerOne_z);
-                    Debug.Log("Z Correlation " + corAnswer1Z);
+                   
 
                     var corAnswer2X = Correlation2(gaze_x, answerTwo_x);
                     var corAnswer2Y = Correlation2(gaze_y, answerTwo_y);
                     var corAnswer2Z = Correlation2(gaze_z, answerTwo_z);
 
-                    Debug.Log("Correlation of AnswerTwo and Gaze is done");
+                   
 
                     var corAnswer3X = Correlation2(gaze_x, answerThree_x);
                     var corAnswer3Y = Correlation2(gaze_y, answerThree_y);
                     var corAnswer3Z = Correlation2(gaze_z, answerThree_z);
 
-                    Debug.Log("Correlation of AnswerThree and Gaze is done");
+                    
 
                     //Correlation to the answers 
                     corAnswer1 = corAnswer1X + corAnswer1Y + corAnswer1Z;
-                    Debug.Log("Correlation of Answer 1 is: " + corAnswer1);
+                    
                     corAnswer2 = corAnswer2X + corAnswer2Y + corAnswer2Z;
-                    Debug.Log("Correlation of Answer 2 is: " + corAnswer2);
+                    
                     corAnswer3 = corAnswer3X + corAnswer3Y + corAnswer3Z;
-                    Debug.Log("Correlation of Answer 3 is: " + corAnswer3);
-
+                 
                     csvDocumentation = ToCSVCorrelationNoUndoAnswer(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3);
                     //EyeGazeTxt1 egt = dataMa.eyeGazeData1;
                     //dataMa.eyeGazeData1.correA1 = corAnswer1;
@@ -505,7 +485,6 @@ public class calcCorrelation : MonoBehaviour
                         hitGivenMS = false;
                         ms = 0;
 
-                        Debug.Log("Answer 1 got chosen");
                         csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer1.GetComponent<Text>().text);
                         question.SetActive(false);
                         answer1.SetActive(false);
@@ -536,7 +515,7 @@ public class calcCorrelation : MonoBehaviour
                         hitGivenMS = false;
                         ms = 0;
 
-                        Debug.Log("Answer 2 got chosen");
+                      
                         csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer2.GetComponent<Text>().text);
                         question.SetActive(false);
                         answer1.SetActive(false);
@@ -568,7 +547,7 @@ public class calcCorrelation : MonoBehaviour
                         hitGivenMS = false;
                         ms = 0;
 
-                        Debug.Log("Answer 3 got chosen");
+                  
                         csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer3.GetComponent<Text>().text);
                         question.SetActive(false);
                         answer1.SetActive(false);

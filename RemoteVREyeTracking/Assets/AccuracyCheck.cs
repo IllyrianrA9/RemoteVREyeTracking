@@ -8,18 +8,21 @@ using Random = UnityEngine.Random;
 using System.Linq;
 using System.Text;
 using System.IO;
+using UnityEngine.UI;
 
 
 
 public class AccuracyCheck : MonoBehaviour
 {
     public string file = "Accuracy1.txt";
-    StringBuilder sb = new StringBuilder("Time, Circle ID, Circle posiion X, Circle position Y, Circle position Z, Gaze position X, Gaze position Y, Gaze position Z, Mean X, Mean Y, MeanZ, Offset, SDPrecision");
+    StringBuilder sb = new StringBuilder("Participant ID, Time, Circle ID, Circle posiion X, Circle position Y, Circle position Z, Gaze position X, Gaze position Y, Gaze position Z, Mean X, Mean Y, MeanZ, Offset, SDPrecision");
     private float timeForCSV = 0;
     private float offSetGazeToObject;
     private double sdPrecision;
     private string circleID;
     private string csvDocumentation;
+    public GameObject participant;
+    private string participantID;
     //This objects will either get activated or deactivated regarding the chosen answer by the participant
 
     public GameObject endExperimentText;
@@ -88,7 +91,7 @@ public class AccuracyCheck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        participantID = participant.GetComponent<Text>().text;
     }
     // Update is called once per frame
     void Update()
@@ -128,7 +131,6 @@ public class AccuracyCheck : MonoBehaviour
             // Check if gaze ray is valid
             if (eyeTrackingData.GazeRay.IsValid)
             {
-                Debug.Log("Eye gaze ray is valid");
                 // The origin of the gaze ray is a 3D point
                 var rayOrigin = eyeTrackingData.GazeRay.Origin;
 
@@ -144,20 +146,19 @@ public class AccuracyCheck : MonoBehaviour
                 if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
                 {
 
-                    Debug.Log(hit.transform.name);
+                   
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
+              
 
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
+                   
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                    
                     //}
 
                     //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
@@ -173,10 +174,9 @@ public class AccuracyCheck : MonoBehaviour
 
                         Array.Resize(ref gaze_z, gaze_z.Length + 1);
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                        Debug.Log("Gaze Z coordinates");
-                        Debug.Log("Gaze array is resized");
+                       
                         //SaveToFileNotUsingMean();
-                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -217,7 +217,7 @@ public class AccuracyCheck : MonoBehaviour
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
             offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
-            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+            
 
 
             //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
@@ -225,9 +225,9 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-            Debug.Log("SDPrecision: " + sdPrecision);
+           
             //SaveToFileUsingMean();
-            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID,  timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             isCalculatedCircle1 = true;
@@ -264,7 +264,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleZ = blackCircles[current].transform.position.z;
                 blackPosition = blackCircles[current].transform.position;
                 counter += 1;
-                Debug.Log("Counter" + counter);
+                
             }
 
 
@@ -283,7 +283,7 @@ public class AccuracyCheck : MonoBehaviour
             // Check if gaze ray is valid
             if (eyeTrackingData.GazeRay.IsValid)
             {
-                Debug.Log("Eye gaze ray is valid");
+               
                 // The origin of the gaze ray is a 3D point
                 var rayOrigin = eyeTrackingData.GazeRay.Origin;
 
@@ -299,20 +299,19 @@ public class AccuracyCheck : MonoBehaviour
                 if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
                 {
 
-                    Debug.Log(hit.transform.name);
+                   
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
+                   
 
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
+                   
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                    
                     //}
 
                     //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
@@ -328,10 +327,9 @@ public class AccuracyCheck : MonoBehaviour
 
                         Array.Resize(ref gaze_z, gaze_z.Length + 1);
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                        Debug.Log("Gaze Z coordinates");
-                        Debug.Log("Gaze array is resized");
+                        
                         //SaveToFileNotUsingMean();
-                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -374,7 +372,7 @@ public class AccuracyCheck : MonoBehaviour
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
             offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
-            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+            
 
 
             //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
@@ -382,8 +380,7 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-            Debug.Log("SDPrecision: " + sdPrecision);
-            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, participantID,  timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             isCalculatedCircle2 = true;
@@ -420,7 +417,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleZ = blackCircles[current].transform.position.z;
                 blackPosition = blackCircles[current].transform.position;
                 counter += 1;
-                Debug.Log("Counter" + counter);
+               
             }
 
 
@@ -440,7 +437,7 @@ public class AccuracyCheck : MonoBehaviour
             // Check if gaze ray is valid
             if (eyeTrackingData.GazeRay.IsValid)
             {
-                Debug.Log("Eye gaze ray is valid");
+              
                 // The origin of the gaze ray is a 3D point
                 var rayOrigin = eyeTrackingData.GazeRay.Origin;
 
@@ -456,20 +453,18 @@ public class AccuracyCheck : MonoBehaviour
                 if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
                 {
 
-                    Debug.Log(hit.transform.name);
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
+                  
 
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
+                  
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                   
                     //}
 
                     //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
@@ -485,10 +480,9 @@ public class AccuracyCheck : MonoBehaviour
 
                         Array.Resize(ref gaze_z, gaze_z.Length + 1);
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                        Debug.Log("Gaze Z coordinates");
-                        Debug.Log("Gaze array is resized");
+                        
                         //SaveToFileNotUsingMean();
-                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
+                        csvDocumentation = ToCSVNoOffsetSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -530,7 +524,7 @@ public class AccuracyCheck : MonoBehaviour
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
             offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
-            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+           
 
 
             //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
@@ -538,8 +532,8 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-            Debug.Log("SDPrecision: " + sdPrecision);
-            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+            
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             isCalculatedCircle3 = true;
@@ -577,7 +571,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleZ = blackCircles[current].transform.position.z;
                 blackPosition = blackCircles[current].transform.position;
                 counter += 1;
-                Debug.Log("Counter" + counter);
+                
             }
 
 
@@ -597,7 +591,6 @@ public class AccuracyCheck : MonoBehaviour
             // Check if gaze ray is valid
             if (eyeTrackingData.GazeRay.IsValid)
             {
-                Debug.Log("Eye gaze ray is valid");
                 // The origin of the gaze ray is a 3D point
                 var rayOrigin = eyeTrackingData.GazeRay.Origin;
 
@@ -613,20 +606,18 @@ public class AccuracyCheck : MonoBehaviour
                 if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
                 {
 
-                    Debug.Log(hit.transform.name);
+                   
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
-
+                   
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
+                    
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                  
                     //}
 
 
@@ -643,10 +634,9 @@ public class AccuracyCheck : MonoBehaviour
 
                         Array.Resize(ref gaze_z, gaze_z.Length + 1);
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                        Debug.Log("Gaze Z coordinates");
-                        Debug.Log("Gaze array is resized");
+                       
                         //SaveToFileNotUsingMean();
-                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -688,16 +678,14 @@ public class AccuracyCheck : MonoBehaviour
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
             offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
-            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
-
+            
 
             //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-            Debug.Log("SDPrecision: " + sdPrecision);
-            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -736,7 +724,7 @@ public class AccuracyCheck : MonoBehaviour
                 blackPosition = blackCircles[current].transform.position;
 
                 counter += 1;
-                Debug.Log("Counter" + counter);
+               
             }
 
 
@@ -756,7 +744,7 @@ public class AccuracyCheck : MonoBehaviour
             // Check if gaze ray is valid
             if (eyeTrackingData.GazeRay.IsValid)
             {
-                Debug.Log("Eye gaze ray is valid");
+               
                 // The origin of the gaze ray is a 3D point
                 var rayOrigin = eyeTrackingData.GazeRay.Origin;
 
@@ -772,20 +760,18 @@ public class AccuracyCheck : MonoBehaviour
                 if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
                 {
 
-                    Debug.Log(hit.transform.name);
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
+                   
 
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
+                    
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                  
                     //}
 
                     //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
@@ -801,10 +787,9 @@ public class AccuracyCheck : MonoBehaviour
 
                         Array.Resize(ref gaze_z, gaze_z.Length + 1);
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                        Debug.Log("Gaze Z coordinates");
-                        Debug.Log("Gaze array is resized");
+                       
                         //SaveToFileNotUsingMean();
-                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -847,16 +832,16 @@ public class AccuracyCheck : MonoBehaviour
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
             offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
-            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+           
 
 
             //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
-            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID,  timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-            Debug.Log("SDPrecision: " + sdPrecision);
+          
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -895,7 +880,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleZ = blackCircles[current].transform.position.z;
                 blackPosition = blackCircles[current].transform.position;
                 counter += 1;
-                Debug.Log("Counter" + counter);
+                
             }
 
 
@@ -915,7 +900,7 @@ public class AccuracyCheck : MonoBehaviour
             // Check if gaze ray is valid
             if (eyeTrackingData.GazeRay.IsValid)
             {
-                Debug.Log("Eye gaze ray is valid");
+               
                 // The origin of the gaze ray is a 3D point
                 var rayOrigin = eyeTrackingData.GazeRay.Origin;
 
@@ -931,20 +916,19 @@ public class AccuracyCheck : MonoBehaviour
                 if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
                 {
 
-                    Debug.Log(hit.transform.name);
+                  
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
+                   
 
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
+                    
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                    
                     //}
 
                     //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
@@ -960,10 +944,9 @@ public class AccuracyCheck : MonoBehaviour
 
                         Array.Resize(ref gaze_z, gaze_z.Length + 1);
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                        Debug.Log("Gaze Z coordinates");
-                        Debug.Log("Gaze array is resized");
+                       
                         //SaveToFileNotUsingMean();
-                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -1005,7 +988,7 @@ public class AccuracyCheck : MonoBehaviour
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
             offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
-            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+           
 
 
             //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
@@ -1013,8 +996,8 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-            Debug.Log("SDPrecision: " + sdPrecision);
-            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+           
+            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -1055,7 +1038,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleZ = blackCircles[current].transform.position.z;
                 blackPosition = blackCircles[current].transform.position;
                 counter += 1;
-                Debug.Log("Counter" + counter);
+               
             }
 
 
@@ -1075,7 +1058,7 @@ public class AccuracyCheck : MonoBehaviour
             // Check if gaze ray is valid
             if (eyeTrackingData.GazeRay.IsValid)
             {
-                Debug.Log("Eye gaze ray is valid");
+                
                 // The origin of the gaze ray is a 3D point
                 var rayOrigin = eyeTrackingData.GazeRay.Origin;
 
@@ -1091,20 +1074,19 @@ public class AccuracyCheck : MonoBehaviour
                 if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
                 {
 
-                    Debug.Log(hit.transform.name);
+                   
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
+                  
 
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
+                   
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                 
                     //}
 
                     //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
@@ -1120,10 +1102,9 @@ public class AccuracyCheck : MonoBehaviour
 
                         Array.Resize(ref gaze_z, gaze_z.Length + 1);
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                        Debug.Log("Gaze Z coordinates");
-                        Debug.Log("Gaze array is resized");
+                        
                         //SaveToFileNotUsingMean();
-                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -1165,7 +1146,7 @@ public class AccuracyCheck : MonoBehaviour
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
             offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
-            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+            
 
 
             //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
@@ -1173,8 +1154,8 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-            Debug.Log("SDPrecision: " + sdPrecision);
-            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+           
+            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -1201,14 +1182,14 @@ public class AccuracyCheck : MonoBehaviour
             if (msShowCircle >= 16000 &&  counter == 7)
             {
                 //current = Random.Range(0, listOfCircles.Length - 1);
-                //Debug.Log("Current" + current);
+              
                 //listOfCircles[current].SetActive(true);
                 //circleX = listOfCircles[current].transform.position.x;
                 //circleY = listOfCircles[current].transform.position.y;
                 //circleZ = listOfCircles[current].transform.position.z;
 
                 current = Random.Range(0, 1);
-                Debug.Log("Current" + current);
+               
                 listOfCircles2[current].SetActive(true);
                 circleID = listOfCircles2[current].name;
                 circleX = blackCircles[current].transform.position.x;
@@ -1216,7 +1197,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleZ = blackCircles[current].transform.position.z;
                 blackPosition = blackCircles[current].transform.position;
                 counter += 1;
-                Debug.Log("Counter" + counter);
+               
             }
 
 
@@ -1236,7 +1217,7 @@ public class AccuracyCheck : MonoBehaviour
             // Check if gaze ray is valid
             if (eyeTrackingData.GazeRay.IsValid)
             {
-                Debug.Log("Eye gaze ray is valid");
+               
                 // The origin of the gaze ray is a 3D point
                 var rayOrigin = eyeTrackingData.GazeRay.Origin;
 
@@ -1252,20 +1233,19 @@ public class AccuracyCheck : MonoBehaviour
                 if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
                 {
 
-                    Debug.Log(hit.transform.name);
+                
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
+                   
 
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
+                  
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                  
                     //}
 
                     //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
@@ -1281,10 +1261,9 @@ public class AccuracyCheck : MonoBehaviour
 
                         Array.Resize(ref gaze_z, gaze_z.Length + 1);
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                        Debug.Log("Gaze Z coordinates");
-                        Debug.Log("Gaze array is resized");
+                       
                         //SaveToFileNotUsingMean();
-                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -1322,17 +1301,14 @@ public class AccuracyCheck : MonoBehaviour
         {
             //Prerequisite 2: Mean of Gaze (soll nicht größer 5% sein)
             meanX = meanofArray(gaze_x);
-            Debug.Log("MeanX: " + meanX);
-            Debug.Log("Circle X: " + blackCircles[current].transform.position.x);
+            
             meanY = meanofArray(gaze_y);
-            Debug.Log("MeanY: " + meanY);
-            Debug.Log("Circle Y: " + blackCircles[current].transform.position.y);
+           
             meanZ = meanofArray(gaze_z);
-            Debug.Log("MeanZ: " + meanZ);
-            Debug.Log("Circle Z: " + blackCircles[current].transform.position.z);
+           
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
             offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
-            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
+            
 
 
             //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
@@ -1340,8 +1316,8 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-            Debug.Log("SDPrecision: " + sdPrecision);
-            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+          
+            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -1367,12 +1343,7 @@ public class AccuracyCheck : MonoBehaviour
             if (msShowCircle  >= 18000 && counter == 8)
             {
                 current = 0;
-                foreach(GameObject game in listOfCircles2)
-                {
-
-                    Debug.Log("Name: " + game.name);
-                }
-                Debug.Log("Current" + current);
+                
                 //listOfCircles[current].SetActive(true);
                 //circleX = listOfCircles[current].transform.position.x;
                 //circleY = listOfCircles[current].transform.position.y;
@@ -1385,7 +1356,7 @@ public class AccuracyCheck : MonoBehaviour
                 circleZ = blackCircles[current].transform.position.z;
                 blackPosition = blackCircles[current].transform.position;
                 counter += 1;
-                Debug.Log("Counter" + counter);
+                
             }
 
 
@@ -1405,7 +1376,7 @@ public class AccuracyCheck : MonoBehaviour
             // Check if gaze ray is valid
             if (eyeTrackingData.GazeRay.IsValid)
             {
-                Debug.Log("Eye gaze ray is valid");
+                
                 // The origin of the gaze ray is a 3D point
                 var rayOrigin = eyeTrackingData.GazeRay.Origin;
 
@@ -1421,20 +1392,19 @@ public class AccuracyCheck : MonoBehaviour
                 if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
                 {
 
-                    Debug.Log(hit.transform.name);
+                  
                     desktop = hit.collider.gameObject;
 
                     //_gazeX = transform.InverseTransformPoint(hit.point).x;
                     _gazeX = hit.point.x;
-                    Debug.Log("X Gaze " + _gazeX);
+                    
 
                     //_gazeY = transform.InverseTransformPoint(hit.point).y;
                     _gazeY = hit.point.y;
-                    Debug.Log("Y Gaze " + _gazeY);
+                   
                     //_gazeZ = transform.InverseTransformPoint(hit.point).z;
                     _gazeZ = hit.point.z;
-                    Debug.Log("Z Gaze " + _gazeZ);
-                    Debug.Log("Eye gaze points X,Y,Z are saved");
+                    
                     //}
 
                     //Prerequisite 1: Collect data between 800-1800 ms so user can move his eyes
@@ -1450,10 +1420,9 @@ public class AccuracyCheck : MonoBehaviour
 
                         Array.Resize(ref gaze_z, gaze_z.Length + 1);
                         gaze_z[gaze_z.GetUpperBound(0)] = _gazeZ;
-                        Debug.Log("Gaze Z coordinates");
-                        Debug.Log("Gaze array is resized");
+                        
                         //SaveToFileNotUsingMean();
-                        csvDocumentation = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
+                        csvDocumentation = ToCSVNoOffsetSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
                     }
                 }
             }
@@ -1497,16 +1466,15 @@ public class AccuracyCheck : MonoBehaviour
             meanZ = meanofArray(gaze_z);
             Vector3 gazeVector = new Vector3((float)meanX, (float)meanY, (float)meanZ);
             offSetGazeToObject = Vector3.Distance(blackPosition, gazeVector);
-            Debug.Log("Gaze Distance to Object: " + offSetGazeToObject);
-
+           
 
             //Prerequisite 3: SD Precision (soll nicht größer 1.5% sein)
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-            Debug.Log("SDPrecision: " + sdPrecision);
-            csvDocumentation = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+        
+            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -1574,24 +1542,24 @@ public class AccuracyCheck : MonoBehaviour
         return result;
     }
 
-    public string ToCSVusingOffsetsSDP(StringBuilder sb, float time, string circleID, double objX, double objY, double objZ , double gazeX, double gazeY, double gazeZ, double meanX, double meanY, double meanZ, float offset, double sdP)
+    public string ToCSVusingOffsetsSDP(StringBuilder sb, string partID, float time, string circleID, double objX, double objY, double objZ , double gazeX, double gazeY, double gazeZ, double meanX, double meanY, double meanZ, float offset, double sdP)
     {
         //var sb = new StringBuilder("Difficulty , Wrong answer, More instruction, Distraction overall, Distraction on screen, VR camera");
-        sb.Append('\n').Append(time.ToString()).Append(", ").Append(circleID.ToString()).Append(", ").Append(objX.ToString()).Append(", ").Append(objY.ToString()).Append(", ").Append(objZ.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(meanX.ToString()).Append(", ").Append(meanY.ToString()).Append(", ").Append(meanZ.ToString()).Append(", ").Append(offset.ToString()).Append(", ").Append(sdP.ToString());
+        sb.Append('\n').Append(partID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(circleID.ToString()).Append(", ").Append(objX.ToString()).Append(", ").Append(objY.ToString()).Append(", ").Append(objZ.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(meanX.ToString()).Append(", ").Append(meanY.ToString()).Append(", ").Append(meanZ.ToString()).Append(", ").Append(offset.ToString()).Append(", ").Append(sdP.ToString());
         return sb.ToString();
 
     }
-    public string ToCSVNoOffsetSDP(StringBuilder sb, float time, string circleID, double objX, double objY, double objZ, double gazeX, double gazeY, double gazeZ)
+    public string ToCSVNoOffsetSDP(StringBuilder sb, string partID, float time, string circleID, double objX, double objY, double objZ, double gazeX, double gazeY, double gazeZ)
     {
         //var sb = new StringBuilder("Difficulty , Wrong answer, More instruction, Distraction overall, Distraction on screen, VR camera");
-        sb.Append('\n').Append(time.ToString()).Append(", ").Append(circleID.ToString()).Append(", ").Append(objX.ToString()).Append(", ").Append(objY.ToString()).Append(", ").Append(objZ.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString());
+        sb.Append('\n').Append(partID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(circleID.ToString()).Append(", ").Append(objX.ToString()).Append(", ").Append(objY.ToString()).Append(", ").Append(objZ.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString());
         return sb.ToString();
 
     }
 
     public void SaveToFileUsingMean()
     {
-        var content = ToCSVusingOffsetsSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision );
+        var content = ToCSVusingOffsetsSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision );
         string path = GetFilePath(file);
         FileStream fileStream = new FileStream(path, FileMode.Append, FileAccess.Write);
         using (StreamWriter writer = new StreamWriter(fileStream))
@@ -1617,7 +1585,7 @@ public class AccuracyCheck : MonoBehaviour
 
     public void SaveToFileNotUsingMean()
     {
-        var content = ToCSVNoOffsetSDP(sb, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
+        var content = ToCSVNoOffsetSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ);
         string path = GetFilePath(file);
         FileStream fileStream = new FileStream(path, FileMode.Append, FileAccess.Write);
         using (StreamWriter writer = new StreamWriter(fileStream))

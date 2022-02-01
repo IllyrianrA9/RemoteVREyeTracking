@@ -159,13 +159,11 @@ namespace Valve.VR.Extras
                     {
                         Button button = gameObject.GetComponent<Button>();
                         button.onClick.Invoke();
-                        Debug.Log("Did Hit");
                     }
                 }
                 else
                 {
                     Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-                    Debug.Log("Did not Hit");
                 }
             }
             else
