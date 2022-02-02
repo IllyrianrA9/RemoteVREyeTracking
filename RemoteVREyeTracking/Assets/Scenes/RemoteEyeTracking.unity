@@ -3654,7 +3654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData1.txt
+  file: 
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -4191,10 +4191,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "By pressing \"I Understand\", I assure that I have read and understood
-    the consent and thus was informed about my rights. \n\nI certify that I agree
-    to the processing of my data by the LMU Munich and Bundeswehr University Munich.\n\n\nAfter
-    pressing \"I Understand\"  we will continue with  demography questions."
+  m_text: "By clicking \"I Understand\", I affirm that I have read and understood
+    the consent and have thus been informed of my rights. \r\n\r\nI confirm that
+    I agree to the processing of my data by LMU Munich and the University of the
+    Bundeswehr Munich.\r\n\r\n\r\nAfter pressing \"I Understand\" we will continue
+    with the demographic questions."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4221,8 +4222,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33
-  m_fontSizeBase: 33
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5898,7 +5899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData1.txt
+  file: 
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -6130,13 +6131,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303795257}
-  m_LocalRotation: {x: 0.30048501, y: 0.640085, z: -0.30048501, w: 0.640085}
-  m_LocalPosition: {x: -6.24, y: 1.4, z: 2.03}
+  m_LocalRotation: {x: 0.40638816, y: 0.5786611, z: -0.40638816, w: 0.5786611}
+  m_LocalPosition: {x: -6.220813, y: 1.38, z: 1.61}
   m_LocalScale: {x: 6, y: 2, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 50.295, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 70.16, y: 90, z: 0}
 --- !u!1 &307014258 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8604210258352024488, guid: 778fd6888bd63864886aed430c6acd3c,
@@ -6168,7 +6169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData1.txt
+  file: 
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -6895,7 +6896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData1.txt
+  file: 
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -7307,8 +7308,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387892174}
-  m_LocalRotation: {x: 0.30048487, y: 0.64008504, z: -0.30048487, w: 0.64008504}
-  m_LocalPosition: {x: 0, y: 0, z: 2.03}
+  m_LocalRotation: {x: 0.40638727, y: 0.57866174, z: -0.40638727, w: 0.57866174}
+  m_LocalPosition: {x: 0, y: 0, z: 1.61}
   m_LocalScale: {x: 0.008, y: 0.008, z: 0.008}
   m_Children:
   - {fileID: 1431886281}
@@ -7354,10 +7355,10 @@ RectTransform:
   - {fileID: 1374579418}
   m_Father: {fileID: 0}
   m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 50.295, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 70.16, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.24, y: 1.47}
+  m_AnchoredPosition: {x: -6.220813, y: 1.4364626}
   m_SizeDelta: {x: 800, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &400429287
@@ -7651,14 +7652,33 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "I am aware that the collection, processing and use of my data is voluntary.
+  m_text: 'I am aware that the collection, processing and use of my data is voluntary.
     The study can be revoked by me at any time without giving reasons and without
-    causing me any disadvantages. In the event of revocation, all data stored about
-    me will be irrevocably deleted.\n\n\nI agree that my following data are processed:\n\n-
-    Demography (age in years, gender, education, job status, technical affinity\n\n-
-    My eyetracking data\n\n- Experiences with and attitudes towards various types
-    of technology\n\n- Results from questionnaires on user experienced video and
-    audio recordings during study tasks.\n\n\t\t\t        "
+    any disadvantages for me. In the event of revocation, all data stored about me
+    will be irrevocably deleted.
+
+
+
+    I agree to the following data being processed:
+
+
+    -
+    Demographics (age in years, gender, education, professional status, technical
+    affinity.)
+
+
+    - My eye tracking data
+
+
+    - Experiences with and attitudes
+    towards different types of technology
+
+
+    - Results from questionnaires on
+    video and audio recordings during study tasks.
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7685,8 +7705,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33
-  m_fontSizeBase: 33
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9158,30 +9178,32 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'I have been informed, that my personal data collected in the context of
-    the purposes described in the last pages, will be processed in compliance with
+  m_text: 'I have been informed that my personal data collected within the scope
+    of the purposes described on the last pages will be processed in compliance with
     the General Data Protection Regulation (GDPR and BayDSG).
 
+    
 
-    Furthermore I
-    have been informed that i can amend the given consent without stating any reasons
-    with effect for the future or revoke it completely. I can send my declaration
-    of cancellaiton by stating the study title " Remote VR eye-tracking studies:
-    challenges and opportunities of conductiing VR eye-tracking studies out of the
-    lab" and my study code by post or e-mail to antepopic69@gmail.com.
+    Furthermore,
+    I have been informed that I can change or completely revoke the given consent
+    without giving reasons with effect for the future. I can send my revocation statement
+    by post or e-mail to antepopic69@gmail.com, stating the study title "Remote VR
+    eye-tracking studies: challenges and opportunities of conducting VR eye-tracking
+    studies out of the lab" and my study code.
 
-    In addition,
-    after taking part in the study for an unlimited time, I have the opportunity
-    to obtain the complete deletion of my data at LMU Munich by stating my study
-    code, as long as the data can still be assigned to this code.
+    In addition, after participating
+    in the study for an indefinite period of time, I have the option to request complete
+    deletion of my data from LMU Munich by providing my study code as long as the
+    data can still be attributed to this code.
 
+    
 
-    I am aware
-    that according to the General Data Protection Regulations (GDPR) I have a right
-    to information about my personal data stored at the University server. For this
-    purpose, I was also given an information sheet on data protection with further
-    information. Because of this information and any further explanaition, I can
-    contact the study supervisor by e-mail: antepopic69@gmail.com.'
+    I am aware that I have
+    a right of access to my personal data stored on the university server in accordance
+    with the General Data Protection Regulation (DDPR). For this purpose, I have
+    also been given an information sheet on data protection with further information.
+    Because of this information and further explanations, I can contact the study
+    supervisor by e-mail: antepopic69@gmail.com'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9208,8 +9230,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33
-  m_fontSizeBase: 33
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10043,7 +10065,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In order to navigate, use the button Upper(Lower input field
+  m_text: In order to navigate, use the button Upper/Lower input field
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14199,7 +14221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData1.txt
+  file: 
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -18210,7 +18232,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In order to navigate, use the button Upper(Lower input field
+  m_text: In order to navigate, use the button Upper/Lower input field
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19676,7 +19698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData1.txt
+  file: 
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -26207,8 +26229,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500803496}
-  m_LocalRotation: {x: 0.30048487, y: 0.64008504, z: -0.30048487, w: 0.64008504}
-  m_LocalPosition: {x: 0, y: 0, z: 2.03}
+  m_LocalRotation: {x: 0.40638727, y: 0.57866174, z: -0.40638727, w: 0.57866174}
+  m_LocalPosition: {x: 0, y: 0, z: 1.61}
   m_LocalScale: {x: 0.008, y: 0.008, z: 0.008}
   m_Children:
   - {fileID: 2083162602}
@@ -26254,10 +26276,10 @@ RectTransform:
   - {fileID: 1001276326}
   m_Father: {fileID: 0}
   m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 50.295, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 70.16, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.24, y: 1.47}
+  m_AnchoredPosition: {x: -6.220813, y: 1.4364626}
   m_SizeDelta: {x: 800, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1503644592
@@ -27079,7 +27101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData1.txt
+  file: 
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -27669,7 +27691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData1.txt
+  file: 
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -27819,7 +27841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataMa: {fileID: 1249928336}
-  file: eyeGazeData1.txt
+  file: 
   csvDocumentation: 
   participant: {fileID: 1594469474}
   timeForCSV: 0
@@ -28129,6 +28151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   csvDocumentation: 
   undoTenScreen: {fileID: 61132831}
+  myFile: {fileID: 1460151167}
 --- !u!1 &1617967961 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8604210259576417257, guid: 778fd6888bd63864886aed430c6acd3c,
@@ -35069,17 +35092,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Remote VR Eye-Tracking Study: EyeVote\n\n\nFirst of all, thank you for
-    your interest in my Bachelor Thesis study\n \"Remote VR Eye-Tracking Studies:
-    challenges and opportunities of conducting VR eye-tracking studies out of the
-    lab\".\n\nThe aim of this study is to collect eyegaze data from the user, in
-    order to compare the gaze accuracy with a traditional lab study.\n\nOnce the
-    study starts, you will be asked 10 questions. Please gaze at the moving answers
-    that you want to select.\nThe questions are neutral and there is no right or
-    wrong.\nE.g.: Which ice cream flavor would you choose? Vanilla, Chocolate or
-    Strawberry\nYou will be able to undo your answer selection of you want to repeat
-    the question.\n\nFirst of all, I need your consent for the next sheets, which
-    are about legal regulations.\n"
+  m_Text: "VR Eye-Tracking Study: EyeVote\n\n\nFirst of all, thank you for your interest
+    in my bachelor thesis:\n \"Remote VR eye-tracking studies: challenges and opportunities
+    of conducting VR eye-tracking studies outside the lab\".\n\nThe goal of this
+    study is to collect gaze data from users to compare gaze accuracy with a traditional
+    laboratory study.\n\nOnce the experiment starts, you will be asked 10 questions.
+    Please look at the moving answers you would like to select.\nThe questions are
+    neutral and there is no right or wrong.\r\nE.g.: Which ice cream flavor would
+    you choose? Vanilla, chocolate or strawberry\r\nYou can undo your answer if you
+    want to repeat the question.\r\n\r\nFirst, I need your consent for the next sheets,
+    which are about legal regulations.\n"
 --- !u!222 &1927679286
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37947,19 +37969,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Your data will be needed to answer scientific research questions regarding
-    technology  use in virtual worlds and real-world public settings. The study is
-    not intended to evaluate your person or performance. It is intended to help in
-    designing usable valuable experiences.\n\nI have been informed that the code
-    I have selected will only be used to merge the data from different parts of the
-    study. My name is neither associated with the collected data nor with the study
-    code.\n\nI agree that my data will be collected, processed, used and stored by
-    Ludwig-Maximilians-Universit\xE4t (LMU) Munich and Bundeswehr University Munich
-    for the following purposes:\n\n- I agree that the result and primary data of
-    this study may be published by the LMU Munich and Bundeswehr University Munich
-    as a scienctific publication.\nThe data is published completely anonymously,
-    ie.e., the collected data cannot be related to respective participants.\n\n-
-    The anonymized data is stored for an indefinite period of time"
+  m_text: "Your data is needed to answer scientific research questions about technology
+    use in virtual worlds and real-world publics. The study is not intended to evaluate
+    your person or performance. It is intended to help design usable and valuable
+    experiences.\r\n\r\nI have been informed that the code I choose will only be
+    used to merge data from different parts of the study. My name will not be associated
+    with the data collected or the study code.\r\n\r\nI agree that my data will be
+    collected, processed, used and stored by Ludwig-Maximilians-Universit\xE4t (LMU)
+    Munich and Universit\xE4t der Bundeswehr M\xFCnchen for the following purposes:\r\n\r\n-
+    I agree that the results and primary data of this study may be published by LMU
+    Munich and the University of the Bundeswehr University Munich as a scientific
+    publication.\r\nThe data will be published completely anonymized, i.e. the collected
+    data cannot be linked to the respective participants.\r\n\r\n- The anonymized
+    data will be stored indefinitely."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -37986,8 +38008,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33
-  m_fontSizeBase: 33
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -40449,7 +40471,7 @@ PrefabInstance:
     - target: {fileID: 4187632685795785245, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
       propertyPath: file
-      value: eyeGazeData1.txt
+      value: Quizt1.txt
       objectReference: {fileID: 0}
     - target: {fileID: 4187632685795785245, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}
@@ -42695,6 +42717,20 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604210258793671584, guid: 778fd6888bd63864886aed430c6acd3c,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Welcome to the experiment.
+
+        You will now be asked 10 questions,
+        and please gaze at the moving answers you would like to choose. The questions
+        are neutral and personal, where there is no right or wrong. E.g. "Which ice
+        cream flavor would you choose? Vanilla, chocolate, or strawberry." You can
+        undo your answer selection if you want to repeat the question.
+
+        This
+        must also be done by looking at the possible choices "Change" and "Next".'
       objectReference: {fileID: 0}
     - target: {fileID: 8604210258793671591, guid: 778fd6888bd63864886aed430c6acd3c,
         type: 3}

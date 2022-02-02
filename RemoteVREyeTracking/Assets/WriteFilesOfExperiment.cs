@@ -14,11 +14,12 @@ public class WriteFilesOfExperiment : MonoBehaviour
     public string csvDocumentation;
     private string file;
     public GameObject undoTenScreen;
+    public GameObject myFile;
     // Start is called before the first frame update
     void Start()
     {
         csvDocumentation = undoTenScreen.GetComponent<UndoGaze10>().csvDocumentation;
-        file = undoTenScreen.GetComponent<UndoGaze10>().file;
+        file = myFile.GetComponent<calcCorrelation>().file;
         SaveToFile();
     }
 

@@ -2462,7 +2462,7 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
 
     public string ToCSVPostStudy(string partID, string difficulty, string wrongAnser, string moreInstruction, string distraction, string distractionOnScreen, string cameraVR)
     {
-        var sb = new StringBuilder(" Participant ID, Difficulty , Wrong answer, More instruction, Distraction overall, Distraction on screen, VR camera");
+        var sb = new StringBuilder("Participant ID, Difficulty , Wrong answer, More instruction, Distraction overall, Distraction on screen, VR camera");
         sb.Append('\n').Append(partID.ToString()).Append(", ").Append(difficulty.ToString()).Append(", ").Append(wrongAnser.ToString()).Append(", ").Append(moreInstruction.ToString()).Append(", ").Append(distraction.ToString()).Append(", ").Append(distractionOnScreen.ToString()).Append(", ").Append(cameraVR.ToString());
         return sb.ToString();
 
@@ -2477,6 +2477,7 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             writer.Write(content);
             Debug.Log(" Write CSV");
+            Debug.Log("Filepath: " + path);
         }
 
     }
