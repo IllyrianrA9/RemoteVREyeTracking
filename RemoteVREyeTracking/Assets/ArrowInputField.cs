@@ -8,7 +8,11 @@ using System.IO;
 
 public class ArrowInputField : MonoBehaviour
 {
-    public string file = "demographyData1.txt";
+
+    public GameObject canvasForPartID;
+    private int participantNumberReal;
+
+    public string file = "demographyData";
     public GameObject participant;
     private string participantID;
 
@@ -176,9 +180,19 @@ public class ArrowInputField : MonoBehaviour
     public float buttonBlockednine = 0;
     public float buttonBlockedzero = 0;
 
+    private bool partTrueID = true;
+
     void Start()
     {
         participantID = participant.GetComponent<Text>().text;
+
+        if (partTrueID)
+        {
+            participantNumberReal = canvasForPartID.GetComponent<ManageParticipantID>().participantNumber;
+            participantID = participant.GetComponent<Text>().text;
+            file = file + participantNumberReal + ".txt";
+            partTrueID = false;
+        }
         button = objectButton.GetComponent<Button>();
         ageText = age.GetComponent<TMP_InputField>().text;
         genderText = gender.GetComponent<TMP_InputField>().text;

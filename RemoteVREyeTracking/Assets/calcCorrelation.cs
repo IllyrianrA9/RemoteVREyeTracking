@@ -12,10 +12,13 @@ using UnityEngine.UI;
 public class calcCorrelation : MonoBehaviour
 {
     public DataMa dataMa;
-    public string file = "Quiz1.txt";
-    public string csvDocumentation;
-    public StringBuilder sb = new StringBuilder("User ID, Time, Question ID, Question position X, Question position Y, Question position Z, Gaze position X, Gaze position Y, Gaze position Z, Correlation 1, Correlation 2, Correlation 3, Chosen Answer, Amount of Undo");
+
     public GameObject participant;
+    public GameObject canvasForPartID;
+    private int participantNumberReal;
+    public string file = "Quiz";
+    public string csvDocumentation;
+    public StringBuilder sb = new StringBuilder("Participant ID, Time, Question ID, Question position X, Question position Y, Question position Z, Gaze position X, Gaze position Y, Gaze position Z, Correlation 1, Correlation 2, Correlation 3, Chosen Answer, Amount of Undo");
     private string participantID;
     public float timeForCSV = 0;
     public GameObject previousUndo;
@@ -85,11 +88,18 @@ public class calcCorrelation : MonoBehaviour
 
     //boolean , which shows if we reached the given ms the first time
     private bool hitGivenMS = false;
-
+    private bool partTrueID = true;
     // Start is called before the first frame update
     void Start()
     {
-        participantID = participant.GetComponent<Text>().text;
+        if (partTrueID)
+        {
+            participantNumberReal = canvasForPartID.GetComponent<ManageParticipantID>().participantNumber;
+            participantID = participant.GetComponent<Text>().text;
+            file = file + participantNumberReal + ".txt";
+            partTrueID = false;
+        }
+        
         questionID = question.GetComponent<Text>().text;
         if(question.name != "Question10")
         {

@@ -8,7 +8,10 @@ using System.IO;
 
 public class ArrowInputFieldPostStudy : MonoBehaviour
 {
-    public string file = "postStudy1.txt";
+    public GameObject canvasForPartID;
+    private int participantNumberReal;
+
+    public string file = "postStudy";
     public GameObject participant;
     private string participantID;
 
@@ -172,9 +175,20 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
     public float buttonBlockednine = 0;
     public float buttonBlockedzero = 0;
 
+    private bool partTrueID = true;
+
     void Start()
     {
         participantID = participant.GetComponent<Text>().text;
+
+        if (partTrueID)
+        {
+            participantNumberReal = canvasForPartID.GetComponent<ManageParticipantID>().participantNumber;
+            participantID = participant.GetComponent<Text>().text;
+            file = file + participantNumberReal + ".txt";
+            partTrueID = false;
+        }
+
         button = objectButton.GetComponent<Button>();
         distractionText = distraction.GetComponent<TMP_InputField>().text;
         distractionOnScreenText = distractionOnScreen.GetComponent<TMP_InputField>().text;

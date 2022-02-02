@@ -14,7 +14,10 @@ using UnityEngine.UI;
 
 public class AccuracyCheck : MonoBehaviour
 {
-    public string file = "Accuracy1.txt";
+    public GameObject canvasForPartID;
+    private int participantNumberReal;
+
+    public string file = "Accuracy";
     StringBuilder sb = new StringBuilder("Participant ID, Time, Circle ID, Circle posiion X, Circle position Y, Circle position Z, Gaze position X, Gaze position Y, Gaze position Z, Mean X, Mean Y, MeanZ, Offset, SDPrecision");
     private float timeForCSV = 0;
     private float offSetGazeToObject;
@@ -85,6 +88,7 @@ public class AccuracyCheck : MonoBehaviour
     int validGazeData = 0;
     int invalidGazeData = 0;
 
+    private bool partTrueID = true;
     //waitTime in miliseconds
     //public float showCircle = 2000;
 
@@ -92,6 +96,13 @@ public class AccuracyCheck : MonoBehaviour
     void Start()
     {
         participantID = participant.GetComponent<Text>().text;
+        if (partTrueID)
+        {
+            participantNumberReal = canvasForPartID.GetComponent<ManageParticipantID>().participantNumber;
+            participantID = participant.GetComponent<Text>().text;
+            file = file + participantNumberReal + ".txt";
+            partTrueID = false;
+        }
     }
     // Update is called once per frame
     void Update()
