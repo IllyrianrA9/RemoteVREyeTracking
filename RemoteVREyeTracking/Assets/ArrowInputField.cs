@@ -9,6 +9,9 @@ using System.IO;
 public class ArrowInputField : MonoBehaviour
 {
 
+    public GameObject postStudy;
+    public GameObject postStudySheet;
+
     public GameObject canvasForPartID;
     private int participantNumberReal;
 
@@ -396,11 +399,10 @@ public class ArrowInputField : MonoBehaviour
             }
 
             //Hier kommen die zu nutzenden Objekte
-            initialText.SetActive(true);
             demography.SetActive(false);
-            keyboard.SetActive(false);
             canvasKeyboard.SetActive(false);
-            startExperimentButton.SetActive(true);
+            postStudy.SetActive(true);
+            postStudySheet.SetActive(true);
 
             //Hier schreibe ich in eine Datei
             SaveToFile();

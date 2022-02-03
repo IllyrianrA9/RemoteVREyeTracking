@@ -18,7 +18,7 @@ public class calcCorrelation : MonoBehaviour
     private int participantNumberReal;
     public string file = "Quiz";
     public string csvDocumentation;
-    public StringBuilder sb = new StringBuilder("Participant ID, Time, Question ID, Question position X, Question position Y, Question position Z, Gaze position X, Gaze position Y, Gaze position Z, Correlation 1, Correlation 2, Correlation 3, Chosen Answer, Amount of Undo");
+    public StringBuilder sb = new StringBuilder("Participant ID, Time, Question ID, Answer 1 position X, Answer 1 position Y, Answer 1 position Z, Answer 2 position X, Answer 2 position Y, Answer 2 Position Z, Answer 3 position X, Answer 3 position Y, Answer 3 Position Z, Gaze position X, Gaze position Y, Gaze position Z, Correlation 1, Correlation 2, Correlation 3, Chosen Answer, Amount of Undo");
     private string participantID;
     public float timeForCSV = 0;
     public GameObject previousUndo;
