@@ -1,3 +1,22 @@
 # Remote VR Eye Tracking
 
-Bachelorthesis for remote VR Eye Tracking.
+Bachelorthesis for remote VR Eye Tracking
+
+Participants have to select answers with their gaze by following the movement of the object (Smooth Pursuit).
+Eye tracking is enabled via SRanipal SDK for VIVE Pro Eye.
+Eye gaze data is collected via TobiiXR SDK.
+Correlation of moving object & eye gaze is calculated.
+Correlation of 0.9 has to be reached in order to select an answer with eye gaze.
+
+After the experiment, an accuracy test will be executed:
+A white circle, and inside the white circle a black circle will be shown for 2 seconds (9x times).
+The participant has to gaze at the black dot.
+
+Validity of data:
+80% of data have to be valid.
+Eye gaze data is collected in a one second interval.
+SDPrecision & Accuracy have to reach a certain value.
+
+After the accuracy test the participant will answer the demography & post study questions
+
+Pressing the Quit button, the application will close.
