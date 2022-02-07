@@ -18,7 +18,7 @@ public class AccuracyCheck : MonoBehaviour
     private int participantNumberReal;
 
     public string file = "Accuracy";
-    StringBuilder sb = new StringBuilder("Participant ID, Time, Circle ID, Circle posiion X, Circle position Y, Circle position Z, Gaze position X, Gaze position Y, Gaze position Z, Mean X, Mean Y, MeanZ, Offset, SDPrecision");
+    StringBuilder sb = new StringBuilder("Participant ID, Time, Circle ID, Circle posiion X, Circle position Y, Circle position Z, Gaze position X, Gaze position Y, Gaze position Z, Mean X, Mean Y, MeanZ, Offset, SDPrecision, Validity");
     private float timeForCSV = 0;
     private float offSetGazeToObject;
     private double sdPrecision;
@@ -83,6 +83,9 @@ public class AccuracyCheck : MonoBehaviour
     private bool isValidOrNotCircle9 = false;
 
     Vector3 blackPosition;
+
+    private string validity;
+    private double validData; 
 
     //Counter to see how many eye gaze samples are valid or not
     int validGazeData = 0;
@@ -198,22 +201,21 @@ public class AccuracyCheck : MonoBehaviour
             }
             if(invalidGazeData != 0 && validGazeData != 0  && msShowCircle > 3800 && isValidOrNotCircle1 == false)
             {
-                double validData = invalidGazeData / validGazeData;
-                Debug.Log("Percentage of valid data: " + validData +"for circle " + listOfCircles2[current].name);
+                validData = 1 - (invalidGazeData / validGazeData);
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle1 = true;
             }
             if(validGazeData == 0 && msShowCircle > 3800 && isValidOrNotCircle1 == false)
             {
-                Debug.Log("During this point there was no eye tracking possible!");
+                validData = 0;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle1 = true;
             }
             if(invalidGazeData == 0 && msShowCircle > 3800 && isValidOrNotCircle1 == false)
             {
-                Debug.Log("Percentage of valid data: 100% for circle "+ listOfCircles2[current].name);
+                validData = 1;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle1 = true;
@@ -236,9 +238,18 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-           
+
+            if(sdPrecision < 1 && validData > 0.8)
+            {
+                validity = "Valid";
+            }
+
+            if (sdPrecision > 1 || validData < 0.8)
+            {
+                validity = "Invalid";
+            }
             //SaveToFileUsingMean();
-            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID,  timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID,  timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision, validity);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             isCalculatedCircle1 = true;
@@ -351,22 +362,21 @@ public class AccuracyCheck : MonoBehaviour
             }
             if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 5800 && isValidOrNotCircle2 == false)
             {
-                double validData = invalidGazeData / validGazeData;
-                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validData = 1 - (invalidGazeData / validGazeData);
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle2 = true;
             }
             if (validGazeData == 0 && msShowCircle > 5800 && isValidOrNotCircle2 == false)
             {
-                Debug.Log("During this point there was no eye tracking possible!");
+                validData = 0;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle2 = true;
             }
             if (invalidGazeData == 0 && msShowCircle > 5800 && isValidOrNotCircle2 == false)
             {
-                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validData = 1;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle2 = true;
@@ -391,7 +401,18 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-            csvDocumentation = ToCSVusingOffsetsSDP(sb, participantID,  timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+
+            if (sdPrecision < 1 && validData > 0.8)
+            {
+                validity = "Valid";
+            }
+
+            if (sdPrecision > 1 || validData < 0.8)
+            {
+                validity = "Invalid";
+            }
+
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, participantID,  timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision, validity);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             isCalculatedCircle2 = true;
@@ -504,22 +525,21 @@ public class AccuracyCheck : MonoBehaviour
             }
             if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 7800 &&isValidOrNotCircle3 == false)
             {
-                double validData = invalidGazeData / validGazeData;
-                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validData = 1 - (invalidGazeData / validGazeData);
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle3 = true;
             }
             if (validGazeData == 0 && msShowCircle > 7800 && isValidOrNotCircle3 == false)
             {
-                Debug.Log("During this point there was no eye tracking possible!");
+                validData = 0;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle3 = true;
             }
             if (invalidGazeData == 0 && msShowCircle > 7800 && isValidOrNotCircle3 == false)
             {
-                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validData = 1;
                 invalidGazeData = 0;
                 validGazeData = 0;
                 isValidOrNotCircle3 = true;
@@ -543,8 +563,18 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-            
-            csvDocumentation = ToCSVusingOffsetsSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+
+            if (sdPrecision < 1 && validData > 0.8)
+            {
+                validity = "Valid";
+            }
+
+            if (sdPrecision > 1 || validData < 0.8)
+            {
+                validity = "Invalid";
+            }
+
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision, validity);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             isCalculatedCircle3 = true;
@@ -658,22 +688,21 @@ public class AccuracyCheck : MonoBehaviour
             }
             if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 9800 && isValidOrNotCircle4 == false)
             {
-                double validData = invalidGazeData / validGazeData;
-                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validData = 1 - (invalidGazeData / validGazeData);
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle4 = true;
             }
             if (validGazeData == 0 && msShowCircle > 9800 && isValidOrNotCircle4 == false)
             {
-                Debug.Log("During this point there was no eye tracking possible!");
+                validData = 0;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle4 = true;
             }
             if (invalidGazeData == 0 && msShowCircle > 9800 && isValidOrNotCircle4 == false)
             {
-                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validData = 1;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle4 = true;
@@ -696,7 +725,18 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-            csvDocumentation = ToCSVusingOffsetsSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+
+            if (sdPrecision < 1 && validData > 0.8)
+            {
+                validity = "Valid";
+            }
+
+            if (sdPrecision > 1 || validData < 0.8)
+            {
+                validity = "Invalid";
+            }
+
+            csvDocumentation = ToCSVusingOffsetsSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision, validity);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -811,8 +851,7 @@ public class AccuracyCheck : MonoBehaviour
             }
             if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 11800 && isValidOrNotCircle5 == false)
             {
-                double validData = invalidGazeData / validGazeData;
-                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validData = 1 - (invalidGazeData / validGazeData);
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle5 = true;
@@ -820,14 +859,14 @@ public class AccuracyCheck : MonoBehaviour
 
             if (validGazeData == 0 && msShowCircle > 11800 && isValidOrNotCircle5 == false)
             {
-                Debug.Log("During this point there was no eye tracking possible!");
+                validData = 0;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle5 = true;
             }
             if (invalidGazeData == 0 && msShowCircle > 11800 && isValidOrNotCircle5 == false)
             {
-                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validData = 1;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle5 = true;
@@ -850,8 +889,18 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeX = standardDeviation(gaze_x);
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
-            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID,  timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
+            if (sdPrecision < 1 && validData > 0.8)
+            {
+                validity = "Valid";
+            }
+
+            if (sdPrecision > 1 || validData < 0.8)
+            {
+                validity = "Invalid";
+            }
+
+            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID,  timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision, validity);
           
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
@@ -968,22 +1017,21 @@ public class AccuracyCheck : MonoBehaviour
             }
             if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 13800 && isValidOrNotCircle6 == false)
             {
-                double validData = invalidGazeData / validGazeData;
-                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validData = 1 - (invalidGazeData / validGazeData);
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle6 = true;
             }
             if (validGazeData == 0 && msShowCircle > 13800 && isValidOrNotCircle6 == false)
             {
-                Debug.Log("During this point there was no eye tracking possible!");
+                validData = 0;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle6 = true;
             }
             if (invalidGazeData == 0 && msShowCircle > 13800 && isValidOrNotCircle6 == false)
             {
-                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validData = 1;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle6 = true;
@@ -1007,8 +1055,18 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-           
-            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+
+            if (sdPrecision < 1 && validData > 0.8)
+            {
+                validity = "Valid";
+            }
+
+            if (sdPrecision > 1 || validData < 0.8)
+            {
+                validity = "Invalid";
+            }
+
+            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision, validity);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -1126,22 +1184,21 @@ public class AccuracyCheck : MonoBehaviour
             }
             if (invalidGazeData != 0 && validGazeData != 0  && msShowCircle > 15800 && isValidOrNotCircle7 == false)
             {
-                double validData = invalidGazeData / validGazeData;
-                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validData = 1 - (invalidGazeData / validGazeData);
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle7 = true;
             }
             if (validGazeData == 0 && msShowCircle > 15800 && isValidOrNotCircle7 == false)
             {
-                Debug.Log("During this point there was no eye tracking possible!");
+                validData = 0;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle7 = true;
             }
             if (invalidGazeData == 0 && msShowCircle > 15800 && isValidOrNotCircle7 == false)
             {
-                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validData = 1;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle7 = true;
@@ -1165,8 +1222,18 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-           
-            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+
+            if (sdPrecision < 1 && validData > 0.8)
+            {
+                validity = "Valid";
+            }
+
+            if (sdPrecision > 1 || validData < 0.8)
+            {
+                validity = "Invalid";
+            }
+
+            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision, validity);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -1285,22 +1352,21 @@ public class AccuracyCheck : MonoBehaviour
             }
             if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 17800 && isValidOrNotCircle8 == false)
             {
-                double validData = invalidGazeData / validGazeData;
-                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validData = 1 - (invalidGazeData / validGazeData);
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle8 = true;
             }
             if (validGazeData == 0 && msShowCircle > 17800 && isValidOrNotCircle8 == false)
             {
-                Debug.Log("During this point there was no eye tracking possible!");
+                validData = 0;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle8 = true;
             }
             if (invalidGazeData == 0 && msShowCircle > 17800 && isValidOrNotCircle8 == false)
             {
-                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validData = 1;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle8 = true;
@@ -1327,8 +1393,19 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-          
-            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+
+
+            if (sdPrecision < 1 && validData > 0.8)
+            {
+                validity = "Valid";
+            }
+
+            if (sdPrecision > 1 || validData < 0.8)
+            {
+                validity = "Invalid";
+            }
+
+            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision, validity);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -1445,22 +1522,21 @@ public class AccuracyCheck : MonoBehaviour
             }
             if (invalidGazeData != 0 && validGazeData != 0 && msShowCircle > 19800 && isValidOrNotCircle9 == false)
             {
-                double validData = invalidGazeData / validGazeData;
-                Debug.Log("Percentage of valid data: " + validData + "for circle " + listOfCircles2[current].name);
+                validData = 1 - (invalidGazeData / validGazeData); ;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle9 = true;
             }
             if (validGazeData == 0 && msShowCircle > 19800 && isValidOrNotCircle9 == false)
             {
-                Debug.Log("During this point there was no eye tracking possible!");
+                validData = 0;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle9 = true;
             }
             if (invalidGazeData == 0 && msShowCircle > 19800 && isValidOrNotCircle9 == false)
             {
-                Debug.Log("Percentage of valid data: 100% for circle " + listOfCircles2[current].name);
+                validData = 1;
                 validGazeData = 0;
                 invalidGazeData = 0;
                 isValidOrNotCircle9 = true;
@@ -1484,8 +1560,19 @@ public class AccuracyCheck : MonoBehaviour
             double stdGazeY = standardDeviation(gaze_y);
             double stdGazeZ = standardDeviation(gaze_z);
             sdPrecision = Math.Sqrt(Math.Pow(stdGazeX, 2) + Math.Pow(stdGazeY, 2) + Math.Pow(stdGazeZ, 2));
-        
-            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision);
+
+
+            if (sdPrecision < 1 && validData > 0.8)
+            {
+                validity = "Valid";
+            }
+
+            if (sdPrecision > 1 || validData < 0.8)
+            {
+                validity = "Invalid";
+            }
+
+            csvDocumentation = ToCSVusingOffsetsSDP(sb,participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision, validity);
             //double distance = Math.Sqrt(Math.Pow(meanX, 2) + Math.Pow(meanY, 2) + Math.Pow(meanZ, 2));
             //listOfCircles[current].SetActive(false);
             //RemoveAt(listOfCircles, current);
@@ -1553,10 +1640,10 @@ public class AccuracyCheck : MonoBehaviour
         return result;
     }
 
-    public string ToCSVusingOffsetsSDP(StringBuilder sb, string partID, float time, string circleID, double objX, double objY, double objZ , double gazeX, double gazeY, double gazeZ, double meanX, double meanY, double meanZ, float offset, double sdP)
+    public string ToCSVusingOffsetsSDP(StringBuilder sb, string partID, float time, string circleID, double objX, double objY, double objZ , double gazeX, double gazeY, double gazeZ, double meanX, double meanY, double meanZ, float offset, double sdP, string validity)
     {
         //var sb = new StringBuilder("Difficulty , Wrong answer, More instruction, Distraction overall, Distraction on screen, VR camera");
-        sb.Append('\n').Append(partID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(circleID.ToString()).Append(", ").Append(objX.ToString()).Append(", ").Append(objY.ToString()).Append(", ").Append(objZ.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(meanX.ToString()).Append(", ").Append(meanY.ToString()).Append(", ").Append(meanZ.ToString()).Append(", ").Append(offset.ToString()).Append(", ").Append(sdP.ToString());
+        sb.Append('\n').Append(partID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(circleID.ToString()).Append(", ").Append(objX.ToString()).Append(", ").Append(objY.ToString()).Append(", ").Append(objZ.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(meanX.ToString()).Append(", ").Append(meanY.ToString()).Append(", ").Append(meanZ.ToString()).Append(", ").Append(offset.ToString()).Append(", ").Append(sdP.ToString()).Append(", ").Append(validity.ToString());
         return sb.ToString();
 
     }
@@ -1570,7 +1657,7 @@ public class AccuracyCheck : MonoBehaviour
 
     public void SaveToFileUsingMean()
     {
-        var content = ToCSVusingOffsetsSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision );
+        var content = ToCSVusingOffsetsSDP(sb, participantID, timeForCSV, circleID, circleX, circleY, circleZ, _gazeX, _gazeY, _gazeZ, meanX, meanY, meanZ, offSetGazeToObject, sdPrecision, validity);
         string path = GetFilePath(file);
         FileStream fileStream = new FileStream(path, FileMode.Append, FileAccess.Write);
         using (StreamWriter writer = new StreamWriter(fileStream))

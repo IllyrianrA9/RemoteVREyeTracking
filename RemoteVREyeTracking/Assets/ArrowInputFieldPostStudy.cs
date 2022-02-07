@@ -31,6 +31,7 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
     public GameObject moreInstructionObject;
     public GameObject vrCameraObject;
 
+    public GameObject endButton;
     public GameObject lastText;
     public GameObject postStudy;
     public GameObject keyboard;
@@ -385,6 +386,7 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
             postStudy.SetActive(false);
             keyboard.SetActive(false);
             canvasKeyboard.SetActive(false);
+            endButton.SetActive(true);
             SaveToFile();
 
         }
