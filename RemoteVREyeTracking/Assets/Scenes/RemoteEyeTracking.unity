@@ -19667,7 +19667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: -57}
+  m_AnchoredPosition: {x: -1, y: -85}
   m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1146967369
@@ -31864,7 +31864,10 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Thank you for your participation :)
 
-    You can now remove the VR headset.'
+    Pressing the Quit button will
+    close the game.
+
+    Afterwards you can remove the VR headset.'
 --- !u!222 &1753043720
 CanvasRenderer:
   m_ObjectHideFlags: 0
