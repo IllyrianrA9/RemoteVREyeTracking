@@ -2478,7 +2478,7 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
 
     public string ToCSVPostStudy(string partID, string difficulty, string wrongAnser, string moreInstruction, string distraction, string distractionOnScreen, string cameraVR)
     {
-        var sb = new StringBuilder("Participant ID, Difficulty , Wrong answer, More instruction, Distraction overall, Distraction on screen, VR camera");
+        var sb = new StringBuilder("Participant_ID, Difficulty , Wrong_answer, More_instruction, Distraction_overall, Distraction_on_screen, VR_camera");
         sb.Append('\n').Append(partID.ToString()).Append(", ").Append(difficulty.ToString()).Append(", ").Append(wrongAnser.ToString()).Append(", ").Append(moreInstruction.ToString()).Append(", ").Append(distraction.ToString()).Append(", ").Append(distractionOnScreen.ToString()).Append(", ").Append(cameraVR.ToString());
         return sb.ToString();
 

@@ -18,7 +18,7 @@ public class AccuracyCheck : MonoBehaviour
     private int participantNumberReal;
 
     public string file = "Accuracy";
-    StringBuilder sb = new StringBuilder("Participant ID, Time, Circle ID, Circle posiion X, Circle position Y, Circle position Z, Gaze position X, Gaze position Y, Gaze position Z, Mean X, Mean Y, MeanZ, Offset, SDPrecision, Validity");
+    StringBuilder sb = new StringBuilder("Participant_ID, Time, Circle_ID, Circle_posiion_X, Circle_position_Y, Circle_position_Z, Gaze_position_X, Gaze_position_Y, Gaze_position_Z, Mean_X, Mean_Y, Mean_Z, Offset, SDPrecision, Validity");
     private float timeForCSV = 0;
     private float offSetGazeToObject;
     private double sdPrecision;
