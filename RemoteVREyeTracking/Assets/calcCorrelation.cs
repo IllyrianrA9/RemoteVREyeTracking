@@ -99,8 +99,8 @@ public class calcCorrelation : MonoBehaviour
             file = file + participantNumberReal + ".txt";
             partTrueID = false;
         }
-        
-        questionID = question.GetComponent<Text>().text;
+        var questionName = question.GetComponent<Text>().text;
+        questionID = questionName.ToString().Replace(" ", "_");
         if(question.name != "Question10")
         {
             if (undoScreen.GetComponent<UndoGaze>().timeForCSV > timeForCSV)
@@ -313,7 +313,7 @@ public class calcCorrelation : MonoBehaviour
                             ms = 0;
 
                             
-                            csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer1.GetComponent<Text>().text);
+                            csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer1.GetComponent<Text>().text.Replace(" ", "_"));
                             question.SetActive(false);
                             answer1.SetActive(false);
                             answer2.SetActive(false);
@@ -345,7 +345,7 @@ public class calcCorrelation : MonoBehaviour
                             ms = 0;
 
                            
-                            csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer2.GetComponent<Text>().text);
+                            csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer2.GetComponent<Text>().text.Replace(" ", "_"));
                             question.SetActive(false);
                             answer1.SetActive(false);
                             answer2.SetActive(false);
@@ -377,7 +377,7 @@ public class calcCorrelation : MonoBehaviour
                             hitGivenMS = false;
                             ms = 0;
                             
-                            csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer3.GetComponent<Text>().text);
+                            csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer3.GetComponent<Text>().text.Replace(" ", "_"));
                             question.SetActive(false);
                             answer1.SetActive(false);
                             answer2.SetActive(false);
@@ -495,7 +495,7 @@ public class calcCorrelation : MonoBehaviour
                         hitGivenMS = false;
                         ms = 0;
 
-                        csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer1.GetComponent<Text>().text);
+                        csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer1.GetComponent<Text>().text.Replace(" ", "_"));
                         question.SetActive(false);
                         answer1.SetActive(false);
                         answer2.SetActive(false);
@@ -526,7 +526,7 @@ public class calcCorrelation : MonoBehaviour
                         ms = 0;
 
                       
-                        csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer2.GetComponent<Text>().text);
+                        csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer2.GetComponent<Text>().text.Replace(" ", "_"));
                         question.SetActive(false);
                         answer1.SetActive(false);
                         answer2.SetActive(false);
@@ -558,7 +558,7 @@ public class calcCorrelation : MonoBehaviour
                         ms = 0;
 
                   
-                        csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer3.GetComponent<Text>().text);
+                        csvDocumentation = ToCSVCorrelationNoUndo(participantID, timeForCSV, questionID, _answerOne_x, _answerOne_y, _answerOne_z, _answerTwo_x, _answerTwo_y, _answerTwo_z, _answerThree_x, _answerThree_y, _answerThree_z, _gazeX, _gazeY, _gazeZ, corAnswer1, corAnswer2, corAnswer3, answer3.GetComponent<Text>().text.Replace(" ", "_"));
                         question.SetActive(false);
                         answer1.SetActive(false);
                         answer2.SetActive(false);
@@ -658,7 +658,7 @@ public class calcCorrelation : MonoBehaviour
     public string ToCSVCorrelation(string userID, float time, string questionID, double obj1X, double obj1Y, double obj1Z, double obj2X, double obj2Y, double obj2Z, double obj3X, double obj3Y, double obj3Z, double gazeX, double gazeY, double gazeZ, double corAnswer1, double corAnswer2, double corAnswer3, string answer, int undo)
     {
         //var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
-        sb.Append('\n').Append(userID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(questionID.ToString()).Append(", ").Append(obj1X.ToString()).Append(", ").Append(obj1Y.ToString()).Append(", ").Append(obj1Z.ToString()).Append(", ").Append(obj2X.ToString()).Append(", ").Append(obj2Y.ToString()).Append(", ").Append(obj2Z.ToString()).Append(", ").Append(obj3X.ToString()).Append(", ").Append(obj3Y.ToString()).Append(", ").Append(obj3Z.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(corAnswer1.ToString()).Append(", ").Append(corAnswer2.ToString()).Append(", ").Append(corAnswer3.ToString()).Append(", ").Append(answer.ToString()).Append(", ").Append(undo.ToString());
+        sb.Append('\n').Append(userID.ToString()).Append(" ").Append(time.ToString()).Append(" ").Append(questionID.ToString()).Append(" ").Append(obj1X.ToString()).Append(" ").Append(obj1Y.ToString()).Append(" ").Append(obj1Z.ToString()).Append(" ").Append(obj2X.ToString()).Append(" ").Append(obj2Y.ToString()).Append(" ").Append(obj2Z.ToString()).Append(" ").Append(obj3X.ToString()).Append(" ").Append(obj3Y.ToString()).Append(" ").Append(obj3Z.ToString()).Append(" ").Append(gazeX.ToString()).Append(" ").Append(gazeY.ToString()).Append(" ").Append(gazeZ.ToString()).Append(" ").Append(corAnswer1.ToString()).Append(" ").Append(corAnswer2.ToString()).Append(" ").Append(corAnswer3.ToString()).Append(" ").Append(answer.ToString()).Append(" ").Append(undo.ToString());
         return sb.ToString();
 
     }
@@ -666,7 +666,7 @@ public class calcCorrelation : MonoBehaviour
     public string ToCSVCorrelationNoUndoCor(string userID, float time, string questionID, double obj1X, double obj1Y, double obj1Z, double obj2X, double obj2Y, double obj2Z, double obj3X, double obj3Y, double obj3Z, double gazeX, double gazeY, double gazeZ)
     {
         //var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
-        sb.Append('\n').Append(userID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(questionID.ToString()).Append(", ").Append(obj1X.ToString()).Append(", ").Append(obj1Y.ToString()).Append(", ").Append(obj1Z.ToString()).Append(", ").Append(obj2X.ToString()).Append(", ").Append(obj2Y.ToString()).Append(", ").Append(obj2Z.ToString()).Append(", ").Append(obj3X.ToString()).Append(", ").Append(obj3Y.ToString()).Append(", ").Append(obj3Z.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString());
+        sb.Append('\n').Append(userID.ToString()).Append(" ").Append(time.ToString()).Append(" ").Append(questionID.ToString()).Append(" ").Append(obj1X.ToString()).Append(" ").Append(obj1Y.ToString()).Append(" ").Append(obj1Z.ToString()).Append(" ").Append(obj2X.ToString()).Append(" ").Append(obj2Y.ToString()).Append(" ").Append(obj2Z.ToString()).Append(" ").Append(obj3X.ToString()).Append(" ").Append(obj3Y.ToString()).Append(" ").Append(obj3Z.ToString()).Append(" ").Append(gazeX.ToString()).Append(" ").Append(gazeY.ToString()).Append(" ").Append(gazeZ.ToString());
         return sb.ToString();
 
     }
@@ -674,7 +674,7 @@ public class calcCorrelation : MonoBehaviour
     public string ToCSVCorrelationNoUndo(string userID, float time, string questionID, double obj1X, double obj1Y, double obj1Z, double obj2X, double obj2Y, double obj2Z, double obj3X, double obj3Y, double obj3Z, double gazeX, double gazeY, double gazeZ, double corAnswer1, double corAnswer2, double corAnswer3, string answer)
     {
         //var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
-        sb.Append('\n').Append(userID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(questionID.ToString()).Append(", ").Append(obj1X.ToString()).Append(", ").Append(obj1Y.ToString()).Append(", ").Append(obj1Z.ToString()).Append(", ").Append(obj2X.ToString()).Append(", ").Append(obj2Y.ToString()).Append(", ").Append(obj2Z.ToString()).Append(", ").Append(obj3X.ToString()).Append(", ").Append(obj3Y.ToString()).Append(", ").Append(obj3Z.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(corAnswer1.ToString()).Append(", ").Append(corAnswer2.ToString()).Append(", ").Append(corAnswer3.ToString()).Append(", ").Append(answer.ToString());
+        sb.Append('\n').Append(userID.ToString()).Append(" ").Append(time.ToString()).Append(" ").Append(questionID.ToString()).Append(" ").Append(obj1X.ToString()).Append(" ").Append(obj1Y.ToString()).Append(" ").Append(obj1Z.ToString()).Append(" ").Append(obj2X.ToString()).Append(" ").Append(obj2Y.ToString()).Append(" ").Append(obj2Z.ToString()).Append(" ").Append(obj3X.ToString()).Append(" ").Append(obj3Y.ToString()).Append(" ").Append(obj3Z.ToString()).Append(" ").Append(gazeX.ToString()).Append(" ").Append(gazeY.ToString()).Append(" ").Append(gazeZ.ToString()).Append(" ").Append(corAnswer1.ToString()).Append(" ").Append(corAnswer2.ToString()).Append(" ").Append(corAnswer3.ToString()).Append(" ").Append(answer.ToString());
         return sb.ToString();
 
     }
@@ -682,7 +682,7 @@ public class calcCorrelation : MonoBehaviour
     public string ToCSVCorrelationNoUndoAnswer(string userID, float time, string questionID, double obj1X, double obj1Y, double obj1Z, double obj2X, double obj2Y, double obj2Z, double obj3X, double obj3Y, double obj3Z, double gazeX, double gazeY, double gazeZ, double corAnswer1, double corAnswer2, double corAnswer3)
     {
         //var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
-        sb.Append('\n').Append(userID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(questionID.ToString()).Append(", ").Append(obj1X.ToString()).Append(", ").Append(obj1Y.ToString()).Append(", ").Append(obj1Z.ToString()).Append(", ").Append(obj2X.ToString()).Append(", ").Append(obj2Y.ToString()).Append(", ").Append(obj2Z.ToString()).Append(", ").Append(obj3X.ToString()).Append(", ").Append(obj3Y.ToString()).Append(", ").Append(obj3Z.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(corAnswer1.ToString()).Append(", ").Append(corAnswer2.ToString()).Append(", ").Append(corAnswer3.ToString());
+        sb.Append('\n').Append(userID.ToString()).Append(" ").Append(time.ToString()).Append(" ").Append(questionID.ToString()).Append(" ").Append(obj1X.ToString()).Append(" ").Append(obj1Y.ToString()).Append(" ").Append(obj1Z.ToString()).Append(" ").Append(obj2X.ToString()).Append(" ").Append(obj2Y.ToString()).Append(" ").Append(obj2Z.ToString()).Append(" ").Append(obj3X.ToString()).Append(" ").Append(obj3Y.ToString()).Append(" ").Append(obj3Z.ToString()).Append(" ").Append(gazeX.ToString()).Append(" ").Append(gazeY.ToString()).Append(" ").Append(gazeZ.ToString()).Append(" ").Append(corAnswer1.ToString()).Append(" ").Append(corAnswer2.ToString()).Append(" ").Append(corAnswer3.ToString());
         return sb.ToString();
 
     }

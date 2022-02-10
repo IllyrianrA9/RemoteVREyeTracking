@@ -1166,7 +1166,7 @@ GameObject:
   - component: {fileID: 61132833}
   - component: {fileID: 61132840}
   m_Layer: 5
-  m_Name: ChangeAnswer (9)
+  m_Name: ChangeAnswer9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8845,7 +8845,7 @@ GameObject:
   - component: {fileID: 469824045}
   - component: {fileID: 469824044}
   m_Layer: 5
-  m_Name: NextAnswer (3)
+  m_Name: NextAnswer3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16233,7 +16233,7 @@ GameObject:
   - component: {fileID: 886827299}
   - component: {fileID: 886827298}
   m_Layer: 5
-  m_Name: NextAnswer (5)
+  m_Name: NextAnswer5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20124,7 +20124,7 @@ GameObject:
   - component: {fileID: 1186434562}
   - component: {fileID: 1186434561}
   m_Layer: 5
-  m_Name: NextAnswer (6)
+  m_Name: NextAnswer6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21002,7 +21002,7 @@ GameObject:
   - component: {fileID: 1227896907}
   - component: {fileID: 1227896914}
   m_Layer: 5
-  m_Name: ChangeAnswer (8)
+  m_Name: ChangeAnswer8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21318,7 +21318,7 @@ GameObject:
   - component: {fileID: 1235818468}
   - component: {fileID: 1235818475}
   m_Layer: 5
-  m_Name: ChangeAnswer (6)
+  m_Name: ChangeAnswer6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23314,7 +23314,7 @@ GameObject:
   - component: {fileID: 1334445548}
   - component: {fileID: 1334445547}
   m_Layer: 5
-  m_Name: NextAnswer (8)
+  m_Name: NextAnswer8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24992,7 +24992,7 @@ GameObject:
   - component: {fileID: 1406616316}
   - component: {fileID: 1406616315}
   m_Layer: 5
-  m_Name: NextAnswer (1)
+  m_Name: NextAnswer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25592,7 +25592,7 @@ GameObject:
   - component: {fileID: 1428254281}
   - component: {fileID: 1428254288}
   m_Layer: 5
-  m_Name: ChangeAnswer (1)
+  m_Name: ChangeAnswer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28503,7 +28503,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Participant ID:'
+  m_Text: 'ParticipantID:'
 --- !u!222 &1594469477
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30272,7 +30272,7 @@ GameObject:
   - component: {fileID: 1686552186}
   - component: {fileID: 1686552185}
   m_Layer: 5
-  m_Name: NextAnswer (9)
+  m_Name: NextAnswer9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30456,7 +30456,7 @@ GameObject:
   - component: {fileID: 1688980925}
   - component: {fileID: 1688980932}
   m_Layer: 5
-  m_Name: ChangeAnswer (5)
+  m_Name: ChangeAnswer5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32330,7 +32330,7 @@ GameObject:
   - component: {fileID: 1781676094}
   - component: {fileID: 1781676101}
   m_Layer: 5
-  m_Name: ChangeAnswer (3)
+  m_Name: ChangeAnswer3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32567,7 +32567,7 @@ GameObject:
   - component: {fileID: 1783668278}
   - component: {fileID: 1783668285}
   m_Layer: 5
-  m_Name: ChangeAnswer (7)
+  m_Name: ChangeAnswer7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34846,7 +34846,7 @@ GameObject:
   - component: {fileID: 1890956265}
   - component: {fileID: 1890956264}
   m_Layer: 5
-  m_Name: NextAnswer (7)
+  m_Name: NextAnswer7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35848,7 +35848,7 @@ GameObject:
   - component: {fileID: 1940340856}
   - component: {fileID: 1940340855}
   m_Layer: 5
-  m_Name: NextAnswer (2)
+  m_Name: NextAnswer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36032,7 +36032,7 @@ GameObject:
   - component: {fileID: 1944491997}
   - component: {fileID: 1944492004}
   m_Layer: 5
-  m_Name: ChangeAnswer (2)
+  m_Name: ChangeAnswer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38248,7 +38248,7 @@ GameObject:
   - component: {fileID: 2015211088}
   - component: {fileID: 2015211095}
   m_Layer: 5
-  m_Name: ChangeAnswer (4)
+  m_Name: ChangeAnswer4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39628,7 +39628,7 @@ GameObject:
   - component: {fileID: 2083848762}
   - component: {fileID: 2083848761}
   m_Layer: 5
-  m_Name: NextAnswer (4)
+  m_Name: NextAnswer4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

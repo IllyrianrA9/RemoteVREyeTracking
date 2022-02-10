@@ -2658,8 +2658,8 @@ public class ArrowInputField : MonoBehaviour
 
     public string ToCSVDemography(string partID, string age, string gender, string vision, string residency, string origin, string experience, string remoteStudies)
     {
-        var sb = new StringBuilder("Participant_ID, Age , Gender, Vision, Residency, Origin, Experience, Remote_Studies_participated");
-        sb.Append('\n').Append(partID.ToString()).Append(", ").Append(age.ToString()).Append(", ").Append(gender.ToString()).Append(", ").Append(vision.ToString()).Append(", ").Append(residency.ToString()).Append(", ").Append(origin.ToString()).Append(", ").Append(experience.ToString()).Append(", ").Append(remoteStudies.ToString());
+        var sb = new StringBuilder("Participant_ID, Age, Gender, Vision, Residency, Origin, Experience, Remote_Studies_participated");
+        sb.Append('\n').Append(partID.ToString()).Append(" ").Append(age.ToString()).Append(" ").Append(gender.ToString()).Append(" ").Append(vision.ToString()).Append(" ").Append(residency.ToString()).Append(" ").Append(origin.ToString()).Append(" ").Append(experience.ToString()).Append(" ").Append(remoteStudies.ToString());
         return sb.ToString();
 
     }

@@ -211,7 +211,7 @@ public class UndoGaze10 : MonoBehaviour
                     Array.Resize(ref changeZ, changeZ.Length + 1);
                     changeZ[changeZ.GetUpperBound(0)] = _changeZ;
                    
-                    csvDocumentation = ToCSVCorrelationNoUndoCor(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ);
+                    csvDocumentation = ToCSVCorrelationNoUndoCor(user.GetComponent<Text>().text, timeForCSV, "Undo_Screen", _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ);
                 }
 
 
@@ -235,11 +235,11 @@ public class UndoGaze10 : MonoBehaviour
                     //Correlation to the answers 
                     corNext = corNextX + corNextY + corNextZ;
                     corChange = corChangeX + corChangeY + corChangeZ;
-                    csvDocumentation = ToCSVCorrelationNoUndoAnswer(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext);
+                    csvDocumentation = ToCSVCorrelationNoUndoAnswer(user.GetComponent<Text>().text, timeForCSV, "Undo_Screen", _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext);
 
                     if ((corNextX >= 0.9) && (corNextY >= 0.9) && (corNextZ >= 0.9) && (corNext > corChange))
                     {
-                        csvDocumentation = ToCSVCorrelation(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext, next.name, undoAmount);
+                        csvDocumentation = ToCSVCorrelation(user.GetComponent<Text>().text, timeForCSV, "Undo_Screen", _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext, next.name, undoAmount);
                         changeX = new double[0];
                         changeY = new double[0];
                         changeZ = new double[0];
@@ -277,7 +277,7 @@ public class UndoGaze10 : MonoBehaviour
                     if ((corChangeX >= 0.9) && (corChangeY >= 0.9) && (corChangeZ >= 0.9) && (corChange > corNext))
                     {
                         undoAmount += 1;
-                        csvDocumentation = ToCSVCorrelation(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext, change.name, undoAmount);
+                        csvDocumentation = ToCSVCorrelation(user.GetComponent<Text>().text, timeForCSV, "Undo_Screen", _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext, change.name, undoAmount);
                         changeX = new double[0];
                         changeY = new double[0];
                         changeZ = new double[0];
@@ -382,11 +382,11 @@ public class UndoGaze10 : MonoBehaviour
                    
                     corChange = corChangeX + corChangeY + corChangeZ;
                    
-                    csvDocumentation = ToCSVCorrelationNoUndoAnswer(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext);
+                    csvDocumentation = ToCSVCorrelationNoUndoAnswer(user.GetComponent<Text>().text, timeForCSV, "Undo_Screen", _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext);
 
                     if ((corNextX >= 0.9) && (corNextY >= 0.9) && (corNextZ >= 0.9) && (corNext > corChange))
                     {
-                        csvDocumentation = ToCSVCorrelation(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext, next.name, undoAmount);
+                        csvDocumentation = ToCSVCorrelation(user.GetComponent<Text>().text, timeForCSV, "Undo_Screen", _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext, next.name, undoAmount);
                         changeX = new double[0];
                         changeY = new double[0];
                         changeZ = new double[0];
@@ -424,7 +424,7 @@ public class UndoGaze10 : MonoBehaviour
                     if ((corChangeX >= 0.9) && (corChangeY >= 0.9) && (corChangeZ >= 0.9) && (corChange > corNext))
                     {
                         undoAmount += 1;
-                        csvDocumentation = ToCSVCorrelation(user.GetComponent<Text>().text, timeForCSV, undoQuestion.name, _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext, change.name, undoAmount);
+                        csvDocumentation = ToCSVCorrelation(user.GetComponent<Text>().text, timeForCSV, "Undo_Screen", _changeX, _changeY, _changeZ, _nextX, _nextY, _nextZ, _gazeX, _gazeY, _gazeZ, corChange, corNext, change.name, undoAmount);
                         changeX = new double[0];
                         changeY = new double[0];
                         changeZ = new double[0];
@@ -560,7 +560,7 @@ public class UndoGaze10 : MonoBehaviour
     public string ToCSVCorrelation(string userID, float time, string questionID, double obj1X, double obj1Y, double obj1Z, double obj2X, double obj2Y, double obj2Z, double gazeX, double gazeY, double gazeZ, double corAnswer1, double corAnswer2, string answer, int undo)
     {
         //var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
-        sb.Append('\n').Append(userID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(questionID.ToString()).Append(", ").Append(obj1X.ToString()).Append(", ").Append(obj1Y.ToString()).Append(", ").Append(obj1Z.ToString()).Append(", ").Append(obj2X.ToString()).Append(", ").Append(obj2Y.ToString()).Append(", ").Append(obj2Z.ToString()).Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(corAnswer1.ToString()).Append(", ").Append(corAnswer2.ToString()).Append(", ").Append("----").Append(", ").Append(answer.ToString()).Append(", ").Append(undo.ToString());
+        sb.Append('\n').Append(userID.ToString()).Append(" ").Append(time.ToString()).Append(" ").Append(questionID.ToString()).Append(" ").Append(obj1X.ToString()).Append(" ").Append(obj1Y.ToString()).Append(" ").Append(obj1Z.ToString()).Append(" ").Append(obj2X.ToString()).Append(" ").Append(obj2Y.ToString()).Append(" ").Append(obj2Z.ToString()).Append(" ").Append("----").Append(" ").Append("----").Append(" ").Append("----").Append(" ").Append(gazeX.ToString()).Append(" ").Append(gazeY.ToString()).Append(" ").Append(gazeZ.ToString()).Append(" ").Append(corAnswer1.ToString()).Append(" ").Append(corAnswer2.ToString()).Append(" ").Append("----").Append(" ").Append(answer.ToString()).Append(" ").Append(undo.ToString());
         return sb.ToString();
 
     }
@@ -568,7 +568,7 @@ public class UndoGaze10 : MonoBehaviour
     public string ToCSVCorrelationNoUndoCor(string userID, float time, string questionID, double obj1X, double obj1Y, double obj1Z, double obj2X, double obj2Y, double obj2Z, double gazeX, double gazeY, double gazeZ)
     {
         //var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
-        sb.Append('\n').Append(userID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(questionID.ToString()).Append(", ").Append(obj1X.ToString()).Append(", ").Append(obj1Y.ToString()).Append(", ").Append(obj1Z.ToString()).Append(", ").Append(obj2X.ToString()).Append(", ").Append(obj2Y.ToString()).Append(", ").Append(obj2Z.ToString()).Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString());
+        sb.Append('\n').Append(userID.ToString()).Append(" ").Append(time.ToString()).Append(" ").Append(questionID.ToString()).Append(" ").Append(obj1X.ToString()).Append(" ").Append(obj1Y.ToString()).Append(" ").Append(obj1Z.ToString()).Append(" ").Append(obj2X.ToString()).Append(" ").Append(obj2Y.ToString()).Append(" ").Append(obj2Z.ToString()).Append(" ").Append("----").Append(" ").Append("----").Append(" ").Append("----").Append(" ").Append(gazeX.ToString()).Append(" ").Append(gazeY.ToString()).Append(" ").Append(gazeZ.ToString());
         return sb.ToString();
 
     }
@@ -576,7 +576,7 @@ public class UndoGaze10 : MonoBehaviour
     public string ToCSVCorrelationNoUndo(string userID, float time, string questionID, double obj1X, double obj1Y, double obj1Z, double obj2X, double obj2Y, double obj2Z, double gazeX, double gazeY, double gazeZ, double corAnswer1, double corAnswer2, string answer)
     {
         //var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
-        sb.Append('\n').Append(userID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(questionID.ToString()).Append(", ").Append(obj1X.ToString()).Append(", ").Append(obj1Y.ToString()).Append(", ").Append(obj1Z.ToString()).Append(", ").Append(obj2X.ToString()).Append(", ").Append(obj2Y.ToString()).Append(", ").Append(obj2Z.ToString()).Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(corAnswer1.ToString()).Append(", ").Append(corAnswer2.ToString()).Append(", ").Append("----").Append(", ").Append(answer.ToString());
+        sb.Append('\n').Append(userID.ToString()).Append(" ").Append(time.ToString()).Append(" ").Append(questionID.ToString()).Append(" ").Append(obj1X.ToString()).Append(" ").Append(obj1Y.ToString()).Append(" ").Append(obj1Z.ToString()).Append(" ").Append(obj2X.ToString()).Append(" ").Append(obj2Y.ToString()).Append(" ").Append(obj2Z.ToString()).Append(" ").Append("----").Append(" ").Append("----").Append(" ").Append("----").Append(" ").Append(gazeX.ToString()).Append(" ").Append(gazeY.ToString()).Append(" ").Append(gazeZ.ToString()).Append(" ").Append(corAnswer1.ToString()).Append(" ").Append(corAnswer2.ToString()).Append(" ").Append("----").Append(" ").Append(answer.ToString());
         return sb.ToString();
 
     }
@@ -584,7 +584,7 @@ public class UndoGaze10 : MonoBehaviour
     public string ToCSVCorrelationNoUndoAnswer(string userID, float time, string questionID, double obj1X, double obj1Y, double obj1Z, double obj2X, double obj2Y, double obj2Z, double gazeX, double gazeY, double gazeZ, double corAnswer1, double corAnswer2)
     {
         //var sb = new StringBuilder("Answer 1 Correlation, Answer 2 Correlation, Answer 3 Correlation");
-        sb.Append('\n').Append(userID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(questionID.ToString()).Append(", ").Append(obj1X.ToString()).Append(", ").Append(obj1Y.ToString()).Append(", ").Append(obj1Z.ToString()).Append(", ").Append(obj2X.ToString()).Append(", ").Append(obj2Y.ToString()).Append(", ").Append(obj2Z.ToString()).Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append("----").Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(corAnswer1.ToString()).Append(", ").Append(corAnswer2.ToString()).Append(", ").Append("----");
+        sb.Append('\n').Append(userID.ToString()).Append(" ").Append(time.ToString()).Append(" ").Append(questionID.ToString()).Append(" ").Append(obj1X.ToString()).Append(" ").Append(obj1Y.ToString()).Append(" ").Append(obj1Z.ToString()).Append(" ").Append(obj2X.ToString()).Append(" ").Append(obj2Y.ToString()).Append(" ").Append(obj2Z.ToString()).Append(" ").Append("----").Append(" ").Append("----").Append(" ").Append("----").Append(" ").Append(gazeX.ToString()).Append(" ").Append(gazeY.ToString()).Append(" ").Append(gazeZ.ToString()).Append(" ").Append(corAnswer1.ToString()).Append(" ").Append(corAnswer2.ToString()).Append(" ").Append("----");
         return sb.ToString();
 
     }

@@ -1643,14 +1643,14 @@ public class AccuracyCheck : MonoBehaviour
     public string ToCSVusingOffsetsSDP(StringBuilder sb, string partID, float time, string circleID, double objX, double objY, double objZ , double gazeX, double gazeY, double gazeZ, double meanX, double meanY, double meanZ, float offset, double sdP, string validity)
     {
         //var sb = new StringBuilder("Difficulty , Wrong answer, More instruction, Distraction overall, Distraction on screen, VR camera");
-        sb.Append('\n').Append(partID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(circleID.ToString()).Append(", ").Append(objX.ToString()).Append(", ").Append(objY.ToString()).Append(", ").Append(objZ.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString()).Append(", ").Append(meanX.ToString()).Append(", ").Append(meanY.ToString()).Append(", ").Append(meanZ.ToString()).Append(", ").Append(offset.ToString()).Append(", ").Append(sdP.ToString()).Append(", ").Append(validity.ToString());
+        sb.Append('\n').Append(partID.ToString()).Append(" ").Append(time.ToString()).Append(" ").Append(circleID.ToString()).Append(" ").Append(objX.ToString()).Append(" ").Append(objY.ToString()).Append(" ").Append(objZ.ToString()).Append(" ").Append(gazeX.ToString()).Append(" ").Append(gazeY.ToString()).Append(" ").Append(gazeZ.ToString()).Append(" ").Append(meanX.ToString()).Append(" ").Append(meanY.ToString()).Append(" ").Append(meanZ.ToString()).Append(" ").Append(offset.ToString()).Append(" ").Append(sdP.ToString()).Append(" ").Append(validity.ToString());
         return sb.ToString();
 
     }
     public string ToCSVNoOffsetSDP(StringBuilder sb, string partID, float time, string circleID, double objX, double objY, double objZ, double gazeX, double gazeY, double gazeZ)
     {
         //var sb = new StringBuilder("Difficulty , Wrong answer, More instruction, Distraction overall, Distraction on screen, VR camera");
-        sb.Append('\n').Append(partID.ToString()).Append(", ").Append(time.ToString()).Append(", ").Append(circleID.ToString()).Append(", ").Append(objX.ToString()).Append(", ").Append(objY.ToString()).Append(", ").Append(objZ.ToString()).Append(", ").Append(gazeX.ToString()).Append(", ").Append(gazeY.ToString()).Append(", ").Append(gazeZ.ToString());
+        sb.Append('\n').Append(partID.ToString()).Append(" ").Append(time.ToString()).Append(" ").Append(circleID.ToString()).Append(" ").Append(objX.ToString()).Append(" ").Append(objY.ToString()).Append(" ").Append(objZ.ToString()).Append(" ").Append(gazeX.ToString()).Append(" ").Append(gazeY.ToString()).Append(" ").Append(gazeZ.ToString());
         return sb.ToString();
 
     }
