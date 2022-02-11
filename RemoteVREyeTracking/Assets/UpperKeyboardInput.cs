@@ -6,7 +6,7 @@ using TMPro;
 using System.Text;
 using System.IO;
 
-public class ArrowInputField : MonoBehaviour
+public class UpperKeyboardInput : MonoBehaviour
 {
     //This is the lowercase Input script
 
@@ -234,19 +234,15 @@ public class ArrowInputField : MonoBehaviour
     void Start()
     {
 
-        if (GetComponent<UpperKeyboardInput>().wasActive == true)
+        if (GetComponent<ArrowInputField>().wasActive == true)
         {
-            InputSelected = GetComponent<UpperKeyboardInput>().InputSelected;
-            GetComponent<UpperKeyboardInput>().wasActive = false;
+            InputSelected = GetComponent<ArrowInputField>().InputSelected;
+            GetComponent<ArrowInputField>().wasActive = false;
         }
         if (GetComponent<AltKeyboardDInput>().wasActive == true)
         {
             InputSelected = GetComponent<AltKeyboardDInput>().InputSelected;
             GetComponent<AltKeyboardDInput>().wasActive = false;
-        }
-        if (GetComponent<AltKeyboardDInput>().wasActive == false && GetComponent<UpperKeyboardInput>().wasActive == false)
-        {
-            InputSelected = 0;
         }
         participantID = participant.GetComponent<Text>().text;
 
@@ -351,10 +347,10 @@ public class ArrowInputField : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<UpperKeyboardInput>().wasActive == true)
+        if (GetComponent<ArrowInputField>().wasActive == true)
         {
-            InputSelected = GetComponent<UpperKeyboardInput>().InputSelected;
-            GetComponent<UpperKeyboardInput>().wasActive = false;
+            InputSelected = GetComponent<ArrowInputField>().InputSelected;
+            GetComponent<ArrowInputField>().wasActive = false;
         }
         if (GetComponent<AltKeyboardDInput>().wasActive == true)
         {
@@ -656,37 +652,37 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "a";
+                vision.GetComponent<TMP_InputField>().text += "A";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "a";
+                age.GetComponent<TMP_InputField>().text += "A";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "a";
+                gender.GetComponent<TMP_InputField>().text += "A";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "a";
+                residency.GetComponent<TMP_InputField>().text += "A";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "a";
+                origin.GetComponent<TMP_InputField>().text += "A";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "a";
+                experience.GetComponent<TMP_InputField>().text += "A";
             }
 
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "a";
+                remoteStudies.GetComponent<TMP_InputField>().text += "A";
             }
             aButton.enabled = false;
             buttonBlockeda = 0;
@@ -707,36 +703,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "b";
+                vision.GetComponent<TMP_InputField>().text += "B";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "b";
+                age.GetComponent<TMP_InputField>().text += "B";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "b";
+                gender.GetComponent<TMP_InputField>().text += "B";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "b";
+                residency.GetComponent<TMP_InputField>().text += "B";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "b";
+                origin.GetComponent<TMP_InputField>().text += "B";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "b";
+                experience.GetComponent<TMP_InputField>().text += "B";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "b";
+                remoteStudies.GetComponent<TMP_InputField>().text += "B";
             }
             bButton.enabled = false;
             buttonBlockedb = 0;
@@ -757,36 +753,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "c";
+                vision.GetComponent<TMP_InputField>().text += "C";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "c";
+                age.GetComponent<TMP_InputField>().text += "C";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "c";
+                gender.GetComponent<TMP_InputField>().text += "C";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "c";
+                residency.GetComponent<TMP_InputField>().text += "C";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "c";
+                origin.GetComponent<TMP_InputField>().text += "C";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "c";
+                experience.GetComponent<TMP_InputField>().text += "C";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "c";
+                remoteStudies.GetComponent<TMP_InputField>().text += "C";
             }
             cButton.enabled = false;
             buttonBlockedc = 0;
@@ -807,36 +803,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "d";
+                vision.GetComponent<TMP_InputField>().text += "D";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "d";
+                age.GetComponent<TMP_InputField>().text += "D";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "d";
+                gender.GetComponent<TMP_InputField>().text += "D";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "d";
+                residency.GetComponent<TMP_InputField>().text += "D";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "d";
+                origin.GetComponent<TMP_InputField>().text += "D";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "d";
+                experience.GetComponent<TMP_InputField>().text += "D";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "d";
+                remoteStudies.GetComponent<TMP_InputField>().text += "D";
             }
             dButton.enabled = false;
             buttonBlockedd = 0;
@@ -857,36 +853,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "e";
+                vision.GetComponent<TMP_InputField>().text += "E";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "e";
+                age.GetComponent<TMP_InputField>().text += "E";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "e";
+                gender.GetComponent<TMP_InputField>().text += "E";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "e";
+                residency.GetComponent<TMP_InputField>().text += "E";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "e";
+                origin.GetComponent<TMP_InputField>().text += "E";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "e";
+                experience.GetComponent<TMP_InputField>().text += "E";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "e";
+                remoteStudies.GetComponent<TMP_InputField>().text += "E";
             }
             eButton.enabled = false;
             buttonBlockede = 0;
@@ -907,36 +903,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "f";
+                vision.GetComponent<TMP_InputField>().text += "F";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "f";
+                age.GetComponent<TMP_InputField>().text += "F";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "f";
+                gender.GetComponent<TMP_InputField>().text += "F";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "f";
+                residency.GetComponent<TMP_InputField>().text += "F";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "f";
+                origin.GetComponent<TMP_InputField>().text += "F";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "f";
+                experience.GetComponent<TMP_InputField>().text += "F";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "f";
+                remoteStudies.GetComponent<TMP_InputField>().text += "F";
             }
             fButton.enabled = false;
             buttonBlockedf = 0;
@@ -957,36 +953,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "g";
+                vision.GetComponent<TMP_InputField>().text += "G";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "g";
+                age.GetComponent<TMP_InputField>().text += "G";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "g";
+                gender.GetComponent<TMP_InputField>().text += "G";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "g";
+                residency.GetComponent<TMP_InputField>().text += "G";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "g";
+                origin.GetComponent<TMP_InputField>().text += "G";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "g";
+                experience.GetComponent<TMP_InputField>().text += "G";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "g";
+                remoteStudies.GetComponent<TMP_InputField>().text += "G";
             }
             gButton.enabled = false;
             buttonBlockedg = 0;
@@ -1007,36 +1003,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "h";
+                vision.GetComponent<TMP_InputField>().text += "H";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "h";
+                age.GetComponent<TMP_InputField>().text += "H";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "h";
+                gender.GetComponent<TMP_InputField>().text += "H";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "h";
+                residency.GetComponent<TMP_InputField>().text += "H";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "h";
+                origin.GetComponent<TMP_InputField>().text += "H";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "h";
+                experience.GetComponent<TMP_InputField>().text += "H";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "h";
+                remoteStudies.GetComponent<TMP_InputField>().text += "H";
             }
             hButton.enabled = false;
             buttonBlockedh = 0;
@@ -1057,36 +1053,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "i";
+                vision.GetComponent<TMP_InputField>().text += "I";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "i";
+                age.GetComponent<TMP_InputField>().text += "I";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "i";
+                gender.GetComponent<TMP_InputField>().text += "I";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "i";
+                residency.GetComponent<TMP_InputField>().text += "I";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "i";
+                origin.GetComponent<TMP_InputField>().text += "I";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "i";
+                experience.GetComponent<TMP_InputField>().text += "I";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "i";
+                remoteStudies.GetComponent<TMP_InputField>().text += "I";
             }
             iButton.enabled = false;
             buttonBlockedi = 0;
@@ -1107,36 +1103,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "j";
+                vision.GetComponent<TMP_InputField>().text += "J";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "j";
+                age.GetComponent<TMP_InputField>().text += "J";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "j";
+                gender.GetComponent<TMP_InputField>().text += "J";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "j";
+                residency.GetComponent<TMP_InputField>().text += "J";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "j";
+                origin.GetComponent<TMP_InputField>().text += "J";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "j";
+                experience.GetComponent<TMP_InputField>().text += "J";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "j";
+                remoteStudies.GetComponent<TMP_InputField>().text += "J";
             }
             jButton.enabled = false;
             buttonBlockedj = 0;
@@ -1157,36 +1153,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "k";
+                vision.GetComponent<TMP_InputField>().text += "K";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "k";
+                age.GetComponent<TMP_InputField>().text += "K";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "k";
+                gender.GetComponent<TMP_InputField>().text += "K";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "k";
+                residency.GetComponent<TMP_InputField>().text += "K";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "k";
+                origin.GetComponent<TMP_InputField>().text += "K";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "k";
+                experience.GetComponent<TMP_InputField>().text += "K";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "k";
+                remoteStudies.GetComponent<TMP_InputField>().text += "K";
             }
             kButton.enabled = false;
             buttonBlockedk = 0;
@@ -1207,36 +1203,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "l";
+                vision.GetComponent<TMP_InputField>().text += "L";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "l";
+                age.GetComponent<TMP_InputField>().text += "L";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "l";
+                gender.GetComponent<TMP_InputField>().text += "L";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "l";
+                residency.GetComponent<TMP_InputField>().text += "L";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "l";
+                origin.GetComponent<TMP_InputField>().text += "L";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "l";
+                experience.GetComponent<TMP_InputField>().text += "L";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "l";
+                remoteStudies.GetComponent<TMP_InputField>().text += "L";
             }
             lButton.enabled = false;
             buttonBlockedl = 0;
@@ -1257,36 +1253,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "m";
+                vision.GetComponent<TMP_InputField>().text += "M";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "m";
+                age.GetComponent<TMP_InputField>().text += "M";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "m";
+                gender.GetComponent<TMP_InputField>().text += "M";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "m";
+                residency.GetComponent<TMP_InputField>().text += "M";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "m";
+                origin.GetComponent<TMP_InputField>().text += "M";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "m";
+                experience.GetComponent<TMP_InputField>().text += "M";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "m";
+                remoteStudies.GetComponent<TMP_InputField>().text += "M";
             }
             mButton.enabled = false;
             buttonBlockedm = 0;
@@ -1307,36 +1303,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "n";
+                vision.GetComponent<TMP_InputField>().text += "N";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "n";
+                age.GetComponent<TMP_InputField>().text += "N";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "n";
+                gender.GetComponent<TMP_InputField>().text += "N";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "n";
+                residency.GetComponent<TMP_InputField>().text += "N";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "n";
+                origin.GetComponent<TMP_InputField>().text += "N";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "n";
+                experience.GetComponent<TMP_InputField>().text += "N";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "n";
+                remoteStudies.GetComponent<TMP_InputField>().text += "N";
             }
             nButton.enabled = false;
             buttonBlockedn = 0;
@@ -1357,36 +1353,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "o";
+                vision.GetComponent<TMP_InputField>().text += "O";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "o";
+                age.GetComponent<TMP_InputField>().text += "O";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "o";
+                gender.GetComponent<TMP_InputField>().text += "O";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "o";
+                residency.GetComponent<TMP_InputField>().text += "O";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "o";
+                origin.GetComponent<TMP_InputField>().text += "O";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "o";
+                experience.GetComponent<TMP_InputField>().text += "O";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "o";
+                remoteStudies.GetComponent<TMP_InputField>().text += "O";
             }
             oButton.enabled = false;
             buttonBlockedo = 0;
@@ -1407,36 +1403,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "p";
+                vision.GetComponent<TMP_InputField>().text += "P";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "p";
+                age.GetComponent<TMP_InputField>().text += "P";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "p";
+                gender.GetComponent<TMP_InputField>().text += "P";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "p";
+                residency.GetComponent<TMP_InputField>().text += "P";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "p";
+                origin.GetComponent<TMP_InputField>().text += "P";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "p";
+                experience.GetComponent<TMP_InputField>().text += "P";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "p";
+                remoteStudies.GetComponent<TMP_InputField>().text += "P";
             }
             pButton.enabled = false;
             buttonBlockedp = 0;
@@ -1457,36 +1453,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "q";
+                vision.GetComponent<TMP_InputField>().text += "Q";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "q";
+                age.GetComponent<TMP_InputField>().text += "Q";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "q";
+                gender.GetComponent<TMP_InputField>().text += "Q";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "q";
+                residency.GetComponent<TMP_InputField>().text += "Q";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "q";
+                origin.GetComponent<TMP_InputField>().text += "Q";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "q";
+                experience.GetComponent<TMP_InputField>().text += "Q";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "q";
+                remoteStudies.GetComponent<TMP_InputField>().text += "Q";
             }
             qButton.enabled = false;
             buttonBlockedq = 0;
@@ -1507,36 +1503,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "r";
+                vision.GetComponent<TMP_InputField>().text += "R";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "r";
+                age.GetComponent<TMP_InputField>().text += "R";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "r";
+                gender.GetComponent<TMP_InputField>().text += "R";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "r";
+                residency.GetComponent<TMP_InputField>().text += "R";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "r";
+                origin.GetComponent<TMP_InputField>().text += "R";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "r";
+                experience.GetComponent<TMP_InputField>().text += "R";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "r";
+                remoteStudies.GetComponent<TMP_InputField>().text += "R";
             }
             rButton.enabled = false;
             buttonBlockedr = 0;
@@ -1557,36 +1553,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "s";
+                vision.GetComponent<TMP_InputField>().text += "S";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "s";
+                age.GetComponent<TMP_InputField>().text += "S";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "s";
+                gender.GetComponent<TMP_InputField>().text += "S";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "s";
+                residency.GetComponent<TMP_InputField>().text += "S";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "s";
+                origin.GetComponent<TMP_InputField>().text += "S";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "s";
+                experience.GetComponent<TMP_InputField>().text += "S";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "s";
+                remoteStudies.GetComponent<TMP_InputField>().text += "S";
             }
             sButton.enabled = false;
             buttonBlockeds = 0;
@@ -1607,36 +1603,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "t";
+                vision.GetComponent<TMP_InputField>().text += "T";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "t";
+                age.GetComponent<TMP_InputField>().text += "T";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "t";
+                gender.GetComponent<TMP_InputField>().text += "T";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "t";
+                residency.GetComponent<TMP_InputField>().text += "T";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "t";
+                origin.GetComponent<TMP_InputField>().text += "T";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "t";
+                experience.GetComponent<TMP_InputField>().text += "T";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "t";
+                remoteStudies.GetComponent<TMP_InputField>().text += "T";
             }
             tButton.enabled = false;
             buttonBlockedt = 0;
@@ -1657,36 +1653,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "u";
+                vision.GetComponent<TMP_InputField>().text += "U";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "u";
+                age.GetComponent<TMP_InputField>().text += "U";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "u";
+                gender.GetComponent<TMP_InputField>().text += "U";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "u";
+                residency.GetComponent<TMP_InputField>().text += "U";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "u";
+                origin.GetComponent<TMP_InputField>().text += "U";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "u";
+                experience.GetComponent<TMP_InputField>().text += "U";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "u";
+                remoteStudies.GetComponent<TMP_InputField>().text += "U";
             }
             uButton.enabled = false;
             buttonBlockedu = 0;
@@ -1707,36 +1703,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "v";
+                vision.GetComponent<TMP_InputField>().text += "V";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "v";
+                age.GetComponent<TMP_InputField>().text += "V";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "v";
+                gender.GetComponent<TMP_InputField>().text += "V";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "v";
+                residency.GetComponent<TMP_InputField>().text += "V";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "v";
+                origin.GetComponent<TMP_InputField>().text += "V";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "v";
+                experience.GetComponent<TMP_InputField>().text += "V";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "v";
+                remoteStudies.GetComponent<TMP_InputField>().text += "V";
             }
             vButton.enabled = false;
             buttonBlockedv = 0;
@@ -1757,36 +1753,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "w";
+                vision.GetComponent<TMP_InputField>().text += "W";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "w";
+                age.GetComponent<TMP_InputField>().text += "W";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "w";
+                gender.GetComponent<TMP_InputField>().text += "W";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "w";
+                residency.GetComponent<TMP_InputField>().text += "W";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "w";
+                origin.GetComponent<TMP_InputField>().text += "W";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "w";
+                experience.GetComponent<TMP_InputField>().text += "W";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "w";
+                remoteStudies.GetComponent<TMP_InputField>().text += "W";
             }
             wButton.enabled = false;
             buttonBlockedw = 0;
@@ -1807,36 +1803,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "x";
+                vision.GetComponent<TMP_InputField>().text += "X";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "x";
+                age.GetComponent<TMP_InputField>().text += "X";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "x";
+                gender.GetComponent<TMP_InputField>().text += "X";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "x";
+                residency.GetComponent<TMP_InputField>().text += "X";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "x";
+                origin.GetComponent<TMP_InputField>().text += "X";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "x";
+                experience.GetComponent<TMP_InputField>().text += "X";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "x";
+                remoteStudies.GetComponent<TMP_InputField>().text += "X";
             }
             xButton.enabled = false;
             buttonBlockedx = 0;
@@ -1857,36 +1853,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "y";
+                vision.GetComponent<TMP_InputField>().text += "Y";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "y";
+                age.GetComponent<TMP_InputField>().text += "Y";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "y";
+                gender.GetComponent<TMP_InputField>().text += "Y";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "y";
+                residency.GetComponent<TMP_InputField>().text += "Y";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "y";
+                origin.GetComponent<TMP_InputField>().text += "Y";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "y";
+                experience.GetComponent<TMP_InputField>().text += "Y";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "y";
+                remoteStudies.GetComponent<TMP_InputField>().text += "Y";
             }
             yButton.enabled = false;
             buttonBlockedy = 0;
@@ -1907,36 +1903,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "z";
+                vision.GetComponent<TMP_InputField>().text += "Z";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "z";
+                age.GetComponent<TMP_InputField>().text += "Z";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "z";
+                gender.GetComponent<TMP_InputField>().text += "Z";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "z";
+                residency.GetComponent<TMP_InputField>().text += "Z";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "z";
+                origin.GetComponent<TMP_InputField>().text += "Z";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "z";
+                experience.GetComponent<TMP_InputField>().text += "Z";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "z";
+                remoteStudies.GetComponent<TMP_InputField>().text += "Z";
             }
             zButton.enabled = false;
             buttonBlockedz = 0;
@@ -1957,36 +1953,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "1";
+                vision.GetComponent<TMP_InputField>().text += "!";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "1";
+                age.GetComponent<TMP_InputField>().text += "!";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "1";
+                gender.GetComponent<TMP_InputField>().text += "!";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "1";
+                residency.GetComponent<TMP_InputField>().text += "!";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "1";
+                origin.GetComponent<TMP_InputField>().text += "!";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "1";
+                experience.GetComponent<TMP_InputField>().text += "!";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "1";
+                remoteStudies.GetComponent<TMP_InputField>().text += "!";
             }
             oneButton.enabled = false;
             buttonBlockedone = 0;
@@ -2007,36 +2003,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "2";
+                vision.GetComponent<TMP_InputField>().text += "''";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "2";
+                age.GetComponent<TMP_InputField>().text += "''";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "2";
+                gender.GetComponent<TMP_InputField>().text += "''";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "2";
+                residency.GetComponent<TMP_InputField>().text += "''";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "2";
+                origin.GetComponent<TMP_InputField>().text += "''";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "2";
+                experience.GetComponent<TMP_InputField>().text += "''";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "2";
+                remoteStudies.GetComponent<TMP_InputField>().text += "''";
             }
             twoButton.enabled = false;
             buttonBlockedtwo = 0;
@@ -2057,36 +2053,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "3";
+                vision.GetComponent<TMP_InputField>().text += "§";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "3";
+                age.GetComponent<TMP_InputField>().text += "§";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "3";
+                gender.GetComponent<TMP_InputField>().text += "§";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "3";
+                residency.GetComponent<TMP_InputField>().text += "§";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "3";
+                origin.GetComponent<TMP_InputField>().text += "§";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "3";
+                experience.GetComponent<TMP_InputField>().text += "§";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "3";
+                remoteStudies.GetComponent<TMP_InputField>().text += "§";
             }
             threeButton.enabled = false;
             buttonBlockedthree = 0;
@@ -2107,36 +2103,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "4";
+                vision.GetComponent<TMP_InputField>().text += "$";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "4";
+                age.GetComponent<TMP_InputField>().text += "$";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "4";
+                gender.GetComponent<TMP_InputField>().text += "$";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "4";
+                residency.GetComponent<TMP_InputField>().text += "$";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "4";
+                origin.GetComponent<TMP_InputField>().text += "$";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "4";
+                experience.GetComponent<TMP_InputField>().text += "$";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "4";
+                remoteStudies.GetComponent<TMP_InputField>().text += "$";
             }
             fourButton.enabled = false;
             buttonBlockedfour = 0;
@@ -2157,36 +2153,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "5";
+                vision.GetComponent<TMP_InputField>().text += "%";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "5";
+                age.GetComponent<TMP_InputField>().text += "%";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "5";
+                gender.GetComponent<TMP_InputField>().text += "%";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "5";
+                residency.GetComponent<TMP_InputField>().text += "%";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "5";
+                origin.GetComponent<TMP_InputField>().text += "%";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "5";
+                experience.GetComponent<TMP_InputField>().text += "%";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "5";
+                remoteStudies.GetComponent<TMP_InputField>().text += "%";
             }
             fiveButton.enabled = false;
             buttonBlockedfive = 0;
@@ -2207,36 +2203,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "6";
+                vision.GetComponent<TMP_InputField>().text += "&";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "6";
+                age.GetComponent<TMP_InputField>().text += "&";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "6";
+                gender.GetComponent<TMP_InputField>().text += "&";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "6";
+                residency.GetComponent<TMP_InputField>().text += "&";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "6";
+                origin.GetComponent<TMP_InputField>().text += "&";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "6";
+                experience.GetComponent<TMP_InputField>().text += "&";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "6";
+                remoteStudies.GetComponent<TMP_InputField>().text += "&";
             }
             sixButton.enabled = false;
             buttonBlockedsix = 0;
@@ -2257,36 +2253,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "7";
+                vision.GetComponent<TMP_InputField>().text += "/";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "7";
+                age.GetComponent<TMP_InputField>().text += "/";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "7";
+                gender.GetComponent<TMP_InputField>().text += "/";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "7";
+                residency.GetComponent<TMP_InputField>().text += "/";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "7";
+                origin.GetComponent<TMP_InputField>().text += "/";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "7";
+                experience.GetComponent<TMP_InputField>().text += "/";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "7";
+                remoteStudies.GetComponent<TMP_InputField>().text += "/";
             }
             sevenButton.enabled = false;
             buttonBlockedseven = 0;
@@ -2307,36 +2303,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "8";
+                vision.GetComponent<TMP_InputField>().text += "(";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "8";
+                age.GetComponent<TMP_InputField>().text += "(";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "8";
+                gender.GetComponent<TMP_InputField>().text += "(";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "8";
+                residency.GetComponent<TMP_InputField>().text += "(";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "8";
+                origin.GetComponent<TMP_InputField>().text += "(";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "8";
+                experience.GetComponent<TMP_InputField>().text += "(";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "8";
+                remoteStudies.GetComponent<TMP_InputField>().text += "(";
             }
             eightButton.enabled = false;
             buttonBlockedeight = 0;
@@ -2357,36 +2353,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "9";
+                vision.GetComponent<TMP_InputField>().text += ")";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "9";
+                age.GetComponent<TMP_InputField>().text += ")";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "9";
+                gender.GetComponent<TMP_InputField>().text += ")";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "9";
+                residency.GetComponent<TMP_InputField>().text += ")";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "9";
+                origin.GetComponent<TMP_InputField>().text += ")";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "9";
+                experience.GetComponent<TMP_InputField>().text += ")";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "9";
+                remoteStudies.GetComponent<TMP_InputField>().text += ")";
             }
             nineButton.enabled = false;
             buttonBlockednine = 0;
@@ -2407,36 +2403,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "0";
+                vision.GetComponent<TMP_InputField>().text += "=";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "0";
+                age.GetComponent<TMP_InputField>().text += "=";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "0";
+                gender.GetComponent<TMP_InputField>().text += "=";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "0";
+                residency.GetComponent<TMP_InputField>().text += "=";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "0";
+                origin.GetComponent<TMP_InputField>().text += "=";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "0";
+                experience.GetComponent<TMP_InputField>().text += "=";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "0";
+                remoteStudies.GetComponent<TMP_InputField>().text += "=";
             }
             zeroButton.enabled = false;
             buttonBlockedzero = 0;
@@ -2457,36 +2453,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "ß";
+                vision.GetComponent<TMP_InputField>().text += "?";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "ß";
+                age.GetComponent<TMP_InputField>().text += "?";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "ß";
+                gender.GetComponent<TMP_InputField>().text += "?";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "ß";
+                residency.GetComponent<TMP_InputField>().text += "?";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "ß";
+                origin.GetComponent<TMP_InputField>().text += "?";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "ß";
+                experience.GetComponent<TMP_InputField>().text += "?";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "ß";
+                remoteStudies.GetComponent<TMP_InputField>().text += "?";
             }
             ßButton.enabled = false;
             buttonBlockedß = 0;
@@ -2557,39 +2553,39 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "<";
+                vision.GetComponent<TMP_InputField>().text += ">";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "<";
+                age.GetComponent<TMP_InputField>().text += ">";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "<";
+                gender.GetComponent<TMP_InputField>().text += ">";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "<";
+                residency.GetComponent<TMP_InputField>().text += ">";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "<";
+                origin.GetComponent<TMP_InputField>().text += ">";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "<";
+                experience.GetComponent<TMP_InputField>().text += ">";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "<";
+                remoteStudies.GetComponent<TMP_InputField>().text += ">";
             }
             pfeilRechtsButton.enabled = false;
-           buttonBlockedpfeilRechts = 0;
+            buttonBlockedpfeilRechts = 0;
         }
         if (buttonBlockedpfeilRechts > 1f)
         {
@@ -2607,32 +2603,32 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += ",";
+                vision.GetComponent<TMP_InputField>().text += ";";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += ",";
+                age.GetComponent<TMP_InputField>().text += ";";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += ",";
+                gender.GetComponent<TMP_InputField>().text += ";";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += ",";
+                residency.GetComponent<TMP_InputField>().text += ";";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += ",";
+                origin.GetComponent<TMP_InputField>().text += ";";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += ",";
+                experience.GetComponent<TMP_InputField>().text += ";";
             }
             if (remoteStudies.isFocused)
             {
@@ -2657,36 +2653,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += ".";
+                vision.GetComponent<TMP_InputField>().text += ":";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += ".";
+                age.GetComponent<TMP_InputField>().text += ":";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += ".";
+                gender.GetComponent<TMP_InputField>().text += ":";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += ".";
+                residency.GetComponent<TMP_InputField>().text += ":";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += ".";
+                origin.GetComponent<TMP_InputField>().text += ":";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += ".";
+                experience.GetComponent<TMP_InputField>().text += ":";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += ".";
+                remoteStudies.GetComponent<TMP_InputField>().text += ":";
             }
             doppelPunktButton.enabled = false;
             buttonBlockedDoppelPunkt = 0;
@@ -2707,36 +2703,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "-";
+                vision.GetComponent<TMP_InputField>().text += "_";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "-";
+                age.GetComponent<TMP_InputField>().text += "_";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "-";
+                gender.GetComponent<TMP_InputField>().text += "_";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "-";
+                residency.GetComponent<TMP_InputField>().text += "_";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "-";
+                origin.GetComponent<TMP_InputField>().text += "_";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "-";
+                experience.GetComponent<TMP_InputField>().text += "_";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "-";
+                remoteStudies.GetComponent<TMP_InputField>().text += "_";
             }
             unterStrichButton.enabled = false;
             buttonBlockedUnterStrich = 0;
@@ -2757,36 +2753,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "#";
+                vision.GetComponent<TMP_InputField>().text += "'";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "#";
+                age.GetComponent<TMP_InputField>().text += "'";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "#";
+                gender.GetComponent<TMP_InputField>().text += "'";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "#";
+                residency.GetComponent<TMP_InputField>().text += "'";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "#";
+                origin.GetComponent<TMP_InputField>().text += "'";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "#";
+                experience.GetComponent<TMP_InputField>().text += "'";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "#";
+                remoteStudies.GetComponent<TMP_InputField>().text += "'";
             }
             hochCharButton.enabled = false;
             buttonBlockedHochChar = 0;
@@ -2807,36 +2803,36 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "+";
+                vision.GetComponent<TMP_InputField>().text += "*";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "+";
+                age.GetComponent<TMP_InputField>().text += "*";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "+";
+                gender.GetComponent<TMP_InputField>().text += "*";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "+";
+                residency.GetComponent<TMP_InputField>().text += "*";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "+";
+                origin.GetComponent<TMP_InputField>().text += "*";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "+";
+                experience.GetComponent<TMP_InputField>().text += "*";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "+";
+                remoteStudies.GetComponent<TMP_InputField>().text += "*";
             }
             sternButton.enabled = false;
             buttonBlockedStern = 0;
@@ -2859,12 +2855,12 @@ public class ArrowInputField : MonoBehaviour
 
 
 
-            if (lowerKeyboard.activeSelf == true)
+            if (upperKeyboard.activeSelf == true)
             {
-                lowerKeyboard.SetActive(false);
+                upperKeyboard.SetActive(false);
                 altKeyboard.SetActive(true);
                 wasActive = true;
-                GetComponent<ArrowInputField>().enabled = false;
+                GetComponent<UpperKeyboardInput>().enabled = false;
                 GetComponent<AltKeyboardDInput>().enabled = true;
             }
 
@@ -2890,13 +2886,13 @@ public class ArrowInputField : MonoBehaviour
             // lowerKeyboard.SetActive(true);
             //}
 
-            if (lowerKeyboard.activeSelf == true)
+            if (upperKeyboard.activeSelf == true)
             {
-                lowerKeyboard.SetActive(false);
-                upperKeyboard.SetActive(true);
+                upperKeyboard.SetActive(false);
+                lowerKeyboard.SetActive(true);
                 wasActive = true;
-                GetComponent<ArrowInputField>().enabled = false;
-                GetComponent<UpperKeyboardInput>().enabled = true;
+                GetComponent<UpperKeyboardInput>().enabled = false;
+                GetComponent<ArrowInputField>().enabled = true;
             }
 
             //if (upperKeyboard.activeSelf == true)
@@ -2923,39 +2919,39 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "ö";
+                vision.GetComponent<TMP_InputField>().text += "Ö";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "ö";
+                age.GetComponent<TMP_InputField>().text += "Ö";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "ö";
+                gender.GetComponent<TMP_InputField>().text += "Ö";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "ö";
+                residency.GetComponent<TMP_InputField>().text += "Ö";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "ö";
+                origin.GetComponent<TMP_InputField>().text += "Ö";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "ö";
+                experience.GetComponent<TMP_InputField>().text += "Ö";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "ö";
+                remoteStudies.GetComponent<TMP_InputField>().text += "Ö";
             }
             öButton.enabled = false;
-            buttonBlockedö= 0;
+            buttonBlockedö = 0;
         }
         if (buttonBlockedö > 1f)
         {
@@ -2973,39 +2969,39 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "ä";
+                vision.GetComponent<TMP_InputField>().text += "Ä";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "ä";
+                age.GetComponent<TMP_InputField>().text += "Ä";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "ä";
+                gender.GetComponent<TMP_InputField>().text += "Ä";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "ä";
+                residency.GetComponent<TMP_InputField>().text += "Ä";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "ä";
+                origin.GetComponent<TMP_InputField>().text += "Ä";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "ä";
+                experience.GetComponent<TMP_InputField>().text += "Ä";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "ä";
+                remoteStudies.GetComponent<TMP_InputField>().text += "Ä";
             }
             äButton.enabled = false;
-            buttonBlockedä= 0;
+            buttonBlockedä = 0;
         }
         if (buttonBlockedä > 1f)
         {
@@ -3023,39 +3019,39 @@ public class ArrowInputField : MonoBehaviour
         {
             if (vision.isFocused)
             {
-                vision.GetComponent<TMP_InputField>().text += "ü";
+                vision.GetComponent<TMP_InputField>().text += "Ü";
             }
 
             if (age.isFocused)
             {
-                age.GetComponent<TMP_InputField>().text += "ü";
+                age.GetComponent<TMP_InputField>().text += "Ü";
             }
 
             if (gender.isFocused)
             {
-                gender.GetComponent<TMP_InputField>().text += "ü";
+                gender.GetComponent<TMP_InputField>().text += "Ü";
             }
 
             if (residency.isFocused)
             {
-                residency.GetComponent<TMP_InputField>().text += "ü";
+                residency.GetComponent<TMP_InputField>().text += "Ü";
             }
 
             if (origin.GetComponent<TMP_InputField>().isFocused)
             {
-                origin.GetComponent<TMP_InputField>().text += "ü";
+                origin.GetComponent<TMP_InputField>().text += "Ü";
             }
 
             if (experience.isFocused)
             {
-                experience.GetComponent<TMP_InputField>().text += "ü";
+                experience.GetComponent<TMP_InputField>().text += "Ü";
             }
             if (remoteStudies.isFocused)
             {
-                remoteStudies.GetComponent<TMP_InputField>().text += "ü";
+                remoteStudies.GetComponent<TMP_InputField>().text += "Ü";
             }
             üButton.enabled = false;
-            buttonBlockedü= 0;
+            buttonBlockedü = 0;
         }
         if (buttonBlockedü > 1f)
         {

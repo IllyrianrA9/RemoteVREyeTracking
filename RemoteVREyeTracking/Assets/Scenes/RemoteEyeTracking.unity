@@ -2612,9 +2612,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
+        m_MethodName: writePfeilRechts
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3289,9 +3289,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
+        m_MethodName: writeAlt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3679,8 +3679,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeThree
         m_Mode: 1
         m_Arguments:
@@ -4986,8 +4986,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeN
         m_Mode: 1
         m_Arguments:
@@ -5513,8 +5513,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeB
         m_Mode: 1
         m_Arguments:
@@ -6293,7 +6293,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111336241}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6303,7 +6303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -67, y: 31.1}
+  m_AnchoredPosition: {x: 403.00003, y: 31.10002}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &111336243
@@ -6363,9 +6363,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
+        m_MethodName: writeStern
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6695,8 +6695,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeSix
         m_Mode: 1
         m_Arguments:
@@ -7444,7 +7444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 302, y: -63.8}
+  m_AnchoredPosition: {x: 375, y: -63.8}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &148980386
@@ -7504,8 +7504,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: upperInputField
         m_Mode: 1
         m_Arguments:
@@ -9005,8 +9005,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeX
         m_Mode: 1
         m_Arguments:
@@ -10294,7 +10294,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960638888}
         m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+        m_MethodName: "write\xD6"
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10676,9 +10676,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
+        m_MethodName: writeDoppelPunkt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11035,8 +11035,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeI
         m_Mode: 1
         m_Arguments:
@@ -11289,8 +11289,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeV
         m_Mode: 1
         m_Arguments:
@@ -11730,8 +11730,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeX
         m_Mode: 1
         m_Arguments:
@@ -11883,8 +11883,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: lowerInputField
         m_Mode: 1
         m_Arguments:
@@ -12311,8 +12311,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: deleteOneCharacter
         m_Mode: 1
         m_Arguments:
@@ -14099,8 +14099,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeL
         m_Mode: 1
         m_Arguments:
@@ -14481,7 +14481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &303795258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14661,8 +14661,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeH
         m_Mode: 1
         m_Arguments:
@@ -14808,9 +14808,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
+        m_MethodName: writeStern
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16110,7 +16110,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960638888}
         m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+        m_MethodName: writeDoppelPunkt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16415,9 +16415,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
+        m_MethodName: writePfeilRechts
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17029,8 +17029,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeL
         m_Mode: 1
         m_Arguments:
@@ -17196,8 +17196,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: writeSpace
         m_Mode: 1
         m_Arguments:
@@ -17677,8 +17677,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeE
         m_Mode: 1
         m_Arguments:
@@ -17971,8 +17971,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeSpace
         m_Mode: 1
         m_Arguments:
@@ -19370,7 +19370,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960638888}
         m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+        m_MethodName: writePfeilRechts
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20555,9 +20555,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
+        m_MethodName: writeShift
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20688,8 +20688,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeS
         m_Mode: 1
         m_Arguments:
@@ -20993,8 +20993,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeTwo
         m_Mode: 1
         m_Arguments:
@@ -22137,8 +22137,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: "write\xDF"
         m_Mode: 1
         m_Arguments:
@@ -23527,8 +23527,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: writeQ
         m_Mode: 1
         m_Arguments:
@@ -24170,8 +24170,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: writeThree
         m_Mode: 1
         m_Arguments:
@@ -24591,8 +24591,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeY
         m_Mode: 1
         m_Arguments:
@@ -24975,8 +24975,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeNine
         m_Mode: 1
         m_Arguments:
@@ -25269,8 +25269,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeOne
         m_Mode: 1
         m_Arguments:
@@ -25745,8 +25745,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: writeSpace
         m_Mode: 1
         m_Arguments:
@@ -26137,8 +26137,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: lowerInputField
         m_Mode: 1
         m_Arguments:
@@ -26690,8 +26690,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeJ
         m_Mode: 1
         m_Arguments:
@@ -27007,8 +27007,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeEight
         m_Mode: 1
         m_Arguments:
@@ -28298,7 +28298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -244, y: -63.8}
+  m_AnchoredPosition: {x: 67.7, y: -63.8}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &577078446
@@ -28358,8 +28358,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: writeM
         m_Mode: 1
         m_Arguments:
@@ -29634,7 +29634,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960638888}
         m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+        m_MethodName: "write\xC4"
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30366,8 +30366,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeZ
         m_Mode: 1
         m_Arguments:
@@ -30610,7 +30610,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612906531}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -30620,7 +30620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -334, y: 31.1}
+  m_AnchoredPosition: {x: -405.00006, y: 31.10002}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &612906533
@@ -30680,9 +30680,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
+        m_MethodName: writeTabulator
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31482,8 +31482,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeD
         m_Mode: 1
         m_Arguments:
@@ -32945,8 +32945,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeT
         m_Mode: 1
         m_Arguments:
@@ -33446,8 +33446,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeSeven
         m_Mode: 1
         m_Arguments:
@@ -35121,7 +35121,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960638888}
         m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+        m_MethodName: writeUnterstrich
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36611,8 +36611,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeSpace
         m_Mode: 1
         m_Arguments:
@@ -36738,8 +36738,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: deleteOneCharacter
         m_Mode: 1
         m_Arguments:
@@ -36885,8 +36885,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeR
         m_Mode: 1
         m_Arguments:
@@ -37052,8 +37052,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeF
         m_Mode: 1
         m_Arguments:
@@ -37286,7 +37286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17, y: 31.1}
+  m_AnchoredPosition: {x: 206, y: 78}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &742901949
@@ -37346,8 +37346,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: writeNine
         m_Mode: 1
         m_Arguments:
@@ -37742,8 +37742,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: writeSeven
         m_Mode: 1
         m_Arguments:
@@ -38298,7 +38298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &758976166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39119,9 +39119,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
+        m_MethodName: "write\xC4"
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -41747,8 +41747,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeQ
         m_Mode: 1
         m_Arguments:
@@ -42064,8 +42064,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeSix
         m_Mode: 1
         m_Arguments:
@@ -42309,7 +42309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -156, y: -63.8}
+  m_AnchoredPosition: {x: 274.88, y: 78}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &858197611
@@ -42369,8 +42369,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: writeZero
         m_Mode: 1
         m_Arguments:
@@ -42803,8 +42803,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeP
         m_Mode: 1
         m_Arguments:
@@ -43051,7 +43051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &872883174
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44023,8 +44023,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeC
         m_Mode: 1
         m_Arguments:
@@ -44903,7 +44903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 302, y: -106}
+  m_AnchoredPosition: {x: 375, y: -106}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &898735475
@@ -44963,8 +44963,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: lowerInputField
         m_Mode: 1
         m_Arguments:
@@ -45651,7 +45651,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960638888}
         m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+        m_MethodName: writeStern
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -46673,8 +46673,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeI
         m_Mode: 1
         m_Arguments:
@@ -46800,8 +46800,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeW
         m_Mode: 1
         m_Arguments:
@@ -47320,8 +47320,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeG
         m_Mode: 1
         m_Arguments:
@@ -48620,9 +48620,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
+        m_MethodName: writeStern
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -49592,8 +49592,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: lowerInputField
         m_Mode: 1
         m_Arguments:
@@ -50050,8 +50050,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeZ
         m_Mode: 1
         m_Arguments:
@@ -51187,8 +51187,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeU
         m_Mode: 1
         m_Arguments:
@@ -51547,8 +51547,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: "write\xDF"
         m_Mode: 1
         m_Arguments:
@@ -52525,7 +52525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 302, y: 31.1}
+  m_AnchoredPosition: {x: 403, y: 78}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1064001914
@@ -52585,8 +52585,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: deleteOneCharacter
         m_Mode: 1
         m_Arguments:
@@ -53105,8 +53105,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeS
         m_Mode: 1
         m_Arguments:
@@ -53582,7 +53582,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: o
+  m_Text: i
 --- !u!222 &1085689086
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -53773,8 +53773,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: upperInputField
         m_Mode: 1
         m_Arguments:
@@ -54650,8 +54650,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: writeZero
         m_Mode: 1
         m_Arguments:
@@ -55473,8 +55473,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeZero
         m_Mode: 1
         m_Arguments:
@@ -55600,8 +55600,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeM
         m_Mode: 1
         m_Arguments:
@@ -55916,7 +55916,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960638888}
         m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+        m_MethodName: writeStrichPunkt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -57224,8 +57224,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeP
         m_Mode: 1
         m_Arguments:
@@ -57833,8 +57833,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeD
         m_Mode: 1
         m_Arguments:
@@ -58632,9 +58632,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
+        m_MethodName: "write\xDC"
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -58917,8 +58917,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeThree
         m_Mode: 1
         m_Arguments:
@@ -59722,8 +59722,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeC
         m_Mode: 1
         m_Arguments:
@@ -60005,8 +60005,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeG
         m_Mode: 1
         m_Arguments:
@@ -60774,8 +60774,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: writeTwo
         m_Mode: 1
         m_Arguments:
@@ -62043,7 +62043,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960638888}
         m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+        m_MethodName: writeAlt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -62804,9 +62804,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
+        m_MethodName: writeStrichPunkt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -65210,8 +65210,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: "write\xDF"
         m_Mode: 1
         m_Arguments:
@@ -66017,8 +66017,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeNine
         m_Mode: 1
         m_Arguments:
@@ -66366,9 +66366,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
+        m_MethodName: writeShift
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -66494,7 +66494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -244, y: -15}
+  m_AnchoredPosition: {x: -271.7, y: 78}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1347633568
@@ -66554,8 +66554,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: writeTwo
         m_Mode: 1
         m_Arguments:
@@ -67074,9 +67074,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
+        m_MethodName: writeHochStrich
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -70764,8 +70764,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: writeE
         m_Mode: 1
         m_Arguments:
@@ -70851,7 +70851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -244, y: 31.1}
+  m_AnchoredPosition: {x: -203.9, y: 31.1}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1436042963
@@ -70911,8 +70911,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: writeE
         m_Mode: 1
         m_Arguments:
@@ -71444,9 +71444,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
+        m_MethodName: writeTabulator
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -72862,8 +72862,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: upperInputField
         m_Mode: 1
         m_Arguments:
@@ -73387,9 +73387,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
+        m_MethodName: writeAlt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -74386,8 +74386,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeFour
         m_Mode: 1
         m_Arguments:
@@ -74726,8 +74726,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeT
         m_Mode: 1
         m_Arguments:
@@ -75252,7 +75252,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960638888}
         m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+        m_MethodName: writeShift
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -76861,8 +76861,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeO
         m_Mode: 1
         m_Arguments:
@@ -79578,9 +79578,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
+        m_MethodName: writeTabulator
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -80079,7 +80079,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -156, y: -15}
+  m_AnchoredPosition: {x: -203.9, y: 78}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1638863264
@@ -80139,8 +80139,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: writeThree
         m_Mode: 1
         m_Arguments:
@@ -80523,9 +80523,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
+        m_MethodName: writeUnterstrich
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -80670,8 +80670,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeB
         m_Mode: 1
         m_Arguments:
@@ -81110,8 +81110,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeH
         m_Mode: 1
         m_Arguments:
@@ -81511,8 +81511,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeOne
         m_Mode: 1
         m_Arguments:
@@ -81824,8 +81824,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeF
         m_Mode: 1
         m_Arguments:
@@ -82807,7 +82807,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1500803496}
+      - m_Target: {fileID: 336324705}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -85044,8 +85044,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeV
         m_Mode: 1
         m_Arguments:
@@ -85141,7 +85141,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722615541}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -85151,7 +85151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -334, y: -63.8}
+  m_AnchoredPosition: {x: -405.00006, y: -63.800053}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1722615543
@@ -85211,9 +85211,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
+        m_MethodName: writePfeilRechts
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -85505,9 +85505,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
+        m_MethodName: writeAlt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -85884,8 +85884,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeTwo
         m_Mode: 1
         m_Arguments:
@@ -86643,8 +86643,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeY
         m_Mode: 1
         m_Arguments:
@@ -86992,8 +86992,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeFive
         m_Mode: 1
         m_Arguments:
@@ -88783,8 +88783,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeO
         m_Mode: 1
         m_Arguments:
@@ -89632,8 +89632,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeN
         m_Mode: 1
         m_Arguments:
@@ -90303,7 +90303,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960638888}
         m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+        m_MethodName: writeHochStrich
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -90927,7 +90927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -67, y: -63.8}
+  m_AnchoredPosition: {x: 340.7, y: 78}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1850933923
@@ -90987,8 +90987,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: "write\xDF"
         m_Mode: 1
         m_Arguments:
@@ -91215,7 +91215,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960638888}
         m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+        m_MethodName: writeTabulator
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -91300,7 +91300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18, y: -15}
+  m_AnchoredPosition: {x: 136.2, y: 78}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1861094545
@@ -91360,8 +91360,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: writeEight
         m_Mode: 1
         m_Arguments:
@@ -91432,7 +91432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1865532834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -92064,8 +92064,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeEight
         m_Mode: 1
         m_Arguments:
@@ -92231,8 +92231,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeM
         m_Mode: 1
         m_Arguments:
@@ -92595,8 +92595,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeSeven
         m_Mode: 1
         m_Arguments:
@@ -92821,8 +92821,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeJ
         m_Mode: 1
         m_Arguments:
@@ -93618,8 +93618,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeE
         m_Mode: 1
         m_Arguments:
@@ -93844,8 +93844,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: writeEight
         m_Mode: 1
         m_Arguments:
@@ -94405,8 +94405,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: writeM
         m_Mode: 1
         m_Arguments:
@@ -94658,7 +94658,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923645421}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -94668,7 +94668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -334, y: -15}
+  m_AnchoredPosition: {x: -405.00003, y: -15.000048}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1923645423
@@ -94728,9 +94728,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
+        m_MethodName: writeShift
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -94935,7 +94935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1927679284
 RectTransform:
   m_ObjectHideFlags: 0
@@ -95983,8 +95983,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeFive
         m_Mode: 1
         m_Arguments:
@@ -96376,8 +96376,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeA
         m_Mode: 1
         m_Arguments:
@@ -96517,6 +96517,8 @@ GameObject:
   - component: {fileID: 1960638887}
   - component: {fileID: 1960638886}
   - component: {fileID: 1960638888}
+  - component: {fileID: 1960638890}
+  - component: {fileID: 1960638889}
   m_Layer: 5
   m_Name: Demography
   m_TagString: Untagged
@@ -96747,10 +96749,276 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271845242890a3a429c93c228cb49fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  postStudy: {fileID: 387892174}
+  wasActive: 0
+  lowerKeyboard: {fileID: 336324705}
+  altKeyboard: {fileID: 1486521909}
+  upperKeyboard: {fileID: 1500803496}
+  postStudy: {fileID: 2145369032}
   postStudySheet: {fileID: 872883173}
   canvasForPartID: {fileID: 8604210258083213099}
   file: demographyData.txt
+  participant: {fileID: 1594469474}
+  age: {fileID: 147974771}
+  gender: {fileID: 2130308091}
+  vision: {fileID: 1988129490}
+  residency: {fileID: 295608733}
+  origin: {fileID: 1758421351}
+  experience: {fileID: 472784758}
+  remoteStudies: {fileID: 1710844116}
+  objectButton: {fileID: 1248621896}
+  ageWarning: {fileID: 743167847}
+  genderWarning: {fileID: 1405687529}
+  visionWarning: {fileID: 161259064}
+  residencyWarning: {fileID: 191073220}
+  originWarning: {fileID: 156560924}
+  experienceWarning: {fileID: 796046989}
+  remoteStudiesWarning: {fileID: 2110677541}
+  initialText: {fileID: 290216894}
+  demography: {fileID: 1960638884}
+  keyboard: {fileID: 303795257}
+  canvasKeyboard: {fileID: 1500803496}
+  startExperimentButton: {fileID: 112563023}
+  InputSelected: 0
+  arrowUpKey: {fileID: 2141003938}
+  arrowDownKey: {fileID: 534545013}
+  buttonBlockedDown: 0
+  buttonBlockedUp: 0
+  a: {fileID: 1955786207}
+  b: {fileID: 1650108533}
+  c: {fileID: 886773844}
+  d: {fileID: 1179288479}
+  e: {fileID: 1895110273}
+  f: {fileID: 738535925}
+  g: {fileID: 1225713559}
+  h: {fileID: 313802333}
+  i: {fileID: 938215175}
+  j: {fileID: 538060243}
+  k: {fileID: 2115100377}
+  l: {fileID: 296487432}
+  m: {fileID: 1875702195}
+  n: {fileID: 1829097798}
+  o: {fileID: 1794220623}
+  p: {fileID: 1160719175}
+  q: {fileID: 842706118}
+  r: {fileID: 2097018892}
+  s: {fileID: 1070419634}
+  t: {fileID: 665164055}
+  u: {fileID: 1033616847}
+  v: {fileID: 234033162}
+  w: {fileID: 2125280887}
+  x: {fileID: 236018309}
+  y: {fileID: 495647779}
+  z: {fileID: 1012495361}
+  space: {fileID: 728481758}
+  "\xDF": {fileID: 443950400}
+  one: {fileID: 516024793}
+  two: {fileID: 1749480638}
+  three: {fileID: 66648505}
+  zero: {fileID: 1132558178}
+  four: {fileID: 2103921708}
+  five: {fileID: 1772280349}
+  six: {fileID: 853202179}
+  seven: {fileID: 679704031}
+  eight: {fileID: 545767874}
+  nine: {fileID: 503364170}
+  deleteOneChar: {fileID: 247468986}
+  tabulator: {fileID: 1856933213}
+  shift: {fileID: 1522760221}
+  pfeilRechts: {fileID: 396547701}
+  "\xF6": {fileID: 213711742}
+  "\xE4": {fileID: 596097427}
+  "\xFC": {fileID: 2048659319}
+  strichPunkt: {fileID: 1138754777}
+  doppelPunkt: {fileID: 336439449}
+  unterStrich: {fileID: 709712052}
+  hochChar: {fileID: 1839268362}
+  stern: {fileID: 910243653}
+  alt: {fileID: 1252862962}
+  buttonBlockeddel: 0
+  buttonBlockeda: 0
+  buttonBlockedb: 0
+  buttonBlockedc: 0
+  buttonBlockedd: 0
+  buttonBlockede: 0
+  buttonBlockedf: 0
+  buttonBlockedg: 0
+  buttonBlockedh: 0
+  buttonBlockedi: 0
+  buttonBlockedj: 0
+  buttonBlockedk: 0
+  buttonBlockedl: 0
+  buttonBlockedm: 0
+  buttonBlockedn: 0
+  buttonBlockedo: 0
+  buttonBlockedp: 0
+  buttonBlockedq: 0
+  buttonBlockedr: 0
+  buttonBlockeds: 0
+  buttonBlockedt: 0
+  buttonBlockedu: 0
+  buttonBlockedv: 0
+  buttonBlockedw: 0
+  buttonBlockedx: 0
+  buttonBlockedy: 0
+  buttonBlockedz: 0
+  "buttonBlocked\xDF": 0
+  buttonBlockedspace: 0
+  buttonBlockedone: 0
+  buttonBlockedtwo: 0
+  buttonBlockedthree: 0
+  buttonBlockedfour: 0
+  buttonBlockedfive: 0
+  buttonBlockedsix: 0
+  buttonBlockedseven: 0
+  buttonBlockedeight: 0
+  buttonBlockednine: 0
+  buttonBlockedzero: 0
+  buttonBlockedtab: 0
+  buttonBlockedshift: 0
+  buttonBlockedpfeilRechts: 0
+  "buttonBlocked\xF6": 0
+  "buttonBlocked\xE4": 0
+  "buttonBlocked\xFC": 0
+  buttonBlockedStrichPunkt: 0
+  buttonBlockedDoppelPunkt: 0
+  buttonBlockedUnterStrich: 0
+  buttonBlockedAlt: 0
+  buttonBlockedStern: 0
+  buttonBlockedHochChar: 0
+--- !u!114 &1960638889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960638884}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ab198b43198c64c873dbf9afab448a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wasActive: 0
+  lowerKeyboard: {fileID: 336324705}
+  altKeyboard: {fileID: 1486521909}
+  upperKeyboard: {fileID: 1500803496}
+  postStudy: {fileID: 2145369032}
+  postStudySheet: {fileID: 872883173}
+  canvasForPartID: {fileID: 8604210258083213099}
+  file: demographyData
+  participant: {fileID: 1594469474}
+  age: {fileID: 147974771}
+  gender: {fileID: 2130308091}
+  vision: {fileID: 1988129490}
+  residency: {fileID: 295608733}
+  origin: {fileID: 1758421351}
+  experience: {fileID: 472784758}
+  remoteStudies: {fileID: 1710844116}
+  objectButton: {fileID: 1248621896}
+  ageWarning: {fileID: 743167847}
+  genderWarning: {fileID: 1405687529}
+  visionWarning: {fileID: 161259064}
+  residencyWarning: {fileID: 191073220}
+  originWarning: {fileID: 156560924}
+  experienceWarning: {fileID: 796046989}
+  remoteStudiesWarning: {fileID: 2110677541}
+  initialText: {fileID: 290216894}
+  demography: {fileID: 1960638884}
+  keyboard: {fileID: 303795257}
+  canvasKeyboard: {fileID: 1500803496}
+  startExperimentButton: {fileID: 112563023}
+  InputSelected: 0
+  arrowUpKey: {fileID: 148980384}
+  arrowDownKey: {fileID: 898735473}
+  buttonBlockedDown: 0
+  buttonBlockedUp: 0
+  e: {fileID: 1436042961}
+  q: {fileID: 2138308545}
+  m: {fileID: 577078444}
+  space: {fileID: 353005042}
+  "\xDF": {fileID: 1850933921}
+  two: {fileID: 1347633566}
+  three: {fileID: 1638863262}
+  zero: {fileID: 858197609}
+  seven: {fileID: 2020692626}
+  eight: {fileID: 1861094543}
+  nine: {fileID: 742901947}
+  deleteOneChar: {fileID: 1064001912}
+  tabulator: {fileID: 612906531}
+  shift: {fileID: 1923645421}
+  pfeilRechts: {fileID: 1722615541}
+  stern: {fileID: 111336241}
+  alt: {fileID: 1490137148}
+  buttonBlockeddel: 0
+  buttonBlockeda: 0
+  buttonBlockedb: 0
+  buttonBlockedc: 0
+  buttonBlockedd: 0
+  buttonBlockede: 0
+  buttonBlockedf: 0
+  buttonBlockedg: 0
+  buttonBlockedh: 0
+  buttonBlockedi: 0
+  buttonBlockedj: 0
+  buttonBlockedk: 0
+  buttonBlockedl: 0
+  buttonBlockedm: 0
+  buttonBlockedn: 0
+  buttonBlockedo: 0
+  buttonBlockedp: 0
+  buttonBlockedq: 0
+  buttonBlockedr: 0
+  buttonBlockeds: 0
+  buttonBlockedt: 0
+  buttonBlockedu: 0
+  buttonBlockedv: 0
+  buttonBlockedw: 0
+  buttonBlockedx: 0
+  buttonBlockedy: 0
+  buttonBlockedz: 0
+  "buttonBlocked\xDF": 0
+  buttonBlockedspace: 0
+  buttonBlockedone: 0
+  buttonBlockedtwo: 0
+  buttonBlockedthree: 0
+  buttonBlockedfour: 0
+  buttonBlockedfive: 0
+  buttonBlockedsix: 0
+  buttonBlockedseven: 0
+  buttonBlockedeight: 0
+  buttonBlockednine: 0
+  buttonBlockedzero: 0
+  buttonBlockedtab: 0
+  buttonBlockedshift: 0
+  buttonBlockedpfeilRechts: 0
+  "buttonBlocked\xF6": 0
+  "buttonBlocked\xE4": 0
+  "buttonBlocked\xFC": 0
+  buttonBlockedStrichPunkt: 0
+  buttonBlockedDoppelPunkt: 0
+  buttonBlockedUnterStrich: 0
+  buttonBlockedAlt: 0
+  buttonBlockedStern: 0
+  buttonBlockedHochChar: 0
+--- !u!114 &1960638890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960638884}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21aa82b719ea5b74f8d950e3560812c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wasActive: 0
+  lowerKeyboard: {fileID: 336324705}
+  altKeyboard: {fileID: 1486521909}
+  upperKeyboard: {fileID: 1500803496}
+  postStudy: {fileID: 2145369032}
+  postStudySheet: {fileID: 872883173}
+  canvasForPartID: {fileID: 8604210258083213099}
+  file: demographyData
   participant: {fileID: 1594469474}
   age: {fileID: 147974771}
   gender: {fileID: 2130308091}
@@ -96816,6 +97084,18 @@ MonoBehaviour:
   eight: {fileID: 1875654852}
   nine: {fileID: 1335366416}
   deleteOneChar: {fileID: 729460911}
+  tabulator: {fileID: 1454665711}
+  shift: {fileID: 1343613077}
+  pfeilRechts: {fileID: 60314880}
+  "\xF6": {fileID: 2051988413}
+  "\xE4": {fileID: 772761732}
+  "\xFC": {fileID: 1193069775}
+  strichPunkt: {fileID: 1264473214}
+  doppelPunkt: {fileID: 222870686}
+  unterStrich: {fileID: 1648706562}
+  hochChar: {fileID: 1359527789}
+  stern: {fileID: 317007809}
+  alt: {fileID: 1724848760}
   buttonBlockeddel: 0
   buttonBlockeda: 0
   buttonBlockedb: 0
@@ -96855,6 +97135,18 @@ MonoBehaviour:
   buttonBlockedeight: 0
   buttonBlockednine: 0
   buttonBlockedzero: 0
+  buttonBlockedtab: 0
+  buttonBlockedshift: 0
+  buttonBlockedpfeilRechts: 0
+  "buttonBlocked\xF6": 0
+  "buttonBlocked\xE4": 0
+  "buttonBlocked\xFC": 0
+  buttonBlockedStrichPunkt: 0
+  buttonBlockedDoppelPunkt: 0
+  buttonBlockedUnterStrich: 0
+  buttonBlockedAlt: 0
+  buttonBlockedStern: 0
+  buttonBlockedHochChar: 0
 --- !u!1 &1963378007
 GameObject:
   m_ObjectHideFlags: 0
@@ -97331,8 +97623,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: writeNine
         m_Mode: 1
         m_Arguments:
@@ -100763,7 +101055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -67, y: -15}
+  m_AnchoredPosition: {x: 67.7, y: 78}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &2020692628
@@ -100823,8 +101115,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: writeSeven
         m_Mode: 1
         m_Arguments:
@@ -100950,8 +101242,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeK
         m_Mode: 1
         m_Arguments:
@@ -101935,8 +102227,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeZero
         m_Mode: 1
         m_Arguments:
@@ -102161,8 +102453,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeA
         m_Mode: 1
         m_Arguments:
@@ -102409,7 +102701,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960638888}
         m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+        m_MethodName: "write\xDC"
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -102633,9 +102925,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
-        m_MethodName: writeQ
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
+        m_MethodName: "write\xD6"
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -104419,8 +104711,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeQ
         m_Mode: 1
         m_Arguments:
@@ -105255,8 +105547,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeR
         m_Mode: 1
         m_Arguments:
@@ -105645,8 +105937,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeFour
         m_Mode: 1
         m_Arguments:
@@ -106297,8 +106589,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 872883178}
+        m_TargetAssemblyTypeName: AltKeyboardInput, Assembly-CSharp
         m_MethodName: deleteOneCharacter
         m_Mode: 1
         m_Arguments:
@@ -106444,8 +106736,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeK
         m_Mode: 1
         m_Arguments:
@@ -106571,8 +106863,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638890}
+        m_TargetAssemblyTypeName: UpperKeyboardInput, Assembly-CSharp
         m_MethodName: writeU
         m_Mode: 1
         m_Arguments:
@@ -107193,8 +107485,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: writeW
         m_Mode: 1
         m_Arguments:
@@ -107766,7 +108058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -156, y: 31.1}
+  m_AnchoredPosition: {x: -342, y: 31.1}
   m_SizeDelta: {x: 50, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &2138308547
@@ -107826,8 +108118,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1960638888}
-        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
+      - m_Target: {fileID: 1960638889}
+        m_TargetAssemblyTypeName: AltKeyboardDInput, Assembly-CSharp
         m_MethodName: writeQ
         m_Mode: 1
         m_Arguments:
@@ -108267,8 +108559,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 872883175}
-        m_TargetAssemblyTypeName: ArrowInputFieldPostStudy, Assembly-CSharp
+      - m_Target: {fileID: 1960638888}
+        m_TargetAssemblyTypeName: ArrowInputField, Assembly-CSharp
         m_MethodName: upperInputField
         m_Mode: 1
         m_Arguments:
