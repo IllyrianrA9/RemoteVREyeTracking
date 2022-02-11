@@ -6,7 +6,7 @@ using TMPro;
 using System.Text;
 using System.IO;
 
-public class ArrowInputFieldPostStudy : MonoBehaviour
+public class LowerKeyboardInput : MonoBehaviour
 {
     public bool wasActive = false;
     public GameObject lowerKeyboard;
@@ -45,8 +45,8 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
 
     public GameObject arrowUpKey;
     public GameObject arrowDownKey;
-    private Button  buttonArrowUp;
-    private Button  buttonArrowDown;
+    private Button buttonArrowUp;
+    private Button buttonArrowDown;
 
     private string distractionText;
     private string distractionOnScreenText;
@@ -219,22 +219,26 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
     public float buttonBlockedAlt = 0;
     public float buttonBlockedStern = 0;
     public float buttonBlockedHochChar = 0;
-    
+
 
 
     private bool partTrueID = true;
 
     void Start()
     {
-        if (GetComponent<LowerKeyboardInput>().wasActive == true)
+        if (GetComponent<ArrowInputFieldPostStudy>().wasActive == true)
         {
-            InputSelected = GetComponent<LowerKeyboardInput>().InputSelected;
-            GetComponent<LowerKeyboardInput>().wasActive = false;
+            InputSelected = GetComponent<ArrowInputFieldPostStudy>().InputSelected;
+            GetComponent<ArrowInputFieldPostStudy>().wasActive = false;
         }
         if (GetComponent<AltKeyboardInput>().wasActive == true)
         {
             InputSelected = GetComponent<AltKeyboardInput>().InputSelected;
             GetComponent<AltKeyboardInput>().wasActive = false;
+        }
+        if(GetComponent<AltKeyboardInput>().wasActive == false && GetComponent<ArrowInputFieldPostStudy>().wasActive == false)
+        {
+            InputSelected = 0;
         }
         participantID = participant.GetComponent<Text>().text;
         if (partTrueID)
@@ -329,22 +333,21 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         sternButton = stern.GetComponent<Button>();
         altButton = alt.GetComponent<Button>();
 
-}
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<LowerKeyboardInput>().wasActive == true)
+        if (GetComponent<ArrowInputFieldPostStudy>().wasActive == true)
         {
-            InputSelected = GetComponent<LowerKeyboardInput>().InputSelected;
-            GetComponent<LowerKeyboardInput>().wasActive = false;
+            InputSelected = GetComponent<ArrowInputFieldPostStudy>().InputSelected;
+            GetComponent<ArrowInputFieldPostStudy>().wasActive = false;
         }
         if (GetComponent<AltKeyboardInput>().wasActive == true)
         {
             InputSelected = GetComponent<AltKeyboardInput>().InputSelected;
             GetComponent<AltKeyboardInput>().wasActive = false;
         }
-
         switch (InputSelected)
         {
             case 0:
@@ -529,7 +532,7 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
 
     public void upperInputField()
     {
-        if(buttonArrowUp.enabled == true)
+        if (buttonArrowUp.enabled == true)
         {
             InputSelected--;
             if (InputSelected < 0)
@@ -560,19 +563,19 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
             buttonArrowUp.enabled = false;
             buttonBlockedUp = 0;
         }
-        if(buttonBlockedUp > 1f)
+        if (buttonBlockedUp > 1f)
         {
             buttonArrowUp.enabled = true;
         }
-           
+
         buttonArrowUp.interactable = false;
         Invoke("ReActivateArrowUp", 1f);
     }
 
     public void lowerInputField()
-    { 
-      if (buttonArrowDown.enabled == true)
-      {
+    {
+        if (buttonArrowDown.enabled == true)
+        {
             InputSelected++;
             if (InputSelected > 5)
             {
@@ -603,11 +606,11 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
             buttonArrowDown.enabled = false;
             buttonBlockedDown = 0;
         }
-      if(buttonBlockedDown > 1f)
+        if (buttonBlockedDown > 1f)
         {
             buttonArrowDown.enabled = true;
         }
-      
+
         buttonArrowDown.interactable = false;
         Invoke("ReActivateArrowDown", 1f);
     }
@@ -615,41 +618,41 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
     public void writeA()
     {
 
-        if(aButton.enabled == true)
+        if (aButton.enabled == true)
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "A";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "a";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "A";
+                distraction.GetComponent<TMP_InputField>().text += "a";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "A";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "a";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "A";
+                answerWrong.GetComponent<TMP_InputField>().text += "a";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "A";
+                moreInstruction.GetComponent<TMP_InputField>().text += "a";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "A";
+                vrCamera.GetComponent<TMP_InputField>().text += "a";
             }
             aButton.enabled = false;
             buttonBlockeda = 0;
         }
-        if(buttonBlockeda > 1f)
+        if (buttonBlockeda > 1f)
         {
             aButton.enabled = true;
         }
@@ -665,32 +668,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "B";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "b";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "B";
+                distraction.GetComponent<TMP_InputField>().text += "b";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "B";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "b";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "B";
+                answerWrong.GetComponent<TMP_InputField>().text += "b";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "B";
+                moreInstruction.GetComponent<TMP_InputField>().text += "b";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "B";
+                vrCamera.GetComponent<TMP_InputField>().text += "b";
             }
             bButton.enabled = false;
             buttonBlockedb = 0;
@@ -711,32 +714,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "C";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "c";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "C";
+                distraction.GetComponent<TMP_InputField>().text += "c";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "C";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "c";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "C";
+                answerWrong.GetComponent<TMP_InputField>().text += "c";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "C";
+                moreInstruction.GetComponent<TMP_InputField>().text += "c";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "C";
+                vrCamera.GetComponent<TMP_InputField>().text += "c";
             }
             cButton.enabled = false;
             buttonBlockedc = 0;
@@ -757,32 +760,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "D";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "d";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "D";
+                distraction.GetComponent<TMP_InputField>().text += "d";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "D";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "d";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "D";
+                answerWrong.GetComponent<TMP_InputField>().text += "d";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "D";
+                moreInstruction.GetComponent<TMP_InputField>().text += "d";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "D";
+                vrCamera.GetComponent<TMP_InputField>().text += "d";
             }
             dButton.enabled = false;
             buttonBlockedd = 0;
@@ -803,32 +806,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "E";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "e";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "E";
+                distraction.GetComponent<TMP_InputField>().text += "e";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "E";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "e";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "E";
+                answerWrong.GetComponent<TMP_InputField>().text += "e";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "E";
+                moreInstruction.GetComponent<TMP_InputField>().text += "e";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "E";
+                vrCamera.GetComponent<TMP_InputField>().text += "e";
             }
             eButton.enabled = false;
             buttonBlockede = 0;
@@ -849,32 +852,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "F";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "f";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "F";
+                distraction.GetComponent<TMP_InputField>().text += "f";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "F";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "f";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "F";
+                answerWrong.GetComponent<TMP_InputField>().text += "f";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "F";
+                moreInstruction.GetComponent<TMP_InputField>().text += "f";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "F";
+                vrCamera.GetComponent<TMP_InputField>().text += "f";
             }
             fButton.enabled = false;
             buttonBlockedf = 0;
@@ -895,32 +898,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "G";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "g";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "G";
+                distraction.GetComponent<TMP_InputField>().text += "g";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "G";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "g";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "G";
+                answerWrong.GetComponent<TMP_InputField>().text += "g";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "G";
+                moreInstruction.GetComponent<TMP_InputField>().text += "g";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "G";
+                vrCamera.GetComponent<TMP_InputField>().text += "g";
             }
             gButton.enabled = false;
             buttonBlockedg = 0;
@@ -941,32 +944,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "H";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "h";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "H";
+                distraction.GetComponent<TMP_InputField>().text += "h";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "H";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "h";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "H";
+                answerWrong.GetComponent<TMP_InputField>().text += "h";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "H";
+                moreInstruction.GetComponent<TMP_InputField>().text += "h";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "H";
+                vrCamera.GetComponent<TMP_InputField>().text += "h";
             }
             hButton.enabled = false;
             buttonBlockedh = 0;
@@ -987,32 +990,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "I";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "i";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "I";
+                distraction.GetComponent<TMP_InputField>().text += "i";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "I";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "i";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "I";
+                answerWrong.GetComponent<TMP_InputField>().text += "i";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "I";
+                moreInstruction.GetComponent<TMP_InputField>().text += "i";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "I";
+                vrCamera.GetComponent<TMP_InputField>().text += "i";
             }
             iButton.enabled = false;
             buttonBlockedi = 0;
@@ -1033,32 +1036,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "J";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "j";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "J";
+                distraction.GetComponent<TMP_InputField>().text += "j";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "J";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "j";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "J";
+                answerWrong.GetComponent<TMP_InputField>().text += "j";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "J";
+                moreInstruction.GetComponent<TMP_InputField>().text += "j";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "J";
+                vrCamera.GetComponent<TMP_InputField>().text += "j";
             }
             jButton.enabled = false;
             buttonBlockedj = 0;
@@ -1079,32 +1082,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "K";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "k";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "K";
+                distraction.GetComponent<TMP_InputField>().text += "k";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "K";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "k";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "K";
+                answerWrong.GetComponent<TMP_InputField>().text += "k";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "K";
+                moreInstruction.GetComponent<TMP_InputField>().text += "k";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "K";
+                vrCamera.GetComponent<TMP_InputField>().text += "k";
             }
             kButton.enabled = false;
             buttonBlockedk = 0;
@@ -1125,32 +1128,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "L";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "l";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "L";
+                distraction.GetComponent<TMP_InputField>().text += "l";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "L";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "l";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "L";
+                answerWrong.GetComponent<TMP_InputField>().text += "l";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "L";
+                moreInstruction.GetComponent<TMP_InputField>().text += "l";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "L";
+                vrCamera.GetComponent<TMP_InputField>().text += "l";
             }
             lButton.enabled = false;
             buttonBlockedl = 0;
@@ -1171,32 +1174,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "M";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "m";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "M";
+                distraction.GetComponent<TMP_InputField>().text += "m";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "M";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "m";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "M";
+                answerWrong.GetComponent<TMP_InputField>().text += "m";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "M";
+                moreInstruction.GetComponent<TMP_InputField>().text += "m";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "M";
+                vrCamera.GetComponent<TMP_InputField>().text += "m";
             }
             mButton.enabled = false;
             buttonBlockedm = 0;
@@ -1217,32 +1220,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "N";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "n";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "N";
+                distraction.GetComponent<TMP_InputField>().text += "n";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "N";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "n";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "N";
+                answerWrong.GetComponent<TMP_InputField>().text += "n";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "N";
+                moreInstruction.GetComponent<TMP_InputField>().text += "n";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "N";
+                vrCamera.GetComponent<TMP_InputField>().text += "n";
             }
             nButton.enabled = false;
             buttonBlockedn = 0;
@@ -1263,32 +1266,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "O";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "o";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "O";
+                distraction.GetComponent<TMP_InputField>().text += "o";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "O";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "o";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "O";
+                answerWrong.GetComponent<TMP_InputField>().text += "o";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "O";
+                moreInstruction.GetComponent<TMP_InputField>().text += "o";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "O";
+                vrCamera.GetComponent<TMP_InputField>().text += "o";
             }
             oButton.enabled = false;
             buttonBlockedo = 0;
@@ -1309,32 +1312,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "P";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "p";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "P";
+                distraction.GetComponent<TMP_InputField>().text += "p";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "P";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "p";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "P";
+                answerWrong.GetComponent<TMP_InputField>().text += "p";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "P";
+                moreInstruction.GetComponent<TMP_InputField>().text += "p";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "P";
+                vrCamera.GetComponent<TMP_InputField>().text += "p";
             }
             pButton.enabled = false;
             buttonBlockedp = 0;
@@ -1355,32 +1358,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "Q";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "q";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "Q";
+                distraction.GetComponent<TMP_InputField>().text += "q";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "Q";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "q";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "Q";
+                answerWrong.GetComponent<TMP_InputField>().text += "q";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "Q";
+                moreInstruction.GetComponent<TMP_InputField>().text += "q";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "Q";
+                vrCamera.GetComponent<TMP_InputField>().text += "q";
             }
             qButton.enabled = false;
             buttonBlockedq = 0;
@@ -1401,32 +1404,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "R";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "r";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "R";
+                distraction.GetComponent<TMP_InputField>().text += "r";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "R";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "r";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "R";
+                answerWrong.GetComponent<TMP_InputField>().text += "r";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "R";
+                moreInstruction.GetComponent<TMP_InputField>().text += "r";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "R";
+                vrCamera.GetComponent<TMP_InputField>().text += "r";
             }
             rButton.enabled = false;
             buttonBlockedr = 0;
@@ -1447,32 +1450,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "S";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "s";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "S";
+                distraction.GetComponent<TMP_InputField>().text += "s";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "S";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "s";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "S";
+                answerWrong.GetComponent<TMP_InputField>().text += "s";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "S";
+                moreInstruction.GetComponent<TMP_InputField>().text += "s";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "S";
+                vrCamera.GetComponent<TMP_InputField>().text += "s";
             }
             sButton.enabled = false;
             buttonBlockeds = 0;
@@ -1493,32 +1496,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "T";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "t";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "T";
+                distraction.GetComponent<TMP_InputField>().text += "t";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "T";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "t";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "T";
+                answerWrong.GetComponent<TMP_InputField>().text += "t";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "T";
+                moreInstruction.GetComponent<TMP_InputField>().text += "t";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "T";
+                vrCamera.GetComponent<TMP_InputField>().text += "t";
             }
             tButton.enabled = false;
             buttonBlockedt = 0;
@@ -1539,32 +1542,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "U";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "u";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "U";
+                distraction.GetComponent<TMP_InputField>().text += "u";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "U";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "u";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "U";
+                answerWrong.GetComponent<TMP_InputField>().text += "u";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "U";
+                moreInstruction.GetComponent<TMP_InputField>().text += "u";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "U";
+                vrCamera.GetComponent<TMP_InputField>().text += "u";
             }
             uButton.enabled = false;
             buttonBlockedu = 0;
@@ -1585,32 +1588,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "V";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "v";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "V";
+                distraction.GetComponent<TMP_InputField>().text += "v";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "V";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "v";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "V";
+                answerWrong.GetComponent<TMP_InputField>().text += "v";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "V";
+                moreInstruction.GetComponent<TMP_InputField>().text += "v";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "V";
+                vrCamera.GetComponent<TMP_InputField>().text += "v";
             }
             vButton.enabled = false;
             buttonBlockedv = 0;
@@ -1631,32 +1634,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "W";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "w";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "W";
+                distraction.GetComponent<TMP_InputField>().text += "w";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "W";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "w";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "W";
+                answerWrong.GetComponent<TMP_InputField>().text += "w";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "W";
+                moreInstruction.GetComponent<TMP_InputField>().text += "w";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "W";
+                vrCamera.GetComponent<TMP_InputField>().text += "w";
             }
             wButton.enabled = false;
             buttonBlockedw = 0;
@@ -1677,32 +1680,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "X";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "x";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "X";
+                distraction.GetComponent<TMP_InputField>().text += "x";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "X";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "x";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "X";
+                answerWrong.GetComponent<TMP_InputField>().text += "x";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "X";
+                moreInstruction.GetComponent<TMP_InputField>().text += "x";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "X";
+                vrCamera.GetComponent<TMP_InputField>().text += "x";
             }
             xButton.enabled = false;
             buttonBlockedx = 0;
@@ -1723,32 +1726,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "Y";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "y";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "Y";
+                distraction.GetComponent<TMP_InputField>().text += "y";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "Y";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "y";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "Y";
+                answerWrong.GetComponent<TMP_InputField>().text += "y";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "Y";
+                moreInstruction.GetComponent<TMP_InputField>().text += "y";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "Y";
+                vrCamera.GetComponent<TMP_InputField>().text += "y";
             }
             yButton.enabled = false;
             buttonBlockedy = 0;
@@ -1769,32 +1772,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "Z";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "z";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "Z";
+                distraction.GetComponent<TMP_InputField>().text += "z";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "Z";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "z";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "Z";
+                answerWrong.GetComponent<TMP_InputField>().text += "z";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "Z";
+                moreInstruction.GetComponent<TMP_InputField>().text += "z";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "Z";
+                vrCamera.GetComponent<TMP_InputField>().text += "z";
             }
             zButton.enabled = false;
             buttonBlockedz = 0;
@@ -1815,32 +1818,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "!";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "1";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "!";
+                distraction.GetComponent<TMP_InputField>().text += "1";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "!";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "1";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "!";
+                answerWrong.GetComponent<TMP_InputField>().text += "1";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "!";
+                moreInstruction.GetComponent<TMP_InputField>().text += "1";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "!";
+                vrCamera.GetComponent<TMP_InputField>().text += "1";
             }
             oneButton.enabled = false;
             buttonBlockedone = 0;
@@ -1861,32 +1864,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "''";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "2";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "''";
+                distraction.GetComponent<TMP_InputField>().text += "2";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "''";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "2";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "''";
+                answerWrong.GetComponent<TMP_InputField>().text += "2";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "''";
+                moreInstruction.GetComponent<TMP_InputField>().text += "2";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "''";
+                vrCamera.GetComponent<TMP_InputField>().text += "2";
             }
             twoButton.enabled = false;
             buttonBlockedtwo = 0;
@@ -1907,32 +1910,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "§";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "3";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "§";
+                distraction.GetComponent<TMP_InputField>().text += "3";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "§";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "3";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "§";
+                answerWrong.GetComponent<TMP_InputField>().text += "3";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "§";
+                moreInstruction.GetComponent<TMP_InputField>().text += "3";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "§";
+                vrCamera.GetComponent<TMP_InputField>().text += "3";
             }
             threeButton.enabled = false;
             buttonBlockedthree = 0;
@@ -1953,32 +1956,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "$";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "4";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "$";
+                distraction.GetComponent<TMP_InputField>().text += "4";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "$";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "4";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "$";
+                answerWrong.GetComponent<TMP_InputField>().text += "4";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "$";
+                moreInstruction.GetComponent<TMP_InputField>().text += "4";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "$";
+                vrCamera.GetComponent<TMP_InputField>().text += "4";
             }
             fourButton.enabled = false;
             buttonBlockedfour = 0;
@@ -1999,32 +2002,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "%";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "5";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "%";
+                distraction.GetComponent<TMP_InputField>().text += "5";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "%";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "5";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "%";
+                answerWrong.GetComponent<TMP_InputField>().text += "5";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "%";
+                moreInstruction.GetComponent<TMP_InputField>().text += "5";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "%";
+                vrCamera.GetComponent<TMP_InputField>().text += "5";
             }
             fiveButton.enabled = false;
             buttonBlockedfive = 0;
@@ -2045,32 +2048,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "&";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "6";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "&";
+                distraction.GetComponent<TMP_InputField>().text += "6";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "&";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "6";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "&";
+                answerWrong.GetComponent<TMP_InputField>().text += "6";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "&";
+                moreInstruction.GetComponent<TMP_InputField>().text += "6";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "&";
+                vrCamera.GetComponent<TMP_InputField>().text += "6";
             }
             sixButton.enabled = false;
             buttonBlockedsix = 0;
@@ -2091,32 +2094,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "/";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "7";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "/";
+                distraction.GetComponent<TMP_InputField>().text += "7";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "/";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "7";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "/";
+                answerWrong.GetComponent<TMP_InputField>().text += "7";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "/";
+                moreInstruction.GetComponent<TMP_InputField>().text += "7";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "/";
+                vrCamera.GetComponent<TMP_InputField>().text += "7";
             }
             sevenButton.enabled = false;
             buttonBlockedseven = 0;
@@ -2137,32 +2140,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "(";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "8";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "(";
+                distraction.GetComponent<TMP_InputField>().text += "8";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "(";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "8";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "(";
+                answerWrong.GetComponent<TMP_InputField>().text += "8";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "(";
+                moreInstruction.GetComponent<TMP_InputField>().text += "8";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "(";
+                vrCamera.GetComponent<TMP_InputField>().text += "8";
             }
             eightButton.enabled = false;
             buttonBlockedeight = 0;
@@ -2183,32 +2186,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += ")";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "9";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += ")";
+                distraction.GetComponent<TMP_InputField>().text += "9";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += ")";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "9";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += ")";
+                answerWrong.GetComponent<TMP_InputField>().text += "9";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += ")";
+                moreInstruction.GetComponent<TMP_InputField>().text += "9";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += ")";
+                vrCamera.GetComponent<TMP_InputField>().text += "9";
             }
             nineButton.enabled = false;
             buttonBlockednine = 0;
@@ -2229,32 +2232,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "=";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "0";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "=";
+                distraction.GetComponent<TMP_InputField>().text += "0";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "=";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "0";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "=";
+                answerWrong.GetComponent<TMP_InputField>().text += "0";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "=";
+                moreInstruction.GetComponent<TMP_InputField>().text += "0";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "=";
+                vrCamera.GetComponent<TMP_InputField>().text += "0";
             }
             zeroButton.enabled = false;
             buttonBlockedzero = 0;
@@ -2275,32 +2278,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "?";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "ß";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "?";
+                distraction.GetComponent<TMP_InputField>().text += "ß";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "?";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "ß";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "?";
+                answerWrong.GetComponent<TMP_InputField>().text += "ß";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "?";
+                moreInstruction.GetComponent<TMP_InputField>().text += "ß";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "?";
+                vrCamera.GetComponent<TMP_InputField>().text += "ß";
             }
             ßButton.enabled = false;
             buttonBlockedß = 0;
@@ -2366,32 +2369,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += ">";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "<";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += ">";
+                distraction.GetComponent<TMP_InputField>().text += "<";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += ">";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "<";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += ">";
+                answerWrong.GetComponent<TMP_InputField>().text += "<";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += ">";
+                moreInstruction.GetComponent<TMP_InputField>().text += "<";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += ">";
+                vrCamera.GetComponent<TMP_InputField>().text += "<";
             }
             pfeilRechtsButton.enabled = false;
             buttonBlockedpfeilRechts = 0;
@@ -2410,32 +2413,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += ";";
+                difficultyStudy.GetComponent<TMP_InputField>().text += ",";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += ";";
+                distraction.GetComponent<TMP_InputField>().text += ",";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += ";";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += ",";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += ";";
+                answerWrong.GetComponent<TMP_InputField>().text += ",";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += ";";
+                moreInstruction.GetComponent<TMP_InputField>().text += ",";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += ";";
+                vrCamera.GetComponent<TMP_InputField>().text += ",";
             }
             strichPunktButton.enabled = false;
             buttonBlockedStrichPunkt = 0;
@@ -2454,32 +2457,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += ":";
+                difficultyStudy.GetComponent<TMP_InputField>().text += ".";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += ":";
+                distraction.GetComponent<TMP_InputField>().text += ".";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += ":";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += ".";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += ":";
+                answerWrong.GetComponent<TMP_InputField>().text += ".";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += ":";
+                moreInstruction.GetComponent<TMP_InputField>().text += ".";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += ":";
+                vrCamera.GetComponent<TMP_InputField>().text += ".";
             }
             doppelPunktButton.enabled = false;
             buttonBlockedDoppelPunkt = 0;
@@ -2498,32 +2501,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "_";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "-";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "_";
+                distraction.GetComponent<TMP_InputField>().text += "-";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "_";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "-";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "_";
+                answerWrong.GetComponent<TMP_InputField>().text += "-";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "_";
+                moreInstruction.GetComponent<TMP_InputField>().text += "-";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "_";
+                vrCamera.GetComponent<TMP_InputField>().text += "-";
             }
             unterStrichButton.enabled = false;
             buttonBlockedUnterStrich = 0;
@@ -2542,32 +2545,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "'";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "#";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "'";
+                distraction.GetComponent<TMP_InputField>().text += "#";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "'";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "#";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "'";
+                answerWrong.GetComponent<TMP_InputField>().text += "#";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "'";
+                moreInstruction.GetComponent<TMP_InputField>().text += "#";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "'";
+                vrCamera.GetComponent<TMP_InputField>().text += "#";
             }
             hochCharButton.enabled = false;
             buttonBlockedHochChar = 0;
@@ -2586,32 +2589,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "*";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "+";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "*";
+                distraction.GetComponent<TMP_InputField>().text += "+";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "*";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "+";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "*";
+                answerWrong.GetComponent<TMP_InputField>().text += "+";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "*";
+                moreInstruction.GetComponent<TMP_InputField>().text += "+";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "*";
+                vrCamera.GetComponent<TMP_InputField>().text += "+";
             }
             sternButton.enabled = false;
             buttonBlockedStern = 0;
@@ -2632,16 +2635,17 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
 
            
 
-            if (upperKeyboard.activeSelf == true)
+            if (lowerKeyboard.activeSelf == true)
             {
-                upperKeyboard.SetActive(false);
+                lowerKeyboard.SetActive(false);
                 altKeyboard.SetActive(true);
                 wasActive = true;
-                GetComponent<ArrowInputFieldPostStudy>().enabled = false;
+                GetComponent<LowerKeyboardInput>().enabled = false;
                 GetComponent<AltKeyboardInput>().enabled = true;
             }
+
             altButton.enabled = false;
-            buttonBlockedAlt= 0;
+            buttonBlockedAlt = 0;
         }
         if (buttonBlockedAlt > 1f)
         {
@@ -2656,19 +2660,28 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         if (shiftButton.enabled == true)
         {
 
-           
+            //if (altKeyboard.activeSelf == true)
+            //{
+             //   altKeyboard.SetActive(false);
+               // lowerKeyboard.SetActive(true);
+            //}
 
-            if (upperKeyboard.activeSelf == true)
+            if (lowerKeyboard.activeSelf == true)
             {
-                upperKeyboard.SetActive(false);
-                lowerKeyboard.SetActive(true);
+                lowerKeyboard.SetActive(false);
+                upperKeyboard.SetActive(true);
                 wasActive = true;
-                GetComponent<ArrowInputFieldPostStudy>().enabled = false;
-                GetComponent<LowerKeyboardInput>().enabled = true;
-                
+                GetComponent<LowerKeyboardInput>().enabled = false;
+                GetComponent<ArrowInputFieldPostStudy>().enabled = true;
             }
+
+            //if (upperKeyboard.activeSelf == true)
+            //{
+              //  upperKeyboard.SetActive(false);
+                //lowerKeyboard.SetActive(true);
+            //}
             shiftButton.enabled = false;
-            buttonBlockedshift= 0;
+            buttonBlockedshift = 0;
         }
         if (buttonBlockedshift > 1f)
         {
@@ -2684,32 +2697,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "Ö";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "ö";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "Ö";
+                distraction.GetComponent<TMP_InputField>().text += "ö";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "Ö";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "ö";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "Ö";
+                answerWrong.GetComponent<TMP_InputField>().text += "ö";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "Ö";
+                moreInstruction.GetComponent<TMP_InputField>().text += "ö";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "Ö";
+                vrCamera.GetComponent<TMP_InputField>().text += "ö";
             }
             öButton.enabled = false;
             buttonBlockedö = 0;
@@ -2728,32 +2741,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "Ä";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "ä";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "Ä";
+                distraction.GetComponent<TMP_InputField>().text += "ä";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "Ä";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "ä";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "Ä";
+                answerWrong.GetComponent<TMP_InputField>().text += "ä";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "Ä";
+                moreInstruction.GetComponent<TMP_InputField>().text += "ä";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "Ä";
+                vrCamera.GetComponent<TMP_InputField>().text += "ä";
             }
             äButton.enabled = false;
             buttonBlockedä = 0;
@@ -2772,32 +2785,32 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
             if (difficultyStudy.isFocused)
             {
-                difficultyStudy.GetComponent<TMP_InputField>().text += "Ü";
+                difficultyStudy.GetComponent<TMP_InputField>().text += "ü";
             }
 
             if (distraction.isFocused)
             {
-                distraction.GetComponent<TMP_InputField>().text += "Ü";
+                distraction.GetComponent<TMP_InputField>().text += "ü";
             }
 
             if (distractionOnScreen.isFocused)
             {
-                distractionOnScreen.GetComponent<TMP_InputField>().text += "Ü";
+                distractionOnScreen.GetComponent<TMP_InputField>().text += "ü";
             }
 
             if (answerWrong.isFocused)
             {
-                answerWrong.GetComponent<TMP_InputField>().text += "Ü";
+                answerWrong.GetComponent<TMP_InputField>().text += "ü";
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused)
             {
-                moreInstruction.GetComponent<TMP_InputField>().text += "Ü";
+                moreInstruction.GetComponent<TMP_InputField>().text += "ü";
             }
 
             if (vrCamera.isFocused)
             {
-                vrCamera.GetComponent<TMP_InputField>().text += "Ü";
+                vrCamera.GetComponent<TMP_InputField>().text += "ü";
             }
             üButton.enabled = false;
             buttonBlockedü = 0;
@@ -2874,7 +2887,7 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
 
             if (answerWrong.isFocused && (answerWrong.GetComponent<TMP_InputField>().text.Length > 0))
             {
-                answerWrong.GetComponent<TMP_InputField>().text = answerWrong.GetComponent<TMP_InputField>().text.Substring(0, answerWrong.GetComponent<TMP_InputField>().text.Length -1);
+                answerWrong.GetComponent<TMP_InputField>().text = answerWrong.GetComponent<TMP_InputField>().text.Substring(0, answerWrong.GetComponent<TMP_InputField>().text.Length - 1);
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused && (moreInstruction.GetComponent<TMP_InputField>().text.Length > 0))

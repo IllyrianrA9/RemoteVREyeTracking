@@ -6,7 +6,7 @@ using TMPro;
 using System.Text;
 using System.IO;
 
-public class ArrowInputFieldPostStudy : MonoBehaviour
+public class AltKeyboardInput : MonoBehaviour
 {
     public bool wasActive = false;
     public GameObject lowerKeyboard;
@@ -45,8 +45,8 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
 
     public GameObject arrowUpKey;
     public GameObject arrowDownKey;
-    private Button  buttonArrowUp;
-    private Button  buttonArrowDown;
+    private Button buttonArrowUp;
+    private Button buttonArrowDown;
 
     private string distractionText;
     private string distractionOnScreenText;
@@ -219,22 +219,22 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
     public float buttonBlockedAlt = 0;
     public float buttonBlockedStern = 0;
     public float buttonBlockedHochChar = 0;
-    
+
 
 
     private bool partTrueID = true;
 
     void Start()
     {
-        if (GetComponent<LowerKeyboardInput>().wasActive == true)
+        if(GetComponent<ArrowInputFieldPostStudy>().wasActive == true)
+        {
+            InputSelected = GetComponent<ArrowInputFieldPostStudy>().InputSelected;
+            GetComponent<ArrowInputFieldPostStudy>().wasActive = false;
+        }
+        if(GetComponent<LowerKeyboardInput>().wasActive == true)
         {
             InputSelected = GetComponent<LowerKeyboardInput>().InputSelected;
             GetComponent<LowerKeyboardInput>().wasActive = false;
-        }
-        if (GetComponent<AltKeyboardInput>().wasActive == true)
-        {
-            InputSelected = GetComponent<AltKeyboardInput>().InputSelected;
-            GetComponent<AltKeyboardInput>().wasActive = false;
         }
         participantID = participant.GetComponent<Text>().text;
         if (partTrueID)
@@ -329,43 +329,11 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         sternButton = stern.GetComponent<Button>();
         altButton = alt.GetComponent<Button>();
 
-}
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<LowerKeyboardInput>().wasActive == true)
-        {
-            InputSelected = GetComponent<LowerKeyboardInput>().InputSelected;
-            GetComponent<LowerKeyboardInput>().wasActive = false;
-        }
-        if (GetComponent<AltKeyboardInput>().wasActive == true)
-        {
-            InputSelected = GetComponent<AltKeyboardInput>().InputSelected;
-            GetComponent<AltKeyboardInput>().wasActive = false;
-        }
-
-        switch (InputSelected)
-        {
-            case 0:
-                difficultyStudy.Select();
-                break;
-            case 1:
-                answerWrong.Select();
-                break;
-            case 2:
-                moreInstruction.GetComponent<TMP_InputField>().Select();
-                break;
-            case 3:
-                distraction.Select();
-                break;
-            case 4:
-                distractionOnScreen.Select();
-                break;
-            case 5:
-                vrCamera.Select();
-                break;
-        }
         buttonBlockedDown += Time.deltaTime;
         buttonBlockedUp += Time.deltaTime;
         buttonBlockeda += Time.deltaTime;
@@ -529,7 +497,7 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
 
     public void upperInputField()
     {
-        if(buttonArrowUp.enabled == true)
+        if (buttonArrowUp.enabled == true)
         {
             InputSelected--;
             if (InputSelected < 0)
@@ -560,19 +528,19 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
             buttonArrowUp.enabled = false;
             buttonBlockedUp = 0;
         }
-        if(buttonBlockedUp > 1f)
+        if (buttonBlockedUp > 1f)
         {
             buttonArrowUp.enabled = true;
         }
-           
+
         buttonArrowUp.interactable = false;
         Invoke("ReActivateArrowUp", 1f);
     }
 
     public void lowerInputField()
-    { 
-      if (buttonArrowDown.enabled == true)
-      {
+    {
+        if (buttonArrowDown.enabled == true)
+        {
             InputSelected++;
             if (InputSelected > 5)
             {
@@ -603,11 +571,11 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
             buttonArrowDown.enabled = false;
             buttonBlockedDown = 0;
         }
-      if(buttonBlockedDown > 1f)
+        if (buttonBlockedDown > 1f)
         {
             buttonArrowDown.enabled = true;
         }
-      
+
         buttonArrowDown.interactable = false;
         Invoke("ReActivateArrowDown", 1f);
     }
@@ -615,7 +583,7 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
     public void writeA()
     {
 
-        if(aButton.enabled == true)
+        if (aButton.enabled == true)
         {
             if (difficultyStudy.isFocused)
             {
@@ -649,7 +617,7 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
             aButton.enabled = false;
             buttonBlockeda = 0;
         }
-        if(buttonBlockeda > 1f)
+        if (buttonBlockeda > 1f)
         {
             aButton.enabled = true;
         }
@@ -2630,18 +2598,28 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         {
 
 
-           
+            if (altKeyboard.activeSelf)
+            {
+                altKeyboard.SetActive(false);
+                lowerKeyboard.SetActive(true);
+                wasActive = true;
+                GetComponent<AltKeyboardInput>().enabled = false;
+                GetComponent<LowerKeyboardInput>().enabled = true;
+            }
 
-            if (upperKeyboard.activeSelf == true)
+            if (lowerKeyboard.activeSelf)
+            {
+                lowerKeyboard.SetActive(false);
+                altKeyboard.SetActive(true);
+            }
+
+            if (upperKeyboard.activeSelf)
             {
                 upperKeyboard.SetActive(false);
                 altKeyboard.SetActive(true);
-                wasActive = true;
-                GetComponent<ArrowInputFieldPostStudy>().enabled = false;
-                GetComponent<AltKeyboardInput>().enabled = true;
             }
             altButton.enabled = false;
-            buttonBlockedAlt= 0;
+            buttonBlockedAlt = 0;
         }
         if (buttonBlockedAlt > 1f)
         {
@@ -2656,19 +2634,28 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
         if (shiftButton.enabled == true)
         {
 
-           
+            if (altKeyboard.activeSelf)
+            {
+                altKeyboard.SetActive(false);
+                lowerKeyboard.SetActive(true);
+                wasActive = true;
+                GetComponent<AltKeyboardInput>().enabled = false;
+                GetComponent<LowerKeyboardInput>().enabled = true;
+            }
 
-            if (upperKeyboard.activeSelf == true)
+            if (lowerKeyboard.activeSelf)
+            {
+                lowerKeyboard.SetActive(false);
+                upperKeyboard.SetActive(true);
+            }
+
+            if (upperKeyboard.activeSelf)
             {
                 upperKeyboard.SetActive(false);
                 lowerKeyboard.SetActive(true);
-                wasActive = true;
-                GetComponent<ArrowInputFieldPostStudy>().enabled = false;
-                GetComponent<LowerKeyboardInput>().enabled = true;
-                
             }
             shiftButton.enabled = false;
-            buttonBlockedshift= 0;
+            buttonBlockedshift = 0;
         }
         if (buttonBlockedshift > 1f)
         {
@@ -2874,7 +2861,7 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
 
             if (answerWrong.isFocused && (answerWrong.GetComponent<TMP_InputField>().text.Length > 0))
             {
-                answerWrong.GetComponent<TMP_InputField>().text = answerWrong.GetComponent<TMP_InputField>().text.Substring(0, answerWrong.GetComponent<TMP_InputField>().text.Length -1);
+                answerWrong.GetComponent<TMP_InputField>().text = answerWrong.GetComponent<TMP_InputField>().text.Substring(0, answerWrong.GetComponent<TMP_InputField>().text.Length - 1);
             }
 
             if (moreInstruction.GetComponent<TMP_InputField>().isFocused && (moreInstruction.GetComponent<TMP_InputField>().text.Length > 0))
