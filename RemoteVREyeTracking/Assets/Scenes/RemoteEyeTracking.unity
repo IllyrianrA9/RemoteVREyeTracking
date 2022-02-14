@@ -8903,7 +8903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &164365524
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15673,7 +15673,7 @@ MonoBehaviour:
   canvasForPartID: {fileID: 8604210258083213099}
   file: Accuracy.txt
   participant: {fileID: 1594469474}
-  endExperimentText: {fileID: 8604210258083213098}
+  endExperimentText: {fileID: 156145856}
   startPostStudy: {fileID: 1685010410}
   listOfCircles:
   - {fileID: 8604210258083213097}
@@ -15724,7 +15724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &303795258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -78823,7 +78823,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: o
+  m_Text: i
 --- !u!222 &1466603187
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -110064,7 +110064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2008115428
 RectTransform:
   m_ObjectHideFlags: 0

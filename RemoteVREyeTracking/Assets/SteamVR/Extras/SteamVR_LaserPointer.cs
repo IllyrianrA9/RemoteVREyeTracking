@@ -160,6 +160,10 @@ namespace Valve.VR.Extras
                         Button button = gameObject.GetComponent<Button>();
                         button.onClick.Invoke();
                     }
+                     if(gameObject.GetComponent<InputField>() != null)
+                    {
+                        gameObject.GetComponent<InputField>().Select();
+                    }
                 }
                 else
                 {
