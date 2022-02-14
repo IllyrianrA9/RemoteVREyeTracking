@@ -8,6 +8,10 @@ using System.IO;
 
 public class SelectAnswers : MonoBehaviour
 {
+    public GameObject paypalNoDistract;
+    public GameObject lowerkeyboard;
+    public GameObject keyboardscreen;
+
     public GameObject topicSelection;
     public GameObject topic1;
     public GameObject topic2;
@@ -402,6 +406,9 @@ public class SelectAnswers : MonoBehaviour
         if(!(string.IsNullOrWhiteSpace(chosenAnswer1.GetComponent<TMP_Text>().text)) && !(string.IsNullOrWhiteSpace(chosenAnswer2.GetComponent<TMP_Text>().text)))
         {
             topicSelection.SetActive(false);
+            paypalNoDistract.SetActive(true);
+            lowerkeyboard.SetActive(true);
+            keyboardscreen.SetActive(true);
             //Aktiviere ersten Bildschirm &
         }
     }

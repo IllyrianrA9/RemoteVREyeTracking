@@ -31,10 +31,9 @@ public class AltKeyboard : MonoBehaviour
 
 
     public string csvDocumentation;
-    public StringBuilder sb = new StringBuilder("Participant_ID Time Scene X_Gaze Y_Gaze Z_Gaze X_Position_Email Y_Position_Email Z_Position_Email X_Position_PW Y_Position_PW Z_Position_PW X_Position_ConfirmedPW Y_Position_ConfirmedPW Z_Position_ConfirmedPW Prefered_Topic Email Password");
-    public float timeForCSV = 0;
+    public StringBuilder sb;
+    public float timeForCSV;
 
-    //public GameObject showPreference1;
     public GameObject currentBackgroundScreen;
     public Material currentBackground;
 
@@ -48,7 +47,7 @@ public class AltKeyboard : MonoBehaviour
     public GameObject canvasForPartID;
     private int participantNumberReal;
 
-    public string file = "Registration";
+    public string file;
     public GameObject participant;
     private string participantID;
 
@@ -66,13 +65,13 @@ public class AltKeyboard : MonoBehaviour
     //public GameObject distractionOnSObject;
     //public GameObject difficultyStudyObject;
 
-    public GameObject endButton;
+    //public GameObject endButton;
     public GameObject paypalDistract;
     public GameObject paypalNoDistract;
     public GameObject keyboard;
-    public GameObject canvasKeyboard;
+    //public GameObject canvasKeyboard;
 
-    public GameObject paypalDistractKeyboard;
+    //public GameObject paypalDistractKeyboard;
 
     public int InputSelected;
 
@@ -189,17 +188,24 @@ public class AltKeyboard : MonoBehaviour
 
     void Start()
     {
-        currentBackgroundScreen.GetComponent<Renderer>().material = currentBackground;
-        if (GetComponent<UpperKeyboard>().wasActive == true)
+        if ((paypalNoDistract.GetComponent<LowerKeyboard>().timeForCSV > timeForCSV) && (paypalNoDistract.GetComponent<LowerKeyboard>().timeForCSV > paypalNoDistract.GetComponent<UpperKeyboard>().timeForCSV))
         {
-            InputSelected = GetComponent<UpperKeyboard>().InputSelected;
-            GetComponent<UpperKeyboard>().wasActive = false;
-        }
-        if (GetComponent<LowerKeyboard>().wasActive == true)
-        {
+            timeForCSV = paypalNoDistract.GetComponent<LowerKeyboard>().timeForCSV;
+            csvDocumentation = paypalNoDistract.GetComponent<LowerKeyboard>().csvDocumentation;
+            sb = paypalNoDistract.GetComponent<LowerKeyboard>().sb;
             InputSelected = GetComponent<LowerKeyboard>().InputSelected;
-            GetComponent<LowerKeyboard>().wasActive = false;
         }
+
+        if ((paypalNoDistract.GetComponent<UpperKeyboard>().timeForCSV > timeForCSV) && (paypalNoDistract.GetComponent<LowerKeyboard>().timeForCSV < paypalNoDistract.GetComponent<UpperKeyboard>().timeForCSV))
+        {
+            timeForCSV = paypalNoDistract.GetComponent<UpperKeyboard>().timeForCSV;
+            csvDocumentation = paypalNoDistract.GetComponent<UpperKeyboard>().csvDocumentation;
+            sb = paypalNoDistract.GetComponent<UpperKeyboard>().sb;
+            InputSelected = GetComponent<UpperKeyboard>().InputSelected;
+        }
+        file = paypalNoDistract.GetComponent<LowerKeyboard>().file;
+        currentBackgroundScreen.GetComponent<Renderer>().material = currentBackground;
+    
         participantID = participant.GetComponent<Text>().text;
         if (partTrueID)
         {
@@ -213,19 +219,6 @@ public class AltKeyboard : MonoBehaviour
         distractionText = distraction.GetComponent<InputField>().text;
         distractionOnScreenText = distractionOnScreen.GetComponent<InputField>().text;
         difficultyStudyText = difficultyStudy.GetComponent<InputField>().text;
-
-        switch (InputSelected)
-        {
-            case 0:
-                difficultyStudy.Select();
-                break;
-            case 1:
-                distraction.Select();
-                break;
-            case 2:
-                distractionOnScreen.Select();
-                break;
-        }
         buttonArrowUp = arrowUpKey.GetComponent<Button>();
         buttonArrowDown = arrowDownKey.GetComponent<Button>();
         deleteChar = deleteOneChar.GetComponent<Button>();
@@ -264,40 +257,20 @@ public class AltKeyboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (difficultyStudy.isFocused == true)
+        if ((paypalNoDistract.GetComponent<LowerKeyboard>().timeForCSV > timeForCSV) && (paypalNoDistract.GetComponent<LowerKeyboard>().timeForCSV > paypalNoDistract.GetComponent<UpperKeyboard>().timeForCSV))
         {
-            InputSelected = 0;
-        }
-        if (distraction.isFocused == true)
-        {
-            InputSelected = 1;
-        }
-        if (distractionOnScreen.isFocused == true)
-        {
-            InputSelected = 2;
-        }
-        if (GetComponent<UpperKeyboard>().wasActive == true)
-        {
-            InputSelected = GetComponent<UpperKeyboard>().InputSelected;
-            GetComponent<UpperKeyboard>().wasActive = false;
-        }
-        if (GetComponent<LowerKeyboard>().wasActive == true)
-        {
+            timeForCSV = paypalNoDistract.GetComponent<LowerKeyboard>().timeForCSV;
+            csvDocumentation = paypalNoDistract.GetComponent<LowerKeyboard>().csvDocumentation;
+            sb = paypalNoDistract.GetComponent<LowerKeyboard>().sb;
             InputSelected = GetComponent<LowerKeyboard>().InputSelected;
-            GetComponent<LowerKeyboard>().wasActive = false;
         }
-        switch (InputSelected)
-        {
-            case 0:
-                difficultyStudy.Select();
-                break;
-            case 1:
-                distraction.Select();
-                break;
-            case 2:
-                distractionOnScreen.Select();
-                break;
 
+        if ((paypalNoDistract.GetComponent<UpperKeyboard>().timeForCSV > timeForCSV) && (paypalNoDistract.GetComponent<LowerKeyboard>().timeForCSV < paypalNoDistract.GetComponent<UpperKeyboard>().timeForCSV))
+        {
+            timeForCSV = paypalNoDistract.GetComponent<UpperKeyboard>().timeForCSV;
+            csvDocumentation = paypalNoDistract.GetComponent<UpperKeyboard>().csvDocumentation;
+            sb = paypalNoDistract.GetComponent<UpperKeyboard>().sb;
+            InputSelected = GetComponent<UpperKeyboard>().InputSelected;
         }
         buttonBlockedDown += Time.deltaTime;
         buttonBlockedUp += Time.deltaTime;
@@ -381,7 +354,7 @@ public class AltKeyboard : MonoBehaviour
                 _gazeY = hit.point.y;
                 _gazeZ = hit.point.z;
             }
-            csvDocumentation = ToCSVPostStudyNoEmail(participantID, timeForCSV, theme.name, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<Text>().text);
+            csvDocumentation = ToCSVPostStudySmallInfo(participantID, timeForCSV, theme.name, _gazeX, _gazeY, _gazeZ);
         }
     }
 
@@ -424,11 +397,14 @@ public class AltKeyboard : MonoBehaviour
             paypalNoDistract.SetActive(false);
             //keyboard.SetActive(false);
             //canvasKeyboard.SetActive(false);
-            lowerKeyboard.SetActive(false);
+            //lowerKeyboard.SetActive(false);
+            //altKeyboard.SetActive(false);
+            //upperKeyboard.SetActive(false);
+            //paypalDistractKeyboard.SetActive(true);
+            //endButton.SetActive(true);
+            lowerKeyboard.SetActive(true);
             altKeyboard.SetActive(false);
             upperKeyboard.SetActive(false);
-            paypalDistractKeyboard.SetActive(true);
-            //endButton.SetActive(true);
             csvDocumentation = ToCSVPostStudy(participantID, timeForCSV, theme.name, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<Text>().text, difficultyStudy.text, distraction.text);
             SaveToFile();
 
@@ -439,22 +415,74 @@ public class AltKeyboard : MonoBehaviour
     {
         if (buttonArrowUp.enabled == true)
         {
-            InputSelected--;
-            if (InputSelected < 0)
+            if (difficultyStudy.isFocused == true)
+            {
+                InputSelected = 0;
+                InputSelected -= 1;
+                if (InputSelected < 0)
+                {
+                    InputSelected = 2;
+                }
+                switch (InputSelected)
+                {
+                    case 0:
+                        difficultyStudy.Select();
+                        break;
+                    case 1:
+                        distraction.Select();
+                        break;
+                    case 2:
+                        distractionOnScreen.Select();
+                        break;
+
+                }
+
+            }
+            else if (distraction.isFocused == true)
+            {
+                InputSelected = 1;
+                InputSelected -= 1;
+                if (InputSelected < 0)
+                {
+                    InputSelected = 2;
+                }
+                switch (InputSelected)
+                {
+                    case 0:
+                        difficultyStudy.Select();
+                        break;
+                    case 1:
+                        distraction.Select();
+                        break;
+                    case 2:
+                        distractionOnScreen.Select();
+                        break;
+
+                }
+
+            }
+            else if (distractionOnScreen.isFocused == true)
             {
                 InputSelected = 2;
-            }
-            switch (InputSelected)
-            {
-                case 0:
-                    difficultyStudy.Select();
-                    break;
-                case 1:
-                    distraction.Select();
-                    break;
-                case 2:
-                    distractionOnScreen.Select();
-                    break;
+                InputSelected -= 1;
+                if (InputSelected < 0)
+                {
+                    InputSelected = 2;
+                }
+                switch (InputSelected)
+                {
+                    case 0:
+                        difficultyStudy.Select();
+                        break;
+                    case 1:
+                        distraction.Select();
+                        break;
+                    case 2:
+                        distractionOnScreen.Select();
+                        break;
+
+                }
+
             }
             buttonArrowUp.enabled = false;
             buttonBlockedUp = 0;
@@ -472,23 +500,73 @@ public class AltKeyboard : MonoBehaviour
     {
         if (buttonArrowDown.enabled == true)
         {
-            InputSelected++;
-            if (InputSelected > 2)
+            if (difficultyStudy.isFocused == true)
             {
                 InputSelected = 0;
-            }
+                InputSelected += 1;
+                if (InputSelected > 2)
+                {
+                    InputSelected = 0;
+                }
+                switch (InputSelected)
+                {
+                    case 0:
+                        difficultyStudy.Select();
+                        break;
+                    case 1:
+                        distraction.Select();
+                        break;
+                    case 2:
+                        distractionOnScreen.Select();
+                        break;
 
-            switch (InputSelected)
+                }
+
+            }
+            else if (distraction.isFocused == true)
             {
-                case 0:
-                    difficultyStudy.Select();
-                    break;
-                case 1:
-                    distraction.Select();
-                    break;
-                case 2:
-                    distractionOnScreen.Select();
-                    break;
+                InputSelected = 1;
+                InputSelected += 1;
+                if (InputSelected > 2)
+                {
+                    InputSelected = 0;
+                }
+                switch (InputSelected)
+                {
+                    case 0:
+                        difficultyStudy.Select();
+                        break;
+                    case 1:
+                        distraction.Select();
+                        break;
+                    case 2:
+                        distractionOnScreen.Select();
+                        break;
+
+                }
+
+            }
+            else if (distractionOnScreen.isFocused == true)
+            {
+                InputSelected = 2;
+                InputSelected += 1;
+                if (InputSelected > 2)
+                {
+                    InputSelected = 0;
+                }
+                switch (InputSelected)
+                {
+                    case 0:
+                        difficultyStudy.Select();
+                        break;
+                    case 1:
+                        distraction.Select();
+                        break;
+                    case 2:
+                        distractionOnScreen.Select();
+                        break;
+
+                }
             }
             buttonArrowDown.enabled = false;
             buttonBlockedDown = 0;
@@ -939,8 +1017,8 @@ public class AltKeyboard : MonoBehaviour
                 altKeyboard.SetActive(false);
                 lowerKeyboard.SetActive(true);
                 wasActive = true;
-                GetComponent<AltKeyboardInput>().enabled = false;
-                GetComponent<LowerKeyboardInput>().enabled = true;
+                GetComponent<AltKeyboard>().enabled = false;
+                GetComponent<LowerKeyboard>().enabled = true;
             }
             altButton.enabled = false;
             buttonBlockedAlt = 0;
@@ -963,8 +1041,8 @@ public class AltKeyboard : MonoBehaviour
                 altKeyboard.SetActive(false);
                 lowerKeyboard.SetActive(true);
                 wasActive = true;
-                GetComponent<AltKeyboardInput>().enabled = false;
-                GetComponent<LowerKeyboardInput>().enabled = true;
+                GetComponent<AltKeyboard>().enabled = false;
+                GetComponent<LowerKeyboard>().enabled = true;
             }
             shiftButton.enabled = false;
             buttonBlockedshift = 0;
@@ -983,23 +1061,74 @@ public class AltKeyboard : MonoBehaviour
     {
         if (tabButton.enabled == true)
         {
-            InputSelected += 1;
-            if (InputSelected > 2)
+            if (difficultyStudy.isFocused == true)
             {
                 InputSelected = 0;
+                InputSelected += 1;
+                if (InputSelected > 2)
+                {
+                    InputSelected = 0;
+                }
+                switch (InputSelected)
+                {
+                    case 0:
+                        difficultyStudy.Select();
+                        break;
+                    case 1:
+                        distraction.Select();
+                        break;
+                    case 2:
+                        distractionOnScreen.Select();
+                        break;
+
+                }
+
             }
-            switch (InputSelected)
+            else if (distraction.isFocused == true)
             {
-                case 0:
-                    difficultyStudy.Select();
-                    break;
-                case 1:
-                    distraction.Select();
-                    break;
-                case 2:
-                    distractionOnScreen.Select();
-                    break;
-                
+                InputSelected = 1;
+                InputSelected += 1;
+                if (InputSelected > 2)
+                {
+                    InputSelected = 0;
+                }
+                switch (InputSelected)
+                {
+                    case 0:
+                        difficultyStudy.Select();
+                        break;
+                    case 1:
+                        distraction.Select();
+                        break;
+                    case 2:
+                        distractionOnScreen.Select();
+                        break;
+
+                }
+
+            }
+            else if (distractionOnScreen.isFocused == true)
+            {
+                InputSelected = 2;
+                InputSelected += 1;
+                if (InputSelected > 2)
+                {
+                    InputSelected = 0;
+                }
+                switch (InputSelected)
+                {
+                    case 0:
+                        difficultyStudy.Select();
+                        break;
+                    case 1:
+                        distraction.Select();
+                        break;
+                    case 2:
+                        distractionOnScreen.Select();
+                        break;
+
+                }
+
             }
             tabButton.enabled = false;
             buttonBlockedtab = 0;
@@ -1157,6 +1286,12 @@ public class AltKeyboard : MonoBehaviour
         return sb.ToString();
     }
 
+    public string ToCSVPostStudySmallInfo(string partID, float csvTime, string backgroundScreenName, double xgaze, double ygaze, double zgaze)
+    {
+        sb.Append('\n').Append(partID.ToString()).Append(" ").Append(csvTime.ToString()).Append(" ").Append(backgroundScreenName.ToString()).Append(" ").Append(xgaze.ToString()).Append(" ").Append(ygaze.ToString()).Append(" ").Append(zgaze.ToString());
+        return sb.ToString();
+    }
+
     public void SaveToFile()
     {
         var content = csvDocumentation;
@@ -1164,7 +1299,7 @@ public class AltKeyboard : MonoBehaviour
         FileStream fileStream = new FileStream(path, FileMode.Append, FileAccess.Write);
         using (StreamWriter writer = new StreamWriter(fileStream))
         {
-            writer.Write("");
+            writer.Write(csvDocumentation);
             Debug.Log(" Write CSV");
             Debug.Log("Filepath: " + path);
         }
