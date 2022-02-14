@@ -8903,7 +8903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &164365524
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14638,7 +14638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.028301895, g: 0.028301895, b: 0.028301895, a: 1}
+  m_Color: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -51955,6 +51955,7 @@ GameObject:
   - component: {fileID: 939057165}
   - component: {fileID: 939057164}
   - component: {fileID: 939057163}
+  - component: {fileID: 939057166}
   m_Layer: 5
   m_Name: Email
   m_TagString: Untagged
@@ -52026,13 +52027,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 939057164}
   m_TextComponent: {fileID: 288662749}
   m_Placeholder: {fileID: 2138695479}
-  m_ContentType: 0
+  m_ContentType: 6
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 7
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -52086,6 +52087,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939057161}
   m_CullTransparentMesh: 1
+--- !u!65 &939057166
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939057161}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 326, y: 41, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &941914775
 GameObject:
   m_ObjectHideFlags: 0
@@ -79982,7 +79996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1486521910
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -81416,6 +81430,7 @@ GameObject:
   - component: {fileID: 1508519677}
   - component: {fileID: 1508519676}
   - component: {fileID: 1508519675}
+  - component: {fileID: 1508519678}
   m_Layer: 5
   m_Name: Confirm Pw
   m_TagString: Untagged
@@ -81487,8 +81502,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1508519676}
   m_TextComponent: {fileID: 288662749}
   m_Placeholder: {fileID: 2138695479}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -81547,6 +81562,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508519673}
   m_CullTransparentMesh: 1
+--- !u!65 &1508519678
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508519673}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 326, y: 41, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1512005796
 GameObject:
   m_ObjectHideFlags: 0
@@ -83398,13 +83426,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1546608575}
+  - component: {fileID: 1546608578}
+  - component: {fileID: 1546608577}
+  - component: {fileID: 1546608576}
   m_Layer: 5
   m_Name: Paypal No Distract
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1546608575
 RectTransform:
   m_ObjectHideFlags: 0
@@ -83429,6 +83460,407 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1546608576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546608574}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7453046063496ec4aa89f666a3ff08d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wasActive: 0
+  lowerKeyboard: {fileID: 0}
+  altKeyboard: {fileID: 0}
+  upperKeyboard: {fileID: 0}
+  canvasForPartID: {fileID: 0}
+  file: postStudy
+  participant: {fileID: 0}
+  distraction: {fileID: 0}
+  distractionOnScreen: {fileID: 0}
+  difficultyStudy: {fileID: 0}
+  answerWrong: {fileID: 0}
+  moreInstruction: {fileID: 0}
+  vrCamera: {fileID: 0}
+  objectButton: {fileID: 0}
+  distractionObject: {fileID: 0}
+  distractionOnSObject: {fileID: 0}
+  difficultyStudyObject: {fileID: 0}
+  answerWrongObject: {fileID: 0}
+  moreInstructionObject: {fileID: 0}
+  vrCameraObject: {fileID: 0}
+  endButton: {fileID: 0}
+  lastText: {fileID: 0}
+  postStudy: {fileID: 0}
+  keyboard: {fileID: 0}
+  canvasKeyboard: {fileID: 0}
+  InputSelected: 0
+  arrowUpKey: {fileID: 0}
+  arrowDownKey: {fileID: 0}
+  buttonBlockedDown: 0
+  buttonBlockedUp: 0
+  a: {fileID: 0}
+  b: {fileID: 0}
+  c: {fileID: 0}
+  d: {fileID: 0}
+  e: {fileID: 0}
+  f: {fileID: 0}
+  g: {fileID: 0}
+  h: {fileID: 0}
+  i: {fileID: 0}
+  j: {fileID: 0}
+  k: {fileID: 0}
+  l: {fileID: 0}
+  m: {fileID: 0}
+  n: {fileID: 0}
+  o: {fileID: 0}
+  p: {fileID: 0}
+  q: {fileID: 0}
+  r: {fileID: 0}
+  s: {fileID: 0}
+  t: {fileID: 0}
+  u: {fileID: 0}
+  v: {fileID: 0}
+  w: {fileID: 0}
+  x: {fileID: 0}
+  y: {fileID: 0}
+  z: {fileID: 0}
+  space: {fileID: 0}
+  "\xDF": {fileID: 0}
+  one: {fileID: 0}
+  two: {fileID: 0}
+  three: {fileID: 0}
+  zero: {fileID: 0}
+  four: {fileID: 0}
+  five: {fileID: 0}
+  six: {fileID: 0}
+  seven: {fileID: 0}
+  eight: {fileID: 0}
+  nine: {fileID: 0}
+  deleteOneChar: {fileID: 0}
+  tabulator: {fileID: 0}
+  shift: {fileID: 0}
+  pfeilRechts: {fileID: 0}
+  "\xF6": {fileID: 0}
+  "\xE4": {fileID: 0}
+  "\xFC": {fileID: 0}
+  strichPunkt: {fileID: 0}
+  doppelPunkt: {fileID: 0}
+  unterStrich: {fileID: 0}
+  hochChar: {fileID: 0}
+  stern: {fileID: 0}
+  alt: {fileID: 0}
+  buttonBlockeddel: 0
+  buttonBlockeda: 0
+  buttonBlockedb: 0
+  buttonBlockedc: 0
+  buttonBlockedd: 0
+  buttonBlockede: 0
+  buttonBlockedf: 0
+  buttonBlockedg: 0
+  buttonBlockedh: 0
+  buttonBlockedi: 0
+  buttonBlockedj: 0
+  buttonBlockedk: 0
+  buttonBlockedl: 0
+  buttonBlockedm: 0
+  buttonBlockedn: 0
+  buttonBlockedo: 0
+  buttonBlockedp: 0
+  buttonBlockedq: 0
+  buttonBlockedr: 0
+  buttonBlockeds: 0
+  buttonBlockedt: 0
+  buttonBlockedu: 0
+  buttonBlockedv: 0
+  buttonBlockedw: 0
+  buttonBlockedx: 0
+  buttonBlockedy: 0
+  buttonBlockedz: 0
+  "buttonBlocked\xDF": 0
+  buttonBlockedspace: 0
+  buttonBlockedone: 0
+  buttonBlockedtwo: 0
+  buttonBlockedthree: 0
+  buttonBlockedfour: 0
+  buttonBlockedfive: 0
+  buttonBlockedsix: 0
+  buttonBlockedseven: 0
+  buttonBlockedeight: 0
+  buttonBlockednine: 0
+  buttonBlockedzero: 0
+  buttonBlockedtab: 0
+  buttonBlockedshift: 0
+  buttonBlockedpfeilRechts: 0
+  "buttonBlocked\xF6": 0
+  "buttonBlocked\xE4": 0
+  "buttonBlocked\xFC": 0
+  buttonBlockedStrichPunkt: 0
+  buttonBlockedDoppelPunkt: 0
+  buttonBlockedUnterStrich: 0
+  buttonBlockedAlt: 0
+  buttonBlockedStern: 0
+  buttonBlockedHochChar: 0
+--- !u!114 &1546608577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546608574}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed6d9ea403e302478701d9b219c8ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theme: {fileID: 0}
+  preferedTopic: {fileID: 0}
+  csvDocumentation: 
+  timeForCSV: 0
+  currentBackgroundScreen: {fileID: 0}
+  currentBackground: {fileID: 0}
+  nextBackgroundScreen: {fileID: 0}
+  nextBackground: {fileID: 0}
+  wasActive: 0
+  lowerKeyboard: {fileID: 0}
+  altKeyboard: {fileID: 0}
+  upperKeyboard: {fileID: 0}
+  canvasForPartID: {fileID: 0}
+  file: Registration
+  participant: {fileID: 0}
+  input1: {fileID: 0}
+  input2: {fileID: 0}
+  input3: {fileID: 0}
+  distraction: {fileID: 0}
+  distractionOnScreen: {fileID: 0}
+  difficultyStudy: {fileID: 0}
+  objectButton: {fileID: 0}
+  endButton: {fileID: 0}
+  paypalDistract: {fileID: 0}
+  paypalNoDistract: {fileID: 0}
+  keyboard: {fileID: 0}
+  canvasKeyboard: {fileID: 0}
+  paypalDistractKeyboard: {fileID: 0}
+  InputSelected: 0
+  arrowUpKey: {fileID: 0}
+  arrowDownKey: {fileID: 0}
+  buttonBlockedDown: 0
+  buttonBlockedUp: 0
+  e: {fileID: 0}
+  q: {fileID: 0}
+  m: {fileID: 0}
+  space: {fileID: 0}
+  "\xDF": {fileID: 0}
+  two: {fileID: 0}
+  three: {fileID: 0}
+  zero: {fileID: 0}
+  seven: {fileID: 0}
+  eight: {fileID: 0}
+  nine: {fileID: 0}
+  deleteOneChar: {fileID: 0}
+  tabulator: {fileID: 0}
+  shift: {fileID: 0}
+  pfeilRechts: {fileID: 0}
+  stern: {fileID: 0}
+  alt: {fileID: 0}
+  buttonBlockeddel: 0
+  buttonBlockeda: 0
+  buttonBlockedb: 0
+  buttonBlockedc: 0
+  buttonBlockedd: 0
+  buttonBlockede: 0
+  buttonBlockedf: 0
+  buttonBlockedg: 0
+  buttonBlockedh: 0
+  buttonBlockedi: 0
+  buttonBlockedj: 0
+  buttonBlockedk: 0
+  buttonBlockedl: 0
+  buttonBlockedm: 0
+  buttonBlockedn: 0
+  buttonBlockedo: 0
+  buttonBlockedp: 0
+  buttonBlockedq: 0
+  buttonBlockedr: 0
+  buttonBlockeds: 0
+  buttonBlockedt: 0
+  buttonBlockedu: 0
+  buttonBlockedv: 0
+  buttonBlockedw: 0
+  buttonBlockedx: 0
+  buttonBlockedy: 0
+  buttonBlockedz: 0
+  "buttonBlocked\xDF": 0
+  buttonBlockedspace: 0
+  buttonBlockedone: 0
+  buttonBlockedtwo: 0
+  buttonBlockedthree: 0
+  buttonBlockedfour: 0
+  buttonBlockedfive: 0
+  buttonBlockedsix: 0
+  buttonBlockedseven: 0
+  buttonBlockedeight: 0
+  buttonBlockednine: 0
+  buttonBlockedzero: 0
+  buttonBlockedtab: 0
+  buttonBlockedshift: 0
+  buttonBlockedpfeilRechts: 0
+  "buttonBlocked\xF6": 0
+  "buttonBlocked\xE4": 0
+  "buttonBlocked\xFC": 0
+  buttonBlockedStrichPunkt: 0
+  buttonBlockedDoppelPunkt: 0
+  buttonBlockedUnterStrich: 0
+  buttonBlockedAlt: 0
+  buttonBlockedStern: 0
+  buttonBlockedHochChar: 0
+--- !u!114 &1546608578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546608574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241bce5082ef348488ef58e5c341710d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wasActive: 0
+  lowerKeyboard: {fileID: 0}
+  altKeyboard: {fileID: 0}
+  upperKeyboard: {fileID: 0}
+  canvasForPartID: {fileID: 0}
+  file: postStudy
+  participant: {fileID: 0}
+  distraction: {fileID: 0}
+  distractionOnScreen: {fileID: 0}
+  difficultyStudy: {fileID: 0}
+  answerWrong: {fileID: 0}
+  moreInstruction: {fileID: 0}
+  vrCamera: {fileID: 0}
+  objectButton: {fileID: 0}
+  distractionObject: {fileID: 0}
+  distractionOnSObject: {fileID: 0}
+  difficultyStudyObject: {fileID: 0}
+  answerWrongObject: {fileID: 0}
+  moreInstructionObject: {fileID: 0}
+  vrCameraObject: {fileID: 0}
+  endButton: {fileID: 0}
+  lastText: {fileID: 0}
+  postStudy: {fileID: 0}
+  keyboard: {fileID: 0}
+  canvasKeyboard: {fileID: 0}
+  InputSelected: 0
+  arrowUpKey: {fileID: 0}
+  arrowDownKey: {fileID: 0}
+  buttonBlockedDown: 0
+  buttonBlockedUp: 0
+  a: {fileID: 0}
+  b: {fileID: 0}
+  c: {fileID: 0}
+  d: {fileID: 0}
+  e: {fileID: 0}
+  f: {fileID: 0}
+  g: {fileID: 0}
+  h: {fileID: 0}
+  i: {fileID: 0}
+  j: {fileID: 0}
+  k: {fileID: 0}
+  l: {fileID: 0}
+  m: {fileID: 0}
+  n: {fileID: 0}
+  o: {fileID: 0}
+  p: {fileID: 0}
+  q: {fileID: 0}
+  r: {fileID: 0}
+  s: {fileID: 0}
+  t: {fileID: 0}
+  u: {fileID: 0}
+  v: {fileID: 0}
+  w: {fileID: 0}
+  x: {fileID: 0}
+  y: {fileID: 0}
+  z: {fileID: 0}
+  space: {fileID: 0}
+  "\xDF": {fileID: 0}
+  one: {fileID: 0}
+  two: {fileID: 0}
+  three: {fileID: 0}
+  zero: {fileID: 0}
+  four: {fileID: 0}
+  five: {fileID: 0}
+  six: {fileID: 0}
+  seven: {fileID: 0}
+  eight: {fileID: 0}
+  nine: {fileID: 0}
+  deleteOneChar: {fileID: 0}
+  tabulator: {fileID: 0}
+  shift: {fileID: 0}
+  pfeilRechts: {fileID: 0}
+  "\xF6": {fileID: 0}
+  "\xE4": {fileID: 0}
+  "\xFC": {fileID: 0}
+  strichPunkt: {fileID: 0}
+  doppelPunkt: {fileID: 0}
+  unterStrich: {fileID: 0}
+  hochChar: {fileID: 0}
+  stern: {fileID: 0}
+  alt: {fileID: 0}
+  buttonBlockeddel: 0
+  buttonBlockeda: 0
+  buttonBlockedb: 0
+  buttonBlockedc: 0
+  buttonBlockedd: 0
+  buttonBlockede: 0
+  buttonBlockedf: 0
+  buttonBlockedg: 0
+  buttonBlockedh: 0
+  buttonBlockedi: 0
+  buttonBlockedj: 0
+  buttonBlockedk: 0
+  buttonBlockedl: 0
+  buttonBlockedm: 0
+  buttonBlockedn: 0
+  buttonBlockedo: 0
+  buttonBlockedp: 0
+  buttonBlockedq: 0
+  buttonBlockedr: 0
+  buttonBlockeds: 0
+  buttonBlockedt: 0
+  buttonBlockedu: 0
+  buttonBlockedv: 0
+  buttonBlockedw: 0
+  buttonBlockedx: 0
+  buttonBlockedy: 0
+  buttonBlockedz: 0
+  "buttonBlocked\xDF": 0
+  buttonBlockedspace: 0
+  buttonBlockedone: 0
+  buttonBlockedtwo: 0
+  buttonBlockedthree: 0
+  buttonBlockedfour: 0
+  buttonBlockedfive: 0
+  buttonBlockedsix: 0
+  buttonBlockedseven: 0
+  buttonBlockedeight: 0
+  buttonBlockednine: 0
+  buttonBlockedzero: 0
+  buttonBlockedtab: 0
+  buttonBlockedshift: 0
+  buttonBlockedpfeilRechts: 0
+  "buttonBlocked\xF6": 0
+  "buttonBlocked\xE4": 0
+  "buttonBlocked\xFC": 0
+  buttonBlockedStrichPunkt: 0
+  buttonBlockedDoppelPunkt: 0
+  buttonBlockedUnterStrich: 0
+  buttonBlockedAlt: 0
+  buttonBlockedStern: 0
+  buttonBlockedHochChar: 0
 --- !u!1 &1552319981
 GameObject:
   m_ObjectHideFlags: 0
@@ -86762,6 +87194,7 @@ GameObject:
   - component: {fileID: 1609798336}
   - component: {fileID: 1609798335}
   - component: {fileID: 1609798334}
+  - component: {fileID: 1609798337}
   m_Layer: 5
   m_Name: Pw
   m_TagString: Untagged
@@ -86833,8 +87266,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1609798335}
   m_TextComponent: {fileID: 288662749}
   m_Placeholder: {fileID: 2138695479}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -86893,6 +87326,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609798332}
   m_CullTransparentMesh: 1
+--- !u!65 &1609798337
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609798332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 326, y: 41, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1610203574
 GameObject:
   m_ObjectHideFlags: 0
@@ -95018,7 +95464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -95034,7 +95480,7 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
@@ -100866,7 +101312,7 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
@@ -115859,7 +116305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
