@@ -37,7 +37,7 @@ public class LowerKeyboard : MonoBehaviour
     public Material nextBackground;
 
     public string csvDocumentation;
-    public StringBuilder sb = new StringBuilder("Participant_ID Time Scene X_Gaze Y_Gaze Z_Gaze X_Position_Email Y_Position_Email Z_Position_Email X_Position_PW Y_Position_PW Z_Position_PW X_Position_ConfirmedPW Y_Position_ConfirmedPW Z_Position_ConfirmedPW Prefered_Topic Email Password");
+    public StringBuilder sb = new StringBuilder("Time X_Gaze Y_Gaze Z_Gaze X_Position_Email Y_Position_Email Z_Position_Email X_Position_PW Y_Position_PW Z_Position_PW X_Position_ConfirmedPW Y_Position_ConfirmedPW Z_Position_ConfirmedPW Prefered_Topic Email Password Scene Participant_ID");
     public float timeForCSV = 0;
 
 
@@ -76,180 +76,181 @@ public class LowerKeyboard : MonoBehaviour
 
     public int InputSelected;
 
-    public GameObject arrowUpKey;
-    public GameObject arrowDownKey;
-    private Button buttonArrowUp;
-    private Button buttonArrowDown;
+    //public GameObject arrowUpKey;
+    //public GameObject arrowDownKey;
+    public Button buttonArrowUp;
+    public Button buttonArrowDown;
 
     private string distractionText;
     private string distractionOnScreenText;
     private string difficultyStudyText;
     
 
-    public float buttonBlockedDown = 0;
-    public float buttonBlockedUp = 0;
+    //public float universalBlockDown = 0;
+    //public float universalBlockUp = 0;
     // Start is called before the first frame update
 
-    public GameObject a;
-    public GameObject b;
-    public GameObject c;
-    public GameObject d;
-    public GameObject e;
-    public GameObject f;
-    public GameObject g;
-    public GameObject h;
-    public GameObject i;
-    public GameObject j;
-    public GameObject k;
-    public GameObject l;
-    public GameObject m;
-    public GameObject n;
-    public GameObject o;
-    public GameObject p;
-    public GameObject q;
-    public GameObject r;
-    public GameObject s;
-    public GameObject t;
-    public GameObject u;
-    public GameObject v;
-    public GameObject w;
-    public GameObject x;
-    public GameObject y;
-    public GameObject z;
-    public GameObject space;
-    public GameObject ß;
-    public GameObject one;
-    public GameObject two;
-    public GameObject three;
-    public GameObject zero;
-    public GameObject four;
-    public GameObject five;
-    public GameObject six;
-    public GameObject seven;
-    public GameObject eight;
-    public GameObject nine;
-    public GameObject deleteOneChar;
+    //public GameObject a;
+    //public GameObject b;
+    //public GameObject c;
+    //public GameObject d;
+    //public GameObject e;
+    //public GameObject f;
+    //public GameObject g;
+    //public GameObject h;
+    //public GameObject i;
+    //public GameObject j;
+    //public GameObject k;
+    //public GameObject l;
+    //public GameObject m;
+    //public GameObject n;
+    //public GameObject o;
+    //public GameObject p;
+    //public GameObject q;
+    //public GameObject r;
+    //public GameObject s;
+    //public GameObject t;
+    //public GameObject u;
+    //public GameObject v;
+    //public GameObject w;
+    //public GameObject x;
+    //public GameObject y;
+    //public GameObject z;
+    //public GameObject space;
+    //public GameObject ß;
+    //public GameObject one;
+    //public GameObject two;
+    //public GameObject three;
+    //public GameObject zero;
+    //public GameObject four;
+    //public GameObject five;
+    //public GameObject six;
+    //public GameObject seven;
+    //public GameObject eight;
+    //public GameObject nine;
+    //public GameObject deleteOneChar;
 
-    public GameObject tabulator;
-    public GameObject shift;
-    public GameObject pfeilRechts;
-    public GameObject ö;
-    public GameObject ä;
-    public GameObject ü;
-    public GameObject strichPunkt;
-    public GameObject doppelPunkt;
-    public GameObject unterStrich;
-    public GameObject hochChar;
-    public GameObject stern;
-    public GameObject alt;
-
-
-    private Button aButton;
-    private Button bButton;
-    private Button cButton;
-    private Button dButton;
-    private Button eButton;
-    private Button fButton;
-    private Button gButton;
-    private Button hButton;
-    private Button iButton;
-    private Button jButton;
-    private Button kButton;
-    private Button lButton;
-    private Button mButton;
-    private Button nButton;
-    private Button oButton;
-    private Button pButton;
-    private Button qButton;
-    private Button rButton;
-    private Button sButton;
-    private Button tButton;
-    private Button uButton;
-    private Button vButton;
-    private Button wButton;
-    private Button xButton;
-    private Button yButton;
-    private Button zButton;
-    private Button oneButton;
-    private Button twoButton;
-    private Button threeButton;
-    private Button fourButton;
-    private Button fiveButton;
-    private Button sixButton;
-    private Button sevenButton;
-    private Button eightButton;
-    private Button nineButton;
-    private Button zeroButton;
-    private Button spaceButton;
-    private Button ßButton;
-    private Button deleteChar;
-
-    private Button tabButton;
-    private Button öButton;
-    private Button äButton;
-    private Button üButton;
-    private Button strichPunktButton;
-    private Button doppelPunktButton;
-    private Button altButton;
-    private Button shiftButton;
-    private Button pfeilRechtsButton;
-    private Button unterStrichButton;
-    private Button sternButton;
-    private Button hochCharButton;
+    //public GameObject tabulator;
+    //public GameObject shift;
+    //public GameObject pfeilRechts;
+    //public GameObject ö;
+    //public GameObject ä;
+    //public GameObject ü;
+    //public GameObject strichPunkt;
+    //public GameObject doppelPunkt;
+    //public GameObject unterStrich;
+    //public GameObject hochChar;
+    //public GameObject stern;
+    //public GameObject alt;
 
 
-    public float buttonBlockeddel = 0;
-    public float buttonBlockeda = 0;
-    public float buttonBlockedb = 0;
-    public float buttonBlockedc = 0;
-    public float buttonBlockedd = 0;
-    public float buttonBlockede = 0;
-    public float buttonBlockedf = 0;
-    public float buttonBlockedg = 0;
-    public float buttonBlockedh = 0;
-    public float buttonBlockedi = 0;
-    public float buttonBlockedj = 0;
-    public float buttonBlockedk = 0;
-    public float buttonBlockedl = 0;
-    public float buttonBlockedm = 0;
-    public float buttonBlockedn = 0;
-    public float buttonBlockedo = 0;
-    public float buttonBlockedp = 0;
-    public float buttonBlockedq = 0;
-    public float buttonBlockedr = 0;
-    public float buttonBlockeds = 0;
-    public float buttonBlockedt = 0;
-    public float buttonBlockedu = 0;
-    public float buttonBlockedv = 0;
-    public float buttonBlockedw = 0;
-    public float buttonBlockedx = 0;
-    public float buttonBlockedy = 0;
-    public float buttonBlockedz = 0;
-    public float buttonBlockedß = 0;
-    public float buttonBlockedspace = 0;
-    public float buttonBlockedone = 0;
-    public float buttonBlockedtwo = 0;
-    public float buttonBlockedthree = 0;
-    public float buttonBlockedfour = 0;
-    public float buttonBlockedfive = 0;
-    public float buttonBlockedsix = 0;
-    public float buttonBlockedseven = 0;
-    public float buttonBlockedeight = 0;
-    public float buttonBlockednine = 0;
-    public float buttonBlockedzero = 0;
+    public Button aButton;
+    public Button bButton;
+    public Button cButton;
+    public Button dButton;
+    public Button eButton;
+    public Button fButton;
+    public Button gButton;
+    public Button hButton;
+    public Button iButton;
+    public Button jButton;
+    public Button kButton;
+    public Button lButton;
+    public Button mButton;
+    public Button nButton;
+    public Button oButton;
+    public Button pButton;
+    public Button qButton;
+    public Button rButton;
+    public Button sButton;
+    public Button tButton;
+    public Button uButton;
+    public Button vButton;
+    public Button wButton;
+    public Button xButton;
+    public Button yButton;
+    public Button zButton;
+    public Button oneButton;
+    public Button twoButton;
+    public Button threeButton;
+    public Button fourButton;
+    public Button fiveButton;
+    public Button sixButton;
+    public Button sevenButton;
+    public Button eightButton;
+    public Button nineButton;
+    public Button zeroButton;
+    public Button spaceButton;
+    public Button ßButton;
+    public Button deleteChar;
 
-    public float buttonBlockedtab = 0;
-    public float buttonBlockedshift = 0;
-    public float buttonBlockedpfeilRechts = 0;
-    public float buttonBlockedö = 0;
-    public float buttonBlockedä = 0;
-    public float buttonBlockedü = 0;
-    public float buttonBlockedStrichPunkt = 0;
-    public float buttonBlockedDoppelPunkt = 0;
-    public float buttonBlockedUnterStrich = 0;
-    public float buttonBlockedAlt = 0;
-    public float buttonBlockedStern = 0;
-    public float buttonBlockedHochChar = 0;
+    public Button tabButton;
+    public Button öButton;
+    public Button äButton;
+    public Button üButton;
+    public Button strichPunktButton;
+    public Button doppelPunktButton;
+    public Button altButton;
+    public Button shiftButton;
+    public Button pfeilRechtsButton;
+    public Button unterStrichButton;
+    public Button sternButton;
+    public Button hochCharButton;
+
+
+    //public float universalBlockdel = 0;
+    //public float universalBlocka = 0;
+    //public float universalBlockb = 0;
+    //public float universalBlockc = 0;
+    //public float universalBlockd = 0;
+    //public float universalBlocke = 0;
+    //public float universalBlockf = 0;
+    //public float universalBlockg = 0;
+    //public float universalBlockh = 0;
+    //public float universalBlocki = 0;
+    //public float universalBlockj = 0;
+    //public float universalBlockk = 0;
+    //public float universalBlockl = 0;
+    //public float universalBlockm = 0;
+    //public float universalBlockn = 0;
+    //public float universalBlocko = 0;
+    //public float universalBlockp = 0;
+    //public float universalBlockq = 0;
+    //public float universalBlockr = 0;
+    //public float universalBlocks = 0;
+    //public float universalBlockt = 0;
+    //public float universalBlocku = 0;
+    //public float universalBlockv = 0;
+    //public float universalBlockw = 0;
+    //public float universalBlockx = 0;
+    //public float universalBlocky = 0;
+    //public float universalBlockz = 0;
+    //public float universalBlockß = 0;
+    //public float universalBlockspace = 0;
+    //public float universalBlockone = 0;
+    //public float universalBlocktwo = 0;
+    //public float universalBlockthree = 0;
+    //public float universalBlockfour = 0;
+    //public float universalBlockfive = 0;
+    //public float universalBlocksix = 0;
+    //public float universalBlockseven = 0;
+    //public float universalBlockeight = 0;
+    //public float universalBlocknine = 0;
+    //public float universalBlockzero = 0;
+
+    //public float universalBlocktab = 0;
+    //public float universalBlockshift = 0;
+    //public float universalBlockpfeilRechts = 0;
+    //public float universalBlockö = 0;
+    //public float universalBlockä = 0;
+    //public float universalBlockü = 0;
+    //public float universalBlockStrichPunkt = 0;
+    //public float universalBlockDoppelPunkt = 0;
+    //public float universalBlockUnterStrich = 0;
+    //public float universalBlockAlt = 0;
+    //public float universalBlockStern = 0;
+    //public float universalBlockHochChar = 0;
+    public float universalBlock = 0;
 
 
 
@@ -304,60 +305,60 @@ public class LowerKeyboard : MonoBehaviour
                 distractionOnScreen.Select();
                 break;
         }
-        buttonArrowUp = arrowUpKey.GetComponent<Button>();
-        buttonArrowDown = arrowDownKey.GetComponent<Button>();
-        deleteChar = deleteOneChar.GetComponent<Button>();
-        aButton = a.GetComponent<Button>();
-        bButton = b.GetComponent<Button>();
-        cButton = c.GetComponent<Button>();
-        dButton = d.GetComponent<Button>();
-        eButton = e.GetComponent<Button>();
-        fButton = f.GetComponent<Button>();
-        gButton = g.GetComponent<Button>();
-        hButton = h.GetComponent<Button>();
-        iButton = i.GetComponent<Button>();
-        jButton = j.GetComponent<Button>();
-        kButton = k.GetComponent<Button>();
-        lButton = l.GetComponent<Button>();
-        mButton = m.GetComponent<Button>();
-        nButton = n.GetComponent<Button>();
-        oButton = o.GetComponent<Button>();
-        pButton = p.GetComponent<Button>();
-        qButton = q.GetComponent<Button>();
-        rButton = r.GetComponent<Button>();
-        sButton = s.GetComponent<Button>();
-        tButton = t.GetComponent<Button>();
-        uButton = u.GetComponent<Button>();
-        vButton = v.GetComponent<Button>();
-        wButton = w.GetComponent<Button>();
-        xButton = x.GetComponent<Button>();
-        yButton = y.GetComponent<Button>();
-        zButton = z.GetComponent<Button>();
-        ßButton = ß.GetComponent<Button>();
-        spaceButton = space.GetComponent<Button>();
-        oneButton = one.GetComponent<Button>();
-        twoButton = two.GetComponent<Button>();
-        threeButton = three.GetComponent<Button>();
-        fourButton = four.GetComponent<Button>();
-        fiveButton = five.GetComponent<Button>();
-        sixButton = six.GetComponent<Button>();
-        sevenButton = seven.GetComponent<Button>();
-        eightButton = eight.GetComponent<Button>();
-        nineButton = nine.GetComponent<Button>();
-        zeroButton = zero.GetComponent<Button>();
+        //buttonArrowUp = arrowUpKey.GetComponent<Button>();
+        //buttonArrowDown = arrowDownKey.GetComponent<Button>();
+        //deleteChar = deleteOneChar.GetComponent<Button>();
+        //aButton = a.GetComponent<Button>();
+        //bButton = b.GetComponent<Button>();
+        //cButton = c.GetComponent<Button>();
+        //dButton = d.GetComponent<Button>();
+        //eButton = e.GetComponent<Button>();
+        //fButton = f.GetComponent<Button>();
+        //gButton = g.GetComponent<Button>();
+        //hButton = h.GetComponent<Button>();
+        //iButton = i.GetComponent<Button>();
+        //jButton = j.GetComponent<Button>();
+        //kButton = k.GetComponent<Button>();
+        //lButton = l.GetComponent<Button>();
+        //mButton = m.GetComponent<Button>();
+        //nButton = n.GetComponent<Button>();
+        //oButton = o.GetComponent<Button>();
+        //pButton = p.GetComponent<Button>();
+        //qButton = q.GetComponent<Button>();
+        //rButton = r.GetComponent<Button>();
+        //sButton = s.GetComponent<Button>();
+        //tButton = t.GetComponent<Button>();
+        //uButton = u.GetComponent<Button>();
+        //vButton = v.GetComponent<Button>();
+        //wButton = w.GetComponent<Button>();
+        //xButton = x.GetComponent<Button>();
+        //yButton = y.GetComponent<Button>();
+        //zButton = z.GetComponent<Button>();
+        //ßButton = ß.GetComponent<Button>();
+        //spaceButton = space.GetComponent<Button>();
+        //oneButton = one.GetComponent<Button>();
+        //twoButton = two.GetComponent<Button>();
+        //threeButton = three.GetComponent<Button>();
+        //fourButton = four.GetComponent<Button>();
+        //fiveButton = five.GetComponent<Button>();
+        //sixButton = six.GetComponent<Button>();
+        //sevenButton = seven.GetComponent<Button>();
+        //eightButton = eight.GetComponent<Button>();
+        //nineButton = nine.GetComponent<Button>();
+        //zeroButton = zero.GetComponent<Button>();
 
-        tabButton = tabulator.GetComponent<Button>();
-        shiftButton = shift.GetComponent<Button>();
-        pfeilRechtsButton = pfeilRechts.GetComponent<Button>();
-        öButton = ö.GetComponent<Button>();
-        äButton = ä.GetComponent<Button>();
-        üButton = ü.GetComponent<Button>();
-        strichPunktButton = strichPunkt.GetComponent<Button>();
-        doppelPunktButton = doppelPunkt.GetComponent<Button>();
-        unterStrichButton = unterStrich.GetComponent<Button>();
-        hochCharButton = hochChar.GetComponent<Button>();
-        sternButton = stern.GetComponent<Button>();
-        altButton = alt.GetComponent<Button>();
+        //tabButton = tabulator.GetComponent<Button>();
+        //shiftButton = shift.GetComponent<Button>();
+        //pfeilRechtsButton = pfeilRechts.GetComponent<Button>();
+        //öButton = ö.GetComponent<Button>();
+        //äButton = ä.GetComponent<Button>();
+        //üButton = ü.GetComponent<Button>();
+        //strichPunktButton = strichPunkt.GetComponent<Button>();
+        //doppelPunktButton = doppelPunkt.GetComponent<Button>();
+        //unterStrichButton = unterStrich.GetComponent<Button>();
+        //hochCharButton = hochChar.GetComponent<Button>();
+        //sternButton = stern.GetComponent<Button>();
+        //altButton = alt.GetComponent<Button>();
 
         _input1_x = input1.transform.position.x;
         _input1_y = input1.transform.position.y;
@@ -393,102 +394,67 @@ public class LowerKeyboard : MonoBehaviour
             sb = paypalNoDistract.GetComponent<UpperKeyboard>().sb;
             InputSelected = GetComponent<UpperKeyboard>().InputSelected;
         }
-        //if (difficultyStudy.isFocused == true)
-        //{
-            //InputSelected = 0;
-          //  difficultyStudy.ActivateInputField();
-        //}
-        //if (distraction.isFocused == true)
-        //{
-           // InputSelected = 1;
-         //   distraction.ActivateInputField();
-        //}
-        //if (distractionOnScreen.isFocused == true)
-        //{
-            //InputSelected = 2;
-          //  distractionOnScreen.ActivateInputField();
-        //}
-        //if (GetComponent<UpperKeyboard>().wasActive == true)
-        //{
-          //  InputSelected = GetComponent<UpperKeyboard>().InputSelected;
-            //GetComponent<UpperKeyboard>().wasActive = false;
-        //}
-        //if (GetComponent<AltKeyboard>().wasActive == true)
-        //{
-          //  InputSelected = GetComponent<AltKeyboard>().InputSelected;
-            //GetComponent<AltKeyboard>().wasActive = false;
-        //}
-        //switch (InputSelected)
-        //{
-         //   case 0:
-           //     difficultyStudy.Select();
-             //   break;
-            //case 1:
-              //  distraction.Select();
-                //break;
-            //case 2:
-              //  distractionOnScreen.Select();
-                //break;
-            
-       // }
-        buttonBlockedDown += Time.deltaTime;
-        buttonBlockedUp += Time.deltaTime;
-        buttonBlockeda += Time.deltaTime;
-        buttonBlockedb += Time.deltaTime;
-        buttonBlockedc += Time.deltaTime;
-        buttonBlockedd += Time.deltaTime;
-        buttonBlockede += Time.deltaTime;
-        buttonBlockedf += Time.deltaTime;
-        buttonBlockedg += Time.deltaTime;
-        buttonBlockedh += Time.deltaTime;
-        buttonBlockedi += Time.deltaTime;
-        buttonBlockedj += Time.deltaTime;
-        buttonBlockedk += Time.deltaTime;
-        buttonBlockedl += Time.deltaTime;
-        buttonBlockedm += Time.deltaTime;
-        buttonBlockedn += Time.deltaTime;
-        buttonBlockedo += Time.deltaTime;
-        buttonBlockedp += Time.deltaTime;
-        buttonBlockedq += Time.deltaTime;
-        buttonBlockedr += Time.deltaTime;
-        buttonBlockeds += Time.deltaTime;
-        buttonBlockedt += Time.deltaTime;
-        buttonBlockedu += Time.deltaTime;
-        buttonBlockedv += Time.deltaTime;
-        buttonBlockedw += Time.deltaTime;
-        buttonBlockedx += Time.deltaTime;
-        buttonBlockedy += Time.deltaTime;
-        buttonBlockedz += Time.deltaTime;
-        buttonBlockedspace += Time.deltaTime;
-        buttonBlockedzero += Time.deltaTime;
-        buttonBlockedone += Time.deltaTime;
-        buttonBlockedtwo += Time.deltaTime;
-        buttonBlockedthree += Time.deltaTime;
-        buttonBlockedfour += Time.deltaTime;
-        buttonBlockedfive += Time.deltaTime;
-        buttonBlockedsix += Time.deltaTime;
-        buttonBlockedseven += Time.deltaTime;
-        buttonBlockedeight += Time.deltaTime;
-        buttonBlockednine += Time.deltaTime;
-        buttonBlockedß += Time.deltaTime;
-        buttonBlockeddel += Time.deltaTime;
 
-        buttonBlockedStrichPunkt += Time.deltaTime;
-        buttonBlockedStern += Time.deltaTime;
-        buttonBlockedtab += Time.deltaTime;
-        buttonBlockedshift += Time.deltaTime;
-        buttonBlockedUnterStrich += Time.deltaTime;
-        buttonBlockedpfeilRechts += Time.deltaTime;
-        buttonBlockedä += Time.deltaTime;
-        buttonBlockedü += Time.deltaTime;
-        buttonBlockedö += Time.deltaTime;
-        buttonBlockedHochChar += Time.deltaTime;
-        buttonBlockedDoppelPunkt += Time.deltaTime;
-        buttonBlockedAlt += Time.deltaTime;
+        //universalBlockDown += Time.deltaTime;
+        //universalBlockUp += Time.deltaTime;
+        //universalBlocka += Time.deltaTime;
+        //universalBlockb += Time.deltaTime;
+        //universalBlockc += Time.deltaTime;
+        //universalBlockd += Time.deltaTime;
+        //universalBlocke += Time.deltaTime;
+        //universalBlockf += Time.deltaTime;
+        //universalBlockg += Time.deltaTime;
+        //universalBlockh += Time.deltaTime;
+        //universalBlocki += Time.deltaTime;
+        //universalBlockj += Time.deltaTime;
+        //universalBlockk += Time.deltaTime;
+        //universalBlockl += Time.deltaTime;
+        //universalBlockm += Time.deltaTime;
+        //universalBlockn += Time.deltaTime;
+        //universalBlocko += Time.deltaTime;
+        //universalBlockp += Time.deltaTime;
+        //universalBlockq += Time.deltaTime;
+        //universalBlockr += Time.deltaTime;
+        //universalBlocks += Time.deltaTime;
+        //universalBlockt += Time.deltaTime;
+        //universalBlocku += Time.deltaTime;
+        //universalBlockv += Time.deltaTime;
+        //universalBlockw += Time.deltaTime;
+        //universalBlockx += Time.deltaTime;
+        //universalBlocky += Time.deltaTime;
+        //universalBlockz += Time.deltaTime;
+        //universalBlockspace += Time.deltaTime;
+        //universalBlockzero += Time.deltaTime;
+        //universalBlockone += Time.deltaTime;
+        //universalBlocktwo += Time.deltaTime;
+        //universalBlockthree += Time.deltaTime;
+        //universalBlockfour += Time.deltaTime;
+        //universalBlockfive += Time.deltaTime;
+        //universalBlocksix += Time.deltaTime;
+        //universalBlockseven += Time.deltaTime;
+        //universalBlockeight += Time.deltaTime;
+        //universalBlocknine += Time.deltaTime;
+        //universalBlockß += Time.deltaTime;
+        //universalBlockdel += Time.deltaTime;
+
+        //universalBlockStrichPunkt += Time.deltaTime;
+        //universalBlockStern += Time.deltaTime;
+        //universalBlocktab += Time.deltaTime;
+        //universalBlockshift += Time.deltaTime;
+        //universalBlockUnterStrich += Time.deltaTime;
+        //universalBlockpfeilRechts += Time.deltaTime;
+        //universalBlockä += Time.deltaTime;
+        //universalBlockü += Time.deltaTime;
+        //universalBlockö += Time.deltaTime;
+        //universalBlockHochChar += Time.deltaTime;
+        //universalBlockDoppelPunkt += Time.deltaTime;
+        //universalBlockAlt += Time.deltaTime;
+
+        universalBlock += Time.deltaTime;
 
         timeForCSV += Time.deltaTime * 1000;
         RaycastHit hit;
-        GameObject desktop = null;
+        
         var eyeTrackingData = TobiiXR.GetEyeTrackingData(TobiiXR_TrackingSpace.World);
 
         // Check if gaze ray is valid
@@ -508,13 +474,14 @@ public class LowerKeyboard : MonoBehaviour
             //getting hit point of eye gaze on Background Screen
             if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
             {
-                desktop = hit.collider.gameObject;
-                _gazeX = hit.point.x;
-                _gazeY = hit.point.y;
-                _gazeZ = hit.point.z;
-                
+                if (hit.collider.gameObject.name == "Canvas" || hit.collider.gameObject.name == "BackgroundScreen")
+                {
+                    _gazeX = hit.point.x;
+                    _gazeY = hit.point.y;
+                    _gazeZ = hit.point.z;
+                    csvDocumentation = ToCSVPostStudySmallInfo(timeForCSV, _gazeX, _gazeY, _gazeZ);
+                }
             }
-            csvDocumentation = ToCSVPostStudySmallInfo(participantID, timeForCSV, theme.name, _gazeX, _gazeY, _gazeZ);
         }
 
     }
@@ -557,7 +524,7 @@ public class LowerKeyboard : MonoBehaviour
        
         if (!(distraction.text.Trim().Length == 0) && !(distractionOnScreen.text.Trim().Length == 0) && !(difficultyStudy.text.Trim().Length == 0))
         {
-            csvDocumentation = ToCSVPostStudy(participantID, timeForCSV, theme.name, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<TMP_Text>().text, difficultyStudy.text, distraction.text);
+            csvDocumentation = ToCSVPostStudy(timeForCSV, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<TMP_Text>().text, difficultyStudy.text, distraction.text, theme.name, participantID);
             SaveToFile();
             nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
             //Hier kommen die zu nutzenden Objekte
@@ -653,15 +620,15 @@ public class LowerKeyboard : MonoBehaviour
                 
             }
             buttonArrowUp.enabled = false;
-            buttonBlockedUp = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedUp > 1f)
+        if (universalBlock > 0.5f)
         {
             buttonArrowUp.enabled = true;
         }
 
         buttonArrowUp.interactable = false;
-        Invoke("ReActivateArrowUp", 1f);
+        Invoke("ReActivateArrowUp", 0.5f);
     }
 
     public void lowerInputField()
@@ -737,15 +704,15 @@ public class LowerKeyboard : MonoBehaviour
                 }
             }
             buttonArrowDown.enabled = false;
-            buttonBlockedDown = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedDown > 1f)
+        if (universalBlock > 0.5f)
         {
             buttonArrowDown.enabled = true;
         }
 
         buttonArrowDown.interactable = false;
-        Invoke("ReActivateArrowDown", 1f);
+        Invoke("ReActivateArrowDown", 0.5f);
     }
 
     public void writeA()
@@ -769,14 +736,14 @@ public class LowerKeyboard : MonoBehaviour
             }
 
             aButton.enabled = false;
-            buttonBlockeda = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockeda > 1f)
+        if (universalBlock > 0.5f)
         {
             aButton.enabled = true;
         }
         aButton.interactable = false;
-        Invoke("ReActivateA", 1f);
+        Invoke("ReActivateA", 0.5f);
 
     }
 
@@ -802,14 +769,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             bButton.enabled = false;
-            buttonBlockedb = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedb > 1f)
+        if (universalBlock > 0.5f)
         {
             bButton.enabled = true;
         }
         bButton.interactable = false;
-        Invoke("ReActivateB", 1f);
+        Invoke("ReActivateB", 0.5f);
 
     }
 
@@ -835,14 +802,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             cButton.enabled = false;
-            buttonBlockedc = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedc > 1f)
+        if (universalBlock > 0.5f)
         {
             cButton.enabled = true;
         }
         cButton.interactable = false;
-        Invoke("ReActivateC", 1f);
+        Invoke("ReActivateC", 0.5f);
 
     }
 
@@ -868,14 +835,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             dButton.enabled = false;
-            buttonBlockedd = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedd > 1f)
+        if (universalBlock > 0.5f)
         {
             dButton.enabled = true;
         }
         dButton.interactable = false;
-        Invoke("ReActivateD", 1f);
+        Invoke("ReActivateD", 0.5f);
 
     }
 
@@ -901,14 +868,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             eButton.enabled = false;
-            buttonBlockede = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockede > 1f)
+        if (universalBlock > 0.5f)
         {
             eButton.enabled = true;
         }
         eButton.interactable = false;
-        Invoke("ReActivateE", 1f);
+        Invoke("ReActivateE", 0.5f);
 
     }
 
@@ -934,14 +901,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             fButton.enabled = false;
-            buttonBlockedf = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedf > 1f)
+        if (universalBlock > 0.5f)
         {
             fButton.enabled = true;
         }
         fButton.interactable = false;
-        Invoke("ReActivateF", 1f);
+        Invoke("ReActivateF", 0.5f);
 
     }
 
@@ -967,14 +934,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             gButton.enabled = false;
-            buttonBlockedg = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedg > 1f)
+        if (universalBlock > 0.5f)
         {
             gButton.enabled = true;
         }
         gButton.interactable = false;
-        Invoke("ReActivateG", 1f);
+        Invoke("ReActivateG", 0.5f);
 
     }
 
@@ -1000,14 +967,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             hButton.enabled = false;
-            buttonBlockedh = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedh > 1f)
+        if (universalBlock > 0.5f)
         {
             hButton.enabled = true;
         }
         hButton.interactable = false;
-        Invoke("ReActivateH", 1f);
+        Invoke("ReActivateH", 0.5f);
 
     }
 
@@ -1033,14 +1000,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             iButton.enabled = false;
-            buttonBlockedi = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedi > 1f)
+        if (universalBlock > 0.5f)
         {
             iButton.enabled = true;
         }
         iButton.interactable = false;
-        Invoke("ReActivateI", 1f);
+        Invoke("ReActivateI", 0.5f);
 
     }
 
@@ -1066,14 +1033,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             jButton.enabled = false;
-            buttonBlockedj = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedj > 1f)
+        if (universalBlock > 0.5f)
         {
             jButton.enabled = true;
         }
         jButton.interactable = false;
-        Invoke("ReActivateJ", 1f);
+        Invoke("ReActivateJ", 0.5f);
 
     }
 
@@ -1099,14 +1066,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             kButton.enabled = false;
-            buttonBlockedk = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedk > 1f)
+        if (universalBlock > 0.5f)
         {
             kButton.enabled = true;
         }
         kButton.interactable = false;
-        Invoke("ReActivateK", 1f);
+        Invoke("ReActivateK", 0.5f);
 
     }
 
@@ -1132,14 +1099,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             lButton.enabled = false;
-            buttonBlockedl = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedl > 1f)
+        if (universalBlock > 0.5f)
         {
             lButton.enabled = true;
         }
         lButton.interactable = false;
-        Invoke("ReActivateL", 1f);
+        Invoke("ReActivateL", 0.5f);
 
     }
 
@@ -1165,14 +1132,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             mButton.enabled = false;
-            buttonBlockedm = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedm > 1f)
+        if (universalBlock > 0.5f)
         {
             mButton.enabled = true;
         }
         mButton.interactable = false;
-        Invoke("ReActivateM", 1f);
+        Invoke("ReActivateM", 0.5f);
 
     }
 
@@ -1198,14 +1165,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             nButton.enabled = false;
-            buttonBlockedn = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedn > 1f)
+        if (universalBlock > 0.5f)
         {
             nButton.enabled = true;
         }
         nButton.interactable = false;
-        Invoke("ReActivateN", 1f);
+        Invoke("ReActivateN", 0.5f);
 
     }
 
@@ -1231,14 +1198,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             oButton.enabled = false;
-            buttonBlockedo = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedo > 1f)
+        if (universalBlock > 0.5f)
         {
             oButton.enabled = true;
         }
         oButton.interactable = false;
-        Invoke("ReActivateO", 1f);
+        Invoke("ReActivateO", 0.5f);
 
     }
 
@@ -1264,14 +1231,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             pButton.enabled = false;
-            buttonBlockedp = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedp > 1f)
+        if (universalBlock > 0.5f)
         {
             pButton.enabled = true;
         }
         pButton.interactable = false;
-        Invoke("ReActivateP", 1f);
+        Invoke("ReActivateP", 0.5f);
 
     }
 
@@ -1297,14 +1264,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             qButton.enabled = false;
-            buttonBlockedq = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedq > 1f)
+        if (universalBlock > 0.5f)
         {
             qButton.enabled = true;
         }
         qButton.interactable = false;
-        Invoke("ReActivateQ", 1f);
+        Invoke("ReActivateQ", 0.5f);
 
     }
 
@@ -1330,14 +1297,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             rButton.enabled = false;
-            buttonBlockedr = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedr > 1f)
+        if (universalBlock > 0.5f)
         {
             rButton.enabled = true;
         }
         rButton.interactable = false;
-        Invoke("ReActivateR", 1f);
+        Invoke("ReActivateR", 0.5f);
 
     }
 
@@ -1363,14 +1330,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             sButton.enabled = false;
-            buttonBlockeds = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockeds > 1f)
+        if (universalBlock > 0.5f)
         {
             sButton.enabled = true;
         }
         sButton.interactable = false;
-        Invoke("ReActivateS", 1f);
+        Invoke("ReActivateS", 0.5f);
 
     }
 
@@ -1396,14 +1363,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             tButton.enabled = false;
-            buttonBlockedt = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedt > 1f)
+        if (universalBlock > 0.5f)
         {
             tButton.enabled = true;
         }
         tButton.interactable = false;
-        Invoke("ReActivateT", 1f);
+        Invoke("ReActivateT", 0.5f);
 
     }
 
@@ -1429,14 +1396,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             uButton.enabled = false;
-            buttonBlockedu = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedu > 1f)
+        if (universalBlock > 0.5f)
         {
             uButton.enabled = true;
         }
         uButton.interactable = false;
-        Invoke("ReActivateU", 1f);
+        Invoke("ReActivateU", 0.5f);
 
     }
 
@@ -1462,14 +1429,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             vButton.enabled = false;
-            buttonBlockedv = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedv > 1f)
+        if (universalBlock > 0.5f)
         {
             vButton.enabled = true;
         }
         vButton.interactable = false;
-        Invoke("ReActivateV", 1f);
+        Invoke("ReActivateV", 0.5f);
 
     }
 
@@ -1495,14 +1462,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             wButton.enabled = false;
-            buttonBlockedw = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedw > 1f)
+        if (universalBlock > 0.5f)
         {
             wButton.enabled = true;
         }
         wButton.interactable = false;
-        Invoke("ReActivateW", 1f);
+        Invoke("ReActivateW", 0.5f);
 
     }
 
@@ -1528,14 +1495,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             xButton.enabled = false;
-            buttonBlockedx = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedx > 1f)
+        if (universalBlock > 0.5f)
         {
             xButton.enabled = true;
         }
         xButton.interactable = false;
-        Invoke("ReActivateX", 1f);
+        Invoke("ReActivateX", 0.5f);
 
     }
 
@@ -1561,14 +1528,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             yButton.enabled = false;
-            buttonBlockedy = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedy > 1f)
+        if (universalBlock > 0.5f)
         {
             yButton.enabled = true;
         }
         yButton.interactable = false;
-        Invoke("ReActivateY", 1f);
+        Invoke("ReActivateY", 0.5f);
 
     }
 
@@ -1594,14 +1561,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             zButton.enabled = false;
-            buttonBlockedz = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedz > 1f)
+        if (universalBlock > 0.5f)
         {
             zButton.enabled = true;
         }
         zButton.interactable = false;
-        Invoke("ReActivateZ", 1f);
+        Invoke("ReActivateZ", 0.5f);
 
     }
 
@@ -1627,14 +1594,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             oneButton.enabled = false;
-            buttonBlockedone = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedone > 1f)
+        if (universalBlock > 0.5f)
         {
             oneButton.enabled = true;
         }
         oneButton.interactable = false;
-        Invoke("ReActivateOne", 1f);
+        Invoke("ReActivateOne", 0.5f);
 
     }
 
@@ -1660,14 +1627,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             twoButton.enabled = false;
-            buttonBlockedtwo = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedtwo > 1f)
+        if (universalBlock > 0.5f)
         {
             twoButton.enabled = true;
         }
         twoButton.interactable = false;
-        Invoke("ReActivateTwo", 1f);
+        Invoke("ReActivateTwo", 0.5f);
 
     }
 
@@ -1693,14 +1660,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             threeButton.enabled = false;
-            buttonBlockedthree = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedthree > 1f)
+        if (universalBlock > 0.5f)
         {
             threeButton.enabled = true;
         }
         threeButton.interactable = false;
-        Invoke("ReActivateThree", 1f);
+        Invoke("ReActivateThree", 0.5f);
 
     }
 
@@ -1726,14 +1693,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             fourButton.enabled = false;
-            buttonBlockedfour = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedfour > 1f)
+        if (universalBlock > 0.5f)
         {
             fourButton.enabled = true;
         }
         fourButton.interactable = false;
-        Invoke("ReActivateFour", 1f);
+        Invoke("ReActivateFour", 0.5f);
 
     }
 
@@ -1759,14 +1726,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             fiveButton.enabled = false;
-            buttonBlockedfive = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedfive > 1f)
+        if (universalBlock > 0.5f)
         {
             fiveButton.enabled = true;
         }
         fiveButton.interactable = false;
-        Invoke("ReActivateFive", 1f);
+        Invoke("ReActivateFive", 0.5f);
 
     }
 
@@ -1792,14 +1759,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             sixButton.enabled = false;
-            buttonBlockedsix = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedsix > 1f)
+        if (universalBlock > 0.5f)
         {
             sixButton.enabled = true;
         }
         sixButton.interactable = false;
-        Invoke("ReActivateSix", 1f);
+        Invoke("ReActivateSix", 0.5f);
 
     }
 
@@ -1825,14 +1792,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             sevenButton.enabled = false;
-            buttonBlockedseven = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedseven > 1f)
+        if (universalBlock > 0.5f)
         {
             sevenButton.enabled = true;
         }
         sevenButton.interactable = false;
-        Invoke("ReActivateSeven", 1f);
+        Invoke("ReActivateSeven", 0.5f);
 
     }
 
@@ -1858,14 +1825,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             eightButton.enabled = false;
-            buttonBlockedeight = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedeight > 1f)
+        if (universalBlock > 0.5f)
         {
             eightButton.enabled = true;
         }
         eightButton.interactable = false;
-        Invoke("ReActivateEight", 1f);
+        Invoke("ReActivateEight", 0.5f);
 
     }
 
@@ -1891,14 +1858,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             nineButton.enabled = false;
-            buttonBlockednine = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockednine > 1f)
+        if (universalBlock > 0.5f)
         {
             nineButton.enabled = true;
         }
         nineButton.interactable = false;
-        Invoke("ReActivateNine", 1f);
+        Invoke("ReActivateNine", 0.5f);
 
     }
 
@@ -1924,14 +1891,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             zeroButton.enabled = false;
-            buttonBlockedzero = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedzero > 1f)
+        if (universalBlock > 0.5f)
         {
             zeroButton.enabled = true;
         }
         zeroButton.interactable = false;
-        Invoke("ReActivateZero", 1f);
+        Invoke("ReActivateZero", 0.5f);
 
     }
 
@@ -1957,14 +1924,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             ßButton.enabled = false;
-            buttonBlockedß = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedß > 1f)
+        if (universalBlock > 0.5f)
         {
             ßButton.enabled = true;
         }
         ßButton.interactable = false;
-        Invoke("ReActivateß", 1f);
+        Invoke("ReActivateß", 0.5f);
 
     }
 
@@ -1990,14 +1957,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             spaceButton.enabled = false;
-            buttonBlockedspace = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedspace > 1f)
+        if (universalBlock > 0.5f)
         {
             spaceButton.enabled = true;
         }
         spaceButton.interactable = false;
-        Invoke("ReActivateSpace", 1f);
+        Invoke("ReActivateSpace", 0.5f);
 
     }
 
@@ -2022,14 +1989,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             pfeilRechtsButton.enabled = false;
-            buttonBlockedpfeilRechts = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedpfeilRechts > 1f)
+        if (universalBlock > 0.5f)
         {
             pfeilRechtsButton.enabled = true;
         }
         pfeilRechtsButton.interactable = false;
-        Invoke("ReActivatePfeilRechts", 1f);
+        Invoke("ReActivatePfeilRechts", 0.5f);
     }
 
     public void writeStrichPunkt()
@@ -2053,14 +2020,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             strichPunktButton.enabled = false;
-            buttonBlockedStrichPunkt = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedStrichPunkt > 1f)
+        if (universalBlock > 0.5f)
         {
             strichPunktButton.enabled = true;
         }
         strichPunktButton.interactable = false;
-        Invoke("ReActivateStrichPunkt", 1f);
+        Invoke("ReActivateStrichPunkt", 0.5f);
     }
 
     public void writeDoppelPunkt()
@@ -2084,14 +2051,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             doppelPunktButton.enabled = false;
-            buttonBlockedDoppelPunkt = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedDoppelPunkt > 1f)
+        if (universalBlock > 0.5f)
         {
             doppelPunktButton.enabled = true;
         }
         doppelPunktButton.interactable = false;
-        Invoke("ReActivateDoppelPunkt", 1f);
+        Invoke("ReActivateDoppelPunkt", 0.5f);
     }
 
     public void writeUnterstrich()
@@ -2115,14 +2082,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             unterStrichButton.enabled = false;
-            buttonBlockedUnterStrich = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedUnterStrich > 1f)
+        if (universalBlock > 0.5f)
         {
             unterStrichButton.enabled = true;
         }
         unterStrichButton.interactable = false;
-        Invoke("ReActivateUnterstrich", 1f);
+        Invoke("ReActivateUnterstrich", 0.5f);
     }
 
     public void writeHochStrich()
@@ -2146,14 +2113,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             hochCharButton.enabled = false;
-            buttonBlockedHochChar = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedHochChar > 1f)
+        if (universalBlock > 0.5f)
         {
             hochCharButton.enabled = true;
         }
         hochCharButton.interactable = false;
-        Invoke("ReActivateHochChar", 1f);
+        Invoke("ReActivateHochChar", 0.5f);
     }
 
     public void writeStern()
@@ -2177,14 +2144,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             sternButton.enabled = false;
-            buttonBlockedStern = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedStern > 1f)
+        if (universalBlock > 0.5f)
         {
             sternButton.enabled = true;
         }
         sternButton.interactable = false;
-        Invoke("ReActivateStern", 1f);
+        Invoke("ReActivateStern", 0.5f);
     }
 
     public void writeAlt()
@@ -2205,14 +2172,14 @@ public class LowerKeyboard : MonoBehaviour
             }
 
             altButton.enabled = false;
-            buttonBlockedAlt = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedAlt > 1f)
+        if (universalBlock > 0.5f)
         {
             altButton.enabled = true;
         }
         altButton.interactable = false;
-        Invoke("ReActivateAlt", 1f);
+        Invoke("ReActivateAlt", 0.5f);
     }
 
     public void writeShift()
@@ -2241,14 +2208,14 @@ public class LowerKeyboard : MonoBehaviour
             //lowerKeyboard.SetActive(true);
             //}
             shiftButton.enabled = false;
-            buttonBlockedshift = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedshift > 1f)
+        if (universalBlock > 0.5f)
         {
             shiftButton.enabled = true;
         }
         shiftButton.interactable = false;
-        Invoke("ReActivateShift", 1f);
+        Invoke("ReActivateShift", 0.5f);
     }
 
     public void writeÖ()
@@ -2272,14 +2239,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             öButton.enabled = false;
-            buttonBlockedö = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedö > 1f)
+        if (universalBlock > 0.5f)
         {
             öButton.enabled = true;
         }
         öButton.interactable = false;
-        Invoke("ReActivateÖ", 1f);
+        Invoke("ReActivateÖ", 0.5f);
     }
 
     public void writeÄ()
@@ -2303,14 +2270,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             äButton.enabled = false;
-            buttonBlockedä = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedä > 1f)
+        if (universalBlock > 0.5f)
         {
             äButton.enabled = true;
         }
         äButton.interactable = false;
-        Invoke("ReActivateÄ", 1f);
+        Invoke("ReActivateÄ", 0.5f);
     }
 
     public void writeÜ()
@@ -2334,14 +2301,14 @@ public class LowerKeyboard : MonoBehaviour
 
             
             üButton.enabled = false;
-            buttonBlockedü = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedü > 1f)
+        if (universalBlock > 0.5f)
         {
             üButton.enabled = true;
         }
         üButton.interactable = false;
-        Invoke("ReActivateÜ", 1f);
+        Invoke("ReActivateÜ", 0.5f);
     }
 
     public void writeTabulator()
@@ -2418,14 +2385,14 @@ public class LowerKeyboard : MonoBehaviour
 
             }
             tabButton.enabled = false;
-            buttonBlockedtab = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockedtab > 1f)
+        if (universalBlock > 0.5f)
         {
             tabButton.enabled = true;
         }
         tabButton.interactable = false;
-        Invoke("ReActivateTab", 1f);
+        Invoke("ReActivateTab", 0.5f);
     }
 
 
@@ -2451,14 +2418,14 @@ public class LowerKeyboard : MonoBehaviour
 
            
             deleteChar.enabled = false;
-            buttonBlockeddel = 0;
+            universalBlock = 0;
         }
-        if (buttonBlockeddel > 1f)
+        if (universalBlock > 0.5f)
         {
             deleteChar.enabled = true;
         }
         deleteChar.interactable = false;
-        Invoke("ReActivateDelChar", 1f);
+        Invoke("ReActivateDelChar", 0.5f);
 
     }
 
@@ -2727,10 +2694,10 @@ public class LowerKeyboard : MonoBehaviour
         tabButton.interactable = true;
     }
 
-    public string ToCSVPostStudy(string partID, float csvTime, string backgroundScreenName, double xgaze, double ygaze, double zgaze, double xEmail, double yEmail, double zEmail, double xPw, double yPw, double zPw, double xconfpw, double yconfpw, double zconfpw, string prefTopic, string email, string pw)
+    public string ToCSVPostStudy(float csvTime, double xgaze, double ygaze, double zgaze, double xEmail, double yEmail, double zEmail, double xPw, double yPw, double zPw, double xconfpw, double yconfpw, double zconfpw, string prefTopic, string email, string pw, string backgroundScreenName, string partID)
     {
         //var sb = new StringBuilder("Participant_ID Time Scene X_Gaze Y_Gaze Z_Gaze X_Position_Email Y_Position_Email Z_Position_Email X_Position_PW Y_Position_PW Z_Position_PW X_Position_ConfirmedPW Y_Position_ConfirmedPW Z_Position_ConfirmedPW Prefered_Topic Email Password");
-        sb.Append('\n').Append(partID.ToString()).Append(" ").Append(csvTime.ToString()).Append(" ").Append(backgroundScreenName.ToString()).Append(" ").Append(xgaze.ToString()).Append(" ").Append(ygaze.ToString()).Append(" ").Append(zgaze.ToString()).Append(" ").Append(xEmail.ToString()).Append(" ").Append(yEmail.ToString()).Append(" ").Append(zEmail.ToString()).Append(" ").Append(xPw.ToString()).Append(" ").Append(yPw.ToString()).Append(" ").Append(zPw.ToString()).Append(" ").Append(xconfpw.ToString()).Append(" ").Append(yconfpw.ToString()).Append(" ").Append(zconfpw.ToString()).Append(" ").Append(prefTopic.ToString()).Append(" ").Append(email.ToString()).Append(" ").Append(pw.ToString());
+        sb.Append('\n').Append(csvTime.ToString()).Append(" ").Append(xgaze.ToString()).Append(" ").Append(ygaze.ToString()).Append(" ").Append(zgaze.ToString()).Append(" ").Append(xEmail.ToString()).Append(" ").Append(yEmail.ToString()).Append(" ").Append(zEmail.ToString()).Append(" ").Append(xPw.ToString()).Append(" ").Append(yPw.ToString()).Append(" ").Append(zPw.ToString()).Append(" ").Append(xconfpw.ToString()).Append(" ").Append(yconfpw.ToString()).Append(" ").Append(zconfpw.ToString()).Append(" ").Append(prefTopic.ToString()).Append(" ").Append(email.ToString()).Append(" ").Append(pw.ToString()).Append(" ").Append(backgroundScreenName.ToString()).Append(" ").Append(partID.ToString());
         return sb.ToString();
 
     }
@@ -2741,9 +2708,9 @@ public class LowerKeyboard : MonoBehaviour
         return sb.ToString();
     }
 
-    public string ToCSVPostStudySmallInfo(string partID, float csvTime, string backgroundScreenName, double xgaze, double ygaze, double zgaze)
+    public string ToCSVPostStudySmallInfo(float csvTime, double xgaze, double ygaze, double zgaze)
     {
-        sb.Append('\n').Append(partID.ToString()).Append(" ").Append(csvTime.ToString()).Append(" ").Append(backgroundScreenName.ToString()).Append(" ").Append(xgaze.ToString()).Append(" ").Append(ygaze.ToString()).Append(" ").Append(zgaze.ToString());
+        sb.Append('\n').Append(csvTime.ToString()).Append(" ").Append(xgaze.ToString()).Append(" ").Append(ygaze.ToString()).Append(" ").Append(zgaze.ToString());
         return sb.ToString();
     }
     public void SaveToFile()

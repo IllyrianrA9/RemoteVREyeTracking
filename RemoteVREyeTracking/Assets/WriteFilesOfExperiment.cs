@@ -23,12 +23,6 @@ public class WriteFilesOfExperiment : MonoBehaviour
         SaveToFile();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SaveToFile()
     {
         var content = csvDocumentation;

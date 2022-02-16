@@ -17,9 +17,5 @@ public class ManageParticipantID : MonoBehaviour
         participant.GetComponent<Text>().text  = participant.GetComponent<Text>().text + participantNumber.ToString(); 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
