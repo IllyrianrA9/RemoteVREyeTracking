@@ -10,6 +10,7 @@ using Tobii.XR;
 
 public class UpperKeyboard : MonoBehaviour
 {
+    public GameObject preparationForSecondReg;
     public GameObject newLowerKeyboard;
     public GameObject theme;
     private double _input1_x;
@@ -507,6 +508,7 @@ public class UpperKeyboard : MonoBehaviour
             csvDocumentation = ToCSVPostStudy(timeForCSV, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<TMP_Text>().text, difficultyStudy.text, distraction.text, theme.name, participantID);
             SaveToFile();
             nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
+            preparationForSecondReg.SetActive(true);
             //Hier kommen die zu nutzenden Objekte
             paypalDistract.SetActive(true);
             paypalNoDistract.SetActive(false);
@@ -517,10 +519,10 @@ public class UpperKeyboard : MonoBehaviour
             //upperKeyboard.SetActive(false);
             //paypalDistractKeyboard.SetActive(true);
             //endButton.SetActive(true);
-            newLowerKeyboard.SetActive(true);
-            altKeyboard.SetActive(false);
-            upperKeyboard.SetActive(false);
-            lowerKeyboard.SetActive(false);
+            //newLowerKeyboard.SetActive(true);
+            //altKeyboard.SetActive(false);
+            //upperKeyboard.SetActive(false);
+            //lowerKeyboard.SetActive(false);
             //csvDocumentation = ToCSVPostStudy(participantID, timeForCSV, theme.name, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<Text>().text, difficultyStudy.text, distraction.text);
 
 

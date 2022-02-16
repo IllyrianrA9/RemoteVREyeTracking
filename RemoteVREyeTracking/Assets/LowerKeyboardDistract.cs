@@ -11,11 +11,7 @@ using Random = UnityEngine.Random;
 
 public class LowerKeyboardDistract : MonoBehaviour
 {
-    public List<GameObject> remainingScenes;
-    public List<Material> remainingMaterial;
-    public List<GameObject> remainingKeyboards;
-    private int currentRandomNumber;
-
+    public GameObject preparationForThirdScene;
     //public Material nextBackground2;
     public GameObject pwWarning;
     public GameObject confirmPwWarning;
@@ -538,46 +534,9 @@ public class LowerKeyboardDistract : MonoBehaviour
         {
             csvDocumentation = ToCSVPostStudy(timeForCSV, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, difficultyStudy.text, distraction.text, theme.name, participantID);
             SaveToFile();
-            currentRandomNumber = Random.Range(0, 2);
-
-            if (currentRandomNumber == 1)
-            {
-                paypalNoDistract.SetActive(false);
-  
-              
-                currentBackgroundScreen.GetComponent<Renderer>().material = remainingMaterial[currentRandomNumber];
-                remainingMaterial.RemoveAt(currentRandomNumber);
-
-                //remainingKeyboards[currentRandomNumber].SetActive(true);
-                //remainingKeyboards.RemoveAt(currentRandomNumber);
-
-                remainingScenes[currentRandomNumber].SetActive(true);
-                remainingScenes.RemoveAt(currentRandomNumber);
-            }
-            else if (currentRandomNumber == 0)
-            {
-                paypalNoDistract.SetActive(false);
-                currentBackgroundScreen.GetComponent<Renderer>().material = remainingMaterial[currentRandomNumber];
-                remainingMaterial.RemoveAt(currentRandomNumber);
-
-                //remainingKeyboards[currentRandomNumber].SetActive(true);
-                //remainingKeyboards.RemoveAt(currentRandomNumber);
-
-                remainingScenes[currentRandomNumber].SetActive(true);
-                remainingScenes.RemoveAt(currentRandomNumber);
-            }
-            //keyboard.SetActive(false);
-            //canvasKeyboard.SetActive(false);
-            //lowerKeyboard.SetActive(false);
-            //altKeyboard.SetActive(false);
-            //upperKeyboard.SetActive(false);
-            //paypalDistractKeyboard.SetActive(true);
-            //endButton.SetActive(true);
-            lowerKeyboard.SetActive(false);
-            altKeyboard.SetActive(false);
-            upperKeyboard.SetActive(false);
-            //csvDocumentation = ToCSVPostStudy(participantID, timeForCSV, theme.name, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<Text>().text, difficultyStudy.text, distraction.text);
-            //SaveToFile();
+            paypalNoDistract.SetActive(false);
+            preparationForThirdScene.SetActive(true);
+            nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
 
         }
     }
