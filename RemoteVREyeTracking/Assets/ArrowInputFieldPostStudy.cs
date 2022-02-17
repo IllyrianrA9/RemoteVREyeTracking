@@ -514,8 +514,8 @@ public class ArrowInputFieldPostStudy : MonoBehaviour
             }
 
             //Hier kommen die zu nutzenden Objekte
-            lastText.SetActive(true);
             postStudy.SetActive(false);
+            lastText.SetActive(true);
             keyboard.SetActive(false);
             canvasKeyboard.SetActive(false);
             lowerKeyboard.SetActive(false);

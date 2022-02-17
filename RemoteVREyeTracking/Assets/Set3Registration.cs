@@ -9,10 +9,16 @@ public class Set3Registration : MonoBehaviour
     public GameObject upperKeyboard;
     public List<GameObject> remainingScenes;
     public List<Material> remainingMaterial;
-    public List<GameObject> remainingKeyboards;
+    public List<GameObject> remainingKeyboardsLow;
+    public List<GameObject> remainingKeyboardsUp;
+    public List<GameObject> remainingKeyboardsAlt;
     private int currentRandomNumber;
     public GameObject currentBackgroundScreen;
     public GameObject thisPage;
+
+    public GameObject lowerKey;
+    public GameObject upperKey;
+    public GameObject altKey;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +35,13 @@ public class Set3Registration : MonoBehaviour
             currentBackgroundScreen.GetComponent<Renderer>().material = remainingMaterial[currentRandomNumber];
             remainingMaterial.RemoveAt(currentRandomNumber);
 
-            //remainingKeyboards[currentRandomNumber].SetActive(true);
-            //remainingKeyboards.RemoveAt(currentRandomNumber);
+            remainingKeyboardsLow[currentRandomNumber].SetActive(true);
+            lowerKey = remainingKeyboardsLow[currentRandomNumber];
+            altKey = remainingKeyboardsAlt[currentRandomNumber];
+            upperKey = remainingKeyboardsUp[currentRandomNumber];
+            remainingKeyboardsLow.RemoveAt(currentRandomNumber);
+            remainingKeyboardsUp.RemoveAt(currentRandomNumber);
+            remainingKeyboardsAlt.RemoveAt(currentRandomNumber);
 
             remainingScenes[currentRandomNumber].SetActive(true);
             remainingScenes.RemoveAt(currentRandomNumber);
@@ -41,8 +52,13 @@ public class Set3Registration : MonoBehaviour
             currentBackgroundScreen.GetComponent<Renderer>().material = remainingMaterial[currentRandomNumber];
             remainingMaterial.RemoveAt(currentRandomNumber);
 
-            //remainingKeyboards[currentRandomNumber].SetActive(true);
-            //remainingKeyboards.RemoveAt(currentRandomNumber);
+            remainingKeyboardsLow[currentRandomNumber].SetActive(true);
+            lowerKey = remainingKeyboardsLow[currentRandomNumber];
+            altKey = remainingKeyboardsAlt[currentRandomNumber];
+            upperKey = remainingKeyboardsUp[currentRandomNumber];
+            remainingKeyboardsLow.RemoveAt(currentRandomNumber);
+            remainingKeyboardsUp.RemoveAt(currentRandomNumber);
+            remainingKeyboardsAlt.RemoveAt(currentRandomNumber);
 
             remainingScenes[currentRandomNumber].SetActive(true);
             remainingScenes.RemoveAt(currentRandomNumber);

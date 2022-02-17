@@ -10,7 +10,10 @@ using Tobii.XR;
 
 public class Alt9GAGNoD : MonoBehaviour
 {
-    public GameObject preparationForSecondReg;
+    public GameObject thirdRegDone;
+
+    public GameObject preparationForSecondReg1;
+    public GameObject preparationForSecondReg2;
     public GameObject newLowerKeyboard;
     public GameObject theme;
     private double _input1_x;
@@ -396,11 +399,22 @@ public class Alt9GAGNoD : MonoBehaviour
         }
         if (!(distraction.text.Trim().Length == 0) && !(distractionOnScreen.text.Trim().Length == 0) && !(difficultyStudy.text.Trim().Length == 0))
         {
-            csvDocumentation = ToCSVPostStudy(timeForCSV, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<TMP_Text>().text, difficultyStudy.text, distraction.text, theme.name, participantID); ;
-            SaveToFile();
-            nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
-            preparationForSecondReg.SetActive(true);
-            paypalNoDistract.SetActive(false);
+            if (thirdRegDone.GetComponent<Set3Registration>().remainingScenes.Count == 1)
+            {
+                csvDocumentation = ToCSVPostStudy(timeForCSV, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<TMP_Text>().text, difficultyStudy.text, distraction.text, theme.name, participantID); ;
+                SaveToFile();
+                nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
+                preparationForSecondReg1.SetActive(true);
+                paypalNoDistract.SetActive(false);
+            }
+            else if (thirdRegDone.GetComponent<Set3Registration>().remainingScenes.Count == 2)
+            {
+                csvDocumentation = ToCSVPostStudy(timeForCSV, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<TMP_Text>().text, difficultyStudy.text, distraction.text, theme.name, participantID); ;
+                SaveToFile();
+                nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
+                preparationForSecondReg2.SetActive(true);
+                paypalNoDistract.SetActive(false);
+            }
             //Hier kommen die zu nutzenden Objekte
             //paypalDistract.SetActive(true);
             //paypalNoDistract.SetActive(false);
