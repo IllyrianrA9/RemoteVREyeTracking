@@ -538,7 +538,7 @@ public class Lower9GAGNoD : MonoBehaviour
                 preparationForSecondReg1.SetActive(true);
                 paypalNoDistract.SetActive(false);
             }
-            else if (thirdRegDone.GetComponent<Set3Registration>().remainingScenes.Count == 2)
+            else if (thirdRegDone.GetComponent<Set3Registration>().remainingScenes.Count == 0)
             {
                 csvDocumentation = ToCSVPostStudy(timeForCSV, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<TMP_Text>().text, difficultyStudy.text, distraction.text, theme.name, participantID); ;
                 SaveToFile();

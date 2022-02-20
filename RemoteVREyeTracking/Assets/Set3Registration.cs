@@ -20,6 +20,18 @@ public class Set3Registration : MonoBehaviour
     public GameObject upperKey;
     public GameObject altKey;
 
+    //Called by login
+    public GameObject firstScene;
+    //public GameObject secondScene;
+
+    public Material firstMaterial;
+    //public Material secondMaterial;
+
+    public GameObject firstKeyboardLow;
+    public GameObject firstKeyboardAlt;
+    public GameObject firstKeyboardUp;
+    //public GameObject secondKeyboard;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +45,14 @@ public class Set3Registration : MonoBehaviour
         if (currentRandomNumber == 1)
         {
             currentBackgroundScreen.GetComponent<Renderer>().material = remainingMaterial[currentRandomNumber];
+            firstMaterial = remainingMaterial[currentRandomNumber];
             remainingMaterial.RemoveAt(currentRandomNumber);
 
+
             remainingKeyboardsLow[currentRandomNumber].SetActive(true);
+            firstKeyboardLow = remainingKeyboardsLow[currentRandomNumber];
+            firstKeyboardAlt = remainingKeyboardsAlt[currentRandomNumber];
+            firstKeyboardUp = remainingKeyboardsUp[currentRandomNumber];
             lowerKey = remainingKeyboardsLow[currentRandomNumber];
             altKey = remainingKeyboardsAlt[currentRandomNumber];
             upperKey = remainingKeyboardsUp[currentRandomNumber];
@@ -44,15 +61,24 @@ public class Set3Registration : MonoBehaviour
             remainingKeyboardsAlt.RemoveAt(currentRandomNumber);
 
             remainingScenes[currentRandomNumber].SetActive(true);
+            firstScene = remainingScenes[currentRandomNumber];
             remainingScenes.RemoveAt(currentRandomNumber);
         }
         else if (currentRandomNumber == 0)
         {
             
             currentBackgroundScreen.GetComponent<Renderer>().material = remainingMaterial[currentRandomNumber];
+            
+            firstMaterial = remainingMaterial[currentRandomNumber];
+            
             remainingMaterial.RemoveAt(currentRandomNumber);
 
             remainingKeyboardsLow[currentRandomNumber].SetActive(true);
+
+            firstKeyboardLow = remainingKeyboardsLow[currentRandomNumber];
+            firstKeyboardAlt = remainingKeyboardsAlt[currentRandomNumber];
+            firstKeyboardUp = remainingKeyboardsUp[currentRandomNumber];
+
             lowerKey = remainingKeyboardsLow[currentRandomNumber];
             altKey = remainingKeyboardsAlt[currentRandomNumber];
             upperKey = remainingKeyboardsUp[currentRandomNumber];
@@ -61,6 +87,9 @@ public class Set3Registration : MonoBehaviour
             remainingKeyboardsAlt.RemoveAt(currentRandomNumber);
 
             remainingScenes[currentRandomNumber].SetActive(true);
+
+            firstScene = remainingScenes[currentRandomNumber];
+
             remainingScenes.RemoveAt(currentRandomNumber);
         }
         //keyboard.SetActive(false);
