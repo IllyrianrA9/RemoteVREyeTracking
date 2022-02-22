@@ -15,6 +15,11 @@ public class AltLogin9GAG : MonoBehaviour
     public GameObject preparationForSecondReg1;
     public GameObject preparationForSecondReg2;
 
+    public GameObject validatePasswordDistract;
+    public GameObject validatePasswordNoDistract;
+
+    private string passwordValidation;
+
     public GameObject theme;
     private double _input1_x;
     private double _input1_y;
@@ -270,6 +275,14 @@ public class AltLogin9GAG : MonoBehaviour
             sb = paypalNoDistract.GetComponent<UpperLogin9GAG>().sb;
             InputSelected = GetComponent<UpperLogin9GAG>().InputSelected;
         }
+        if (difficultyStudy.isFocused)
+        {
+            InputSelected = 0;
+        }
+        if (distraction.isFocused)
+        {
+            InputSelected = 1;
+        }
         universalBlock += Time.deltaTime;
         //universalBlockDown += Time.deltaTime;
         //universalBlockUp += Time.deltaTime;
@@ -348,13 +361,12 @@ public class AltLogin9GAG : MonoBehaviour
             //getting hit point of eye gaze on Background Screen
             if (Physics.Raycast(rayOrigin, rayDirection, out hit, Mathf.Infinity))
             {
-                if (hit.collider.gameObject.name == "Canvas" || hit.collider.gameObject.name == "BackgroundScreen")
-                {
-                    _gazeX = hit.point.x;
-                    _gazeY = hit.point.y;
-                    _gazeZ = hit.point.z;
-                    csvDocumentation = ToCSVPostStudySmallInfo(timeForCSV, _gazeX, _gazeY, _gazeZ);
-                }
+
+                _gazeX = hit.point.x;
+                _gazeY = hit.point.y;
+                _gazeZ = hit.point.z;
+                csvDocumentation = ToCSVPostStudyNoEmail(timeForCSV, InputSelected, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, theme.name, participantID);
+
             }
         }
     }
@@ -386,10 +398,30 @@ public class AltLogin9GAG : MonoBehaviour
         }
         if (!(distraction.text.Trim().Length == 0) && !(difficultyStudy.text.Trim().Length == 0))
         {
+            if (paypalNoDistract.name.Equals("Login9GAGNoDistract") && distraction.GetComponent<InputField>().text.Equals(validatePasswordNoDistract.GetComponent<Lower9GAGNoD>().password) && difficultyStudy.GetComponent<InputField>().text.Equals(validatePasswordNoDistract.GetComponent<Lower9GAGNoD>().email))
+            {
+                passwordValidation = "Valid";
+            }
+
+            if (paypalNoDistract.name.Equals("Login9GAGDistract") && distraction.GetComponent<InputField>().text.Equals(validatePasswordDistract.GetComponent<DistractionLower>().password) && difficultyStudy.GetComponent<InputField>().text.Equals(validatePasswordDistract.GetComponent<DistractionLower>().email))
+            {
+                passwordValidation = "Valid";
+            }
+
+            if (paypalNoDistract.name.Equals("Login9GAGNoDistract") && (!(distraction.GetComponent<InputField>().text.Equals(validatePasswordNoDistract.GetComponent<Lower9GAGNoD>().password)) || !(difficultyStudy.GetComponent<InputField>().text.Equals(validatePasswordNoDistract.GetComponent<Lower9GAGNoD>().email))))
+            {
+                passwordValidation = "Invalid";
+            }
+
+            if (paypalNoDistract.name.Equals("Login9GAGDistract") && (!(distraction.GetComponent<InputField>().text.Equals(validatePasswordDistract.GetComponent<DistractionLower>().password)) || !(difficultyStudy.GetComponent<InputField>().text.Equals(validatePasswordDistract.GetComponent<DistractionLower>().email))))
+            {
+                passwordValidation = "Invalid";
+            }
+
             var name = "Login" + secondReg.GetComponent<Set3Registration>().firstScene.name;
             if (paypalNoDistract.name.Equals(name))
             {
-                csvDocumentation = ToCSVPostStudy(timeForCSV, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, difficultyStudy.text, distraction.text, theme.name, participantID);
+                csvDocumentation = ToCSVPostStudy(timeForCSV, InputSelected, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, difficultyStudy.text, distraction.text, theme.name, participantID, passwordValidation);
                 SaveToFile();
                 nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
                 preparationForSecondReg1.SetActive(true);
@@ -397,7 +429,7 @@ public class AltLogin9GAG : MonoBehaviour
             }
             else if (!(paypalNoDistract.name.Equals(name)))
             {
-                csvDocumentation = ToCSVPostStudy(timeForCSV, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, difficultyStudy.text, distraction.text, theme.name, participantID);
+                csvDocumentation = ToCSVPostStudy(timeForCSV, InputSelected, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, difficultyStudy.text, distraction.text, theme.name, participantID, passwordValidation);
                 SaveToFile();
                 nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
                 preparationForSecondReg2.SetActive(true);
@@ -1141,17 +1173,17 @@ public class AltLogin9GAG : MonoBehaviour
         tabButton.interactable = true;
     }
 
-    public string ToCSVPostStudy(float csvTime, double xgaze, double ygaze, double zgaze, double xEmail, double yEmail, double zEmail, double xPw, double yPw, double zPw, string email, string pw, string backgroundScreenName, string partID)
+    public string ToCSVPostStudy(float csvTime, int inputField, double xgaze, double ygaze, double zgaze, double xEmail, double yEmail, double zEmail, double xPw, double yPw, double zPw, string email, string pw, string backgroundScreenName, string partID, string validate)
     {
         //var sb = new StringBuilder("Participant_ID Time Scene X_Gaze Y_Gaze Z_Gaze X_Position_Email Y_Position_Email Z_Position_Email X_Position_PW Y_Position_PW Z_Position_PW X_Position_ConfirmedPW Y_Position_ConfirmedPW Z_Position_ConfirmedPW Prefered_Topic Email Password");
-        sb.Append('\n').Append(csvTime.ToString()).Append(" ").Append(xgaze.ToString()).Append(" ").Append(ygaze.ToString()).Append(" ").Append(zgaze.ToString()).Append(" ").Append(xEmail.ToString()).Append(" ").Append(yEmail.ToString()).Append(" ").Append(zEmail.ToString()).Append(" ").Append(xPw.ToString()).Append(" ").Append(yPw.ToString()).Append(" ").Append(zPw.ToString()).Append(" ").Append(email.ToString()).Append(" ").Append(pw.ToString()).Append(" ").Append(backgroundScreenName.ToString()).Append(" ").Append(partID.ToString());
+        sb.Append('\n').Append(csvTime.ToString()).Append(" ").Append(inputField.ToString()).Append(" ").Append(xgaze.ToString()).Append(" ").Append(ygaze.ToString()).Append(" ").Append(zgaze.ToString()).Append(" ").Append(xEmail.ToString()).Append(" ").Append(yEmail.ToString()).Append(" ").Append(zEmail.ToString()).Append(" ").Append(xPw.ToString()).Append(" ").Append(yPw.ToString()).Append(" ").Append(zPw.ToString()).Append(" ").Append(email.ToString()).Append(" ").Append(pw.ToString()).Append(" ").Append(validate.ToString()).Append(" ").Append(backgroundScreenName.ToString()).Append(" ").Append(partID.ToString());
         return sb.ToString();
 
     }
 
-    public string ToCSVPostStudyNoEmail(string partID, float csvTime, string backgroundScreenName, double xgaze, double ygaze, double zgaze, double xEmail, double yEmail, double zEmail, double xPw, double yPw, double zPw)
+    public string ToCSVPostStudyNoEmail(float csvTime, int inputField, double xgaze, double ygaze, double zgaze, double xEmail, double yEmail, double zEmail, double xPw, double yPw, double zPw, string backgroundScreenName, string partID)
     {
-        sb.Append('\n').Append(partID.ToString()).Append(" ").Append(csvTime.ToString()).Append(" ").Append(backgroundScreenName.ToString()).Append(" ").Append(xgaze.ToString()).Append(" ").Append(ygaze.ToString()).Append(" ").Append(zgaze.ToString()).Append(" ").Append(xEmail.ToString()).Append(" ").Append(yEmail.ToString()).Append(" ").Append(zEmail.ToString()).Append(" ").Append(xPw.ToString()).Append(" ").Append(yPw.ToString()).Append(" ").Append(zPw.ToString());
+        sb.Append('\n').Append(csvTime.ToString()).Append(" ").Append(inputField.ToString()).Append(" ").Append(xgaze.ToString()).Append(" ").Append(ygaze.ToString()).Append(" ").Append(zgaze.ToString()).Append(" ").Append(xEmail.ToString()).Append(" ").Append(yEmail.ToString()).Append(" ").Append(zEmail.ToString()).Append(" ").Append(xPw.ToString()).Append(" ").Append(yPw.ToString()).Append(" ").Append(zPw.ToString()).Append(" ").Append("----").Append(" ").Append("----").Append(" ").Append("----").Append(" ").Append(backgroundScreenName.ToString()).Append(" ").Append(partID.ToString());
         return sb.ToString();
     }
 

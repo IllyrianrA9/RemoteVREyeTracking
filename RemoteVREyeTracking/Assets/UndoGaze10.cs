@@ -25,7 +25,7 @@ public class UndoGaze10 : MonoBehaviour
     public GameObject next;
 
     //Next Screen appearance
-    public GameObject startAccButton;
+    
     public GameObject lastStepText;
 
     public GameObject questionChange;
@@ -255,7 +255,7 @@ public class UndoGaze10 : MonoBehaviour
                         ms = 0;
                         //SaveToFile();
                        
-                        startAccButton.SetActive(true);
+                        
                         lastStepText.SetActive(true);
                         change.SetActive(false);
                         next.SetActive(false);
@@ -403,7 +403,7 @@ public class UndoGaze10 : MonoBehaviour
                         //SaveToFile();
 
                         
-                        startAccButton.SetActive(true);
+                       
                         lastStepText.SetActive(true);
                         change.SetActive(false);
                         next.SetActive(false);
