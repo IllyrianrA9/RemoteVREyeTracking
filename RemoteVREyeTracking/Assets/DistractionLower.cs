@@ -10,6 +10,8 @@ using Tobii.XR;
 
 public class DistractionLower : MonoBehaviour
 {
+    public GameObject pwWarning;
+    public GameObject confirmPwWarning;
     public string password;
     public string email;
     public GameObject preparationForSecondReg1;
@@ -508,12 +510,14 @@ public class DistractionLower : MonoBehaviour
     {
         if (distraction.text.Trim().Length < 8)
         {
-
+            var remainChars = 8 - distraction.text.Length;
+            pwWarning.GetComponent<TMP_Text>().text = "At least 8 characters. Characters left: " + remainChars;
+            pwWarning.SetActive(true);
         }
 
-        if (distractionOnScreen.text.Trim().Length == 0)
+        if ((distractionOnScreen.text.Trim().Length == 0) || !(distractionOnScreen.text.Equals(distraction.text)))
         {
-
+            confirmPwWarning.SetActive(true);
         }
 
         if (difficultyStudy.text.Trim().Length == 0)
@@ -524,14 +528,14 @@ public class DistractionLower : MonoBehaviour
 
 
 
-        if (!(distraction.text.Trim().Length == 0))
+        if (!(distraction.text.Trim().Length < 8))
         {
-
+            pwWarning.SetActive(false);
         }
 
-        if (!(distractionOnScreen.text.Trim().Length == 0))
+        if ((distractionOnScreen.text.Trim().Length >= 8) && (distractionOnScreen.text.Equals(distraction.text)))
         {
-
+            confirmPwWarning.SetActive(false);
         }
 
         if (!(difficultyStudy.text.Trim().Length == 0))
@@ -540,7 +544,7 @@ public class DistractionLower : MonoBehaviour
         }
 
 
-        if (!(distraction.text.Trim().Length == 0) && !(distractionOnScreen.text.Trim().Length == 0) && !(difficultyStudy.text.Trim().Length == 0))
+        if (!(distraction.text.Trim().Length < 8) && !(distractionOnScreen.text.Trim().Length < 8) && !(difficultyStudy.text.Trim().Length == 0) && (distractionOnScreen.text.Equals(distraction.text)))
         {
             password = distraction.text;
             paypalNoDistract.GetComponent<DistractionUpper>().password = distraction.text;

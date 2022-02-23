@@ -10,6 +10,10 @@ using Tobii.XR;
 
 public class Lower9GAGNoD : MonoBehaviour
 {
+    private bool isWritten = false;
+    private float prefTopicTime = 0;
+    public GameObject pwWarning;
+    public GameObject confirmPwWarning;
     public string password;
     public string email;
     public GameObject thirdRegDone;
@@ -266,7 +270,7 @@ public class Lower9GAGNoD : MonoBehaviour
 
     void Start()
     {
-        textWithPrefTopic.GetComponent<TMP_Text>().text = "You can use the word \"" + preferedTopic.GetComponent<TMP_Text>().text + "\" to make your password personalized";
+        
         currentBackgroundScreen.GetComponent<Renderer>().material = currentBackground;
         if ((paypalNoDistract.GetComponent<Alt9GAGNoD>().timeForCSV > timeForCSV) && (paypalNoDistract.GetComponent<Upper9GAGNoD>().timeForCSV < paypalNoDistract.GetComponent<Alt9GAGNoD>().timeForCSV))
         {
@@ -385,6 +389,12 @@ public class Lower9GAGNoD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        prefTopicTime += Time.deltaTime * 1000;
+        if ((prefTopicTime > 2000) && (isWritten == false))
+        {
+            textWithPrefTopic.GetComponent<TMP_Text>().text = "You can use the word \"" + preferedTopic.GetComponent<TMP_Text>().text + "\" to make your password personalized";
+            isWritten = true;
+        }
         //textWithPrefTopic.GetComponent<TMP_Text>().text = "You can use the word \"" + preferedTopic.GetComponent<TMP_Text>().text + "\" to make your password personalized";
         //currentBackgroundScreen.GetComponent<Renderer>().material = currentBackground;
         if ((paypalNoDistract.GetComponent<Alt9GAGNoD>().timeForCSV > timeForCSV) && (paypalNoDistract.GetComponent<Upper9GAGNoD>().timeForCSV < paypalNoDistract.GetComponent<Alt9GAGNoD>().timeForCSV))
@@ -507,12 +517,14 @@ public class Lower9GAGNoD : MonoBehaviour
     {
         if (distraction.text.Trim().Length < 8)
         {
-
+            var remainChars = 8 - distraction.text.Length;
+            pwWarning.GetComponent<TMP_Text>().text = "At least 8 characters. Characters left: " + remainChars;
+            pwWarning.SetActive(true);
         }
 
-        if (distractionOnScreen.text.Trim().Length == 0)
+        if ((distractionOnScreen.text.Trim().Length == 0) || !(distractionOnScreen.text.Equals(distraction.text)))
         {
-
+            confirmPwWarning.SetActive(true);
         }
 
         if (difficultyStudy.text.Trim().Length == 0)
@@ -523,14 +535,14 @@ public class Lower9GAGNoD : MonoBehaviour
 
 
 
-        if (!(distraction.text.Trim().Length == 0))
+        if (!(distraction.text.Trim().Length < 8))
         {
-
+            pwWarning.SetActive(false);
         }
 
-        if (!(distractionOnScreen.text.Trim().Length == 0))
+        if ((distractionOnScreen.text.Trim().Length >= 8) && (distractionOnScreen.text.Equals(distraction.text)))
         {
-
+            confirmPwWarning.SetActive(false);
         }
 
         if (!(difficultyStudy.text.Trim().Length == 0))
@@ -539,7 +551,7 @@ public class Lower9GAGNoD : MonoBehaviour
         }
 
 
-        if (!(distraction.text.Trim().Length == 0) && !(distractionOnScreen.text.Trim().Length == 0) && !(difficultyStudy.text.Trim().Length == 0))
+        if (!(distraction.text.Trim().Length < 8) && !(distractionOnScreen.text.Trim().Length < 8) && !(difficultyStudy.text.Trim().Length == 0) && (distractionOnScreen.text.Equals(distraction.text)))
         {
             password = distraction.text;
             paypalNoDistract.GetComponent<Upper9GAGNoD>().password = distraction.text;

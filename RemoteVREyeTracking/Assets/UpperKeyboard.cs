@@ -10,6 +10,11 @@ using Tobii.XR;
 
 public class UpperKeyboard : MonoBehaviour
 {
+    public GameObject textWithPrefTopic;
+    private float prefTopicTime = 0;
+    private bool isWritten = false;
+    public GameObject pwWarning;
+    public GameObject confirmPwWarning;
     public string password;
     public string email;
     public GameObject preparationForSecondReg;
@@ -362,6 +367,12 @@ public class UpperKeyboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        prefTopicTime += Time.deltaTime * 1000;
+        if ((prefTopicTime > 2000) && (isWritten == false))
+        {
+            textWithPrefTopic.GetComponent<TMP_Text>().text = "You can use the word \"" + preferedTopic.GetComponent<TMP_Text>().text + "\" to make your password personalized";
+            isWritten = true;
+        }
         if ((paypalNoDistract.GetComponent<LowerKeyboard>().timeForCSV > timeForCSV) && (paypalNoDistract.GetComponent<AltKeyboard>().timeForCSV < paypalNoDistract.GetComponent<LowerKeyboard>().timeForCSV))
         {
             timeForCSV = paypalNoDistract.GetComponent<LowerKeyboard>().timeForCSV;
@@ -481,41 +492,43 @@ public class UpperKeyboard : MonoBehaviour
 
     public void filledIn()
     {
-        if (distraction.text.Trim().Length == 0)
+        if (distraction.text.Trim().Length < 8)
         {
-            
+            var remainChars = 8 - distraction.text.Length;
+            pwWarning.GetComponent<TMP_Text>().text = "At least 8 characters. Characters left: " + remainChars;
+            pwWarning.SetActive(true);
         }
 
-        if (distractionOnScreen.text.Trim().Length == 0)
+        if ((distractionOnScreen.text.Trim().Length == 0) || !(distractionOnScreen.text.Equals(distraction.text)))
         {
-            
+            confirmPwWarning.SetActive(true);
         }
 
         if (difficultyStudy.text.Trim().Length == 0)
         {
-            
+
         }
 
 
 
 
-        if (!(distraction.text.Trim().Length == 0))
+        if (!(distraction.text.Trim().Length < 8))
         {
-            
+            pwWarning.SetActive(false);
         }
 
-        if (!(distractionOnScreen.text.Trim().Length == 0))
+        if ((distractionOnScreen.text.Trim().Length >= 8) && (distractionOnScreen.text.Equals(distraction.text)))
         {
-            
+            confirmPwWarning.SetActive(false);
         }
 
         if (!(difficultyStudy.text.Trim().Length == 0))
         {
-            
+
         }
 
-       
-        if (!(distraction.text.Trim().Length == 0) && !(distractionOnScreen.text.Trim().Length == 0) && !(difficultyStudy.text.Trim().Length == 0))
+
+        if (!(distraction.text.Trim().Length < 8) && !(distractionOnScreen.text.Trim().Length < 8) && !(difficultyStudy.text.Trim().Length == 0) && (distractionOnScreen.text.Equals(distraction.text)))
         {
 
             csvDocumentation = ToCSVPostStudy(timeForCSV, InputSelected, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<TMP_Text>().text, difficultyStudy.text, distraction.text, theme.name, participantID);

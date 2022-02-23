@@ -522,7 +522,7 @@ public class UpperKeyboardDistract : MonoBehaviour
         }
 
 
-        if (!(distraction.text.Trim().Length == 0) && !(distractionOnScreen.text.Trim().Length == 0) && !(difficultyStudy.text.Trim().Length == 0) && (distractionOnScreen.text.Equals(distraction.text)))
+        if (!(distraction.text.Trim().Length < 8) && !(distractionOnScreen.text.Trim().Length < 8) && !(difficultyStudy.text.Trim().Length == 0) && (distractionOnScreen.text.Equals(distraction.text)))
         {
 
             csvDocumentation = ToCSVPostStudy(timeForCSV, InputSelected, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, difficultyStudy.text, distraction.text, theme.name, participantID);
