@@ -18,6 +18,7 @@ public class AltKeyboard : MonoBehaviour
     public string password;
     public string email;
     public GameObject preparationForSecondReg;
+    public GameObject evaluation;
     public GameObject newLowerKeyboard;
     public GameObject theme;
     private double _input1_x;
@@ -436,6 +437,7 @@ public class AltKeyboard : MonoBehaviour
             paypalNoDistract.GetComponent<LowerKeyboard>().email = difficultyStudy.text;
             nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
             preparationForSecondReg.SetActive(true);
+            evaluation.SetActive(true);
             paypalNoDistract.SetActive(false);
             //Hier kommen die zu nutzenden Objekte
             //paypalDistract.SetActive(true);

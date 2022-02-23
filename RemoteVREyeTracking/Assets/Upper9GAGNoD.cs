@@ -10,6 +10,8 @@ using Tobii.XR;
 
 public class Upper9GAGNoD : MonoBehaviour
 {
+    public GameObject evaluation1;
+    public GameObject evaluation2;
     public GameObject pwWarning;
     public GameObject confirmPwWarning;
     public string password;
@@ -543,6 +545,7 @@ public class Upper9GAGNoD : MonoBehaviour
                 SaveToFile();
                 nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
                 preparationForSecondReg1.SetActive(true);
+                evaluation1.SetActive(true);
                 paypalNoDistract.SetActive(false);
             }
             else if (thirdRegDone.GetComponent<Set3Registration>().remainingScenes.Count == 0)
@@ -551,6 +554,7 @@ public class Upper9GAGNoD : MonoBehaviour
                 SaveToFile();
                 nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
                 preparationForSecondReg2.SetActive(true);
+                evaluation2.SetActive(true);
                 paypalNoDistract.SetActive(false);
             }
 

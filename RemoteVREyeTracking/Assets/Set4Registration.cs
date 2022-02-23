@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Set4Registration : MonoBehaviour
 {
+    public GameObject evaluation;
     private GameObject lowerKeyboard;
     private GameObject altKeyboard;
     private GameObject upperKeyboard;
@@ -14,6 +15,7 @@ public class Set4Registration : MonoBehaviour
     private List<GameObject> remainingKeyboardsAlt;
     public GameObject currentBackgroundScreen;
     public GameObject thisPage;
+    public GameObject secondScene;
 
     public GameObject secondRegDone;
 
@@ -33,7 +35,7 @@ public class Set4Registration : MonoBehaviour
 
         remainingKeyboardsLow[0].SetActive(true);
         remainingKeyboardsLow.RemoveAt(0);
-
+        secondScene = remainingScenes[0];
         remainingScenes[0].SetActive(true);
         secondRegDone.GetComponent<Set3Registration>().remainingScenes.RemoveAt(0);
         //remainingScenes.RemoveAt(0);
@@ -41,8 +43,8 @@ public class Set4Registration : MonoBehaviour
         secondRegDone.GetComponent<Set3Registration>().lowerKey.SetActive(false);
         secondRegDone.GetComponent<Set3Registration>().upperKey.SetActive(false);
         secondRegDone.GetComponent<Set3Registration>().altKey.SetActive(false);
-        
 
+        evaluation.SetActive(false);
         thisPage.SetActive(false);
     }
 }

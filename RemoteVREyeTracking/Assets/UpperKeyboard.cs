@@ -10,6 +10,7 @@ using Tobii.XR;
 
 public class UpperKeyboard : MonoBehaviour
 {
+    public GameObject evaluation;
     public GameObject textWithPrefTopic;
     private float prefTopicTime = 0;
     private bool isWritten = false;
@@ -541,6 +542,7 @@ public class UpperKeyboard : MonoBehaviour
             paypalNoDistract.GetComponent<AltKeyboard>().email = difficultyStudy.text;
             nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
             preparationForSecondReg.SetActive(true);
+            evaluation.SetActive(true);
             //Hier kommen die zu nutzenden Objekte
             paypalDistract.SetActive(true);
             paypalNoDistract.SetActive(false);

@@ -11,6 +11,7 @@ using Random = UnityEngine.Random;
 
 public class AltKeyboardDistract : MonoBehaviour
 {
+    public GameObject evaluation;
     public string password;
     public string email;
     public List<GameObject> remainingScenes;
@@ -458,7 +459,8 @@ public class AltKeyboardDistract : MonoBehaviour
                 remainingScenes[currentRandomNumber].SetActive(true);
                 remainingScenes.RemoveAt(currentRandomNumber);
             }
-            
+            evaluation.SetActive(true);
+
 
         }
     }

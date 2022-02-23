@@ -10,6 +10,7 @@ using Tobii.XR;
 
 public class LowerKeyboard : MonoBehaviour
 {
+    public GameObject evaluation;
     public GameObject pwWarning;
     public GameObject confirmPwWarning;
     public string password;
@@ -561,6 +562,7 @@ public class LowerKeyboard : MonoBehaviour
             paypalNoDistract.GetComponent<AltKeyboard>().email = difficultyStudy.text;
             nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
             preparationForSecondReg.SetActive(true);
+            evaluation.SetActive(true);
             paypalNoDistract.SetActive(false);
             //nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
             ////Hier kommen die zu nutzenden Objekte

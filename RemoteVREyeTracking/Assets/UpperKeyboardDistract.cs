@@ -11,6 +11,7 @@ using Random = UnityEngine.Random;
 
 public class UpperKeyboardDistract : MonoBehaviour
 {
+    public GameObject evaluation;
     public string password;
     public string email;
     public List<GameObject> remainingScenes;
@@ -563,7 +564,7 @@ public class UpperKeyboardDistract : MonoBehaviour
                 remainingScenes.RemoveAt(currentRandomNumber);
             }
             //Hier kommen die zu nutzenden Objekte
-
+            evaluation.SetActive(true);
             //keyboard.SetActive(false);
             //canvasKeyboard.SetActive(false);
             //lowerKeyboard.SetActive(false);
@@ -571,7 +572,7 @@ public class UpperKeyboardDistract : MonoBehaviour
             //upperKeyboard.SetActive(false);
             //paypalDistractKeyboard.SetActive(true);
             //endButton.SetActive(true);
-            
+
             //csvDocumentation = ToCSVPostStudy(participantID, timeForCSV, theme.name, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, _input3_x, _input3_y, _input3_z, preferedTopic.GetComponent<Text>().text, difficultyStudy.text, distraction.text);
 
 

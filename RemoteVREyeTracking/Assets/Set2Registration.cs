@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Set2Registration : MonoBehaviour
 {
+    public GameObject evaluation;
     public GameObject lowerKeyboard;
     public GameObject altKeyboard;
     public GameObject upperKeyboard;
@@ -31,5 +32,6 @@ public class Set2Registration : MonoBehaviour
         upperKeyboard.SetActive(false);
         lowerKeyboard.SetActive(false);
         thisPage.SetActive(false);
+        evaluation.SetActive(false);
     }
 }

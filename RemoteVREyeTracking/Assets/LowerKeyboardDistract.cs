@@ -11,6 +11,7 @@ using Random = UnityEngine.Random;
 
 public class LowerKeyboardDistract : MonoBehaviour
 {
+    public GameObject evaluation;
     public string password;
     public string email;
     public GameObject preparationForThirdScene;
@@ -555,6 +556,7 @@ public class LowerKeyboardDistract : MonoBehaviour
             paypalNoDistract.SetActive(false);
             preparationForThirdScene.SetActive(true);
             nextBackgroundScreen.GetComponent<Renderer>().material = nextBackground;
+            evaluation.SetActive(true);
 
         }
     }
