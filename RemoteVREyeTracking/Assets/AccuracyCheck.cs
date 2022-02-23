@@ -1594,7 +1594,7 @@ public class AccuracyCheck : MonoBehaviour
             SaveFile();
             accuracyTest.SetActive(false);
             endExperimentText.SetActive(true);
-            //startPostStudy.SetActive(true);
+            startPostStudy.SetActive(true);
 
         }
     }

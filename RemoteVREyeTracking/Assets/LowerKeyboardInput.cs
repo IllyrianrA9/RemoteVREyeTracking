@@ -25,6 +25,7 @@ public class LowerKeyboardInput : MonoBehaviour
     public TMP_InputField answerWrong;
     public GameObject moreInstruction;
     public TMP_InputField vrCamera;
+    public TMP_InputField paypal;
     public GameObject objectButton;
     private Button button;
 
@@ -34,6 +35,7 @@ public class LowerKeyboardInput : MonoBehaviour
     public GameObject answerWrongObject;
     public GameObject moreInstructionObject;
     public GameObject vrCameraObject;
+    public GameObject paypalObject;
 
     public GameObject endButton;
     public GameObject lastText;
@@ -54,6 +56,7 @@ public class LowerKeyboardInput : MonoBehaviour
     private string answerWrongText;
     private string moreInstructionText;
     private string vrCameraText;
+    private string paypalText;
 
     public float buttonBlockedDown = 0;
     public float buttonBlockedUp = 0;
@@ -256,6 +259,7 @@ public class LowerKeyboardInput : MonoBehaviour
         answerWrongText = answerWrong.GetComponent<TMP_InputField>().text;
         moreInstructionText = moreInstruction.GetComponent<TMP_InputField>().text;
         vrCameraText = vrCamera.GetComponent<TMP_InputField>().text;
+        paypalText = paypal.GetComponent<TMP_InputField>().text;
 
         switch (InputSelected)
         {
@@ -276,6 +280,9 @@ public class LowerKeyboardInput : MonoBehaviour
                 break;
             case 5:
                 vrCamera.Select();
+                break;
+            case 6:
+                paypal.Select();
                 break;
         }
         buttonArrowUp = arrowUpKey.GetComponent<Button>();
@@ -368,6 +375,9 @@ public class LowerKeyboardInput : MonoBehaviour
             case 5:
                 vrCamera.Select();
                 break;
+            case 6:
+                paypal.Select();
+                break;
         }
         buttonBlockedDown += Time.deltaTime;
         buttonBlockedUp += Time.deltaTime;
@@ -457,6 +467,10 @@ public class LowerKeyboardInput : MonoBehaviour
         {
             vrCameraObject.SetActive(true);
         }
+        if (paypal.text.Trim().Length == 0)
+        {
+            paypalObject.SetActive(true);
+        }
 
 
 
@@ -489,7 +503,11 @@ public class LowerKeyboardInput : MonoBehaviour
         {
             vrCameraObject.SetActive(false);
         }
-        if (!(distraction.text.Trim().Length == 0) && !(distractionOnScreen.text.Trim().Length == 0) && !(difficultyStudy.text.Trim().Length == 0) && !(answerWrong.text.Trim().Length == 0) && !(moreInstruction.GetComponent<TMP_InputField>().text.Trim().Length == 0) && !(vrCamera.text.Trim().Length == 0))
+        if (!(paypal.text.Trim().Length == 0))
+        {
+            paypalObject.SetActive(false);
+        }
+        if (!(distraction.text.Trim().Length == 0) && !(distractionOnScreen.text.Trim().Length == 0) && !(difficultyStudy.text.Trim().Length == 0) && !(answerWrong.text.Trim().Length == 0) && !(moreInstruction.GetComponent<TMP_InputField>().text.Trim().Length == 0) && !(vrCamera.text.Trim().Length == 0) && !(paypal.text.Trim().Length == 0))
         {
             if (distractionObject.activeSelf == true)
             {
@@ -515,6 +533,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCameraObject.SetActive(false);
             }
+            if(paypalObject.activeSelf == true)
+            {
+                paypalObject.SetActive(false);
+            }
 
             //Hier kommen die zu nutzenden Objekte
             lastText.SetActive(true);
@@ -537,7 +559,7 @@ public class LowerKeyboardInput : MonoBehaviour
             InputSelected--;
             if (InputSelected < 0)
             {
-                InputSelected = 5;
+                InputSelected = 6;
             }
             switch (InputSelected)
             {
@@ -559,6 +581,9 @@ public class LowerKeyboardInput : MonoBehaviour
                 case 5:
                     vrCamera.Select();
                     break;
+                case 6:
+                    paypal.Select();
+                    break;
             }
             buttonArrowUp.enabled = false;
             buttonBlockedUp = 0;
@@ -577,7 +602,7 @@ public class LowerKeyboardInput : MonoBehaviour
         if (buttonArrowDown.enabled == true)
         {
             InputSelected++;
-            if (InputSelected > 5)
+            if (InputSelected > 6)
             {
                 InputSelected = 0;
             }
@@ -601,6 +626,9 @@ public class LowerKeyboardInput : MonoBehaviour
                     break;
                 case 5:
                     vrCamera.Select();
+                    break;
+                case 6:
+                    paypal.Select();
                     break;
             }
             buttonArrowDown.enabled = false;
@@ -649,6 +677,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "a";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "a";
+            }
             aButton.enabled = false;
             buttonBlockeda = 0;
         }
@@ -694,6 +726,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "b";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "b";
             }
             bButton.enabled = false;
             buttonBlockedb = 0;
@@ -741,6 +777,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "c";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "c";
+            }
             cButton.enabled = false;
             buttonBlockedc = 0;
         }
@@ -786,6 +826,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "d";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "d";
             }
             dButton.enabled = false;
             buttonBlockedd = 0;
@@ -833,6 +877,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "e";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "e";
+            }
             eButton.enabled = false;
             buttonBlockede = 0;
         }
@@ -878,6 +926,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "f";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "f";
             }
             fButton.enabled = false;
             buttonBlockedf = 0;
@@ -925,6 +977,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "g";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "g";
+            }
             gButton.enabled = false;
             buttonBlockedg = 0;
         }
@@ -970,6 +1026,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "h";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "h";
             }
             hButton.enabled = false;
             buttonBlockedh = 0;
@@ -1017,6 +1077,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "i";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "i";
+            }
             iButton.enabled = false;
             buttonBlockedi = 0;
         }
@@ -1062,6 +1126,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "j";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "j";
             }
             jButton.enabled = false;
             buttonBlockedj = 0;
@@ -1109,6 +1177,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "k";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "k";
+            }
             kButton.enabled = false;
             buttonBlockedk = 0;
         }
@@ -1154,6 +1226,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "l";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "l";
             }
             lButton.enabled = false;
             buttonBlockedl = 0;
@@ -1201,6 +1277,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "m";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "m";
+            }
             mButton.enabled = false;
             buttonBlockedm = 0;
         }
@@ -1246,6 +1326,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "n";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "n";
             }
             nButton.enabled = false;
             buttonBlockedn = 0;
@@ -1293,6 +1377,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "o";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "o";
+            }
             oButton.enabled = false;
             buttonBlockedo = 0;
         }
@@ -1338,6 +1426,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "p";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "p";
             }
             pButton.enabled = false;
             buttonBlockedp = 0;
@@ -1385,6 +1477,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "q";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "q";
+            }
             qButton.enabled = false;
             buttonBlockedq = 0;
         }
@@ -1430,6 +1526,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "r";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "r";
             }
             rButton.enabled = false;
             buttonBlockedr = 0;
@@ -1477,6 +1577,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "s";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "s";
+            }
             sButton.enabled = false;
             buttonBlockeds = 0;
         }
@@ -1522,6 +1626,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "t";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "t";
             }
             tButton.enabled = false;
             buttonBlockedt = 0;
@@ -1569,6 +1677,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "u";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "u";
+            }
             uButton.enabled = false;
             buttonBlockedu = 0;
         }
@@ -1614,6 +1726,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "v";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "v";
             }
             vButton.enabled = false;
             buttonBlockedv = 0;
@@ -1661,6 +1777,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "w";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "w";
+            }
             wButton.enabled = false;
             buttonBlockedw = 0;
         }
@@ -1706,6 +1826,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "x";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "x";
             }
             xButton.enabled = false;
             buttonBlockedx = 0;
@@ -1753,6 +1877,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "y";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "y";
+            }
             yButton.enabled = false;
             buttonBlockedy = 0;
         }
@@ -1798,6 +1926,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "z";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "z";
             }
             zButton.enabled = false;
             buttonBlockedz = 0;
@@ -1845,6 +1977,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "1";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "1";
+            }
             oneButton.enabled = false;
             buttonBlockedone = 0;
         }
@@ -1890,6 +2026,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "2";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "2";
             }
             twoButton.enabled = false;
             buttonBlockedtwo = 0;
@@ -1937,6 +2077,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "3";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "3";
+            }
             threeButton.enabled = false;
             buttonBlockedthree = 0;
         }
@@ -1982,6 +2126,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "4";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "4";
             }
             fourButton.enabled = false;
             buttonBlockedfour = 0;
@@ -2029,6 +2177,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "5";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "5";
+            }
             fiveButton.enabled = false;
             buttonBlockedfive = 0;
         }
@@ -2074,6 +2226,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "6";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "6";
             }
             sixButton.enabled = false;
             buttonBlockedsix = 0;
@@ -2121,6 +2277,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "7";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "7";
+            }
             sevenButton.enabled = false;
             buttonBlockedseven = 0;
         }
@@ -2166,6 +2326,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "8";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "8";
             }
             eightButton.enabled = false;
             buttonBlockedeight = 0;
@@ -2213,6 +2377,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "9";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "9";
+            }
             nineButton.enabled = false;
             buttonBlockednine = 0;
         }
@@ -2258,6 +2426,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "0";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "0";
             }
             zeroButton.enabled = false;
             buttonBlockedzero = 0;
@@ -2305,6 +2477,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "ß";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "ß";
+            }
             ßButton.enabled = false;
             buttonBlockedß = 0;
         }
@@ -2351,6 +2527,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += " ";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += " ";
+            }
             spaceButton.enabled = false;
             buttonBlockedspace = 0;
         }
@@ -2396,6 +2576,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "<";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "<";
+            }
             pfeilRechtsButton.enabled = false;
             buttonBlockedpfeilRechts = 0;
         }
@@ -2439,6 +2623,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += ",";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += ",";
             }
             strichPunktButton.enabled = false;
             buttonBlockedStrichPunkt = 0;
@@ -2484,6 +2672,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += ".";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += ".";
+            }
             doppelPunktButton.enabled = false;
             buttonBlockedDoppelPunkt = 0;
         }
@@ -2527,6 +2719,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "-";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "-";
             }
             unterStrichButton.enabled = false;
             buttonBlockedUnterStrich = 0;
@@ -2572,6 +2768,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "#";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "#";
+            }
             hochCharButton.enabled = false;
             buttonBlockedHochChar = 0;
         }
@@ -2615,6 +2815,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "+";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "+";
             }
             sternButton.enabled = false;
             buttonBlockedStern = 0;
@@ -2724,6 +2928,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "ö";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "ö";
+            }
             öButton.enabled = false;
             buttonBlockedö = 0;
         }
@@ -2767,6 +2975,10 @@ public class LowerKeyboardInput : MonoBehaviour
             if (vrCamera.isFocused)
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "ä";
+            }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "ä";
             }
             äButton.enabled = false;
             buttonBlockedä = 0;
@@ -2812,6 +3024,10 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text += "ü";
             }
+            if (paypal.isFocused)
+            {
+                paypal.GetComponent<TMP_InputField>().text += "ü";
+            }
             üButton.enabled = false;
             buttonBlockedü = 0;
         }
@@ -2828,7 +3044,7 @@ public class LowerKeyboardInput : MonoBehaviour
         if (tabButton.enabled == true)
         {
             InputSelected += 1;
-            if (InputSelected > 5)
+            if (InputSelected > 6)
             {
                 InputSelected = 0;
             }
@@ -2851,6 +3067,9 @@ public class LowerKeyboardInput : MonoBehaviour
                     break;
                 case 5:
                     vrCamera.Select();
+                    break;
+                case 6:
+                    paypal.Select();
                     break;
             }
             tabButton.enabled = false;
@@ -2899,6 +3118,11 @@ public class LowerKeyboardInput : MonoBehaviour
             {
                 vrCamera.GetComponent<TMP_InputField>().text = vrCamera.GetComponent<TMP_InputField>().text.Substring(0, vrCamera.GetComponent<TMP_InputField>().text.Length - 1);
             }
+            if (paypal.isFocused && (paypal.GetComponent<TMP_InputField>().text.Length > 0))
+            {
+                paypal.GetComponent<TMP_InputField>().text = paypal.GetComponent<TMP_InputField>().text.Substring(0, paypal.GetComponent<TMP_InputField>().text.Length - 1);
+            }
+
             deleteChar.enabled = false;
             buttonBlockeddel = 0;
         }
@@ -3176,24 +3400,23 @@ public class LowerKeyboardInput : MonoBehaviour
         tabButton.interactable = true;
     }
 
-    public string ToCSVPostStudy(string partID, string difficulty, string wrongAnser, string moreInstruction, string distraction, string distractionOnScreen, string cameraVR)
+    public string ToCSVPostStudy(string partID, string difficulty, string wrongAnser, string moreInstruction, string distraction, string distractionOnScreen, string cameraVR, string paypal)
     {
-        var sb = new StringBuilder("Participant_ID, Difficulty, Wrong_answer, More_instruction, Distraction_overall, Distraction_on_screen, VR_camera");
-        sb.Append('\n').Append(partID.ToString()).Append(" ").Append(difficulty.ToString()).Append(" ").Append(wrongAnser.ToString()).Append(" ").Append(moreInstruction.ToString()).Append(" ").Append(distraction.ToString()).Append(" ").Append(distractionOnScreen.ToString()).Append(" ").Append(cameraVR.ToString());
+        var sb = new StringBuilder("Participant_ID, Difficulty, Wrong_answer, More_instruction, Distraction_overall, Distraction_on_screen, VR_camera 9GAG_Paypal_Usage");
+        sb.Append('\n').Append(partID.ToString()).Append(" ").Append(difficulty.ToString()).Append(" ").Append(wrongAnser.ToString()).Append(" ").Append(moreInstruction.ToString()).Append(" ").Append(distraction.ToString()).Append(" ").Append(distractionOnScreen.ToString()).Append(" ").Append(cameraVR.ToString()).Append(" ").Append(paypal.ToString());
         return sb.ToString();
 
     }
 
     public void SaveToFile()
     {
-        var content = ToCSVPostStudy(participantID, difficultyStudy.GetComponent<TMP_InputField>().text, answerWrong.GetComponent<TMP_InputField>().text, moreInstruction.GetComponent<TMP_InputField>().text, distraction.GetComponent<TMP_InputField>().text, distractionOnScreen.GetComponent<TMP_InputField>().text, vrCamera.GetComponent<TMP_InputField>().text);
+        var content = ToCSVPostStudy(participantID, difficultyStudy.GetComponent<TMP_InputField>().text, answerWrong.GetComponent<TMP_InputField>().text, moreInstruction.GetComponent<TMP_InputField>().text, distraction.GetComponent<TMP_InputField>().text, distractionOnScreen.GetComponent<TMP_InputField>().text, vrCamera.GetComponent<TMP_InputField>().text, paypal.GetComponent<TMP_InputField>().text);
         string path = GetFilePath(file);
         FileStream fileStream = new FileStream(path, FileMode.Append, FileAccess.Write);
         using (StreamWriter writer = new StreamWriter(fileStream))
         {
             writer.Write(content);
-            Debug.Log(" Write CSV");
-            Debug.Log("Filepath: " + path);
+           
         }
 
     }
