@@ -16,9 +16,13 @@ public class CollectAnswers : MonoBehaviour
     public GameObject secondScene;
     public StringBuilder sb;
     public string file = "PwEval_";
+    private int participantNumberReal;
+    public GameObject canvasForPartID;
     // Start is called before the first frame update
     void Start()
     {
+        participantNumberReal = canvasForPartID.GetComponent<ManageParticipantID>().participantNumber;
+        file = file + participantNumberReal + ".txt";
         firstScene = secondReg.GetComponent<Set3Registration>().firstScene;
         secondScene = thirdReg.GetComponent<Set4Registration>().secondScene;
         sb = new StringBuilder("PaypalNoDistract_Memory PaypalNoDistract_HowStrong PaypalDistract_Memory PaypalDistract_HowStrong " + firstScene.name + "_Memory " + firstScene.name + "_HowStrong " + secondScene.name + "_Memory " + secondScene.name + "_HowStrong");
