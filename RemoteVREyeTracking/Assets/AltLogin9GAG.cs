@@ -18,7 +18,7 @@ public class AltLogin9GAG : MonoBehaviour
     public GameObject validatePasswordDistract;
     public GameObject validatePasswordNoDistract;
 
-    private string passwordValidation;
+    private string passwordValidation = "";
 
     public GameObject theme;
     private double _input1_x;
@@ -365,7 +365,8 @@ public class AltLogin9GAG : MonoBehaviour
                 _gazeX = hit.point.x;
                 _gazeY = hit.point.y;
                 _gazeZ = hit.point.z;
-                csvDocumentation = ToCSVPostStudyNoEmail(timeForCSV, InputSelected, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, theme.name, participantID);
+                csvDocumentation = ToCSVPostStudy(timeForCSV, InputSelected, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, difficultyStudy.text, distraction.text, theme.name, participantID, passwordValidation);
+                //csvDocumentation = ToCSVPostStudyNoEmail(timeForCSV, InputSelected, _gazeX, _gazeY, _gazeZ, _input1_x, _input1_y, _input1_z, _input2_x, _input2_y, _input2_z, theme.name, participantID);
 
             }
         }
