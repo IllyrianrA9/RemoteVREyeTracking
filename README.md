@@ -9,7 +9,7 @@ EyeVote:
 - Correlation of moving object & eye gaze is calculated.
 - Correlation of 0.9 has to be reached in order to select an answer with eye gaze.
 
-Registrations plus Logins:
+Monitoring User's Gaze while Authenticating:
 - The participant has to register at imitated Paypal and 9GAG websites.
 - They will register twice with Paypal and twice with 9GAG (different emails and passwords).
 - Afterwards the task is to login with the credentials just used.
